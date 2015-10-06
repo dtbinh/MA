@@ -259,6 +259,14 @@ Finally the resulting object acceleration is derived:
 \end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\subsection{Wimbck, Ott, et al.,"Comparison of object-level grasp controllers for dynamic dextrous manipulation", 2011}
+This paper treating dexterous manipulation goes without the assumption of a rigid grasp. For grasp description the \textit{point contact with friction }model is used. I.e. only forces can be transmitted. It is pointed out that classical impedance relations in form of a \textit{mass-spring-damper} systems require knowledge of the external forces for inertia re-shaping. Therefore the proposed control strategies stick to the natural inertia and and address only stiffness and damping, this is called \textit{compliance control}. In the paper two \textit{Intrinsically Passive Controllers (IPC)} are presented, the first one called "Dynamic IPC" is based on \cite{Stramigioli2001}\\
+Herein the actual object is replaced by a virtual one, connected to the end-effectors and a virtual equilibrium position with spatial springs. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Conclusions}
 
 
@@ -272,6 +280,11 @@ Finally the resulting object acceleration is derived:
 Udwadia F. and Kalaba R.,
 \newblock {"A new perspective on constrained motion",}
 \newblock  \textit{Proceedings: Mathematical and Physical Sciences}, vol. 439, no. 1906, pp. 407 - 410, 1992
+\bibitem{Stramigioli2001}
+Stramigioli S.,
+\newblock {"Modeling and IPC Control of Interactive Mechanical Systems: A Coordinate-free Approach",}
+\newblock volume 266 of \textit{Lecture Notes in Control and Information Sciences.}
+\newblock Springer, Berlin
 
 
 
