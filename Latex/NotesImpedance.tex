@@ -271,9 +271,25 @@ The virtual grasp matrix deviates from the actual grasp geometry, wrenches on th
 Another control design is proposed in the paper called \textit{static IPC}, the virtual object is replaced by a virtual-object frame neglecting dynamics of the object. The end-effector coupling springs connect to the frame, i.e. to the center of the virtual object. Stiffness is defined by specifying a equilibrium length for the springs. Object motion is derived by a Jacobian matrix from manipulator motion expressed in generalized coordinates. Object inertia is only considered in the damping design. Over the \textit{dynamic IPC} the \textit{static IPC }controller has some advantages in computational effort and simpler control parameter selection.\\
 \textit{Conclusion:} Control architecture of the \textit{dynamic IPC} ist similar to \ref{CaccavaleVillani2001:num1}, extending the applicability to non object tracking systems and non rigid objects. This comes at the price of introducing an error into object wrench calculation and loosing the ability to re-shape the components' inertia. The \textit{static IPC} is a further simplified control structure which can be of interest of the object inertia is totally unknown.
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Sieber, Musi\'{c}, Hirche, "Formation-based robot team controlled by a single human", 2015 }
+Yet another approach for controlling internal forces is \textit{formation control scheme} presented in this work. It uses \textit{Artificial Potential Fields} to define a realize desired distance $ d_{ij} $ between to end-effectors $ i $ and $ j $:
+\begin{equation}\label{SieberMusicArtificialPotential}
+V_{ij,k}(\vert x_{i,k}-x_{j,k}\vert) = \dfrac{1}{2}(\vert x_{i,k}-x_{j,k}\vert - d_{ij,k})^{2}
+\end{equation}
+The subscript $ k $ denotes the Cartesian direction.The control signal $ u_{i,k} $ is calculated from the quadratic potential field by using the gradient descent:
+\begin{multline}
+u_{i,k} = - \sum_{\substack{j\in N_i}}\delta_{ij}\dfrac{\partial V_{ij,k}(\vert x_{i,k}-x_{j,k}\vert)}{\partial x_i} = \\
+- \sum_{\substack{j\in N_i}}\delta_{ij}\dfrac{x_{i,k} - x_{j,k}}{\vert x_{i,k} - x_{j,k} \vert} (\vert x_{i,k}-x_{j,k}\vert - d_{ij,k})
+\end{multline}
+Where $ N_i $ is described as the "neighbours" of the i-th manipulator, it is assumed that "neighbours" means all the other manipulators. $ \delta_{ij} $ is a positive gain, which can be defined to adjust convergence rate.\\
+The potential (\ref{SieberMusicArtificialPotential}) can be rewritten in vector notation:
+\begin{equation}
+V_{ij}(\vert x_{i}-x_{j}\vert) = \dfrac{1}{2}(\vert x_{i}-x_{j}\vert - d_{ij})^{T}(\vert x_{i}-x_{j}\vert - d_{ij})
+\end{equation}
+Derivation by $ x_i $ leads to:
+The \textit{virtual linkage} model defines internal force as the differential force acting along a virtual linkage, i.e.the connection line of two grasp points. Therefore the relation between internal force $ t $ and applied force $ f $ is $ f = Et $. Where $ E $ contains the unit vectors $ e_{ij} $ along the link from $ x_i $ to $ x_j $, i.e. $ e_{ij}  = \dfrac{x_j-x_i}{\vert x_j-x_i \vert}  $. $ E $ can be derived by calculating $ \dfrac{\partial\Delta x}{\partial x} $ and normalizing the resulting vectors. Here $ \Delta x_i = \vert x_j - x_k \vert $ stands for all possible connections of end-effectors.
 \section{Conclusions}
 
 
