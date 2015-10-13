@@ -274,23 +274,22 @@ Another control design is proposed in the paper called \textit{static IPC}, the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Sieber, Musi\'{c}, Hirche, "Formation-based robot team controlled by a single human", 2015 }
-Yet another approach for controlling internal forces is \textit{formation control scheme} presented in this work. It uses \textit{Artificial Potential Fields} to define a realize desired distance $ d_{ij} $ between to end-effectors $ i $ and $ j $:
+In contrast to the previously presented work this control approach is non-object based, instead the formation of the manipulators is controlled. 
+This \textit{formation control scheme} establishes desired distances $ d_{ij} $ between the end-effectors using a \textit{Artificial Potential Fields}.
 \begin{equation}\label{SieberMusicArtificialPotential}
 V_{ij,k}(\vert x_{i,k}-x_{j,k}\vert) = \dfrac{1}{2}(\vert x_{i,k}-x_{j,k}\vert - d_{ij,k})^{2}
 \end{equation}
 The subscript $ k $ denotes the Cartesian direction.The control signal $ u_{i,k} $ is calculated from the quadratic potential field by using the gradient descent:
 \begin{multline}
-u_{i,k} = - \sum_{\substack{j\in N_i}}\delta_{ij}\dfrac{\partial V_{ij,k}(\vert x_{i,k}-x_{j,k}\vert)}{\partial x_i} = \\
+u_{i,k} = - \sum_{\substack{j\in N_i}}\delta_{ij}\dfrac{\partial V_{ij,k}(\vert x_{i,k}-x_{j,k}\vert)}{\partial x_{i,k}} = \\
 - \sum_{\substack{j\in N_i}}\delta_{ij}\dfrac{x_{i,k} - x_{j,k}}{\vert x_{i,k} - x_{j,k} \vert} (\vert x_{i,k}-x_{j,k}\vert - d_{ij,k})
 \end{multline}
 Where $ N_i $ is described as the "neighbours" of the i-th manipulator, it is assumed that "neighbours" means all the other manipulators. $ \delta_{ij} $ is a positive gain, which can be defined to adjust convergence rate.\\
-The potential (\ref{SieberMusicArtificialPotential}) can be rewritten in vector notation:
-\begin{equation}
-V_{ij}(\vert x_{i}-x_{j}\vert) = \dfrac{1}{2}(\vert x_{i}-x_{j}\vert - d_{ij})^{T}(\vert x_{i}-x_{j}\vert - d_{ij})
-\end{equation}
-Derivation by $ x_i $ leads to:
-The \textit{virtual linkage} model defines internal force as the differential force acting along a virtual linkage, i.e.the connection line of two grasp points. Therefore the relation between internal force $ t $ and applied force $ f $ is $ f = Et $. Where $ E $ contains the unit vectors $ e_{ij} $ along the link from $ x_i $ to $ x_j $, i.e. $ e_{ij}  = \dfrac{x_j-x_i}{\vert x_j-x_i \vert}  $. $ E $ can be derived by calculating $ \dfrac{\partial\Delta x}{\partial x} $ and normalizing the resulting vectors. Here $ \Delta x_i = \vert x_j - x_k \vert $ stands for all possible connections of end-effectors.
-\section{Conclusions}
+The \textit{Artificial Potential Field} can be seen as a set of springs connecting the end-effectors among each other. $ \delta_{ij} $ represents the stiffness, $ d_{ij} $ the equilibrium length. 
+The control input $ u_i $ establishes a constant formation of the manipulators using position measurements and communication, i.e. each manipulator knows the position of the others. This can be seen as the low-level part of the control structure, responsible for maintaining the grasp and depends only on the robot-system.\\ The high-level part specifies the constrained motion of the structure and incorporates the human operator. In the previous works the presence of an object and the assumption of rigid grasping implicates constraints on the overall system. For this non-object based approach one lacks this restrictions of motion between the end-effectors. To avoid breaking up of the formation the operator should only be able to control only one position, namely the position of the entire formation, which corresponds to the average of the manipulator positions $ x_c = \dfrac{1}{\sqrt{N}} \sum\nolimits_{i=1}^{N} x_i $. It is also pointed out that this high-level input has to be feed into all manipulators uniformly. Not doing so entails in a leader-follower situation, this results in internal stress on the object or break-up of formation due to sensing delays of the following manipulators.\\
+On end-effector level an impedance relation is utilized to ensure compliant behaviour for minor deviations.\\
+\textit{Conclusion:} A simple control scheme, requires only knowledge of the end-effector positions. On the other no dynamics are considered. Clear division in low-level grasp-maintaining control loop and high-level constrained-motion loop.    
+
 
 
 %\bibliography{my-paper}
