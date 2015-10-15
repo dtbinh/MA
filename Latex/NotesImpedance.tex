@@ -299,18 +299,32 @@ The given impedance control law
 \begin{equation}
 \tau = -D(q)\dot{q} - \frac{\partial V_d(q)}{\partial q} + g(q)
 \end{equation}
-computes the joint torques incorporating a damping $ D(q) $, a stiffness $ \frac{\partial V_d(q)}{\partial q} $ and a gravitational $ g(q) $ term. $ V_d $ and $ D $ are formulated in operational space first, so the impedance relation can be re-formulated in operational space:    
+computes the joint torques incorporating a damping $ D(q) $, a stiffness $ \frac{\partial V_d(q)}{\partial q} $ and a gravitational $ g(q) $ term. $ V_d $ and $ D $ are formulated in operational space first, and then differentiated w.r.t to joint angles. First the approach is summarized as in the paper, then the key ideas are re-formulated for pure task space control.  
+The stiffness contribution divides in a object translation/rotation and a object-manipulator connection part.
 \begin{equation}
-D\Delta\dot{x} + \dfrac{\partial V_d(\Delta x)}{\partial x} = h
+V_d = V_{o,t} + V_{o,r} + V_{conn}
 \end{equation}
-This control law may generate either a reference trajectory or command  end-effector forces.\\
-The stiffness contribution divides in a object translation/rotation and a object-manipulator connection part. The virtual object frame is connected to a desired pose via a 6-DOF spring. Translational and rotational stiffness potentials are: 
+The virtual object frame is connected to a desired pose via a 6-DOF spring. Translational and rotational stiffness potentials are: 
 \begin{subequations}
 \begin{align}
 V_{o,t} = \dfrac{1}{2}\Delta p_o^T K_{o,t} \Delta p_o \\
 V_{o,r} = 2\epsilon_d^T K_{o,r} \epsilon_d 
 \end{align}
 \end{subequations}
+To compute power from the potential energy functions, they are differentiated w.r.t to time:
+\begin{subequations}
+\begin{align}
+\dot{V}_{o,t} = \dot{\theta}^T\frac{1}{N}\left(\frac{\partial p}{\partial\theta^T}\right)^T I_{3N\times 3} K_{o,t}\Delta p\\
+\dot{V}_{o,r} = \dot{\theta}^T 4 J_{o,r}^T J_{\omega\epsilon}^T K_{o,r} \epsilon_d
+\end{align}
+\end{subequations}
+The gradients of the potentials $ \frac{\partial V}{\partial \theta} = \frac{\dot{V}}{\dot{\theta}^T} $ are the object-stiffness wrenches.\\
+The manipulators are connected to the virtual object frame with 1-DOF springs, these have an equilibrium length $ d_i $. This is the desired distance between the manipulator position $ p_i $ and the virtual object center $ p_o $: $ \Delta p = p_i - p_o $. This ensures a compliant behaviour between object and manipulator even in the case of non-rigid objects. Equilibrium length can be varied to define internal forces on the object. The potential of the springs is:
+\begin{equation}
+V_{conn} = \dfrac{1}{2} \sum_{i=1}^N K_{conn,i} \left[ \vert\Delta x_i \vert - d_i \right]^2
+\end{equation}
+
+ 
 For the derivation w.r.t. time of the potentials \cite{Natale2003} is followed: 
 \begin{equation}
 h_o = \begin{bmatrix}\dot{V}_{o,t} \\ \dot{V}_{o,r}\end{bmatrix} = \begin{bmatrix} K_{o,t}\Delta p_o\\2(\eta_d I_3 - S(\epsilon_d))K_{o,r}\epsilon_d\end{bmatrix}
