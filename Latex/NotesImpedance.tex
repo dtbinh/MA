@@ -294,7 +294,7 @@ On end-effector level an impedance relation is utilized to ensure compliant beha
 
 \subsection{Wimb\"ock, Ott, Hirzinger, "Passivity-based Object-level Impedance Control for a Multifingered Hand", 2006}
 
-This paper treats the \textit{static IPC} controller from subsection \ref{WimboeckOttComparisionPaper} in further detail. Although the control scheme outputs torques on joint level the key control loops are formulated on object-level. It is an object centred approach, though no actual object is incorporated. Instead the representation is restricted to a virtual object frame lying in the center of the manipulators $ x_o = \frac{1}{N}\sum\nolimits_{i=1}^N x_i $. Orientation is also derived dependent on the end-effectors.\\
+This paper treats the \textit{static IPC} controller from subsection \ref{WimboeckOttComparisionPaper} in further detail. Although the control scheme outputs torques on joint level the key control loops are formulated on object-level. It is an object centred approach, though no actual object is incorporated. Instead the representation is restricted to a virtual object frame lying in the center of the manipulators $ x_o = \frac{1}{N}\sum\nolimits_{i=1}^N x_i $. Orientation, expressed with the matrix $ R_o $, is also derived dependent on the end-effectors.\\
 The given impedance control law
 \begin{equation}
 \tau = -D(q)\dot{q} - \frac{\partial V_d(q)}{\partial q} + g(q)
@@ -304,27 +304,33 @@ The stiffness contribution divides in a object translation/rotation and a object
 \begin{equation}
 V_d = V_{o,t} + V_{o,r} + V_{conn}
 \end{equation}
-The virtual object frame is connected to a desired pose via a 6-DOF spring. Translational and rotational stiffness potentials are: 
+The virtual object frame is connected to a desired pose ($ p_{o,d},\epsilon_d $) via a 6-DOF spring. Translational and rotational stiffness potentials are: 
 \begin{subequations}
 \begin{align}
-V_{o,t} = \dfrac{1}{2}\Delta p_o^T K_{o,t} \Delta p_o \\
+V_{o,t} = \dfrac{1}{2} (p_o-p_{o,d})^T R_o K_{o,t} R_o^T (p_o-p_{o,d}) \\
 V_{o,r} = 2\epsilon_d^T K_{o,r} \epsilon_d 
 \end{align}
 \end{subequations}
 To compute power from the potential energy functions, they are differentiated w.r.t to time:
 \begin{subequations}
 \begin{align}
-\dot{V}_{o,t} = \dot{\theta}^T\frac{1}{N}\left(\frac{\partial p}{\partial\theta^T}\right)^T I_{3N\times 3} K_{o,t}\Delta p\\
+\dot{V}_{o,t} = \dot{\theta}^T J_{o,t}^T K_{o,t} R_o^T (p_o-p_{o,d})\\
 \dot{V}_{o,r} = \dot{\theta}^T 4 J_{o,r}^T J_{\omega\epsilon}^T K_{o,r} \epsilon_d
 \end{align}
 \end{subequations}
+Where $ J_{o,t} $ is the Jacobian mapping object velocity to joint velocity: $ \dot{p}_o = J_{o,t} \dot{\theta} $. $ J_{o,r} $ connects the object angular velocity with the joint velocity: $ \omega_o = J_{o,r} \dot{\theta} $. $ J_{\omega\epsilon} $ denotes the (reduced) matrix-quaternion product.
 The gradients of the potentials $ \frac{\partial V}{\partial \theta} = \frac{\dot{V}}{\dot{\theta}^T} $ are the object-stiffness wrenches.\\
 The manipulators are connected to the virtual object frame with 1-DOF springs, these have an equilibrium length $ d_i $. This is the desired distance between the manipulator position $ p_i $ and the virtual object center $ p_o $: $ \Delta p = p_i - p_o $. This ensures a compliant behaviour between object and manipulator even in the case of non-rigid objects. Equilibrium length can be varied to define internal forces on the object. The potential of the springs is:
 \begin{equation}
-V_{conn} = \dfrac{1}{2} \sum_{i=1}^N K_{conn,i} \left[ \vert\Delta x_i \vert - d_i \right]^2
+V_{conn} = \dfrac{1}{2} \sum_{i=1}^N K_{conn,i} \left[ \vert\Delta p_i \vert - d_i \right]^2
 \end{equation}
+The joint torque contribution of the connecting springs is derived with the gradient of the potential:
+\begin{equation}
+\dfrac{\partial V_{conn}}{\partial \theta} = \left(\frac{\partial p}{\partial \theta^T}\right)^T \sum_{i=1}^N\left[\dfrac{\partial\Delta p_i^T}{\partial p}\dfrac{K_{conn,i}(\vert\Delta p_i\vert - d_i)}{\vert\Delta p_i\vert}\Delta p_i\right] 
+\end{equation}
+This concludes the stiffness contribution to the joint torque control law.
 
- 
+%%%%%%%%%%%%%%%%%%
 For the derivation w.r.t. time of the potentials \cite{Natale2003} is followed: 
 \begin{equation}
 h_o = \begin{bmatrix}\dot{V}_{o,t} \\ \dot{V}_{o,r}\end{bmatrix} = \begin{bmatrix} K_{o,t}\Delta p_o\\2(\eta_d I_3 - S(\epsilon_d))K_{o,r}\epsilon_d\end{bmatrix}
