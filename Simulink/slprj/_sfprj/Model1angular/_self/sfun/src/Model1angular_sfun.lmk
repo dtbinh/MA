@@ -1,0 +1,78 @@
+CC     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"Model1angular_sfun.obj"\
+	"c1_Model1angular.obj"\
+	"c2_Model1angular.obj"\
+	"c3_Model1angular.obj"\
+	"c4_Model1angular.obj"\
+	"c5_Model1angular.obj"\
+	"c7_Model1angular.obj"\
+	"c8_Model1angular.obj"\
+	"c9_Model1angular.obj"\
+	"c10_Model1angular.obj"\
+	"c11_Model1angular.obj"\
+	"c12_Model1angular.obj"\
+	"c13_Model1angular.obj"\
+	"c14_Model1angular.obj"\
+	"c15_Model1angular.obj"\
+	"Model1angular_sfun_registry.obj"\
+	"lccstub.obj"\
+	"Model1angular_sfun.def"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsimulink.lib"\
+	"C:\Program Files\MATLAB\R2014b\lib\win64\libmwipp.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014b\extern\include"  -I"C:\Program Files\MATLAB\R2014b\simulink\include"  -I"C:\Program Files\MATLAB\R2014b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014b\rtw\c\src"  -I"C:\Users\Martin\Documents\MATLAB\Masterarbeit\slprj\_sfprj\Model1angular\_self\sfun\src" 
+ 
+
+Model1angular_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o Model1angular_sfun.mexw64 @Model1angular_sfun.lmko
+Model1angular_sfun.obj :	"Model1angular_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Model1angular_sfun.c"
+c1_Model1angular.obj :	"c1_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_Model1angular.c"
+c2_Model1angular.obj :	"c2_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_Model1angular.c"
+c3_Model1angular.obj :	"c3_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_Model1angular.c"
+c4_Model1angular.obj :	"c4_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_Model1angular.c"
+c5_Model1angular.obj :	"c5_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_Model1angular.c"
+c7_Model1angular.obj :	"c7_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_Model1angular.c"
+c8_Model1angular.obj :	"c8_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c8_Model1angular.c"
+c9_Model1angular.obj :	"c9_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c9_Model1angular.c"
+c10_Model1angular.obj :	"c10_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c10_Model1angular.c"
+c11_Model1angular.obj :	"c11_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c11_Model1angular.c"
+c12_Model1angular.obj :	"c12_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c12_Model1angular.c"
+c13_Model1angular.obj :	"c13_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_Model1angular.c"
+c14_Model1angular.obj :	"c14_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c14_Model1angular.c"
+c15_Model1angular.obj :	"c15_Model1angular.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c15_Model1angular.c"
+Model1angular_sfun_registry.obj :	"Model1angular_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Model1angular_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"

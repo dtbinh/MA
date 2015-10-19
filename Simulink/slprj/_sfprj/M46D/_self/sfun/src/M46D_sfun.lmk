@@ -1,0 +1,93 @@
+CC     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"M46D_sfun.obj"\
+	"c1_M46D.obj"\
+	"c2_M46D.obj"\
+	"c3_M46D.obj"\
+	"c4_M46D.obj"\
+	"c5_M46D.obj"\
+	"c7_M46D.obj"\
+	"c8_M46D.obj"\
+	"c9_M46D.obj"\
+	"c10_M46D.obj"\
+	"c11_M46D.obj"\
+	"c12_M46D.obj"\
+	"c13_M46D.obj"\
+	"c14_M46D.obj"\
+	"c15_M46D.obj"\
+	"c16_M46D.obj"\
+	"c17_M46D.obj"\
+	"c18_M46D.obj"\
+	"c19_M46D.obj"\
+	"c20_M46D.obj"\
+	"M46D_sfun_registry.obj"\
+	"lccstub.obj"\
+	"M46D_sfun.def"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsimulink.lib"\
+	"C:\Program Files\MATLAB\R2014b\lib\win64\libmwipp.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014b\extern\include"  -I"C:\Program Files\MATLAB\R2014b\simulink\include"  -I"C:\Program Files\MATLAB\R2014b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014b\rtw\c\src"  -I"C:\Users\Martin\Documents\MATLAB\Masterarbeit\slprj\_sfprj\M46D\_self\sfun\src" 
+ 
+
+M46D_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o M46D_sfun.mexw64 @M46D_sfun.lmko
+M46D_sfun.obj :	"M46D_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "M46D_sfun.c"
+c1_M46D.obj :	"c1_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_M46D.c"
+c2_M46D.obj :	"c2_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_M46D.c"
+c3_M46D.obj :	"c3_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_M46D.c"
+c4_M46D.obj :	"c4_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_M46D.c"
+c5_M46D.obj :	"c5_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_M46D.c"
+c7_M46D.obj :	"c7_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_M46D.c"
+c8_M46D.obj :	"c8_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c8_M46D.c"
+c9_M46D.obj :	"c9_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c9_M46D.c"
+c10_M46D.obj :	"c10_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c10_M46D.c"
+c11_M46D.obj :	"c11_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c11_M46D.c"
+c12_M46D.obj :	"c12_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c12_M46D.c"
+c13_M46D.obj :	"c13_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_M46D.c"
+c14_M46D.obj :	"c14_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c14_M46D.c"
+c15_M46D.obj :	"c15_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c15_M46D.c"
+c16_M46D.obj :	"c16_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c16_M46D.c"
+c17_M46D.obj :	"c17_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c17_M46D.c"
+c18_M46D.obj :	"c18_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c18_M46D.c"
+c19_M46D.obj :	"c19_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c19_M46D.c"
+c20_M46D.obj :	"c20_M46D.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c20_M46D.c"
+M46D_sfun_registry.obj :	"M46D_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "M46D_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
