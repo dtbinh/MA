@@ -67,9 +67,16 @@ For motion-inducing wrench free of internal forces $ h_w^x = h^{int,d} $. Insert
 \end{multline}
 This means that only the stiffness part is potentially constraint violating. Lacking mathematical evidence, simulations are done to estimate whether the stiffness contribution is generating internal wrench and under which circumstances. 
 \section{Simulation}
-The set-up consists of 4 manipulators symmetrically distributed. Simulations are always done with and without the allocator to visualize the appearance of internal forces.
-\subsection{Equally distributed internal forces}  
-The most classic case, the manipulators symmetrically exert internal force on the object. The object is moved in sinusoidal velocity curve in x-direction and with constant velocity in z-direction. It is rotated with constant angular velocity in y- and z- direction. Deviations occur in transient behaviour, changing velocity with a step (figure \ref{IntForceStep}) causes high internal forces in the allocator-free system. 
+The set-up consists of 4 manipulators symmetrically distributed. Simulations are always done with and without the allocator to visualize the appearance of internal forces. Constant desired internal force is specified to simulate a friction grasp.
+\subsection{Translational motion}
+The desired object trajectory is free of rotation. No internal forces other than the desired ones can be observed. Allocator and non-Allocator systems behave identically, the simulation results can be seen in figure \ref{IntForceAllocator}.
+\begin{figure}
+\includegraphics[width=\linewidth]{IntForceStepAllocator}
+\caption{Internal wrench for translational motion}
+\label{IntForceAllocator}
+\end{figure}
+\subsection{Translational and rotational forces}  
+The object is moved in a sinusoidal velocity curve in x-direction and with constant velocity in z-direction. It is rotated with constant angular velocity in y- and z- direction. Deviations occur in transient behaviour, changing velocity with a step (figure \ref{IntForceStep}) causes high internal forces in the allocator-free system. 
 \begin{figure}
 \includegraphics[width=\linewidth]{IntForceStep1}
 \caption{Internal wrench for a step in velocity}
@@ -81,13 +88,14 @@ From figure \ref{IntForceRamp} it can be seen that limiting velocity rise decrea
 \caption{Internal wrench for ramping up velocity}
 \label{IntForceRamp}
 \end{figure}
-In both cases the internal forces approach their desired values after some time. Using the allocator no difference between step and ramp can be noticed, the desired values are set immediately: wrenches in figure \ref{IntForceAllocator} are equal to the desired ones.
+In both cases the internal forces approach their desired values after some time. Using the allocator no difference between step and ramp can be noticed, the desired values are set immediately like in the translational case.\\
+Zooming more into the plots, oscillations are revealed for the non-Allocator system. Figure \ref{IntForceHarmonic} shows the undesired internal forces  around 0.
 \begin{figure}
-\includegraphics[width=\linewidth]{IntForceStepAllocator}
-\caption{Internal wrench using the allocator}
-\label{IntForceAllocator}
+\includegraphics[width=\linewidth]{IntForceHarmonic}
+\caption{Undesired internal wrench for rotational and translational motion}
+\label{IntForceHarmonic}
 \end{figure}
-Furthermore excluding the allocator results in some oscillations in the internal forces. Figure shows the internal force in x-direction, the other forces and moments have equal amplitude and frequency. This frequency of 0.225 \textit{Hz} is not influenced by model parameters (stiffness, damping, inertia, sinusoidal velocity in x-direction) and may thus be of numerical origin. The amplitude however increases with stiffness, decreases for higher damping and is almost constant for changes of inertia.
+They share the same frequency. This Frequency is not influenced by model parameters like stiffness, damping or inertia, but corresponds to the absolute of the rotational velocity of the object: $ f = \frac{\vert\omega\vert}{2\pi} $. The amplitude however increases with stiffness, decreases for higher damping and is almost constant for changes of inertia. Removing the stiffness contribution from the control law, eliminates the oscillations, but not the velocity ramp-up transients.  
 
 
 

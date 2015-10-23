@@ -5,10 +5,10 @@ g = [0;0;9.81];
 
 %Masses
 m0 = 20;
-m1 = 100; 
-m2 = 100;
-m3 = 100; 
-m4 = 100;
+m1 = 10; 
+m2 = 10;
+m3 = 10; 
+m4 = 10;
 
 %specified masses
 m1d = m1;
@@ -18,10 +18,10 @@ m4d = m4;
 
 %angular inertia
 j0 = 0.5;
-j1 = 10;
-j2 = 10;
-j3 = 10;
-j4 = 10;
+j1 = 1;
+j2 = 1;
+j3 = 1;
+j4 = 1;
 
 %specified angular inertia
 j1d = j1;
