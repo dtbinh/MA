@@ -50,14 +50,14 @@ kappa3 = 10;
 kappa4 = 10;
 
 %damping
-d1 = 500;
-d2 = 500;
-d3 = 500;
-d4 = 500;
-delta1 = 200;
-delta2 = 200;
-delta3 = 200;
-delta4 = 200;
+d1 = 50;
+d2 = 50;
+d3 = 50;
+d4 = 50;
+delta1 = 30;
+delta2 = 30;
+delta3 = 30;
+delta4 = 30;
 
 
 
