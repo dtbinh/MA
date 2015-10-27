@@ -1,10 +1,10 @@
 % Init file for Model1angular.slx
 
 %Gravity
-g = [0;0;9.81];
+g = [0;0;-9.81];
 
 %Masses
-m0 = 20;
+m0 = 10;
 m1 = 10; 
 m2 = 10;
 m3 = 10; 
@@ -17,11 +17,11 @@ m3d = m3;
 m4d = m4;
 
 %angular inertia
-j0 = 0.5;
-j1 = 1;
-j2 = 1;
-j3 = 1;
-j4 = 1;
+j0 = 10;
+j1 = 10;
+j2 = 10;
+j3 = 10;
+j4 = 10;
 
 %specified angular inertia
 j1d = j1;
@@ -40,20 +40,20 @@ r = [1; 0; 0;
 %A = [-eye(3),skew_sm(r(1:3)),eye(3),zeros(3,9);zeros(3),-eye(3),zeros(3),eye(3),zeros(3,6);-eye(3),skew_sm(r(4:6)),zeros(3,6),eye(3),zeros(3);zeros(3),-eye(3),zeros(3,9),eye(3)];
 
 %stiffness
-k1 = 50;
-k2 = 50;
-k3 = 50;
-k4 = 50;
-kappa1 = 10;
-kappa2 = 10;
-kappa3 = 10;
-kappa4 = 10;
+k1 = 5;
+k2 = 5;
+k3 = 5;
+k4 = 5;
+kappa1 = 50;
+kappa2 = 50;
+kappa3 = 50;
+kappa4 = 50;
 
 %damping
-d1 = 50;
-d2 = 50;
-d3 = 50;
-d4 = 50;
+d1 = 100;
+d2 = 100;
+d3 = 100;
+d4 = 100;
 delta1 = 30;
 delta2 = 30;
 delta3 = 30;

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  23 OCT 2015 15:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  27 OCT 2015 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -387,31 +387,29 @@ File: IntForceStepAllocator.png Graphic file (type png)
 Package pdftex.def Info: IntForceStepAllocator.png used on input line 74.
 (pdftex.def)             Requested size: 252.0pt x 76.1387pt.
 
-<IntForceStep1.png, id=2, 981.6675pt x 296.60812pt>
-File: IntForceStep1.png Graphic file (type png)
- <use IntForceStep1.png>
-Package pdftex.def Info: IntForceStep1.png used on input line 81.
-(pdftex.def)             Requested size: 252.0pt x 76.1387pt.
+<IntForceStep2.png, id=2, 903.375pt x 303.38344pt>
+File: IntForceStep2.png Graphic file (type png)
+ <use IntForceStep2.png>
+Package pdftex.def Info: IntForceStep2.png used on input line 81.
+(pdftex.def)             Requested size: 252.0pt x 84.62735pt.
 
-<IntForceRamp1.png, id=3, 981.6675pt x 281.55188pt>
-File: IntForceRamp1.png Graphic file (type png)
- <use IntForceRamp1.png>
-Package pdftex.def Info: IntForceRamp1.png used on input line 87.
-(pdftex.def)             Requested size: 252.0pt x 72.27379pt.
+<IntForcePT1.png, id=3, 1003.49907pt x 337.26pt>
+File: IntForcePT1.png Graphic file (type png)
+ <use IntForcePT1.png>
+Package pdftex.def Info: IntForcePT1.png used on input line 87.
+(pdftex.def)             Requested size: 252.0pt x 84.69046pt.
 
-<IntForceHarmonic.png, id=4, 903.375pt x 300.3722pt>
-File: IntForceHarmonic.png Graphic file (type png)
+Underfull \hbox (badness 10000) in paragraph at lines 79--92
 
-<use IntForceHarmonic.png>
-Package pdftex.def Info: IntForceHarmonic.png used on input line 94.
-(pdftex.def)             Requested size: 252.0pt x 83.78738pt.
- [1
+ []
+
+[1
 Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
- <./IntForceStepAllocator.png (PNG copy)>] [2 <./IntForceStep1.png (PNG copy)> 
-<./IntForceRamp1.png (PNG copy)> <./IntForceHarmonic.png (PNG copy)>]
-Overfull \hbox (0.52472pt too wide) detected at line 177
+ <./IntForceStepAllocator.png (PNG copy)>] [2 <./IntForceStep2.png (PNG copy)> 
+<./IntForcePT1.png (PNG copy)>]
+Overfull \hbox (0.52472pt too wide) detected at line 171
  []$[]  [][] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 D[]\OMS/cmsy/m/n/10 f\OML/cmm/m
 /it/10 J[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/1
 0 M[][][]d \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 ^^A[] + \OML/c
@@ -433,10 +431,10 @@ Before submitting the final camera ready copy, remember to:
 
 [5] (./DePascaliSimulation.aux) ) 
 Here is how much of TeX's memory you used:
- 4970 strings out of 493304
- 73054 string characters out of 6139871
- 169645 words of memory out of 5000000
- 8343 multiletter control sequences out of 15000+600000
+ 4964 strings out of 493304
+ 72906 string characters out of 6139871
+ 168637 words of memory out of 5000000
+ 8338 multiletter control sequences out of 15000+600000
  40802 words of font info for 82 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,19n,24p,816b,252s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -455,10 +453,10 @@ onts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DePascaliSimulation.pdf (5 pages, 290083 bytes).
+Output written on DePascaliSimulation.pdf (5 pages, 265175 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 84 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

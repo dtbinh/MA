@@ -75,28 +75,22 @@ The desired object trajectory is free of rotation. No internal forces other than
 \caption{Internal wrench for translational motion}
 \label{IntForceAllocator}
 \end{figure}
-\subsection{Translational and rotational forces}  
-The object is moved in a sinusoidal velocity curve in x-direction and with constant velocity in z-direction. It is rotated with constant angular velocity in y- and z- direction. Deviations occur in transient behaviour, changing velocity with a step (figure \ref{IntForceStep}) causes high internal forces in the allocator-free system. 
+\subsection{Constant rotation}  
+The object is moved in a sinusoidal velocity curve in x-direction and with constant velocity in z-direction. It is rotated with constant angular velocity in y- and z- direction. Deviations occur in transient behaviour, changing velocity with a step (see figure \ref{IntForceStep}) causes high internal forces in the allocator-free system.
 \begin{figure}
-\includegraphics[width=\linewidth]{IntForceStep1}
+\includegraphics[width=\linewidth]{IntForceStep2}
 \caption{Internal wrench for a step in velocity}
 \label{IntForceStep}
 \end{figure}
-From figure \ref{IntForceRamp} it can be seen that limiting velocity rise decreases internal wrench significantly. Here a ramp function, which takes 10 ms to reach the prior step value is used.
+ A step is a non-steady function, its derivative (i.e. the acceleration) is infinite. In numerical calculations the derivative the step stills results in high accelerations. To avoid this behaviour the step is passed through a first-order (PT1) filter. Figure \ref{IntForcePT1} shows a significant reduction of the internal forces for the smooth input. 
 \begin{figure}
-\includegraphics[width=\linewidth]{IntForceRamp1}
-\caption{Internal wrench for ramping up velocity}
-\label{IntForceRamp}
+\includegraphics[width=\linewidth]{IntForcePT1}
+\caption{Internal wrench for a PT1- filtered step}
+\label{IntForcePT1}
 \end{figure}
-In both cases the internal forces approach their desired values after some time. Using the allocator no difference between step and ramp can be noticed, the desired values are set immediately like in the translational case.\\
-Zooming more into the plots, oscillations are revealed for the non-Allocator system. Figure \ref{IntForceHarmonic} shows the undesired internal forces  around 0.
-\begin{figure}
-\includegraphics[width=\linewidth]{IntForceHarmonic}
-\caption{Undesired internal wrench for rotational and translational motion}
-\label{IntForceHarmonic}
-\end{figure}
-They share the same frequency. This Frequency is not influenced by model parameters like stiffness, damping or inertia, but corresponds to the absolute of the rotational velocity of the object: $ f = \frac{\vert\omega\vert}{2\pi} $. The amplitude however increases with stiffness, decreases for higher damping and is almost constant for changes of inertia. Removing the stiffness contribution from the control law, eliminates the oscillations, but not the velocity ramp-up transients.  
-
+In both cases the internal forces approach their desired values after some time. In steady-state no undesired internal forces are exerted on the object for constant rotation and arbitrary translation. Using the allocator the desired values are set immediately like in the purely translational case.\\
+\subsection{Time-variant rotation} 
+Main difference to the previous is a permanent and varying angular acceleration of the object. 
 
 
 
