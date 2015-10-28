@@ -11,10 +11,10 @@ m3 = 10;
 m4 = 10;
 
 %specified masses
-m1d = m1;
-m2d = m2;
-m3d = m3;
-m4d = m4;
+m1d = 1.00*m1;
+m2d = 1.00*m2;
+m3d = 1.00*m3;
+m4d = 1.00*m4;
 
 %angular inertia
 j0 = 10;
@@ -24,10 +24,10 @@ j3 = 10;
 j4 = 10;
 
 %specified angular inertia
-j1d = j1;
-j2d = j2;
-j3d = j3;
-j4d = j4;
+j1d = 1.00*j1;
+j2d = 1.00*j2;
+j3d = 1.00*j3;
+j4d = 1.00*j4;
 
 %position of manipulators
 r = [1; 0; 0;

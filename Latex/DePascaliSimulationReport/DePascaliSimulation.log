@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  27 OCT 2015 18:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  28 OCT 2015 18:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -294,7 +294,11 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-(./DePascaliSimulation.aux)
+(./DePascaliSimulation.aux
+
+LaTeX Warning: Label `IntDevPT1' multiply defined.
+
+)
 \openout1 = `DePascaliSimulation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
@@ -309,8 +313,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count118
 \scratchdimen=\dimen137
@@ -380,12 +383,12 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 57.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<IntForceStepAllocator.png, id=1, 981.6675pt x 296.60812pt>
+<IntForceStepAllocator.png, id=1, 1003.49907pt x 340.27126pt>
 File: IntForceStepAllocator.png Graphic file (type png)
 
 <use IntForceStepAllocator.png>
 Package pdftex.def Info: IntForceStepAllocator.png used on input line 74.
-(pdftex.def)             Requested size: 252.0pt x 76.1387pt.
+(pdftex.def)             Requested size: 252.0pt x 85.44662pt.
 
 <IntForceStep2.png, id=2, 903.375pt x 303.38344pt>
 File: IntForceStep2.png Graphic file (type png)
@@ -407,17 +410,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--92
 Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
- <./IntForceStepAllocator.png (PNG copy)>] [2 <./IntForceStep2.png (PNG copy)> 
-<./IntForcePT1.png (PNG copy)>]
-Overfull \hbox (0.52472pt too wide) detected at line 171
- []$[]  [][] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 D[]\OMS/cmsy/m/n/10 f\OML/cmm/m
-/it/10 J[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/1
-0 M[][][]d \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 ^^A[] + \OML/c
-mm/m/it/10 K[]\OT1/cmr/m/n/10 ^^A[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 ^^A[][
-]] \OMS/cmsy/m/n/10 ^^@ [][][]\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g$ 
- []
+ <./IntForceStepAllocator.png (PNG copy)>]
+<IntForceSinus2.png, id=23, 1003.49907pt x 359.09157pt>
+File: IntForceSinus2.png Graphic file (type png)
 
-[3] [4]
+<use IntForceSinus2.png>
+Package pdftex.def Info: IntForceSinus2.png used on input line 95.
+(pdftex.def)             Requested size: 252.0pt x 90.17265pt.
+
+<IntForceSinus1.png, id=24, 1003.49907pt x 469.00218pt>
+File: IntForceSinus1.png Graphic file (type png)
+
+<use IntForceSinus1.png>
+Package pdftex.def Info: IntForceSinus1.png used on input line 96.
+(pdftex.def)             Requested size: 252.0pt x 117.77267pt.
+
+<IntDevNullPT1.png, id=25, 1003.49907pt x 359.84438pt>
+File: IntDevNullPT1.png Graphic file (type png)
+ <use IntDevNullPT1.png>
+Package pdftex.def Info: IntDevNullPT1.png used on input line 106.
+(pdftex.def)             Requested size: 252.0pt x 90.3617pt.
+
+<IntDevAlloPT1.png, id=26, 1003.49907pt x 379.4175pt>
+File: IntDevAlloPT1.png Graphic file (type png)
+ <use IntDevAlloPT1.png>
+Package pdftex.def Info: IntDevAlloPT1.png used on input line 107.
+(pdftex.def)             Requested size: 252.0pt x 95.27676pt.
+
+<IntDevNullSinus.png, id=27, 1003.49907pt x 368.87813pt>
+File: IntDevNullSinus.png Graphic file (type png)
+
+<use IntDevNullSinus.png>
+Package pdftex.def Info: IntDevNullSinus.png used on input line 113.
+(pdftex.def)             Requested size: 252.0pt x 92.63019pt.
+
+<IntDevAlloSinus.png, id=28, 1003.49907pt x 484.81125pt>
+File: IntDevAlloSinus.png Graphic file (type png)
+
+<use IntDevAlloSinus.png>
+Package pdftex.def Info: IntDevAlloSinus.png used on input line 114.
+(pdftex.def)             Requested size: 252.0pt x 121.74254pt.
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -429,34 +462,45 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[5] (./DePascaliSimulation.aux) ) 
+
+Underfull \vbox (badness 2617) has occurred while \output is active []
+
+ [2 <./IntForceStep2.png (PNG copy)> <./IntForcePT1.png (PNG copy)> <./IntForce
+Sinus2.png (PNG copy)> <./IntForceSinus1.png (PNG copy)> <./IntDevNullPT1.png (
+PNG copy)> <./IntDevAlloPT1.png (PNG copy)>] [3
+
+ <./IntDevNullSinus.png (PNG copy)> <./IntDevAlloSinus.png (PNG copy)>] (./DePa
+scaliSimulation.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4964 strings out of 493304
- 72906 string characters out of 6139871
- 168637 words of memory out of 5000000
- 8338 multiletter control sequences out of 15000+600000
- 40802 words of font info for 82 fonts, out of 8000000 for 9000
+ 4973 strings out of 493304
+ 73341 string characters out of 6139871
+ 167681 words of memory out of 5000000
+ 8353 multiletter control sequences out of 15000+600000
+ 34706 words of font info for 70 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,19n,24p,816b,252s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips
-/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DePascaliSimulation.pdf (5 pages, 265175 bytes).
+ 38i,15n,24p,1154b,252s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
+/utmri8a.pfb>
+Output written on DePascaliSimulation.pdf (3 pages, 440886 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 80 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
