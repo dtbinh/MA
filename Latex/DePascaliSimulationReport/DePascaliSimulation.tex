@@ -49,7 +49,7 @@ martin.angerer@tum.de
 \maketitle
 
 \begin{abstract}
-Purpose of the simulation is to evaluate the performance of the proposed \textit{desired internal force allocator} against the classic nullspace of the grasp matrix approach. In contrast to the simulations done by the authors four manipulators are used in a symmetric set-up. The results indicate that the internal force calculation proposed by De Pascali et al is only comprehensive for a 2-manipulator set-up. The \textit{desired internal force allocator} outperforms the nullspace-approach in terms of settling time, transient behaviour and harmonic distortion.
+Purpose of the simulation is to evaluate the performance of the proposed \textit{desired internal force allocator} against the classic nullspace of the grasp matrix approach. Different motion cases, namely pure translational motion, constant - and time-variant rotation are studied with respect to undesired internal wrench with and without the allocator. Allocator affecting disturbance (Inertia uncertainty, signal propagation delay) is simulated. The allocator improves the internal wrench behaviour (significantly) in all studied cases.  
 \end{abstract}
 
 \section{Theory}
@@ -117,11 +117,15 @@ Using sinusoidal rotational velocity both systems show (figure ) oscillations, u
 \end{figure}
 Even for inertia uncertainties the allocator shows better results than going without it.
 \subsection{Time delay in control signals}
-
-
+For the common case that robot manipulators and controlling human are remotely located, signal propagation delays are not negligible. To ensure a secure grasp it is essential that internal forces are calculated locally. The allocator uses the motion-inducing wrench which trajectory dependent and thus delayed. The following simulation set-up is to evaluate the performance of the allocator for delayed control inputs. Desired internal force calculation using the base of the nullspace of the grasp matrix is supposed to be locally, the orientation dependent grasp matrix is updated with the actual object rotation without delay. Furthermore the impedance controller is assumed to be local as well. The actually delayed signals are the desired pose/velocity/acceleration of the manipulators and the feed-forward wrench taking care of object dynamics. I.e. the desired values are calculated in the place of the human operator and delay occurs before entering the impedance control loop. This means that the generation of undesired internal wrench in the impedance control is on-time with the allocator. Therefore the allocator can perfectly compensate for it, no undesired internal wrench can be observed. Excluding the allocator however results in more distortion than in the non-delayed case. In figure \ref{IntDelay} the results are presented for sinusoidal angular velocity and 1s of delay.       
+\begin{figure}
+\includegraphics[width=\linewidth]{IntDelay}
+\caption{Internal wrench for a 1s time delay and sinusoidal rotation without allocator}
+\label{IntDelay}
+\end{figure}
 
 \section{Conclusions}
-
+Different set-ups have been studied to compare internal wrench with or without the allocator. The allocator improves the behaviour in every studied case, especially for signal propagation delays and sinusoidal rotation the performance is significantly improved. The appearance of internal wrench for rotational acceleration in the allocator-free system contradicts the thoughts in the theory section, here further investigation is advisable. 
 
 
 
