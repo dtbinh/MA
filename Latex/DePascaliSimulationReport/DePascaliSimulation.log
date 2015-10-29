@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.5)  29 OCT 2015 00:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.5)  29 OCT 2015 10:01
 entering extended mode
 **DePascaliSimulation.tex
 (DePascaliSimulation.tex
@@ -359,22 +359,22 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: IntForceStepAllocator.png Graphic file (type png)
 
 <use IntForceStepAllocator.png>
-Package pdftex.def Info: IntForceStepAllocator.png used on input line 74.
+Package pdftex.def Info: IntForceStepAllocator.png used on input line 75.
 (pdftex.def)             Requested size: 252.0pt x 85.44662pt.
 
 <IntForceStep2.png, id=2, 903.375pt x 303.38344pt>
 File: IntForceStep2.png Graphic file (type png)
  <use IntForceStep2.png>
-Package pdftex.def Info: IntForceStep2.png used on input line 81.
+Package pdftex.def Info: IntForceStep2.png used on input line 82.
 (pdftex.def)             Requested size: 252.0pt x 84.62735pt.
 
 <IntForcePT1.png, id=3, 1003.49907pt x 337.26pt>
 File: IntForcePT1.png Graphic file (type png)
  <use IntForcePT1.png>
-Package pdftex.def Info: IntForcePT1.png used on input line 87.
+Package pdftex.def Info: IntForcePT1.png used on input line 88.
 (pdftex.def)             Requested size: 252.0pt x 84.69046pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--92
+Underfull \hbox (badness 10000) in paragraph at lines 80--93
 
  []
 
@@ -388,53 +388,52 @@ Non-PDF special ignored!{C:/Users/Martin/AppData/Local/MiKTeX/2.9/pdftex/config
 File: IntForceSinus2.png Graphic file (type png)
 
 <use IntForceSinus2.png>
-Package pdftex.def Info: IntForceSinus2.png used on input line 95.
+Package pdftex.def Info: IntForceSinus2.png used on input line 96.
 (pdftex.def)             Requested size: 252.0pt x 90.17265pt.
 
 <IntForceSinus1.png, id=23, 1003.49907pt x 469.00218pt>
 File: IntForceSinus1.png Graphic file (type png)
 
 <use IntForceSinus1.png>
-Package pdftex.def Info: IntForceSinus1.png used on input line 96.
+Package pdftex.def Info: IntForceSinus1.png used on input line 97.
 (pdftex.def)             Requested size: 252.0pt x 117.77267pt.
 
 <IntDevNullPT1.png, id=24, 1003.49907pt x 359.84438pt>
 File: IntDevNullPT1.png Graphic file (type png)
  <use IntDevNullPT1.png>
-Package pdftex.def Info: IntDevNullPT1.png used on input line 106.
+Package pdftex.def Info: IntDevNullPT1.png used on input line 107.
 (pdftex.def)             Requested size: 252.0pt x 90.3617pt.
 
 <IntDevAlloPT1.png, id=25, 1003.49907pt x 379.4175pt>
 File: IntDevAlloPT1.png Graphic file (type png)
  <use IntDevAlloPT1.png>
-Package pdftex.def Info: IntDevAlloPT1.png used on input line 107.
+Package pdftex.def Info: IntDevAlloPT1.png used on input line 108.
 (pdftex.def)             Requested size: 252.0pt x 95.27676pt.
 
 <IntDevNullSinus.png, id=26, 1003.49907pt x 368.87813pt>
 File: IntDevNullSinus.png Graphic file (type png)
 
 <use IntDevNullSinus.png>
-Package pdftex.def Info: IntDevNullSinus.png used on input line 113.
+Package pdftex.def Info: IntDevNullSinus.png used on input line 114.
 (pdftex.def)             Requested size: 252.0pt x 92.63019pt.
 
 <IntDevAlloSinus.png, id=27, 1003.49907pt x 484.81125pt>
 File: IntDevAlloSinus.png Graphic file (type png)
 
 <use IntDevAlloSinus.png>
-Package pdftex.def Info: IntDevAlloSinus.png used on input line 114.
+Package pdftex.def Info: IntDevAlloSinus.png used on input line 115.
 (pdftex.def)             Requested size: 252.0pt x 121.74254pt.
  <IntDelay.png, id=28, 1398.72563pt x 511.9125pt>
 File: IntDelay.png Graphic file (type png)
 
 <use IntDelay.png>
-Package pdftex.def Info: IntDelay.png used on input line 122.
+Package pdftex.def Info: IntDelay.png used on input line 123.
 (pdftex.def)             Requested size: 252.0pt x 92.2262pt.
-
-Underfull \vbox (badness 2617) has occurred while \output is active []
-
  [2 <./IntForceStep2.png (PNG copy)> <./IntForcePT1.png (PNG copy)> <./IntForce
-Sinus2.png (PNG copy)> <./IntForceSinus1.png (PNG copy)> <./IntDevNullPT1.png (
-PNG copy)> <./IntDevAlloPT1.png (PNG copy)>]
+Sinus2.png (PNG copy)> <./IntForceSinus1.png (PNG copy)>]
+Underfull \vbox (badness 1248) has occurred while \output is active []
+
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -446,20 +445,21 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3 <./IntDevNullSinus.png (PNG copy)> <./IntDevAlloSinus.png (PNG copy)> <./Int
-Delay.png (PNG copy)>] (DePascaliSimulation.aux)
+[3 <./IntDevNullPT1.png (PNG copy)> <./IntDevAlloPT1.png (PNG copy)> <./IntDevN
+ullSinus.png (PNG copy)> <./IntDevAlloSinus.png (PNG copy)> <./IntDelay.png (PN
+G copy)>] (DePascaliSimulation.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4742 strings out of 493673
- 70216 string characters out of 3141528
- 162761 words of memory out of 3000000
- 8042 multiletter control sequences out of 15000+200000
+ 4743 strings out of 493673
+ 70227 string characters out of 3141528
+ 163769 words of memory out of 3000000
+ 8043 multiletter control sequences out of 15000+200000
  34706 words of font info for 70 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 34i,15n,24p,1430b,248s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,15n,24p,1441b,248s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
@@ -474,7 +474,7 @@ onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
 s/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw
 /times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utm
 r8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DePascaliSimulation.pdf (3 pages, 497965 bytes).
+Output written on DePascaliSimulation.pdf (3 pages, 498108 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
