@@ -288,7 +288,7 @@ Where $ N_i $ is described as the "neighbours" of the i-th manipulator, it is as
 The \textit{Artificial Potential Field} can be seen as a set of springs connecting the end-effectors among each other. $ \delta_{ij} $ represents the stiffness, $ d_{ij} $ the equilibrium length. 
 The control input $ u_i $ establishes a constant formation of the manipulators using position measurements and communication, i.e. each manipulator knows the position of the others. This can be seen as the low-level part of the control structure, responsible for maintaining the grasp and depends only on the robot-system.\\ The high-level part specifies the constrained motion of the structure and incorporates the human operator. In the previous works the presence of an object and the assumption of rigid grasping implicates constraints on the overall system. For this non-object based approach one lacks this restrictions of motion between the end-effectors. To avoid breaking up of the formation the operator should only be able to control only one position, namely the position of the entire formation, which corresponds to the average of the manipulator positions $ x_c = \frac{1}{\sqrt{N}} \sum\nolimits_{i=1}^{N} x_i $. It is also pointed out that this high-level input has to be feed into all manipulators uniformly. Not doing so entails in a leader-follower situation, this results in internal stress on the object or break-up of formation due to sensing delays of the following manipulators.\\
 On end-effector level an impedance relation is utilized to ensure compliant behaviour for minor deviations.\\
-\textit{Conclusion:} A simple control scheme, requires only knowledge of the end-effector positions. On the other no dynamics are considered. Clear division in low-level grasp-maintaining control loop and high-level constrained-motion loop.
+\textit{Conclusion:} A simple control scheme, requires only knowledge of the end-effector positions. On the other hand no dynamics are considered. Clear division in low-level grasp-maintaining control loop and high-level constrained-motion loop.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -297,9 +297,9 @@ On end-effector level an impedance relation is utilized to ensure compliant beha
 This paper treats the \textit{static IPC} controller from subsection \ref{WimboeckOttComparisionPaper} in further detail. Although the control scheme outputs torques on joint level the key control loops are formulated on object-level. It is an object centred approach, though no actual object is incorporated. Instead the representation is restricted to a virtual object frame lying in the center of the manipulators $ x_o = \frac{1}{N}\sum\nolimits_{i=1}^N x_i $. Orientation, expressed with the matrix $ R_o $, is also derived dependent on the end-effectors.\\
 The given impedance control law
 \begin{equation}
-\tau = -D(q)\dot{q} - \frac{\partial V_d(q)}{\partial q} + g(q)
+\tau = -D(\theta)\dot{\theta} - \frac{\partial V_d(\theta)}{\partial \theta} + g(\theta)
 \end{equation}
-computes the joint torques incorporating a damping $ D(q) $, a stiffness $ \frac{\partial V_d(q)}{\partial q} $ and a gravitational $ g(q) $ term. $ V_d $ and $ D $ are formulated in operational space first, and then differentiated w.r.t to joint angles. First the approach is summarized as in the paper, then the key ideas are re-formulated for pure task space control.  
+computes the joint torques incorporating a damping $ D(q) $, a stiffness $ \frac{\partial V_d(q)}{\partial q} $ and a gravitational $ g(q) $ term. $ V_d $ and $ D $ are formulated in operational space first, and then differentiated w.r.t to joint angles. First the approach is summarized as in the paper, then the key ideas are re-formulated for pure task space control.\\  
 The stiffness contribution divides in a object translation/rotation and a object-manipulator connection part.
 \begin{equation}
 V_d = V_{o,t} + V_{o,r} + V_{conn}
@@ -310,6 +310,7 @@ The virtual object frame is connected to a desired pose ($ p_{o,d},\epsilon_d $)
 V_{o,t} = \dfrac{1}{2} (p_o-p_{o,d})^T R_o K_{o,t} R_o^T (p_o-p_{o,d}) \\
 V_{o,r} = 2\epsilon_d^T K_{o,r} \epsilon_d 
 \end{align}
+\label{objectpotentials}
 \end{subequations}
 To compute power from the potential energy functions, they are differentiated w.r.t to time:
 \begin{subequations}
@@ -320,7 +321,7 @@ To compute power from the potential energy functions, they are differentiated w.
 \end{subequations}
 Where $ J_{o,t} $ is the Jacobian mapping object velocity to joint velocity: $ \dot{p}_o = J_{o,t} \dot{\theta} $. $ J_{o,r} $ connects the object angular velocity with the joint velocity: $ \omega_o = J_{o,r} \dot{\theta} $. $ J_{\omega\epsilon} $ denotes the (reduced) matrix-quaternion product.
 The gradients of the potentials $ \frac{\partial V}{\partial \theta} = \frac{\dot{V}}{\dot{\theta}^T} $ are the object-stiffness wrenches.\\
-The manipulators are connected to the virtual object frame with 1-DOF springs, these have an equilibrium length $ d_i $. This is the desired distance between the manipulator position $ p_i $ and the virtual object center $ p_o $: $ \Delta p = p_i - p_o $. This ensures a compliant behaviour between object and manipulator even in the case of non-rigid objects. Equilibrium length can be varied to define internal forces on the object. The potential of the springs is:
+The manipulators are connected to the virtual object frame with 1-DOF springs, these have an equilibrium length $ d_i $. This is the desired distance between the manipulator position $ p_i $ and the virtual object center $ p_o $: $ \Delta p_i = p_i - p_o $. This ensures a compliant behaviour between object and manipulator even in the case of non-rigid objects. Equilibrium length can be varied to define internal forces on the object. The potential of the springs is:
 \begin{equation}
 V_{conn} = \dfrac{1}{2} \sum_{i=1}^N K_{conn,i} \left[ \vert\Delta p_i \vert - d_i \right]^2
 \end{equation}
@@ -328,8 +329,19 @@ The joint torque contribution of the connecting springs is derived with the grad
 \begin{equation}
 \dfrac{\partial V_{conn}}{\partial \theta} = \left(\frac{\partial p}{\partial \theta^T}\right)^T \sum_{i=1}^N\left[\dfrac{\partial\Delta p_i^T}{\partial p}\dfrac{K_{conn,i}(\vert\Delta p_i\vert - d_i)}{\vert\Delta p_i\vert}\Delta p_i\right] 
 \end{equation}
-This concludes the stiffness contribution to the joint torque control law.
-
+This concludes the stiffness contribution to the joint torque control law.\\
+Reformulating the potential derivatives for a control law on object-level one gets for the object-level stiffness (\ref{objectpotentials}):
+\begin{subequations}
+\begin{align}
+\dfrac{\partial V_{o,t}}{\partial p_o} = K_{o,t} R_o^T (p_o-p_{o,d}) \\
+\dfrac{\partial V_{o,r}}{\partial \omega_o} = 4 J^T_{\omega\epsilon} K_{o,r} \epsilon_d 
+\end{align}
+\end{subequations}
+For the connecting springs the stiffness contribution on object-level is: 
+\begin{equation}
+\dfrac{\partial V_{conn}}{\partial p} = \sum_{i=1}^N\left[\dfrac{\partial\Delta p_i^T}{\partial p}\dfrac{K_{conn,i}(\vert\Delta p_i\vert - d_i)}{\vert\Delta p_i\vert}\Delta p_i\right] 
+\end{equation}
+What can not be directly derived from the paper is the relation between object $ p_o $ and manipulator positions $ p $.
 %%%%%%%%%%%%%%%%%%
 For the derivation w.r.t. time of the potentials \cite{Natale2003} is followed: 
 \begin{equation}
