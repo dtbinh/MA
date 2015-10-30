@@ -341,17 +341,23 @@ For the connecting springs the stiffness contribution on object-level is:
 \begin{equation}
 \dfrac{\partial V_{conn}}{\partial p} = \sum_{i=1}^N\left[\dfrac{\partial\Delta p_i^T}{\partial p}\dfrac{K_{conn,i}(\vert\Delta p_i\vert - d_i)}{\vert\Delta p_i\vert}\Delta p_i\right] 
 \end{equation}
-What can not be directly derived from the paper is the relation between object $ p_o $ and manipulator positions $ p $.
+What can not be directly derived from the paper is the relation between object $ p_o $ and manipulator positions $ p $. In the previously discussed approaches this is the (virtual) grasp matrix. A possible solution avoiding the grasp matrix is using the object-stiffness to generate a reference object pose $ x_{o,r} $. This is used instead of the actual virtual object pose. The reference object pose is not a function of the manipulators. This simplifies $ \frac{\partial\Delta p_i^T}{\partial p} $ in a way that only the spring to the object center would contribute to the manipulator force, excluding the springs connecting to the other manipulators. Moreover the object-level control changes from impedance to admittance control, i.e. to keep the same structure the object wrench must be measured, which is often no feasible.  The full impedance control equation for translation is:
+\begin{equation}
+M_{o}(\ddot{x}_{o,d}-\ddot{x}_{o,r}) + D_{o}(\dot{x}_{o,d}-\dot{x}_{o,r}) + K_{o} R_o^T(x_{o,d}-x_{o,r}) = h_{o}
+\label{eq_WimboeckImpedance}
+\end{equation}
+If it is not desired to reshape the object inertia then object wrench can be expressed through the manipulator wrenches without measuring object acceleration.
+\begin{equation}
+h_{o} = Gh - M_o\ddot{x_o,r} + m_og
+\end{equation}
+Inserting in (\ref{eq_WimboeckImpedance}) only the desired acceleration remains:
+\begin{equation}
+M_{o}\ddot{x}_{o,d} + D_{o}(\dot{x}_{o,d}-\dot{x}_{o,r}) + K_{o} R_o^T(x_{o,d}-x_{o,r}) = Gh - m_og
+\end{equation}
+At this point again the grasp matrix $ G $ is used, it can be composed by using the actual object position in the center of the manipulators. This establishes a relation between object and manipulators without pre-specifying a fixed grasp. It comes at the cost of requiring force/torque sensors at the manipulators.\\
+Version without sensors by using a pseudoinverse of the grasp matrix (derived from the manipulator positions) for mapping forward forces??
 %%%%%%%%%%%%%%%%%%
-For the derivation w.r.t. time of the potentials \cite{Natale2003} is followed: 
-\begin{equation}
-h_o = \begin{bmatrix}\dot{V}_{o,t} \\ \dot{V}_{o,r}\end{bmatrix} = \begin{bmatrix} K_{o,t}\Delta p_o\\2(\eta_d I_3 - S(\epsilon_d))K_{o,r}\epsilon_d\end{bmatrix}
-\end{equation}
-Virtual object frame and manipulators are connected with 1-DOF springs, the control output is:
-\begin{equation}
-f_{conn} = \dfrac{\partial V_{conn}}{\partial p} = \sum_{i=1}^N\left[\dfrac{\partial\Delta p_i^T}{\partial p}\dfrac{K_{conn,i}(\vert\Delta p_i\vert - d_i)}{\vert\Delta p_i\vert}\Delta p_i\right] 
-\end{equation}
-$ h_o $ represents wrenches on object-level, $ f_conn $ forces on end-effector-level, the problem of mapping the object-level wrenches to desired end-effector forces arises. As discussed previously this can be done with an inverse grasp matrices. Options are using the actual grasp (if known) or using a virtual grasp.  
+  
 
 
 

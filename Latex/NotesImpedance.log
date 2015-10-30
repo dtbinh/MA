@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  29 OCT 2015 17:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  30 OCT 2015 15:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -418,10 +418,10 @@ Before submitting the final camera ready copy, remember to:
 
 ] (./NotesImpedance.aux) ) 
 Here is how much of TeX's memory you used:
- 4950 strings out of 493304
- 72621 string characters out of 6139871
- 170685 words of memory out of 5000000
- 8331 multiletter control sequences out of 15000+600000
+ 4951 strings out of 493304
+ 72643 string characters out of 6139871
+ 170694 words of memory out of 5000000
+ 8332 multiletter control sequences out of 15000+600000
  40802 words of font info for 82 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,19n,24p,1545b,252s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -440,7 +440,7 @@ onts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on NotesImpedance.pdf (6 pages, 198376 bytes).
+Output written on NotesImpedance.pdf (6 pages, 198901 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  60 compressed objects within 1 object stream
