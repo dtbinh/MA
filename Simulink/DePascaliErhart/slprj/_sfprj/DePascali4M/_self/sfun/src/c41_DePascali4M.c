@@ -544,7 +544,7 @@ static void sf_gateway_c41_DePascali4M(SFc41_DePascali4MInstanceStruct
   }
 
   for (c41_i43 = 0; c41_i43 < 3; c41_i43++) {
-    c41_b_z_w[c41_i43 + 3] = c41_zwr1[c41_i43 + 1];
+    c41_b_z_w[c41_i43 + 3] = c41_b_z[c41_i43 + 3];
   }
 
   for (c41_i44 = 0; c41_i44 < 3; c41_i44++) {
@@ -552,7 +552,7 @@ static void sf_gateway_c41_DePascali4M(SFc41_DePascali4MInstanceStruct
   }
 
   for (c41_i45 = 0; c41_i45 < 3; c41_i45++) {
-    c41_b_z_w[c41_i45 + 9] = c41_zwr2[c41_i45 + 1];
+    c41_b_z_w[c41_i45 + 9] = c41_b_z[c41_i45 + 9];
   }
 
   for (c41_i46 = 0; c41_i46 < 3; c41_i46++) {
@@ -560,7 +560,7 @@ static void sf_gateway_c41_DePascali4M(SFc41_DePascali4MInstanceStruct
   }
 
   for (c41_i47 = 0; c41_i47 < 3; c41_i47++) {
-    c41_b_z_w[c41_i47 + 15] = c41_zwr3[c41_i47 + 1];
+    c41_b_z_w[c41_i47 + 15] = c41_b_z[c41_i47 + 15];
   }
 
   _SFD_EML_CALL(0U, chartInstance->c41_sfEvent, -10);
@@ -1291,10 +1291,10 @@ extern void utFree(void*);
 
 void sf_c41_DePascali4M_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2776645130U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(926760409U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1440927101U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1436688808U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(953908422U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2776217222U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2962184846U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1118206992U);
 }
 
 mxArray* sf_c41_DePascali4M_get_post_codegen_info(void);
@@ -1308,7 +1308,7 @@ mxArray *sf_c41_DePascali4M_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("lvX6dIZSITD2TmcXvolx0B");
+    mxArray *mxChecksum = mxCreateString("ja3GE5EPARB9u2T36Nxxt");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -1529,7 +1529,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,613);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,642);
 
         {
           unsigned int dimVector[1];
@@ -1567,7 +1567,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization(void)
 {
-  return "r8oLFYUolfVhT0Sq7772LH";
+  return "b9irwBUGCTd7Zu6YL8OL8D";
 }
 
 static void sf_opaque_initialize_c41_DePascali4M(void *chartInstanceVar)
@@ -1700,10 +1700,10 @@ static void mdlSetWorkWidths_c41_DePascali4M(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(2278390593U));
-  ssSetChecksum1(S,(1995866170U));
-  ssSetChecksum2(S,(569868503U));
-  ssSetChecksum3(S,(3234151913U));
+  ssSetChecksum0(S,(1249499222U));
+  ssSetChecksum1(S,(1519173064U));
+  ssSetChecksum2(S,(1254261733U));
+  ssSetChecksum3(S,(290865769U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
   ssSupportsMultipleExecInstances(S,1);
