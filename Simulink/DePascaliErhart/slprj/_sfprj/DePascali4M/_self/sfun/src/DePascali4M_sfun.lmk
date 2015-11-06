@@ -7,10 +7,10 @@ LIBFLAGS =
 
 OBJECTS = \
 	"DePascali4M_sfun.obj"\
+	"c1_DePascali4M.obj"\
 	"c21_DePascali4M.obj"\
 	"c22_DePascali4M.obj"\
 	"c23_DePascali4M.obj"\
-	"c24_DePascali4M.obj"\
 	"c25_DePascali4M.obj"\
 	"c26_DePascali4M.obj"\
 	"c27_DePascali4M.obj"\
@@ -52,14 +52,14 @@ DePascali4M_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
 	$(LD) $(LDFLAGS) -o DePascali4M_sfun.mexw64 @DePascali4M_sfun.lmko
 DePascali4M_sfun.obj :	"DePascali4M_sfun.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "DePascali4M_sfun.c"
+c1_DePascali4M.obj :	"c1_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_DePascali4M.c"
 c21_DePascali4M.obj :	"c21_DePascali4M.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c21_DePascali4M.c"
 c22_DePascali4M.obj :	"c22_DePascali4M.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c22_DePascali4M.c"
 c23_DePascali4M.obj :	"c23_DePascali4M.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c23_DePascali4M.c"
-c24_DePascali4M.obj :	"c24_DePascali4M.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c24_DePascali4M.c"
 c25_DePascali4M.obj :	"c25_DePascali4M.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c25_DePascali4M.c"
 c26_DePascali4M.obj :	"c26_DePascali4M.c"

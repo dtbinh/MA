@@ -346,13 +346,13 @@ static void sf_gateway_c36_DePascali4M(SFc36_DePascali4MInstanceStruct
   int32_T c36_i80;
   _SFD_SYMBOL_SCOPE_PUSH(0U, 0U);
   _sfTime_ = sf_get_time(chartInstance->S);
-  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 15U, chartInstance->c36_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 16U, chartInstance->c36_sfEvent);
   for (c36_i3 = 0; c36_i3 < 12; c36_i3++) {
     _SFD_DATA_RANGE_CHECK(chartInstance->c36_r[c36_i3], 0U);
   }
 
   chartInstance->c36_sfEvent = CALL_EVENT;
-  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 15U, chartInstance->c36_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 16U, chartInstance->c36_sfEvent);
   for (c36_i4 = 0; c36_i4 < 12; c36_i4++) {
     c36_b_r[c36_i4] = chartInstance->c36_r[c36_i4];
   }
@@ -700,7 +700,7 @@ static void sf_gateway_c36_DePascali4M(SFc36_DePascali4MInstanceStruct
     (*chartInstance->c36_G)[c36_i78] = c36_b_G[c36_i78];
   }
 
-  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 15U, chartInstance->c36_sfEvent);
+  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 16U, chartInstance->c36_sfEvent);
   _SFD_SYMBOL_SCOPE_POP();
   _SFD_CHECK_FOR_STATE_INCONSISTENCY(_DePascali4MMachineNumber_,
     chartInstance->chartNumber, chartInstance->instanceNumber);
@@ -745,7 +745,6 @@ static void c36_quatrot(SFc36_DePascali4MInstanceStruct *chartInstance, real_T
   real_T c36_d_q[4];
   int32_T c36_i85;
   real_T c36_dv16[4];
-  real_T c36_dv17[4];
   int32_T c36_i86;
   int32_T c36_i87;
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 6U, 6U, c36_b_debug_family_names,
@@ -781,21 +780,21 @@ static void c36_quatrot(SFc36_DePascali4MInstanceStruct *chartInstance, real_T
   }
 
   for (c36_i83 = 0; c36_i83 < 4; c36_i83++) {
-    c36_c_q[c36_i83] = c36_q[c36_i83];
+    c36_c_q[c36_i83] = c36_b_q[c36_i83];
   }
 
   c36_quatmultiply(chartInstance, c36_dv14, c36_c_q, c36_dv15);
   for (c36_i84 = 0; c36_i84 < 4; c36_i84++) {
-    c36_d_q[c36_i84] = c36_b_q[c36_i84];
+    c36_d_q[c36_i84] = c36_q[c36_i84];
   }
 
   for (c36_i85 = 0; c36_i85 < 4; c36_i85++) {
     c36_dv16[c36_i85] = c36_dv15[c36_i85];
   }
 
-  c36_quatmultiply(chartInstance, c36_d_q, c36_dv16, c36_dv17);
+  c36_quatmultiply(chartInstance, c36_d_q, c36_dv16, c36_b_q);
   for (c36_i86 = 0; c36_i86 < 4; c36_i86++) {
-    c36_rwq[c36_i86] = c36_dv17[c36_i86];
+    c36_rwq[c36_i86] = c36_b_q[c36_i86];
   }
 
   _SFD_SCRIPT_CALL(0U, chartInstance->c36_sfEvent, 5);
@@ -875,13 +874,13 @@ static void c36_b_emlrt_marshallIn(SFc36_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c36_u, const emlrtMsgIdentifier *c36_parentId,
   real_T c36_y[144])
 {
-  real_T c36_dv18[144];
+  real_T c36_dv17[144];
   int32_T c36_i94;
   (void)chartInstance;
-  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv18, 1, 0, 0U, 1, 0U, 2, 6,
+  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv17, 1, 0, 0U, 1, 0U, 2, 6,
                 24);
   for (c36_i94 = 0; c36_i94 < 144; c36_i94++) {
-    c36_y[c36_i94] = c36_dv18[c36_i94];
+    c36_y[c36_i94] = c36_dv17[c36_i94];
   }
 
   sf_mex_destroy(&c36_u);
@@ -974,13 +973,13 @@ static void c36_c_emlrt_marshallIn(SFc36_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c36_u, const emlrtMsgIdentifier *c36_parentId,
   real_T c36_y[12])
 {
-  real_T c36_dv19[12];
+  real_T c36_dv18[12];
   int32_T c36_i102;
   (void)chartInstance;
-  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv19, 1, 0, 0U, 1, 0U, 1,
+  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv18, 1, 0, 0U, 1, 0U, 1,
                 12);
   for (c36_i102 = 0; c36_i102 < 12; c36_i102++) {
-    c36_y[c36_i102] = c36_dv19[c36_i102];
+    c36_y[c36_i102] = c36_dv18[c36_i102];
   }
 
   sf_mex_destroy(&c36_u);
@@ -1087,12 +1086,12 @@ static void c36_e_emlrt_marshallIn(SFc36_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c36_u, const emlrtMsgIdentifier *c36_parentId,
   real_T c36_y[3])
 {
-  real_T c36_dv20[3];
+  real_T c36_dv19[3];
   int32_T c36_i106;
   (void)chartInstance;
-  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv20, 1, 0, 0U, 1, 0U, 1, 3);
+  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv19, 1, 0, 0U, 1, 0U, 1, 3);
   for (c36_i106 = 0; c36_i106 < 3; c36_i106++) {
-    c36_y[c36_i106] = c36_dv20[c36_i106];
+    c36_y[c36_i106] = c36_dv19[c36_i106];
   }
 
   sf_mex_destroy(&c36_u);
@@ -1151,12 +1150,12 @@ static void c36_f_emlrt_marshallIn(SFc36_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c36_u, const emlrtMsgIdentifier *c36_parentId,
   real_T c36_y[4])
 {
-  real_T c36_dv21[4];
+  real_T c36_dv20[4];
   int32_T c36_i110;
   (void)chartInstance;
-  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv21, 1, 0, 0U, 1, 0U, 1, 4);
+  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv20, 1, 0, 0U, 1, 0U, 1, 4);
   for (c36_i110 = 0; c36_i110 < 4; c36_i110++) {
-    c36_y[c36_i110] = c36_dv21[c36_i110];
+    c36_y[c36_i110] = c36_dv20[c36_i110];
   }
 
   sf_mex_destroy(&c36_u);
@@ -1230,13 +1229,13 @@ static void c36_g_emlrt_marshallIn(SFc36_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c36_u, const emlrtMsgIdentifier *c36_parentId,
   real_T c36_y[9])
 {
-  real_T c36_dv22[9];
+  real_T c36_dv21[9];
   int32_T c36_i118;
   (void)chartInstance;
-  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv22, 1, 0, 0U, 1, 0U, 2, 3,
+  sf_mex_import(c36_parentId, sf_mex_dup(c36_u), c36_dv21, 1, 0, 0U, 1, 0U, 2, 3,
                 3);
   for (c36_i118 = 0; c36_i118 < 9; c36_i118++) {
-    c36_y[c36_i118] = c36_dv22[c36_i118];
+    c36_y[c36_i118] = c36_dv21[c36_i118];
   }
 
   sf_mex_destroy(&c36_u);
@@ -1855,7 +1854,7 @@ static void c36_info_helper(const mxArray **c36_info)
   sf_mex_addfield(*c36_info, c36_emlrt_marshallOut(
     "[E]C:/Users/Martin/Documents/Git/Simulink/DePascaliErhart/quatrot.m"),
                   "resolved", "resolved", 21);
-  sf_mex_addfield(*c36_info, c36_b_emlrt_marshallOut(1446066319U), "fileTimeLo",
+  sf_mex_addfield(*c36_info, c36_b_emlrt_marshallOut(1446631716U), "fileTimeLo",
                   "fileTimeLo", 21);
   sf_mex_addfield(*c36_info, c36_b_emlrt_marshallOut(0U), "fileTimeHi",
                   "fileTimeHi", 21);
@@ -2644,7 +2643,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0,0);
         _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,263);
         _SFD_CV_INIT_SCRIPT(0,1,0,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_SCRIPT_FCN(0,0,"quatrot",0,-1,189);
+        _SFD_CV_INIT_SCRIPT_FCN(0,0,"quatrot",0,-1,191);
         _SFD_CV_INIT_SCRIPT(1,1,0,0,0,0,0,0,0,0);
         _SFD_CV_INIT_SCRIPT_FCN(1,0,"skew_sm",0,-1,127);
 
@@ -2827,10 +2826,10 @@ static void mdlSetWorkWidths_c36_DePascali4M(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(8678066U));
-  ssSetChecksum1(S,(4070678475U));
-  ssSetChecksum2(S,(3582127360U));
-  ssSetChecksum3(S,(2338434350U));
+  ssSetChecksum0(S,(194671068U));
+  ssSetChecksum1(S,(2623013563U));
+  ssSetChecksum2(S,(825526737U));
+  ssSetChecksum3(S,(1784496687U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
   ssSupportsMultipleExecInstances(S,1);

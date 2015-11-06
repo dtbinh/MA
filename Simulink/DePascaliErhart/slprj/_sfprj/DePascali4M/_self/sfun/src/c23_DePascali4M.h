@@ -21,7 +21,7 @@ typedef struct {
   boolean_T c23_doneDoubleBufferReInit;
   uint8_T c23_is_active_c23_DePascali4M;
   real_T c23_r[12];
-  real_T (*c23_dx_do)[6];
+  real_T (*c23_dx_do)[24];
   real_T (*c23_b)[24];
   real_T (*c23_x)[28];
 } SFc23_DePascali4MInstanceStruct;

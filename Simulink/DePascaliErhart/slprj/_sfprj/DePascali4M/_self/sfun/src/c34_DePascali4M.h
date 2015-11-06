@@ -21,6 +21,7 @@ typedef struct {
   boolean_T c34_doneDoubleBufferReInit;
   uint8_T c34_is_active_c34_DePascali4M;
   real_T c34_j0;
+  real_T c34_m0;
   real_T (*c34_dx)[24];
   real_T (*c34_hcoriolis)[6];
 } SFc34_DePascali4MInstanceStruct;

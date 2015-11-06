@@ -78,27 +78,25 @@ static void c23_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c23_mxArrayInData, const char_T *c23_varName, void *c23_outData);
 static const mxArray *c23_d_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData);
-static const mxArray *c23_e_sf_marshallOut(void *chartInstanceVoid, void
-  *c23_inData);
 static real_T c23_d_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId);
 static void c23_c_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c23_mxArrayInData, const char_T *c23_varName, void *c23_outData);
-static const mxArray *c23_f_sf_marshallOut(void *chartInstanceVoid, void
+static const mxArray *c23_e_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData);
 static void c23_e_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId,
   real_T c23_y[9]);
 static void c23_d_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c23_mxArrayInData, const char_T *c23_varName, void *c23_outData);
-static const mxArray *c23_g_sf_marshallOut(void *chartInstanceVoid, void
+static const mxArray *c23_f_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData);
 static void c23_f_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId,
   real_T c23_y[3]);
 static void c23_e_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c23_mxArrayInData, const char_T *c23_varName, void *c23_outData);
-static const mxArray *c23_h_sf_marshallOut(void *chartInstanceVoid, void
+static const mxArray *c23_g_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData);
 static void c23_g_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId,
@@ -113,7 +111,7 @@ static void c23_threshold(SFc23_DePascali4MInstanceStruct *chartInstance);
 static void c23_quatmultiply(SFc23_DePascali4MInstanceStruct *chartInstance,
   real_T c23_q[4], real_T c23_b_r[4], real_T c23_qout[4]);
 static void c23_b_eml_scalar_eg(SFc23_DePascali4MInstanceStruct *chartInstance);
-static const mxArray *c23_i_sf_marshallOut(void *chartInstanceVoid, void
+static const mxArray *c23_h_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData);
 static int32_T c23_h_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId);
@@ -235,8 +233,8 @@ static void sf_gateway_c23_DePascali4M(SFc23_DePascali4MInstanceStruct
   int32_T c23_i6;
   _SFD_SYMBOL_SCOPE_PUSH(0U, 0U);
   _sfTime_ = sf_get_time(chartInstance->S);
-  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 2U, chartInstance->c23_sfEvent);
-  for (c23_i3 = 0; c23_i3 < 6; c23_i3++) {
+  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 4U, chartInstance->c23_sfEvent);
+  for (c23_i3 = 0; c23_i3 < 24; c23_i3++) {
     _SFD_DATA_RANGE_CHECK((*chartInstance->c23_dx_do)[c23_i3], 0U);
   }
 
@@ -268,7 +266,7 @@ static void c23_chartstep_c23_DePascali4M(SFc23_DePascali4MInstanceStruct
   *chartInstance)
 {
   int32_T c23_i7;
-  real_T c23_b_dx_do[6];
+  real_T c23_b_dx_do[24];
   int32_T c23_i8;
   real_T c23_b_r[12];
   int32_T c23_i9;
@@ -367,8 +365,8 @@ static void c23_chartstep_c23_DePascali4M(SFc23_DePascali4MInstanceStruct
   int32_T c23_i66;
   int32_T c23_i67;
   int32_T c23_i68;
-  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 2U, chartInstance->c23_sfEvent);
-  for (c23_i7 = 0; c23_i7 < 6; c23_i7++) {
+  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 4U, chartInstance->c23_sfEvent);
+  for (c23_i7 = 0; c23_i7 < 24; c23_i7++) {
     c23_b_dx_do[c23_i7] = (*chartInstance->c23_dx_do)[c23_i7];
   }
 
@@ -382,11 +380,11 @@ static void c23_chartstep_c23_DePascali4M(SFc23_DePascali4MInstanceStruct
 
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 6U, 6U, c23_debug_family_names,
     c23_debug_family_var_map);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargin, 0U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargin, 0U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargout, 1U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargout, 1U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML(c23_b_dx_do, 2U, c23_d_sf_marshallOut);
+  _SFD_SYMBOL_SCOPE_ADD_EML(c23_b_dx_do, 2U, c23_sf_marshallOut);
   _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_b_r, 3U, c23_c_sf_marshallOut,
     c23_b_sf_marshallIn);
   _SFD_SYMBOL_SCOPE_ADD_EML(c23_b_x, 4U, c23_b_sf_marshallOut);
@@ -547,13 +545,13 @@ static void c23_chartstep_c23_DePascali4M(SFc23_DePascali4MInstanceStruct
 
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 4U, 4U, c23_b_debug_family_names,
     c23_b_debug_family_var_map);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_b_nargin, 0U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_b_nargin, 0U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_b_nargout, 1U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_b_nargout, 1U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_f_x, 2U, c23_g_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_f_x, 2U, c23_f_sf_marshallOut,
     c23_e_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_X, 3U, c23_f_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_X, 3U, c23_e_sf_marshallOut,
     c23_d_sf_marshallIn);
   CV_SCRIPT_FCN(0, 0);
   _SFD_SCRIPT_CALL(0U, chartInstance->c23_sfEvent, 3);
@@ -574,13 +572,13 @@ static void c23_chartstep_c23_DePascali4M(SFc23_DePascali4MInstanceStruct
 
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 4U, 4U, c23_b_debug_family_names,
     c23_b_debug_family_var_map);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_c_nargin, 0U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_c_nargin, 0U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_c_nargout, 1U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_c_nargout, 1U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_g_x, 2U, c23_g_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_g_x, 2U, c23_f_sf_marshallOut,
     c23_e_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_b_X, 3U, c23_f_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_b_X, 3U, c23_e_sf_marshallOut,
     c23_d_sf_marshallIn);
   CV_SCRIPT_FCN(0, 0);
   _SFD_SCRIPT_CALL(0U, chartInstance->c23_sfEvent, 3);
@@ -680,7 +678,7 @@ static void c23_chartstep_c23_DePascali4M(SFc23_DePascali4MInstanceStruct
     (*chartInstance->c23_b)[c23_i68] = c23_b_b[c23_i68];
   }
 
-  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 2U, chartInstance->c23_sfEvent);
+  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 4U, chartInstance->c23_sfEvent);
 }
 
 static void initSimStructsc23_DePascali4M(SFc23_DePascali4MInstanceStruct
@@ -697,13 +695,13 @@ static void c23_skew_sm(SFc23_DePascali4MInstanceStruct *chartInstance, real_T
   real_T c23_nargout = 1.0;
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 4U, 4U, c23_b_debug_family_names,
     c23_debug_family_var_map);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargin, 0U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargin, 0U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargout, 1U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargout, 1U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_b_x, 2U, c23_g_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_b_x, 2U, c23_f_sf_marshallOut,
     c23_e_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_X, 3U, c23_f_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_X, 3U, c23_e_sf_marshallOut,
     c23_d_sf_marshallIn);
   CV_SCRIPT_FCN(0, 0);
   _SFD_SCRIPT_CALL(0U, chartInstance->c23_sfEvent, 3);
@@ -740,22 +738,21 @@ static void c23_quatrot(SFc23_DePascali4MInstanceStruct *chartInstance, real_T
   real_T c23_d_q[4];
   int32_T c23_i73;
   real_T c23_dv4[4];
-  real_T c23_dv5[4];
   int32_T c23_i74;
   int32_T c23_i75;
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 6U, 6U, c23_c_debug_family_names,
     c23_debug_family_var_map);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_rwq, 0U, c23_h_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_rwq, 0U, c23_g_sf_marshallOut,
     c23_f_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargin, 1U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargin, 1U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargout, 2U, c23_e_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c23_nargout, 2U, c23_d_sf_marshallOut,
     c23_c_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_q, 3U, c23_h_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_q, 3U, c23_g_sf_marshallOut,
     c23_f_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_b_r, 4U, c23_g_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_b_r, 4U, c23_f_sf_marshallOut,
     c23_e_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_rw, 5U, c23_g_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c23_rw, 5U, c23_f_sf_marshallOut,
     c23_e_sf_marshallIn);
   CV_SCRIPT_FCN(1, 0);
   _SFD_SCRIPT_CALL(1U, chartInstance->c23_sfEvent, 4);
@@ -776,21 +773,21 @@ static void c23_quatrot(SFc23_DePascali4MInstanceStruct *chartInstance, real_T
   }
 
   for (c23_i71 = 0; c23_i71 < 4; c23_i71++) {
-    c23_c_q[c23_i71] = c23_q[c23_i71];
+    c23_c_q[c23_i71] = c23_b_q[c23_i71];
   }
 
   c23_quatmultiply(chartInstance, c23_dv2, c23_c_q, c23_dv3);
   for (c23_i72 = 0; c23_i72 < 4; c23_i72++) {
-    c23_d_q[c23_i72] = c23_b_q[c23_i72];
+    c23_d_q[c23_i72] = c23_q[c23_i72];
   }
 
   for (c23_i73 = 0; c23_i73 < 4; c23_i73++) {
     c23_dv4[c23_i73] = c23_dv3[c23_i73];
   }
 
-  c23_quatmultiply(chartInstance, c23_d_q, c23_dv4, c23_dv5);
+  c23_quatmultiply(chartInstance, c23_d_q, c23_dv4, c23_b_q);
   for (c23_i74 = 0; c23_i74 < 4; c23_i74++) {
-    c23_rwq[c23_i74] = c23_dv5[c23_i74];
+    c23_rwq[c23_i74] = c23_b_q[c23_i74];
   }
 
   _SFD_SCRIPT_CALL(1U, chartInstance->c23_sfEvent, 5);
@@ -854,12 +851,12 @@ static void c23_b_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId,
   real_T c23_y[24])
 {
-  real_T c23_dv6[24];
+  real_T c23_dv5[24];
   int32_T c23_i78;
   (void)chartInstance;
-  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv6, 1, 0, 0U, 1, 0U, 1, 24);
+  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv5, 1, 0, 0U, 1, 0U, 1, 24);
   for (c23_i78 = 0; c23_i78 < 24; c23_i78++) {
-    c23_y[c23_i78] = c23_dv6[c23_i78];
+    c23_y[c23_i78] = c23_dv5[c23_i78];
   }
 
   sf_mex_destroy(&c23_u);
@@ -944,12 +941,12 @@ static void c23_c_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId,
   real_T c23_y[12])
 {
-  real_T c23_dv7[12];
+  real_T c23_dv6[12];
   int32_T c23_i84;
   (void)chartInstance;
-  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv7, 1, 0, 0U, 1, 0U, 1, 12);
+  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv6, 1, 0, 0U, 1, 0U, 1, 12);
   for (c23_i84 = 0; c23_i84 < 12; c23_i84++) {
-    c23_y[c23_i84] = c23_dv7[c23_i84];
+    c23_y[c23_i84] = c23_dv6[c23_i84];
   }
 
   sf_mex_destroy(&c23_u);
@@ -979,32 +976,6 @@ static void c23_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
 }
 
 static const mxArray *c23_d_sf_marshallOut(void *chartInstanceVoid, void
-  *c23_inData)
-{
-  const mxArray *c23_mxArrayOutData = NULL;
-  int32_T c23_i86;
-  real_T c23_b_inData[6];
-  int32_T c23_i87;
-  real_T c23_u[6];
-  const mxArray *c23_y = NULL;
-  SFc23_DePascali4MInstanceStruct *chartInstance;
-  chartInstance = (SFc23_DePascali4MInstanceStruct *)chartInstanceVoid;
-  c23_mxArrayOutData = NULL;
-  for (c23_i86 = 0; c23_i86 < 6; c23_i86++) {
-    c23_b_inData[c23_i86] = (*(real_T (*)[6])c23_inData)[c23_i86];
-  }
-
-  for (c23_i87 = 0; c23_i87 < 6; c23_i87++) {
-    c23_u[c23_i87] = c23_b_inData[c23_i87];
-  }
-
-  c23_y = NULL;
-  sf_mex_assign(&c23_y, sf_mex_create("y", c23_u, 0, 0U, 1U, 0U, 1, 6), false);
-  sf_mex_assign(&c23_mxArrayOutData, c23_y, false);
-  return c23_mxArrayOutData;
-}
-
-static const mxArray *c23_e_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData)
 {
   const mxArray *c23_mxArrayOutData = NULL;
@@ -1052,39 +1023,39 @@ static void c23_c_sf_marshallIn(void *chartInstanceVoid, const mxArray
   sf_mex_destroy(&c23_mxArrayInData);
 }
 
-static const mxArray *c23_f_sf_marshallOut(void *chartInstanceVoid, void
+static const mxArray *c23_e_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData)
 {
   const mxArray *c23_mxArrayOutData = NULL;
+  int32_T c23_i86;
+  int32_T c23_i87;
   int32_T c23_i88;
+  real_T c23_b_inData[9];
   int32_T c23_i89;
   int32_T c23_i90;
-  real_T c23_b_inData[9];
   int32_T c23_i91;
-  int32_T c23_i92;
-  int32_T c23_i93;
   real_T c23_u[9];
   const mxArray *c23_y = NULL;
   SFc23_DePascali4MInstanceStruct *chartInstance;
   chartInstance = (SFc23_DePascali4MInstanceStruct *)chartInstanceVoid;
   c23_mxArrayOutData = NULL;
-  c23_i88 = 0;
-  for (c23_i89 = 0; c23_i89 < 3; c23_i89++) {
-    for (c23_i90 = 0; c23_i90 < 3; c23_i90++) {
-      c23_b_inData[c23_i90 + c23_i88] = (*(real_T (*)[9])c23_inData)[c23_i90 +
-        c23_i88];
+  c23_i86 = 0;
+  for (c23_i87 = 0; c23_i87 < 3; c23_i87++) {
+    for (c23_i88 = 0; c23_i88 < 3; c23_i88++) {
+      c23_b_inData[c23_i88 + c23_i86] = (*(real_T (*)[9])c23_inData)[c23_i88 +
+        c23_i86];
     }
 
-    c23_i88 += 3;
+    c23_i86 += 3;
   }
 
-  c23_i91 = 0;
-  for (c23_i92 = 0; c23_i92 < 3; c23_i92++) {
-    for (c23_i93 = 0; c23_i93 < 3; c23_i93++) {
-      c23_u[c23_i93 + c23_i91] = c23_b_inData[c23_i93 + c23_i91];
+  c23_i89 = 0;
+  for (c23_i90 = 0; c23_i90 < 3; c23_i90++) {
+    for (c23_i91 = 0; c23_i91 < 3; c23_i91++) {
+      c23_u[c23_i91 + c23_i89] = c23_b_inData[c23_i91 + c23_i89];
     }
 
-    c23_i91 += 3;
+    c23_i89 += 3;
   }
 
   c23_y = NULL;
@@ -1097,13 +1068,13 @@ static void c23_e_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId,
   real_T c23_y[9])
 {
-  real_T c23_dv8[9];
-  int32_T c23_i94;
+  real_T c23_dv7[9];
+  int32_T c23_i92;
   (void)chartInstance;
-  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv8, 1, 0, 0U, 1, 0U, 2, 3,
+  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv7, 1, 0, 0U, 1, 0U, 2, 3,
                 3);
-  for (c23_i94 = 0; c23_i94 < 9; c23_i94++) {
-    c23_y[c23_i94] = c23_dv8[c23_i94];
+  for (c23_i92 = 0; c23_i92 < 9; c23_i92++) {
+    c23_y[c23_i92] = c23_dv7[c23_i92];
   }
 
   sf_mex_destroy(&c23_u);
@@ -1116,9 +1087,9 @@ static void c23_d_sf_marshallIn(void *chartInstanceVoid, const mxArray
   const char_T *c23_identifier;
   emlrtMsgIdentifier c23_thisId;
   real_T c23_y[9];
+  int32_T c23_i93;
+  int32_T c23_i94;
   int32_T c23_i95;
-  int32_T c23_i96;
-  int32_T c23_i97;
   SFc23_DePascali4MInstanceStruct *chartInstance;
   chartInstance = (SFc23_DePascali4MInstanceStruct *)chartInstanceVoid;
   c23_X = sf_mex_dup(c23_mxArrayInData);
@@ -1127,36 +1098,36 @@ static void c23_d_sf_marshallIn(void *chartInstanceVoid, const mxArray
   c23_thisId.fParent = NULL;
   c23_e_emlrt_marshallIn(chartInstance, sf_mex_dup(c23_X), &c23_thisId, c23_y);
   sf_mex_destroy(&c23_X);
-  c23_i95 = 0;
-  for (c23_i96 = 0; c23_i96 < 3; c23_i96++) {
-    for (c23_i97 = 0; c23_i97 < 3; c23_i97++) {
-      (*(real_T (*)[9])c23_outData)[c23_i97 + c23_i95] = c23_y[c23_i97 + c23_i95];
+  c23_i93 = 0;
+  for (c23_i94 = 0; c23_i94 < 3; c23_i94++) {
+    for (c23_i95 = 0; c23_i95 < 3; c23_i95++) {
+      (*(real_T (*)[9])c23_outData)[c23_i95 + c23_i93] = c23_y[c23_i95 + c23_i93];
     }
 
-    c23_i95 += 3;
+    c23_i93 += 3;
   }
 
   sf_mex_destroy(&c23_mxArrayInData);
 }
 
-static const mxArray *c23_g_sf_marshallOut(void *chartInstanceVoid, void
+static const mxArray *c23_f_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData)
 {
   const mxArray *c23_mxArrayOutData = NULL;
-  int32_T c23_i98;
+  int32_T c23_i96;
   real_T c23_b_inData[3];
-  int32_T c23_i99;
+  int32_T c23_i97;
   real_T c23_u[3];
   const mxArray *c23_y = NULL;
   SFc23_DePascali4MInstanceStruct *chartInstance;
   chartInstance = (SFc23_DePascali4MInstanceStruct *)chartInstanceVoid;
   c23_mxArrayOutData = NULL;
-  for (c23_i98 = 0; c23_i98 < 3; c23_i98++) {
-    c23_b_inData[c23_i98] = (*(real_T (*)[3])c23_inData)[c23_i98];
+  for (c23_i96 = 0; c23_i96 < 3; c23_i96++) {
+    c23_b_inData[c23_i96] = (*(real_T (*)[3])c23_inData)[c23_i96];
   }
 
-  for (c23_i99 = 0; c23_i99 < 3; c23_i99++) {
-    c23_u[c23_i99] = c23_b_inData[c23_i99];
+  for (c23_i97 = 0; c23_i97 < 3; c23_i97++) {
+    c23_u[c23_i97] = c23_b_inData[c23_i97];
   }
 
   c23_y = NULL;
@@ -1169,12 +1140,12 @@ static void c23_f_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId,
   real_T c23_y[3])
 {
-  real_T c23_dv9[3];
-  int32_T c23_i100;
+  real_T c23_dv8[3];
+  int32_T c23_i98;
   (void)chartInstance;
-  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv9, 1, 0, 0U, 1, 0U, 1, 3);
-  for (c23_i100 = 0; c23_i100 < 3; c23_i100++) {
-    c23_y[c23_i100] = c23_dv9[c23_i100];
+  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv8, 1, 0, 0U, 1, 0U, 1, 3);
+  for (c23_i98 = 0; c23_i98 < 3; c23_i98++) {
+    c23_y[c23_i98] = c23_dv8[c23_i98];
   }
 
   sf_mex_destroy(&c23_u);
@@ -1187,7 +1158,7 @@ static void c23_e_sf_marshallIn(void *chartInstanceVoid, const mxArray
   const char_T *c23_identifier;
   emlrtMsgIdentifier c23_thisId;
   real_T c23_y[3];
-  int32_T c23_i101;
+  int32_T c23_i99;
   SFc23_DePascali4MInstanceStruct *chartInstance;
   chartInstance = (SFc23_DePascali4MInstanceStruct *)chartInstanceVoid;
   c23_b_x = sf_mex_dup(c23_mxArrayInData);
@@ -1196,31 +1167,31 @@ static void c23_e_sf_marshallIn(void *chartInstanceVoid, const mxArray
   c23_thisId.fParent = NULL;
   c23_f_emlrt_marshallIn(chartInstance, sf_mex_dup(c23_b_x), &c23_thisId, c23_y);
   sf_mex_destroy(&c23_b_x);
-  for (c23_i101 = 0; c23_i101 < 3; c23_i101++) {
-    (*(real_T (*)[3])c23_outData)[c23_i101] = c23_y[c23_i101];
+  for (c23_i99 = 0; c23_i99 < 3; c23_i99++) {
+    (*(real_T (*)[3])c23_outData)[c23_i99] = c23_y[c23_i99];
   }
 
   sf_mex_destroy(&c23_mxArrayInData);
 }
 
-static const mxArray *c23_h_sf_marshallOut(void *chartInstanceVoid, void
+static const mxArray *c23_g_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData)
 {
   const mxArray *c23_mxArrayOutData = NULL;
-  int32_T c23_i102;
+  int32_T c23_i100;
   real_T c23_b_inData[4];
-  int32_T c23_i103;
+  int32_T c23_i101;
   real_T c23_u[4];
   const mxArray *c23_y = NULL;
   SFc23_DePascali4MInstanceStruct *chartInstance;
   chartInstance = (SFc23_DePascali4MInstanceStruct *)chartInstanceVoid;
   c23_mxArrayOutData = NULL;
-  for (c23_i102 = 0; c23_i102 < 4; c23_i102++) {
-    c23_b_inData[c23_i102] = (*(real_T (*)[4])c23_inData)[c23_i102];
+  for (c23_i100 = 0; c23_i100 < 4; c23_i100++) {
+    c23_b_inData[c23_i100] = (*(real_T (*)[4])c23_inData)[c23_i100];
   }
 
-  for (c23_i103 = 0; c23_i103 < 4; c23_i103++) {
-    c23_u[c23_i103] = c23_b_inData[c23_i103];
+  for (c23_i101 = 0; c23_i101 < 4; c23_i101++) {
+    c23_u[c23_i101] = c23_b_inData[c23_i101];
   }
 
   c23_y = NULL;
@@ -1233,12 +1204,12 @@ static void c23_g_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId,
   real_T c23_y[4])
 {
-  real_T c23_dv10[4];
-  int32_T c23_i104;
+  real_T c23_dv9[4];
+  int32_T c23_i102;
   (void)chartInstance;
-  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv10, 1, 0, 0U, 1, 0U, 1, 4);
-  for (c23_i104 = 0; c23_i104 < 4; c23_i104++) {
-    c23_y[c23_i104] = c23_dv10[c23_i104];
+  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), c23_dv9, 1, 0, 0U, 1, 0U, 1, 4);
+  for (c23_i102 = 0; c23_i102 < 4; c23_i102++) {
+    c23_y[c23_i102] = c23_dv9[c23_i102];
   }
 
   sf_mex_destroy(&c23_u);
@@ -1251,7 +1222,7 @@ static void c23_f_sf_marshallIn(void *chartInstanceVoid, const mxArray
   const char_T *c23_identifier;
   emlrtMsgIdentifier c23_thisId;
   real_T c23_y[4];
-  int32_T c23_i105;
+  int32_T c23_i103;
   SFc23_DePascali4MInstanceStruct *chartInstance;
   chartInstance = (SFc23_DePascali4MInstanceStruct *)chartInstanceVoid;
   c23_q = sf_mex_dup(c23_mxArrayInData);
@@ -1260,8 +1231,8 @@ static void c23_f_sf_marshallIn(void *chartInstanceVoid, const mxArray
   c23_thisId.fParent = NULL;
   c23_g_emlrt_marshallIn(chartInstance, sf_mex_dup(c23_q), &c23_thisId, c23_y);
   sf_mex_destroy(&c23_q);
-  for (c23_i105 = 0; c23_i105 < 4; c23_i105++) {
-    (*(real_T (*)[4])c23_outData)[c23_i105] = c23_y[c23_i105];
+  for (c23_i103 = 0; c23_i103 < 4; c23_i103++) {
+    (*(real_T (*)[4])c23_outData)[c23_i103] = c23_y[c23_i103];
   }
 
   sf_mex_destroy(&c23_mxArrayInData);
@@ -1669,7 +1640,7 @@ static void c23_info_helper(const mxArray **c23_info)
   sf_mex_addfield(*c23_info, c23_emlrt_marshallOut(
     "[E]C:/Users/Martin/Documents/Git/Simulink/DePascaliErhart/quatrot.m"),
                   "resolved", "resolved", 14);
-  sf_mex_addfield(*c23_info, c23_b_emlrt_marshallOut(1446066319U), "fileTimeLo",
+  sf_mex_addfield(*c23_info, c23_b_emlrt_marshallOut(1446631716U), "fileTimeLo",
                   "fileTimeLo", 14);
   sf_mex_addfield(*c23_info, c23_b_emlrt_marshallOut(0U), "fileTimeHi",
                   "fileTimeHi", 14);
@@ -2036,7 +2007,7 @@ static void c23_b_eml_scalar_eg(SFc23_DePascali4MInstanceStruct *chartInstance)
   (void)chartInstance;
 }
 
-static const mxArray *c23_i_sf_marshallOut(void *chartInstanceVoid, void
+static const mxArray *c23_h_sf_marshallOut(void *chartInstanceVoid, void
   *c23_inData)
 {
   const mxArray *c23_mxArrayOutData = NULL;
@@ -2056,10 +2027,10 @@ static int32_T c23_h_emlrt_marshallIn(SFc23_DePascali4MInstanceStruct
   *chartInstance, const mxArray *c23_u, const emlrtMsgIdentifier *c23_parentId)
 {
   int32_T c23_y;
-  int32_T c23_i106;
+  int32_T c23_i104;
   (void)chartInstance;
-  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), &c23_i106, 1, 6, 0U, 0, 0U, 0);
-  c23_y = c23_i106;
+  sf_mex_import(c23_parentId, sf_mex_dup(c23_u), &c23_i104, 1, 6, 0U, 0, 0U, 0);
+  c23_y = c23_i104;
   sf_mex_destroy(&c23_u);
   return c23_y;
 }
@@ -2118,7 +2089,7 @@ static void init_dsm_address_info(SFc23_DePascali4MInstanceStruct *chartInstance
 static void init_simulink_io_address(SFc23_DePascali4MInstanceStruct
   *chartInstance)
 {
-  chartInstance->c23_dx_do = (real_T (*)[6])ssGetInputPortSignal_wrapper
+  chartInstance->c23_dx_do = (real_T (*)[24])ssGetInputPortSignal_wrapper
     (chartInstance->S, 0);
   chartInstance->c23_b = (real_T (*)[24])ssGetOutputPortSignal_wrapper
     (chartInstance->S, 1);
@@ -2149,10 +2120,10 @@ extern void utFree(void*);
 
 void sf_c23_DePascali4M_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3694291409U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2310969651U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(782441100U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(4253247403U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2063983771U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(820083245U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2940229314U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3771825067U);
 }
 
 mxArray* sf_c23_DePascali4M_get_post_codegen_info(void);
@@ -2166,7 +2137,7 @@ mxArray *sf_c23_DePascali4M_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("GlfztGmXSk9HxHD4f6bw8");
+    mxArray *mxChecksum = mxCreateString("mmKpd3x44ppkl8lZTbNR8");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -2178,7 +2149,7 @@ mxArray *sf_c23_DePascali4M_get_autoinheritance_info(void)
     {
       mxArray *mxSize = mxCreateDoubleMatrix(1,2,mxREAL);
       double *pr = mxGetPr(mxSize);
-      pr[0] = (double)(6);
+      pr[0] = (double)(24);
       pr[1] = (double)(1);
       mxSetField(mxData,0,"size",mxSize);
     }
@@ -2413,13 +2384,13 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
         _SFD_CV_INIT_SCRIPT(0,1,0,0,0,0,0,0,0,0);
         _SFD_CV_INIT_SCRIPT_FCN(0,0,"skew_sm",0,-1,127);
         _SFD_CV_INIT_SCRIPT(1,1,0,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_SCRIPT_FCN(1,0,"quatrot",0,-1,189);
+        _SFD_CV_INIT_SCRIPT_FCN(1,0,"quatrot",0,-1,191);
 
         {
           unsigned int dimVector[1];
-          dimVector[0]= 6;
+          dimVector[0]= 24;
           _SFD_SET_DATA_COMPILED_PROPS(0,SF_DOUBLE,1,&(dimVector[0]),0,0,0,0.0,
-            1.0,0,0,(MexFcnForType)c23_d_sf_marshallOut,(MexInFcnForType)NULL);
+            1.0,0,0,(MexFcnForType)c23_sf_marshallOut,(MexInFcnForType)NULL);
         }
 
         {
@@ -2460,7 +2431,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization(void)
 {
-  return "CDeSXRTFuIUIKFya1XyhUB";
+  return "x2ZL1QSiyQYhWuz7JAfSSF";
 }
 
 static void sf_opaque_initialize_c23_DePascali4M(void *chartInstanceVar)
@@ -2602,10 +2573,10 @@ static void mdlSetWorkWidths_c23_DePascali4M(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(1444720225U));
-  ssSetChecksum1(S,(3421441299U));
-  ssSetChecksum2(S,(1809665904U));
-  ssSetChecksum3(S,(4089680527U));
+  ssSetChecksum0(S,(3710829230U));
+  ssSetChecksum1(S,(2220829532U));
+  ssSetChecksum2(S,(1812363269U));
+  ssSetChecksum3(S,(3016856789U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
   ssSupportsMultipleExecInstances(S,1);

@@ -204,7 +204,7 @@ static void sf_gateway_c32_DePascali4M(SFc32_DePascali4MInstanceStruct
   int32_T c32_i4;
   _SFD_SYMBOL_SCOPE_PUSH(0U, 0U);
   _sfTime_ = sf_get_time(chartInstance->S);
-  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 11U, chartInstance->c32_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 12U, chartInstance->c32_sfEvent);
   for (c32_i2 = 0; c32_i2 < 144; c32_i2++) {
     _SFD_DATA_RANGE_CHECK((*chartInstance->c32_G)[c32_i2], 0U);
   }
@@ -288,7 +288,7 @@ static void c32_chartstep_c32_DePascali4M(SFc32_DePascali4MInstanceStruct
   real_T c32_e_b[144];
   int32_T c32_i30;
   int32_T c32_i31;
-  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 11U, chartInstance->c32_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 12U, chartInstance->c32_sfEvent);
   c32_hoistedGlobal = chartInstance->c32_m0;
   c32_b_hoistedGlobal = chartInstance->c32_j0;
   for (c32_i5 = 0; c32_i5 < 144; c32_i5++) {
@@ -412,7 +412,7 @@ static void c32_chartstep_c32_DePascali4M(SFc32_DePascali4MInstanceStruct
     (*chartInstance->c32_Mapp)[c32_i31] = c32_b_Mapp[c32_i31];
   }
 
-  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 11U, chartInstance->c32_sfEvent);
+  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 12U, chartInstance->c32_sfEvent);
 }
 
 static void initSimStructsc32_DePascali4M(SFc32_DePascali4MInstanceStruct

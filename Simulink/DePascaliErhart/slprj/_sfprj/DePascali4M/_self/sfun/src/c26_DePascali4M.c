@@ -213,10 +213,10 @@ static void sf_gateway_c26_DePascali4M(SFc26_DePascali4MInstanceStruct
   int32_T c26_i14;
   _SFD_SYMBOL_SCOPE_PUSH(0U, 0U);
   _sfTime_ = sf_get_time(chartInstance->S);
-  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 5U, chartInstance->c26_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 6U, chartInstance->c26_sfEvent);
   _SFD_DATA_RANGE_CHECK(*chartInstance->c26_eta1, 0U);
   chartInstance->c26_sfEvent = CALL_EVENT;
-  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 5U, chartInstance->c26_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 6U, chartInstance->c26_sfEvent);
   c26_hoistedGlobal = *chartInstance->c26_eta1;
   c26_b_hoistedGlobal = chartInstance->c26_k1;
   c26_c_hoistedGlobal = chartInstance->c26_kappa1;
@@ -280,7 +280,7 @@ static void sf_gateway_c26_DePascali4M(SFc26_DePascali4MInstanceStruct
     (*chartInstance->c26_K)[c26_i13] = c26_b_K[c26_i13];
   }
 
-  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 5U, chartInstance->c26_sfEvent);
+  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 6U, chartInstance->c26_sfEvent);
   _SFD_SYMBOL_SCOPE_POP();
   _SFD_CHECK_FOR_STATE_INCONSISTENCY(_DePascali4MMachineNumber_,
     chartInstance->chartNumber, chartInstance->instanceNumber);
