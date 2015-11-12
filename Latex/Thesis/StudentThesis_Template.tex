@@ -1,5 +1,5 @@
 \documentclass[a4paper,twoside, openright,12pt]{report}
-\usepackage{psfrag,amsbsy,graphics,float}
+\usepackage{psfrag,amsbsy,graphics,float,amsmath}
 \usepackage{graphicx, color} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
 \usepackage[latin1]{inputenc}
 \usepackage{verbatim} 
@@ -205,7 +205,7 @@ source with \verb|\cite{}|.
 For bibliography, edit {\tt mybib.bib} and list all
 references in a special style, e.g. for a book: 
 \begin{verbatim}
-@book{literaturstelle1,
+@book{literaturselle1,
  author    = {S. Sastry},
  title     = {Nonlinear Systems - Analysis, Stability, and Control},
  publisher = {Springer},
@@ -213,7 +213,7 @@ references in a special style, e.g. for a book:
 }
 \end{verbatim}
 
-Cite references in the text by \cite{literaturstelle1}.
+Cite references in the text by.
 
 In order to have your references shown in your PDF, compile by:
 
@@ -294,6 +294,14 @@ Note that a literature review is just that, a review. It is not a list of papers
 
 Note: Do the literature review at an early stage of your project to build on the knowledge of others, not reinvent the wheel over and over again! There is nothing more frustrating after weeks or months of hard work to find that your great solution has been published 5 years ago and is considered old news or that there is a method known that produces superior results.
 
+
+\subsection{Determination of desired internal forces}
+Non-rigid grasps object and manipulators are connected with friction constraints. Contact force towards the object generates frictional force opposed to external forces tangential to the contact point. If the tangential forces exceed the frictional force the friction constraint is violated and contact slippage occurs. Squeezing or internal forces do not contribute to the motion of the constrained system. They need to be chosen sufficiently high to maintain a stable grasp under external forces acting on the object. On the other hand they must be bounded to not damage the object. These opposed requirements can be formulated as a cost function.\\
+Buss et al. \cite{Buss_96} propose a cost function consisting of two factors: one is a barrier function tending to infinity for violating the friction constraint limit, the other is linear function rising with the exerted force, making high forces costly. The optimal desired internal force is the minimum of the cost function, thus the forces are chosen as small as possible, preserving a stale grasp.\\
+Non-linear friction constraints are given for the \textit{point contact friction} and the \textit{soft contact friction} model:\\
+The \textit{point contact friction} constraint allows transmitting force in tangential  and normal  (only towards the object) direction. In addition the \textit{soft contact} constraint transmits the torsional moment around the normal axes. Buss' main contribution is that friction constraints can be reformulated  equivalent to positive definite matrices. These matrices are used to construct the cost function. This results in a convex optimization problem, thus an optimum is always a global optimum. \\
+Bicchi et al. \cite{Bicchi_98} limit their contribution to the \textit{point contact friction} model but expand the cost function. A maximum contact force is introduced, this is useful for rather loosing contact than destroying the object. Furthermore a minimum force in normal direction is specified to ensure grasp stability even under uncertainties. This two add up to with the friction constraint to a function, which has a negative scalar value if the set of constraints are respected. The sum of this functions for all contact points forms the cost function.\\ 
+Han et al. \cite{Han_2000} reformulated Buss' positive definite matrix approach as a \textit{linear matrix inequality}(LMI) problem. Being a common optimization task, efficient solvers (e.g. interior point algorithm) exist. Calculation time could be significantly reduced.
 %____________________________________________________
 
 
@@ -362,7 +370,7 @@ This chapter is followed by the list of figures and the bibliography. If you are
 %_____Literaturverzeichnis_________________________________
 \cleardoublepage
 \addcontentsline{toc}{chapter}{Bibliography}
-\bibliography{mybib}
+\bibliography{mybib}{}
 \bibliographystyle{alphaurl}
 %__________________________________________________________
 

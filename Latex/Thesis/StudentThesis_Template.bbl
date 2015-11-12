@@ -1,0 +1,42 @@
+\begin{thebibliography}{BHM96}
+
+\bibitem[BHM96]{Buss_96}
+M.~Buss, H.~Hashimoto, and J.B. Moore.
+\newblock Dextrous hand grasping force optimization.
+\newblock {\em Robotics and Automation, IEEE Transactions on}, 12(3):406--418,
+  1996.
+
+\bibitem[BJ99]{Bloe_99}
+Adam Bloe and Fred Joe.
+\newblock {Towards a unified solution of $x>y$}.
+\newblock {\em Math and other geeky stuff}, 1(1):1--23, 1999.
+
+\bibitem[BPA98]{Bicchi_98}
+A.~Bicchi, D.~Prattichizzo, and G.~Antognetti.
+\newblock Optimization of internal forces in force-closure grasp.
+\newblock {\em Proc. of the the 6th IEEE Mediterranean Conf. on Control and
+  Systems}, 16(6), 1998.
+
+\bibitem[Elp14]{Elphinstone2014}
+Kevin Elphinstone.
+\newblock {A Small Guide to Writing Your Thesis}, 2014.
+\newblock URL: \url{http://cgi.cse.unsw.edu.au/~kevine/thesisguide.html}.
+
+\bibitem[HTL00]{Han_2000}
+L.~Han, J.C. Trinkle, and Z.X. Li.
+\newblock Grasp analysis as linear matrix inequality problems.
+\newblock {\em Robotics and Automation, IEEE Transactions on}, 16(6):663--674,
+  2000.
+
+\bibitem[Jay99]{Jay_87}
+D~Jay.
+\newblock {Applications of $x>y$ with respect to constraints in $y$ and bounded
+  $x$}.
+\newblock {\em Journal of Solutions to Bounded Inputs}, 1(3):66--99, 1999.
+
+\bibitem[OLH00]{ONeill_2000}
+James O'Neill, Stan Laurel, and Oliver Hardy.
+\newblock {On the correctness of $x>y$: Limits in the case of $z>5$}.
+\newblock {\em Math and other geeky stuff}, 5(3):56--87, 2000.
+
+\end{thebibliography}
