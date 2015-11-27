@@ -1,0 +1,3 @@
+setlims([])
+[X11,n,sX11] = lmivar(1,[3 0]);
+sX11

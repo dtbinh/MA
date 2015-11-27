@@ -20,9 +20,9 @@ syms Sr1 Sr2 m0 m1 m2 J0 J1 J2 f0 t0 f1 t1 f2 t2 Somega2 r1 r2 real
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-% G = [1 0 1 0;
-%      Sr1 1 Sr2 1];
-%  null(-G)
+G = [1 0 1 0;
+     Sr1 1 Sr2 1];
+ null(-G)
  
  
- hred = Ared'*(Ared/Mred*Ared')^-1 *Ared/Mred
+ hred = Ared'*(Ared/Mred*Ared')^-1 *Ared/Mred;
