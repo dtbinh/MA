@@ -34,17 +34,17 @@ j4d = 1.00*j4;
 
 %position of manipulators
 r = [1; 0; 0;
-    0; 1; 0;
-    -1; 0; 0;
-    0; -1; 0];
+    -1; 0; 0];
+%     -1; 0; 0;
+%     0; -1; 0];
 %r_init = [1; 0; 0;-1; 0; 0];
 
 %Constraint Matrix
 %A = [-eye(3),skew_sm(r(1:3)),eye(3),zeros(3,9);zeros(3),-eye(3),zeros(3),eye(3),zeros(3,6);-eye(3),skew_sm(r(4:6)),zeros(3,6),eye(3),zeros(3);zeros(3),-eye(3),zeros(3,9),eye(3)];
 
 %stiffness
-k1 = 5;
-k2 = 5;
+k1 = 50;
+k2 = 50;
 k3 = 5;
 k4 = 5;
 kappa1 = 50;
