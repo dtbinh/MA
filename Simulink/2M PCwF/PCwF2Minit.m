@@ -1,5 +1,6 @@
 % Init file for Model1angular.slx
 
+
 %Grasp Selection Matrix PCwF
 H = blkdiag([eye(3) zeros(3)],[eye(3) zeros(3)]);
 
@@ -41,6 +42,9 @@ r = [1; 0; 0;
 
 %Constraint Matrix
 %A = [-eye(3),skew_sm(r(1:3)),eye(3),zeros(3,9);zeros(3),-eye(3),zeros(3),eye(3),zeros(3,6);-eye(3),skew_sm(r(4:6)),zeros(3,6),eye(3),zeros(3);zeros(3),-eye(3),zeros(3,9),eye(3)];
+
+%friction constant
+mu = 0.55;
 
 %stiffness
 k1 = 50;
