@@ -10,13 +10,17 @@
 \contentsline {chapter}{\numberline {2}Introduction}{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}Problem Statement}{9}{section.2.1}
 \contentsline {section}{\numberline {2.2}Related Work}{9}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Determination of desired internal forces}{10}{subsection.2.2.1}
-\contentsline {chapter}{\numberline {3}Main Part}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Design of your solution}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}Implementation}{13}{section.3.2}
-\contentsline {section}{\numberline {3.3}Experimental Results}{14}{section.3.3}
-\contentsline {paragraph}{Statistics:}{14}{section*.4}
-\contentsline {section}{\numberline {3.4}Discussion}{14}{section.3.4}
-\contentsline {chapter}{\numberline {4}Conclusion}{15}{chapter.4}
-\contentsline {chapter}{List of Figures}{17}{chapter.4}
-\contentsline {chapter}{Bibliography}{19}{chapter*.5}
+\contentsline {subsection}{\numberline {2.2.1}Friction grasps in Cooperative Manipulation}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}A passivity based control structure}{11}{subsection.2.2.2}
+\contentsline {subsubsection}{The Intrinsically Passive Controller (IPC)}{11}{section*.4}
+\contentsline {subsubsection}{The Supervisor}{12}{section*.5}
+\contentsline {subsection}{\numberline {2.2.3}Determination of desired internal forces}{12}{subsection.2.2.3}
+\contentsline {chapter}{\numberline {3}Main Part}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Design of your solution}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Implementation}{15}{section.3.2}
+\contentsline {section}{\numberline {3.3}Experimental Results}{16}{section.3.3}
+\contentsline {paragraph}{Statistics:}{16}{section*.6}
+\contentsline {section}{\numberline {3.4}Discussion}{16}{section.3.4}
+\contentsline {chapter}{\numberline {4}Conclusion}{17}{chapter.4}
+\contentsline {chapter}{List of Figures}{19}{chapter.4}
+\contentsline {chapter}{Bibliography}{21}{chapter*.7}
