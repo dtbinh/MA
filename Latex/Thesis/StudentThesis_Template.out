@@ -8,14 +8,15 @@
 \BOOKMARK [0][-]{chapter.2}{Introduction}{}% 8
 \BOOKMARK [1][-]{section.2.1}{Problem Statement}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.2}{Related Work}{chapter.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.1}{Friction grasps in Cooperative Manipulation}{section.2.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.2}{A passivity based control structure}{section.2.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.3}{Determination of desired internal forces}{section.2.2}% 13
-\BOOKMARK [0][-]{chapter.3}{Main Part}{}% 14
-\BOOKMARK [1][-]{section.3.1}{Design of your solution}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.2}{Implementation}{chapter.3}% 16
-\BOOKMARK [1][-]{section.3.3}{Experimental Results}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.4}{Discussion}{chapter.3}% 18
-\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 19
-\BOOKMARK [0][-]{chapter.4}{List of Figures}{}% 20
-\BOOKMARK [0][-]{chapter*.7}{Bibliography}{}% 21
+\BOOKMARK [2][-]{subsection.2.2.1}{Control schemes for rigidly connected manipulators}{section.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.2}{Friction grasps in Cooperative Manipulation}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.3}{A passivity based control structure}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.4}{Determination of desired internal forces}{section.2.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Main Part}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Design of your solution}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Implementation}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.3}{Experimental Results}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.4}{Discussion}{chapter.3}% 19
+\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 20
+\BOOKMARK [0][-]{chapter.4}{List of Figures}{}% 21
+\BOOKMARK [0][-]{chapter*.7}{Bibliography}{}% 22
