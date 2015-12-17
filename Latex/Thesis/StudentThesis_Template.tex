@@ -284,7 +284,7 @@ Haptic feedback??
 
 \section{Problem Statement}
 
-\textit{You can either state the problem you are trying to solve in the general introduction, providing the transition from the overall picture to your specific approach, or state it in a separate section. Even if you don't use the separate section, writing down in a few sentences why the problem you are trying to solve is actually hard and hasn't been solved before can give you a better idea of how to approach the topic. This can be also merged with the related work part.}\\
+%\textit{You can either state the problem you are trying to solve in the general introduction, providing the transition from the overall picture to your specific approach, or state it in a separate section. Even if you don't use the separate section, writing down in a few sentences why the problem you are trying to solve is actually hard and hasn't been solved before can give you a better idea of how to approach the topic. This can be also merged with the related work part.}\\
 
 Manipulating an unknown object in an unstructured environment is an interesting task for a human-guided cooperative manipulation set-up. Dropping the assumption of a rigid- connection between manipulator and object, the grasp has to be actively stabilized under varying circumstances. During dynamic manipulation a slipping of contact due to the inertia of the object has to be avoided using an automatic mechanism. On the other hand the operator must directly adjust grasp forces for heavy or fragile objects.\\
 Position and velocity of the manipulated object are difficult to track in an everyday setting. Usually only end-effector position and velocity of the robots are available. Object position has to be estimated from the known data.\\
@@ -324,20 +324,20 @@ A physical analogy the impedance control scheme is a spring-mass-damper system.\
 A rigid fixture between manipulator and object means that both forces and moments are exchanged at the grasp points: all translational and rotational motion components can be transmitted through the contact points. The rigid connections are expressed by a number of kinematic constraints, which reduce the Degrees-of-Freedom (DoF) of the constrained system. The attempt to move in the constrained directions results in internal loading of the object. Therefore trajectories of the manipulators have to be generated to avoid internal stress on the object. Assuming a rigid connection normally no grasping force is needed to stabilize the grasp, i.e. internal forces are undesired because possibly harmful to the object. Nevertheless some papers propose possibilities to specify or control internal forces.\\
 Among the first to use impedance control in cooperative manipulation were Schneider and Cannon \cite{Schneider_92}. They replaced the actual object by a virtual mass and connected it to the environment with a spring and a parallel damper. The resulting impedance equation is:
 \begin{equation}
-M_{o,d} (\ddot{x}_o^d - \ddot{x}_o) + D_o (\dot{x}_o^d - \dot{x}_o) + K_o(x_o^d,x_o) = h_{ext} 
+M_{o,d} (\ddot{x}_o^d - \ddot{x}_o) + D_o (\dot{x}_o^d - \dot{x}_o) + K_o(x_o^d,x_o) = h_{env} 
 \end{equation}
-Here $ M_{o,d} $ denotes the inertia of the virtual object, $ D_o $ is the damping along the spring, which is represented by $ K_o(x_d,x) $. $ x_o = (p_o^T,Q_o^T)^T $ is the stacked vector of position and orientation of the object. $ x^d $ denotes a desired quantity. The external wrench, exerted by the environment on the object, $ h_{ext} = (f_{ext}^T,t_{ext}^T)^T$ consists of force and torque vectors.
+Here $ M_{o,d} $ denotes the inertia of the virtual object, $ D_o $ is the damping along the spring, which is represented by $ K_o(x_d,x) $. $ x_o = (p_o^T,Q_o^T)^T $ is the stacked vector of position and orientation of the object. $ x^d $ denotes a desired quantity. The external wrench, exerted by the environment on the object, $ h_{env} = (f_{env}^T,t_{env}^T)^T$ consists of force and torque vectors.
 The dynamics of the virtual object is then given as:
 \begin{equation}
-M_{o,d}\ddot{x} = -h_{ext} + h_o^{\Sigma} = -h_{ext} + M_{o,d}\ddot{x}_d + D_o (\dot{x}_d - \dot{x}) + K_o(x_d,x)
+M_{o,d}\ddot{x} = -h_{env} + h_o^{\Sigma} = -h_{env} + M_{o,d}\ddot{x}_d + D_o (\dot{x}_d - \dot{x}) + K_o(x_d,x)
 \end{equation}
 The resulting impedance control output $ h_o^{\Sigma} $ is than mapped to the manipulators using a generalized inverse of the grasp matrix:
 \begin{equation}
 h^{\Sigma} = G^\dagger h_o^{\Sigma}
 \end{equation}
 Performance of this strategy depends on choosing the virtual inertia close to the actual, i.e. good knowledge of the object is required. Furthermore gravity compensation would be necessary to model the full object dynamics. In general the equation of motion for a rigid object is:
-\begin{equation}
-M_o \ddot{x}_o + C_o \dot{x}_o + g_o = h_{ext} + h^\Sigma
+\begin{equation}\label{EQ:ObjectDynamics}
+M_o \ddot{x}_o + C_o \dot{x}_o + g_o = h_{env} + h^\Sigma
 \end{equation}
 Wherein $ M_o $ is the actual object inertia, $ C_o $ is the Matrix accounting for the Coriolis force and $ g_o $ is the gravity. 
 For notational convenience the pose dependencies of the parameter matrices, e.g. $ M_o(x_o) $, are omitted.\\
@@ -345,8 +345,30 @@ Bonitz and Hsia \cite{Bonitz_96} propose to model each manipulator as an impedan
 \begin{equation}
 M_i(\ddot{x}_i^d - \ddot{x}_i) + D_i (\dot{x}_i^d - \dot{x}_i) + K_i(x_i^d,x_i) = h_{int}
 \end{equation}
-$ M_i, D_i, K_i(x_i^d,x_i) $ are the desired inertia, damping and stiffness representations of the i-th manipulator.
-
+$ M_i, D_i, K_i(x_i^d,x_i) $ are the desired inertia, damping and stiffness representations of the i-th manipulator.The internal wrench $ h_{int} = VV^\dagger h $ is calculated from the measured contact wrench $ h $. $ V $ is a basis of the nullspace of the grasp matrix, $ V^\dagger $ denotes the pseudoinverse. No assumptions on the object are necessary because it is not considered in the control scheme.\\ 
+The first approach ensures compliant object-environment interaction, while the second limits internal forces even in case of end-effector displacements. The both have been combined by Caccavale and Villani \cite{Caccavale_01}. Their control architecture is cascaded, consisting of a two level reference trajectory generation and a motion control loop below. On top-level an impedance relation between object and environment is used to generate a compliant trajectory subject to environmental forces:
+\begin{equation}
+\alpha M_o(\ddot{x}_o^d - \ddot{x}_o^r)  + D_o(\dot{x}_o^d - \dot{x}_o^r) + K_o(x_o^d,x_o^r)  = h_{env}
+\end{equation}
+The constant $ \alpha $ scales the object inertia proportionally to a desired value.
+The control output is the reference object acceleration $ \ddot{x}_o^r $, $ h_{env} $ is an input. This is sometimes called admittance control, admittance being the inverse of impedance. $ h_{env} $ has to be known, but is not easily measured in a practical set-up. Recalling (\ref{EQ:ObjectDynamics}) the environmental forces can be expressed as:
+\begin{equation}
+h_{env} =  M_o \ddot{x}_o^r + C_o \dot{x}_o^r + g_o - G^\dagger h
+\end{equation}
+Herein $ G^\dagger $ is a generalized inverse of the grasp matrix, selecting the motion inducing components from the measured contact wrench $ h $. $ \dot{x}_o^r, x_o^r $ are calculated from $ \ddot{x}_o^r $ by integration.
+From the compliant object trajectory ($ \ddot{x}_o^r,\dot{x}_o^r,x_o^r $) the desired trajectories of the manipulator ($ \ddot{x}_i^d,\dot{x}_i^d,x_i^d $) using the kinematic constraints. The reference manipulator trajectory, enforcing compliant behaviour between manipulators and object, is calculated from manipulator dynamics and internal forces: 
+\begin{equation}
+M_i(\ddot{x}_i^d - \ddot{x}_i^r) + D_i (\dot{x}_i^d - \dot{x}_i^r) + K_i(x_i^d,x_i^r) = VV^\dagger h
+\end{equation}
+The control output is the reference acceleration of the i-th manipulator $ \ddot{x}_i^r $, $ \dot{x}_i^r,x_i^r $ are obtained from integration. These variables are the inputs the inner motion control loop (PD-type). The strategy of compliant trajectories allows for high gains in the motion controller. Knowledge of object dynamics and measurement of the contact wrenches is required.\\
+In a frequently cited follow-up paper Caccavale et al. \cite{Caccavale_08} combine the concept of \emph{geometrically consistent stiffness} with the same architecture. This allows for selective stiffness behaviour along different directions.\\
+Recently Heck et al. worked with this architecture, they assume knwoledge of the environment instead of the object.
+The environmental wrench is than derived as:
+\begin{equation}
+h_{env} =  \Sigma D_{env} (\dot{x}_o^d - \dot{x}_o^r)  + \Sigma K_{env}(x_o^d,x_o^r)
+\end{equation}
+It is assumed here that the environment has a constant stiffness and damping ($ K_{env}(x_o^d,x_o^r),D_{env}) $. $ \Sigma $ is a diagonal selection matrix modelling the direction of contact.
+  
 
 
 
