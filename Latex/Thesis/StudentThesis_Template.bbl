@@ -1,5 +1,11 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{GFS{\etalchar{+}}14}
+\begin{thebibliography}{DPEZ{\etalchar{+}}15}
+
+\bibitem[BH96]{Bonitz_96}
+R.G. Bonitz and T.C. Hsia.
+\newblock Internal force-based impedance control for cooperating manipulators.
+\newblock {\em Robotics and Automation, IEEE Transactions on}, 12(1):78--89,
+  1996.
 
 \bibitem[BHM96]{Buss_96}
 M.~Buss, H.~Hashimoto, and J.B. Moore.
@@ -18,12 +24,35 @@ A.~Bicchi, D.~Prattichizzo, and G.~Antognetti.
 \newblock {\em Proc. of the the 6th IEEE Mediterranean Conf. on Control and
   Systems}, 16(6), 1998.
 
+\bibitem[CCMV08]{Caccavale_08}
+F.~Caccavale, P.~Chiacchio, A.~Marino, and L.~Villani.
+\newblock Six-dof impedance control of dual-arm cooperative manipulators.
+\newblock {\em Mechatronics, IEEE/ASME Transactions on}, 13(5):576--586, 2008.
+
+\bibitem[CV01]{Caccavale_01}
+F.~Caccvale and L.~Villani.
+\newblock An impedance control strategy for cooperative manipulation.
+\newblock {\em Advanced Intelligent Mechatronics, IEEE/ASME International
+  Conference on}, 1:343--348, 2001.
+
+\bibitem[DPEZ{\etalchar{+}}15]{DePascali_15}
+L.~De~Pascali, S.~Erhart, L.~Zaccarian, F.~Biral, and S.~Hirche.
+\newblock A decoupling scheme for force control in cooperative multi-robot
+  manipulation tasks.
+\newblock {\em Manuscript submitted for publication}, 2015.
+
 \bibitem[GFS{\etalchar{+}}14]{Gioioso_2014}
 G.~Gioioso, A.~Franchi, G.~Salvietti, S.~Scheggi, and D.~Prattichizzo.
-\newblock The flying hand: A formation of uavs for cooperative aerial
+\newblock The flying hand: A formation of {UAVs} for cooperative aerial
   tele-manipulation.
 \newblock {\em Robotics and Automation (ICRA), 2014 IEEE International
   Conference on}, pages 4335--4341, May 2014.
+
+\bibitem[HKDN13]{Heck_13}
+D.~Heck, D.~Kostic, A.~Denasi, and H.~Nijmeijer.
+\newblock Six-dof impedance control of dual-arm cooperative manipulators.
+\newblock {\em Control Conference (ECC), 2013 European}, pages 2299--2304, July
+  2013.
 
 \bibitem[Hog84]{Hogan_84}
 N.~Hogan.
@@ -60,9 +89,35 @@ S.A. Schneider and R.H. Cannon.
 \newblock {\em Robotics and Automation, IEEE Transactions on}, 8(3):383--394,
   1992.
 
+\bibitem[SMH15]{Sieber_15}
+D.~Sieber, S.~Music, and S.~Hirche.
+\newblock Multi-robot manipulation controlled by a human with haptic feedback.
+\newblock {\em IEEE/RSJ International Conference on Intelligent Robots and
+  Systems (IROS)}, pages 2440--2446, Sep 2015.
+
+\bibitem[Str01]{Stramigioli_01}
+Stefano Stramigioli.
+\newblock {\em Modeling and IPC Control of Interactive Mechanical Systems: A
+  Coordinate-Free Approach}.
+\newblock Springer-Verlag London, London, UK, 2001.
+
 \bibitem[WKD92]{Wen_92}
 J.~Wen and K.~Kreutz-Delgado.
 \newblock Motion and force control of multiple robotic manipulators.
 \newblock {\em Automatica}, 28(4):729--743, 1992.
+
+\bibitem[WOH06]{Wimboeck_06}
+T.~Wimboeck, C.~Ott, and G.~Hirzinger.
+\newblock Passivity-based object-level impedance control for a multifingered
+  hand.
+\newblock {\em IEEE/RSJ International Conference on Intelligent Robots and
+  Systems (IROS)}, pages 4621--4627, Oct 2006.
+
+\bibitem[WOH08]{Wimboeck_08}
+T.~Wimboeck, C.~Ott, and G.~Hirzinger.
+\newblock Analysis and experimental evaluation of the intrinsically passive
+  controller (ipc) for multifingered hands.
+\newblock {\em Robotics and Automation, IEEE International Conference on},
+  pages 278--284, May 2008.
 
 \end{thebibliography}

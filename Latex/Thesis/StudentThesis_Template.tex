@@ -1,5 +1,5 @@
 \documentclass[a4paper,twoside, openright,12pt]{report}
-\usepackage{psfrag,amsbsy,graphics,float,amsmath}
+\usepackage{psfrag,amsbsy,graphics,float,amsmath,amssymb}
 \usepackage{graphicx, color} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
 \usepackage[latin1]{inputenc}
 \usepackage{verbatim} 
@@ -272,7 +272,7 @@ Any cited document, whatever it may be, has a few \textbf{mandatory} features:
 Cooperative manipulation involves two or more robots collectively moving or manipulating a common object. Such a set-up overcomes many limitations seen by single robots. Tasks for cooperative manipulators are for instance, carrying of large or heavy objects, grasping of objects without special fixtures and even manipulation of flexible objects.\\
 The major challenge is to simultaneously control the forces between the manipulators and the object, so to say the internal stress exerted on the object, and the forces between the object and the environment, i.e. the absolute motion of the object.
 Strategies that map force and velocity of the object to the manipulators have to be considered.\\
-One important assumption it the nature of the connection between manipulator and object. It can be seen as rigid or more general as friction-based. With a rigid fixture the grasp is always stable, on the contrary friction grasps need to be actively stabilized. To comply with the friction constraints a contact normal force has to be set, dependent on the tangential components present during manipulation.\\
+One important assumption is the nature of the connection between manipulator and object. It can be seen as rigid or more general as friction-based. With a rigid fixture the grasp is always stable, on the contrary friction grasps need to be actively stabilized. To comply with the friction constraints a contact normal force has to be set, dependent on the tangential components present during manipulation.\\
 Towards a versatile usage of cooperative manipulation it is vital to let the human operator control the robotic system intuitively and naturally. 
 A promising approach is gesture control. Gioioso et al. \cite{Gioioso_2014} demonstrated this for a formation of unmanned aerial vehicles. They are able to control opening and closing of the grasp. In a grasped state the objects's pose and the grasping forces can be changed, just by tracking gesture of a single human hand. 
 Directly integrating the human into the control scheme makes use of the visual tracking capacities of the human and eases operation in unknown environments. Regardless of the operator being present on-site with the robots or not, hand tracking and analysis requires a certain time. This delay in the control loop can cause instability. The problem can be modelled as a transmission line with delay and treated with methods known from tele-operation.
@@ -362,23 +362,55 @@ M_i(\ddot{x}_i^d - \ddot{x}_i^r) + D_i (\dot{x}_i^d - \dot{x}_i^r) + K_i(x_i^d,x
 \end{equation}
 The control output is the reference acceleration of the i-th manipulator $ \ddot{x}_i^r $, $ \dot{x}_i^r,x_i^r $ are obtained from integration. These variables are the inputs the inner motion control loop (PD-type). The strategy of compliant trajectories allows for high gains in the motion controller. Knowledge of object dynamics and measurement of the contact wrenches is required.\\
 In a frequently cited follow-up paper Caccavale et al. \cite{Caccavale_08} combine the concept of \emph{geometrically consistent stiffness} with the same architecture. This allows for selective stiffness behaviour along different directions.\\
-Recently Heck et al. worked with this architecture, they assume knwoledge of the environment instead of the object.
+Recently Heck et al. \cite{Heck_13} worked with this architecture, they assume knowledge of the environment instead of the object.
 The environmental wrench is than derived as:
 \begin{equation}
 h_{env} =  \Sigma D_{env} (\dot{x}_o^d - \dot{x}_o^r)  + \Sigma K_{env}(x_o^d,x_o^r)
 \end{equation}
-It is assumed here that the environment has a constant stiffness and damping ($ K_{env}(x_o^d,x_o^r),D_{env}) $. $ \Sigma $ is a diagonal selection matrix modelling the direction of contact.
-  
-
+It is assumed here that the environment has a constant stiffness and damping ($ K_{env}(x_o^d,x_o^r),D_{env}) $. $ \Sigma $ is a diagonal selection matrix modelling the direction of contact.\\
+A combination of impedance control on manipulator/object level and feed-forward object dynamics is presented in\cite{DePascali_15}. The manipulators are modelled as springs and dampers, inertia is used to feed-forward the desired acceleration: 
+\begin{equation}
+M_i \ddot{x}_i^d + D_i (\dot{x}_i^d - \dot{x}_i) + K_i(x_i^d,x_i) = h^x
+\end{equation}
+This avoids the necessity of either measuring manipulator acceleration or contact force.
+Object dynamics is represented with feed-forward term, mapped to the manipulators with a weighted pseudoinverse $ G^+ $ of the grasp matrix:
+\begin{equation}
+h^d = G^+ (M_o \ddot{x_o^d} + C_o \dot{x_o^d} + g_o)
+\end{equation}
+Note that this term is not an impedance relation and does not adjust if the environment hinders motion.
+The combined control law is $ h^\Sigma = h^x + h^d $.\\
+ 
 
 
 \subsection{Friction grasps in Cooperative Manipulation}
-A common assumption in Cooperative Manipulation is a rigid-connection between object and manipulators. This is a bilateral constraint with 6 Degrees-of-freedom (DoF), allowing the manipulator to push and pull the object in 3D space as well as to transmit moments around all axis. 
-This assumption is reasonable if the manipulator is equipped with appropriate devices. In analogy to a human this device would be fingers wrapping around an inhomogeneity on the object, to achieve a form-closure grasp.  For an even object (e.g. ball) humans often use their hand palms to realize a friction grasp. Grasp stability is ensured by pressing the object. This approach can be represented with either the Point Contact with Friction (PCwF) or the soft contact model. 
-Technical applications where cooperative manipulators should be able to do a friction grasp are numerous, e.g. when no appropriate grasping device is available (or shall be avoided) or the object structure is not graspable.
-\\ \\
-Research of friction grasps is mainly done with robotic hands [references here], internal forces are chosen sufficiently high to maintain a stable grasps. Undesired or unnecessary and possibly harmful internal forces, which occur during dynamic manipulation of the object, however are a minor concern. Discrete robots in cooperative manipulation are often powerful, enabling them to handle heavy objects. But on the other hand they are able to destroy the object if internal wrenches are not properly controlled.
-Allowing a human to directly control the formation (e.g. with gestures), three parameters are to be specified by the operator: position, orientation and grasping force. Tracking and processing human inputs causes a delay, which can be compared to a telemanipulation setting, although the operator may be on-site. A local controller is required to ensure a secure grasp while human interfacing can be higher level control.
+The assumption of rigid-fixture between object and manipulators only holds f the manipulators are equipped with  appropriate grasping devices. In analogy to a human this device would be fingers wrapping around an inhomogeneity on the object, to achieve a rigid grasp. For an even object (e.g. a ball) humans use their hand palms to realize a friction grasp. Grasp stability is ensured by pressing the object. Technical applications where cooperative manipulators should be able to do a friction grasp are numerous, e.g. when no appropriate grasping device is available (or shall be avoided) or the object structure is not graspable.\\
+Research of friction grasps is mainly done with robotic hands, the fingertips being the contact points. Depending on the nature of the tip a certain number of contacts is required to achieve a firm grasp: for non-deformable and small but frictional contacts, three are required to hold an object with 6 \emph{DoF} tightly. This contact model is called \emph{Hard Finger} or \emph{Point Contact with Friction (PCwF)}. It allows to transmit forces along the contact normal in pushing direction and for forces in tangential plane. If the contact is deformable or of considerable size, two are sufficient contact points form a firm grasp. This is called \emph{Soft Finger} model. In addition to the \emph{Hard Finger} torques around the contact normal are transferred.\\
+The problem of grasping divides into three sub-problems: selection of suitable grasp points, coordinated motion of the constrained system and control of the grasping force especially when interacting with the environment. The problem of coordinated motion is very similar to the case of rigid-fixture, while the control is exclusive to friction grasps. With robot hands it is most important to maintain a stable grasp. Undesired or unnecessary and possibly harmful internal forces occur during dynamic manipulation and interaction with the environment. Since discrete robots in cooperative manipulation are often powerful, proper control of the internal forces becomes more important.\\
+For the reasons stated in the previous subsection hybrid position/force control approaches are less suitable than impedance control and will not be considered. The control architectures for rigid-fixture can be re-used if a internal force is applied in addition. By definition internal forces do not contribute to the motion of the constrained system and thus do not interfere with the control goals of rigid-fixture. Formally this can be described as $ G h_{int} = 0 $, i.e. the internal forces $ h_{int} $ lie in the null-space of the grasp matrix $ G $. To calculate desired internal forces a suitable vector $ z $ is multiplied with a basis of the null-space of the grasp matrix $ V $: $ h_{int}^d = V z $.\\
+When it comes to uncertainties of contact points or deformable objects, calculating internal forces from a fixed grasp matrix may lead to undesired results. One alternative are springs with rest-lengths that connect the object and manipulator or between the manipulators. Varying the rest-length internal forces can be chosen in a physically meaningful way.
+Sieber et al.\cite{Sieber_15} interconnect the manipulators to realize a desired formation of the robots around the object. The generated force of manipulator $ i $ due to the springs connecting to the other manipulators $ j \in N_i $ is:
+\begin{equation}
+f_i^d = - \sum_{\substack{j\in N_i}} k_{ij} \dfrac{p_i - p_j}{\vert p_i - p_j \vert} (\vert p_i-p_j\vert - d_{ij})
+\end{equation}
+Notably here $ p\in\mathbb{R}^3 $ only represents the position of the manipulator, orientation information is omitted. Using the \emph{Hard Finger} contact model a pure translational representation is sufficient since it does not transmit torques. $ k_{ij} \in \mathbb{R}^{3 \times 3} $ is the stiffness matrix of the spring connecting manipulators $ i $ and $ j $. The rest or equilibrium length is defined by $ d_{ij} $.
+The approach controls only the formation of the robots and does not take the object dynamics into account. Positional control for the object is done assuming the object to be in the middle of the manipulators: $ p_o = \frac{1}{N} \sum\nolimits_{i=1}^{N} x_i $. This has important advantages: no need to know the object's dynamics and no need for tracking the object.\\
+Similar in this respect is the  \emph{Static IPC} by Wimb\"ock et al.\cite{Wimboeck_06}. The concept of the \emph{intrisically passive controller (IPC)} was introduced by Stramigioli\cite{Stramigioli_01} and will be covered later on. Here the rest-length springs connect to the middle of the manipulator set-up. The force generated by a single spring connecting from manipulator $ i $ to the center is: $ k_{i} \frac{p_i - p_o}{\vert p_i - p_o \vert} (\vert p_i-p_o\vert - d_{i}) $ Considering the cross-coupling of the springs the generated forces are:
+\begin{equation}
+f^d  = - \sum_{i=1}^N\left[\dfrac{\partial (p_i-p_o)^T}{\partial p} k_i \dfrac{p_i-p_o}{\vert p_i-p_o\vert}  (\vert p_i-p_o\vert - d_i) \right]
+\end{equation}
+Wherein $ \frac{\partial (p_i-p_o)^T}{\partial p} \in \mathbb{R}^{3N \times 3} $ is the cross-coupling matrix.
+Furthermore this approach uses another spring to connect environment and object. This is a 6 \emph{DoF} spring, thus the object's position and orientation is controlled. Force and torque are computed as:
+\begin{subequations}
+\begin{align}
+f_o^d = K_{o,t} R_o^T (p_o-p_o^d) \\
+t_o^d = 4 J^T_{\omega\epsilon} K_{o,r} \epsilon_d 
+\end{align}
+\end{subequations}
+The translational and rotational stiffness matrices are denoted by $ K_{o,t},K_{o,r} $. $ R_o $ is a rotation matrix indicating the object orientation, it is defined by the manipulator positions. $ \epsilon_d $ is the rotational error represented by the vector part of the quaternion, $ J^T_{\omega\epsilon} $ denotes the reduced quaternion product.\\
+While $ f^d $ acts on the manipulators, $ f_o^d $ and $ t_o^d $ act on the object. This is resolved by the hand geometry, different hand Jacobian matrices cast the wrenches into joint torques.
+Damping along each spring is proposed. This important especially for the cross-coupling springs to suppress oscillatory internal motions.
+Yet another approach by the same authors is what they call the \emph{dynamic IPC}\cite{Wimboeck_08}.
+%Allowing a human to directly control the formation (e.g. with gestures), three parameters are to be specified by the operator: position, orientation and grasping force. Tracking and processing human inputs causes a delay, which can be compared to a telemanipulation setting, although the operator may be on-site. A local controller is required to ensure a secure grasp while human interfacing can be higher level control.
 \subsection{A passivity based control structure}
 The controller is divided into two parts, the local one does the real-time interaction of the manipulators with the object. This part is passive, i.e. the robot along with its local controller has a certain amount of energy, the energy can not increase as long as no power is provided by the environment or the higher-level control part. Therefore the two parts will be called Intrinsically Passive Controller and Supervisor, this scheme was introduced by Stramigioli [??] as a general framework with application to robotic hands.
 \subsubsection{The Intrinsically Passive Controller (IPC)}
