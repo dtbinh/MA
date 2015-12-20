@@ -40,24 +40,24 @@ r = [1; 0; 0;
 %A = [-eye(3),skew_sm(r(1:3)),eye(3),zeros(3,9);zeros(3),-eye(3),zeros(3),eye(3),zeros(3,6);-eye(3),skew_sm(r(4:6)),zeros(3,6),eye(3),zeros(3);zeros(3),-eye(3),zeros(3,9),eye(3)];
 
 %stiffness
-k1 = 8000;
-k2 = 8000;
-k3 = 8000;
-k4 = 8000;
-kappa1 = 1000;
-kappa2 = 1000;
-kappa3 = 1000;
-kappa4 = 1000;
+k1 = 5;
+k2 = 5;
+k3 = 5;
+k4 = 5;
+kappa1 = 50;
+kappa2 = 50;
+kappa3 = 50;
+kappa4 = 50;
 
 %damping
-d1 = 550;
-d2 = 550;
-d3 = 550;
-d4 = 550;
-delta1 = 200;
-delta2 = 200;
-delta3 = 200;
-delta4 = 200;
+d1 = 100;
+d2 = 100;
+d3 = 100;
+d4 = 100;
+delta1 = 30;
+delta2 = 30;
+delta3 = 30;
+delta4 = 30;
 
 
 

@@ -8,6 +8,9 @@ LIBFLAGS =
 OBJECTS = \
 	"DePascali4M_sfun.obj"\
 	"c1_DePascali4M.obj"\
+	"c5_DePascali4M.obj"\
+	"c6_DePascali4M.obj"\
+	"c7_DePascali4M.obj"\
 	"c21_DePascali4M.obj"\
 	"c22_DePascali4M.obj"\
 	"c23_DePascali4M.obj"\
@@ -18,10 +21,6 @@ OBJECTS = \
 	"c29_DePascali4M.obj"\
 	"c30_DePascali4M.obj"\
 	"c31_DePascali4M.obj"\
-	"c32_DePascali4M.obj"\
-	"c33_DePascali4M.obj"\
-	"c34_DePascali4M.obj"\
-	"c35_DePascali4M.obj"\
 	"c36_DePascali4M.obj"\
 	"c37_DePascali4M.obj"\
 	"c38_DePascali4M.obj"\
@@ -54,6 +53,12 @@ DePascali4M_sfun.obj :	"DePascali4M_sfun.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "DePascali4M_sfun.c"
 c1_DePascali4M.obj :	"c1_DePascali4M.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_DePascali4M.c"
+c5_DePascali4M.obj :	"c5_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_DePascali4M.c"
+c6_DePascali4M.obj :	"c6_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_DePascali4M.c"
+c7_DePascali4M.obj :	"c7_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_DePascali4M.c"
 c21_DePascali4M.obj :	"c21_DePascali4M.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c21_DePascali4M.c"
 c22_DePascali4M.obj :	"c22_DePascali4M.c"
@@ -74,14 +79,6 @@ c30_DePascali4M.obj :	"c30_DePascali4M.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c30_DePascali4M.c"
 c31_DePascali4M.obj :	"c31_DePascali4M.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c31_DePascali4M.c"
-c32_DePascali4M.obj :	"c32_DePascali4M.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c32_DePascali4M.c"
-c33_DePascali4M.obj :	"c33_DePascali4M.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c33_DePascali4M.c"
-c34_DePascali4M.obj :	"c34_DePascali4M.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c34_DePascali4M.c"
-c35_DePascali4M.obj :	"c35_DePascali4M.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c35_DePascali4M.c"
 c36_DePascali4M.obj :	"c36_DePascali4M.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c36_DePascali4M.c"
 c37_DePascali4M.obj :	"c37_DePascali4M.c"
