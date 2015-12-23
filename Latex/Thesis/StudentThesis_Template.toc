@@ -1,29 +1,16 @@
-\contentsline {chapter}{\numberline {1}Working with this Template}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Style and Expressions}{5}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Subsection}{5}{subsection.1.1.1}
-\contentsline {subsubsection}{Subsubsection}{5}{section*.2}
-\contentsline {paragraph}{Paragraphs}{6}{section*.3}
-\contentsline {section}{\numberline {1.2}Compiling}{6}{section.1.2}
-\contentsline {section}{\numberline {1.3}Equations}{6}{section.1.3}
-\contentsline {section}{\numberline {1.4}Figures}{6}{section.1.4}
-\contentsline {section}{\numberline {1.5}Citations}{7}{section.1.5}
-\contentsline {chapter}{\numberline {2}Introduction}{9}{chapter.2}
-\contentsline {section}{\numberline {2.1}Problem Statement}{10}{section.2.1}
-\contentsline {section}{\numberline {2.2}Related Work}{10}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Control schemes for rigidly connected manipulators}{11}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Friction grasps in Cooperative Manipulation}{13}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}A passivity based control structure}{16}{subsection.2.2.3}
-\contentsline {subsubsection}{The Intrinsically Passive Controller (IPC)}{16}{section*.4}
-\contentsline {subsubsection}{The Supervisor}{17}{section*.5}
-\contentsline {subsection}{\numberline {2.2.4}Determination of desired internal forces}{17}{subsection.2.2.4}
-\contentsline {chapter}{\numberline {3}Main Part}{19}{chapter.3}
-\contentsline {section}{\numberline {3.1}Performance Comparison of control strategies}{19}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Internal force impedance control with feed-forward of the object dynamics \cite {DePascali_15}}{19}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Internal and external impedance based reference trajectory generation \cite {Caccavale_01}}{20}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Implementation}{20}{section.3.2}
-\contentsline {section}{\numberline {3.3}Experimental Results}{21}{section.3.3}
-\contentsline {paragraph}{Statistics:}{22}{section*.6}
-\contentsline {section}{\numberline {3.4}Discussion}{22}{section.3.4}
-\contentsline {chapter}{\numberline {4}Conclusion}{23}{chapter.4}
-\contentsline {chapter}{List of Figures}{25}{chapter.4}
-\contentsline {chapter}{Bibliography}{27}{chapter*.7}
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Problem Statement}{7}{section.1.1}
+\contentsline {section}{\numberline {1.2}Related Work}{8}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Control schemes for rigidly connected manipulators}{9}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Friction grasps in Cooperative Manipulation}{11}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Determination of desired internal forces}{14}{subsection.1.2.3}
+\contentsline {chapter}{\numberline {2}Main Part}{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}Performance Comparison of control strategies}{15}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Internal force impedance control with feed-forward of the object dynamics \cite {DePascali_15}}{15}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Internal and external impedance based reference trajectory generation \cite {Caccavale_01}}{16}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Dynamic Intrinsically Passive Controller (IPC) \cite {Wimboeck_08} }{16}{subsection.2.1.3}
+\contentsline {chapter}{\numberline {3}Further work}{19}{chapter.3}
+\contentsline {subsubsection}{The Intrinsically Passive Controller (IPC)}{19}{section*.2}
+\contentsline {subsubsection}{The Supervisor}{20}{section*.3}
+\contentsline {chapter}{List of Figures}{21}{section*.3}
+\contentsline {chapter}{Bibliography}{23}{chapter*.4}

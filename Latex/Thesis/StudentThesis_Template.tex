@@ -50,7 +50,7 @@
 \begin{center}
 \phantom{u}
 \vspace{0.5cm}
-\Huge{\sc Thesis' Title}\\
+\Huge{\sc Control of a multi-robot cooperative team guided by a human-operator}\\
 \vspace{1.5cm}
                                  \large{%eingereichte\\
 			  %DIPLOMARBEIT\\%/STUDIENARBEIT/MASTERRBEIT/BACHELORARBEIT\\ 
@@ -130,132 +130,132 @@ Hier die deutschsprachige Zusammenfassung
 %_____________________________________________________
 
 
-\chapter{Working with this Template}
-
-Make sure your thesis is well structured, that each major section does what it is supposed to do, and that the whole thing hangs together. The basic structure is often as given in this template (but other structures are possible). In particular, don't think you need to have exactly as many major sections or chapters as the list implies; sometimes it makes sense to merge things, sometimes it makes sense to move things (e.g., the literature review is in many papers deferred until after the results), sometimes it makes sense to split a logical part into several individual sections. Just use some common sense.
-
-Hand in your thesis at minimum \textbf{one week} before the deadline for correction. You will receive feedback for the final version and very likely have to do minor or major revisions of your writing. Plan your writing schedule to allow for these adjustments, which can have quite some impact on your grade! 
-
-\section{Style and Expressions}
-
-Before handing in your thesis, even for an intermediate review, please perform a spellcheck and correct grammar mistakes. The report is not meant to be a narrative text. Please stick to neutral and technical style and avoid subjective or biased expressions or adjectives/adverbs such as \emph{obviously, always, very, especially well, actually, so-called etc}. Scientific writing is about precision and you should underpin your statements factually, not soften them with unnecessary qualifiers.
-
-\subsection{Subsection}
-
-Use chapters, sections and subsections to structure your document
-
-\subsubsection{Subsubsection}
-
-Subsubsections can be used to further structure information within a subsection. They don't show up in your list of contents.
-
-\paragraph{Paragraphs} are sometimes more useful than subsubsections to structure text without breaking the flow.
-
-\section{Compiling}
-Linux: 
-do the following in a Shell:\\
-\begin{verbatim}
-latex myfile
-dvips myfile
-ps2pdf -sPAPERSIZE=a4 myfile.ps
-\end{verbatim}
-Make sure to use the A4 option, when you print the pdf!
-
-\section{Equations}
-Equations are written like that $x^2$. Or like that:
-\begin{equation}
-x^2
-\label{EQ:gleichung1}
-\end{equation}
-You can use (\ref{EQ:gleichung1}) to reference an equation in the
-text. Equations without reference number:
-\[
-x^2
-\]
-
-Please type all numbers in mathematics mode.
-Mathematical equations which are not part of the text should be centred.
-A parameter or variable must not be used at the beginning of a sentence.
-Type physical units as normal text, e.g. s, not $s$!
-Formulas must not jut out over the text margin, so take care to stay within the margins and eventually break the equation into several lines.
-Explain the variables you use. For each newly introduced variable, at least a short description of it should follow the equation in the style of \emph{\ldots with $x$ being the position of the cart and $u$ the control input.}
-In columns, align equations with the arithmetic operator \verb|(=,<, ...)|.
-Mathematical units must be consistently labeled with only one variable. Do not
-use a variable for more than one mathematical unit.
-
-\section{Figures}
-
-For pictures, it is convenient, if they are .eps.
-\begin{figure}[htb]
-\centering
-%\includegraphics[width=0.6\textwidth]{abbildung.eps}
-\caption[Abbreviated Description]{Long Description: The subtitles of tables and illustrations should be self-explanatory.}
-\label{FIG:abb1}
-\end{figure}
-
-Every illustration must be described and referenced in the text, cf. Fig. \ref{FIG:abb0}. 
-There is no such thing as a decorative figure! 
-If the figure is not mentioned in the text and therefore lacks an explanatory function, leave it.
-Lines in plots need to be clearly distinguishable, also in black-and-white print. 
-The subtitles and axis labels must be clearly legible (i.e. big enough) and include a scaling.
-If the illustration is copied from another person's work, you need to mention the
-source with \verb|\cite{}|.
-
-\section{Citations}
-
-For bibliography, edit {\tt mybib.bib} and list all
-references in a special style, e.g. for a book: 
-\begin{verbatim}
-@book{literaturselle1,
- author    = {S. Sastry},
- title     = {Nonlinear Systems - Analysis, Stability, and Control},
- publisher = {Springer},
- year      = 1999
-}
-\end{verbatim}
-
-Cite references in the text by.
-
-In order to have your references shown in your PDF, compile by:
-
-\begin{verbatim} 
-latex myfile
-bibtex myfile
-latex myfile
-latex  myfile
-dvips myfile
-ps2pdf -sPAPERSIZE=a4 myfile.ps
-\end{verbatim}
-
-Whether to use numeric or alphabetic references isn't all that important (unless prescribed by a conference or journal), but alphabetic tends to be more readable. Independent of citation style, the following rules should be followed:
-
-\begin{itemize}
-\item Use the \LaTeX~cite package. It doesn't give you additional commands, but it fixes a few quirks in \LaTeX. Among others it automatically sorts multiple citations, and it correctly spaces the angular brackets (if you use the \verb|\cite| command without leading white space).
-
-\item Citing several papers at one point should be done with a single \verb|\cite| command. For example, use \verb|gives good results\cite{Bloe_99, Jay_87}|, resulting in gives good results \cite{Bloe_99, Jay_87}. 
-
-Do not use \verb|gives good results\cite{Bloe_99}\cite{Jay_87}| which produces the ugly gives good results \cite{Bloe_99}\cite{Jay_87}. Also, note that there is no space between the \verb|\cite| command and the preceding word, \LaTeX~(with the cite package) does the spacing correctly.
-
-
-\item Avoid citations of the kind: \cite{Bloe_99} thinks that $x>y$ is valid, but \cite{ONeill_2000} argues that this is invalid in case of $z\geq5$. This works a bit better if using alphanumeric citation labels. Better, though, use the author's names: Bloe and Joe [1] think that $x>y$ is valid, but O'Neill et al. \cite{ONeill_2000} argues that this is invalid in case of $z\geq5$. 
-
-
-\item BibTeX is a great tool, but you need to know how to use it. A regular trap is to forget that \TeX~knows more about typesetting than you do. So, for example, it changes the case of words in the title. If your title contains acronyms and proper names (most do), they tend to get down-cased. Any such words which should not have their case changed should be put into braces, e.g., \verb|{The {Mungi} {OS} and its Use in Merry-Go-Round Seat Allocation}|.
-
-
-\item In citations don't abuse the category technical report. People tend to cite just about anything that hasn't been published in a journal or conferences as a TR. This is outright wrong. The concept of a TR is actually fairly well defined: A TR is published in some sort. This is generally as part of a formal TR series of some institution, in hardcopy or on the web or both. (They aren't always called "technical report", other common names are "research report", "technical memorandum", $<$institution$>$ "report" etc.) The publication (i.e. availability outside) is essential, otherwise it's at best an internal report.
-A TR has a number (absolutely!), an institution (publisher), a date (month and year at least) and a publisher's address (besides all the other stuff bibentries have).
-If your document doesn't have these features, it's not a TR. It's probably better categorized as a working paper. Even then it has a date and an institution address.
-
-\item Citing web pages is often unavoidable (but also often a sign of laziness). When citing web pages be aware that they may only be short-lived. Consider whether the reference will be of any use to the reader at all if the link is broken. Or whether your whole document only has a use-by date a few months past writing.
-
-\end{itemize}
-
-Any cited document, whatever it may be, has a few \textbf{mandatory} features:
-\begin{itemize}
-	\item Date. Absolutely. 
-	\item Author/organization/creator/person responsible for contents.
-	\item Whatever information the reader needs to find that document. In most BibTeX entry types these are clearly identified as mandatory fields. Mandatory means that they aren't optional. Don't pretend they are. For a working paper these might be the contact details of the author.
-\end{itemize}
+%\chapter{Working with this Template}
+%
+%Make sure your thesis is well structured, that each major section does what it is supposed to do, and that the whole thing hangs together. The basic structure is often as given in this template (but other structures are possible). In particular, don't think you need to have exactly as many major sections or chapters as the list implies; sometimes it makes sense to merge things, sometimes it makes sense to move things (e.g., the literature review is in many papers deferred until after the results), sometimes it makes sense to split a logical part into several individual sections. Just use some common sense.
+%
+%Hand in your thesis at minimum \textbf{one week} before the deadline for correction. You will receive feedback for the final version and very likely have to do minor or major revisions of your writing. Plan your writing schedule to allow for these adjustments, which can have quite some impact on your grade! 
+%
+%\section{Style and Expressions}
+%
+%Before handing in your thesis, even for an intermediate review, please perform a spellcheck and correct grammar mistakes. The report is not meant to be a narrative text. Please stick to neutral and technical style and avoid subjective or biased expressions or adjectives/adverbs such as \emph{obviously, always, very, especially well, actually, so-called etc}. Scientific writing is about precision and you should underpin your statements factually, not soften them with unnecessary qualifiers.
+%
+%\subsection{Subsection}
+%
+%Use chapters, sections and subsections to structure your document
+%
+%\subsubsection{Subsubsection}
+%
+%Subsubsections can be used to further structure information within a subsection. They don't show up in your list of contents.
+%
+%\paragraph{Paragraphs} are sometimes more useful than subsubsections to structure text without breaking the flow.
+%
+%\section{Compiling}
+%Linux: 
+%do the following in a Shell:\\
+%\begin{verbatim}
+%latex myfile
+%dvips myfile
+%ps2pdf -sPAPERSIZE=a4 myfile.ps
+%\end{verbatim}
+%Make sure to use the A4 option, when you print the pdf!
+%
+%\section{Equations}
+%Equations are written like that $x^2$. Or like that:
+%\begin{equation}
+%x^2
+%\label{EQ:gleichung1}
+%\end{equation}
+%You can use (\ref{EQ:gleichung1}) to reference an equation in the
+%text. Equations without reference number:
+%\[
+%x^2
+%\]
+%
+%Please type all numbers in mathematics mode.
+%Mathematical equations which are not part of the text should be centred.
+%A parameter or variable must not be used at the beginning of a sentence.
+%Type physical units as normal text, e.g. s, not $s$!
+%Formulas must not jut out over the text margin, so take care to stay within the margins and eventually break the equation into several lines.
+%Explain the variables you use. For each newly introduced variable, at least a short description of it should follow the equation in the style of \emph{\ldots with $x$ being the position of the cart and $u$ the control input.}
+%In columns, align equations with the arithmetic operator \verb|(=,<, ...)|.
+%Mathematical units must be consistently labeled with only one variable. Do not
+%use a variable for more than one mathematical unit.
+%
+%\section{Figures}
+%
+%For pictures, it is convenient, if they are .eps.
+%\begin{figure}[htb]
+%\centering
+%%\includegraphics[width=0.6\textwidth]{abbildung.eps}
+%\caption[Abbreviated Description]{Long Description: The subtitles of tables and illustrations should be self-explanatory.}
+%\label{FIG:abb1}
+%\end{figure}
+%
+%Every illustration must be described and referenced in the text, cf. Fig. \ref{FIG:abb0}. 
+%There is no such thing as a decorative figure! 
+%If the figure is not mentioned in the text and therefore lacks an explanatory function, leave it.
+%Lines in plots need to be clearly distinguishable, also in black-and-white print. 
+%The subtitles and axis labels must be clearly legible (i.e. big enough) and include a scaling.
+%If the illustration is copied from another person's work, you need to mention the
+%source with \verb|\cite{}|.
+%
+%\section{Citations}
+%
+%For bibliography, edit {\tt mybib.bib} and list all
+%references in a special style, e.g. for a book: 
+%\begin{verbatim}
+%@book{literaturselle1,
+% author    = {S. Sastry},
+% title     = {Nonlinear Systems - Analysis, Stability, and Control},
+% publisher = {Springer},
+% year      = 1999
+%}
+%\end{verbatim}
+%
+%Cite references in the text by.
+%
+%In order to have your references shown in your PDF, compile by:
+%
+%\begin{verbatim} 
+%latex myfile
+%bibtex myfile
+%latex myfile
+%latex  myfile
+%dvips myfile
+%ps2pdf -sPAPERSIZE=a4 myfile.ps
+%\end{verbatim}
+%
+%Whether to use numeric or alphabetic references isn't all that important (unless prescribed by a conference or journal), but alphabetic tends to be more readable. Independent of citation style, the following rules should be followed:
+%
+%\begin{itemize}
+%\item Use the \LaTeX~cite package. It doesn't give you additional commands, but it fixes a few quirks in \LaTeX. Among others it automatically sorts multiple citations, and it correctly spaces the angular brackets (if you use the \verb|\cite| command without leading white space).
+%
+%\item Citing several papers at one point should be done with a single \verb|\cite| command. For example, use \verb|gives good results\cite{Bloe_99, Jay_87}|, resulting in gives good results \cite{Bloe_99, Jay_87}. 
+%
+%Do not use \verb|gives good results\cite{Bloe_99}\cite{Jay_87}| which produces the ugly gives good results \cite{Bloe_99}\cite{Jay_87}. Also, note that there is no space between the \verb|\cite| command and the preceding word, \LaTeX~(with the cite package) does the spacing correctly.
+%
+%
+%\item Avoid citations of the kind: \cite{Bloe_99} thinks that $x>y$ is valid, but \cite{ONeill_2000} argues that this is invalid in case of $z\geq5$. This works a bit better if using alphanumeric citation labels. Better, though, use the author's names: Bloe and Joe [1] think that $x>y$ is valid, but O'Neill et al. \cite{ONeill_2000} argues that this is invalid in case of $z\geq5$. 
+%
+%
+%\item BibTeX is a great tool, but you need to know how to use it. A regular trap is to forget that \TeX~knows more about typesetting than you do. So, for example, it changes the case of words in the title. If your title contains acronyms and proper names (most do), they tend to get down-cased. Any such words which should not have their case changed should be put into braces, e.g., \verb|{The {Mungi} {OS} and its Use in Merry-Go-Round Seat Allocation}|.
+%
+%
+%\item In citations don't abuse the category technical report. People tend to cite just about anything that hasn't been published in a journal or conferences as a TR. This is outright wrong. The concept of a TR is actually fairly well defined: A TR is published in some sort. This is generally as part of a formal TR series of some institution, in hardcopy or on the web or both. (They aren't always called "technical report", other common names are "research report", "technical memorandum", $<$institution$>$ "report" etc.) The publication (i.e. availability outside) is essential, otherwise it's at best an internal report.
+%A TR has a number (absolutely!), an institution (publisher), a date (month and year at least) and a publisher's address (besides all the other stuff bibentries have).
+%If your document doesn't have these features, it's not a TR. It's probably better categorized as a working paper. Even then it has a date and an institution address.
+%
+%\item Citing web pages is often unavoidable (but also often a sign of laziness). When citing web pages be aware that they may only be short-lived. Consider whether the reference will be of any use to the reader at all if the link is broken. Or whether your whole document only has a use-by date a few months past writing.
+%
+%\end{itemize}
+%
+%Any cited document, whatever it may be, has a few \textbf{mandatory} features:
+%\begin{itemize}
+%	\item Date. Absolutely. 
+%	\item Author/organization/creator/person responsible for contents.
+%	\item Whatever information the reader needs to find that document. In most BibTeX entry types these are clearly identified as mandatory fields. Mandatory means that they aren't optional. Don't pretend they are. For a working paper these might be the contact details of the author.
+%\end{itemize}
 
 
 
@@ -269,8 +269,25 @@ Any cited document, whatever it may be, has a few \textbf{mandatory} features:
 %
 %\textit{Make sure you clearly state the vision/aims of your work, what problem you are trying to solve, and why it is important. While the introduction is the part that is read first (ignoring title and abstract) it is usually best written last (when you actually know what you have really achieved). Remember, it's the first thing that is being read, and will have a major influence on the how the reader approaches your work. If you bore them now, you've most likely lost them already. If you make outrageous claims pretend to solve the world's problems, etc, you're likely fighting an uphill battle later on. Also, make sure you pick up any threads spun in the introduction later on, to ensure that the reader thinks they get what they have been promised. Don't create an expectation that you'll deliver more than you actually do. Remember, the reader may be your marker (of a thesis) or referee (of a paper), and you don't want to annoy them.} \\
 %\\
-Cooperative manipulation involves two or more robots collectively moving or manipulating a common object. Such a set-up overcomes many limitations seen by single robots. Tasks for cooperative manipulators are for instance, carrying of large or heavy objects, grasping of objects without special fixtures and even manipulation of flexible objects.\\
-The major challenge is to simultaneously control the forces between the manipulators and the object, so to say the internal stress exerted on the object, and the forces between the object and the environment, i.e. the absolute motion of the object.
+Cooperative manipulation involves two or more robot arms collectively moving or manipulating a common object \cite{CoopManipHandbook}. Such a set-up overcomes many limitations seen by single robots. The prime example is the transportation of a large or heavy object, where a single manipulator would exert large local torques on the object. Back in the 1940s two remote manipulators were used to handle radioactive goods \cite{Goertz_52}. Around 1990 the \emph{NASA} researched cooperative manipulation in space construction applications \cite{Schneider_92}. Specifically in \cite{Lee_05} a cooperative manipulation strategy for the repair of the Hubble Space Telescope is proposed. Other tasks are for example:
+\begin{itemize}
+	\item assembly of multiple parts without using special fixtures
+	\item grasping an object without rigid fixture but by exerting a suitable squeezing force
+	\item deforming a flexible object
+	\item coordinated use of tools
+\end{itemize}
+For the last point a recent application has been presented at the Fukushima Daiichi Nuclear Power Station. By equipping a two-armed robot with different tools it is capable of grasping an item (e.g. piping) and cutting it with the other, see Fig. \ref{FIG:MEISTer}. For sensitive tools like an angle grinder it is favourable that movement and contact forces of both arms are coordinated.\\
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{mhi-meister.jpg}
+	\caption[Demonstration of MHI MEISTeR at Fukushima Daiichi NPS]{Demonstration of the tele-operated MHI MEISTeR robot at Fukushima Daiichi Nuclear Power Station}
+	\label{FIG:MEISTeR}
+\end{figure}
+Space and hazardous environments are fruitful environments for cooperative manipulators, often they are directly controlled by a human operator. Combining human reasoning and the enhanced flexibility of a cooperative set-up is a powerful combination in an unstructured environment. A human in the control loop comes with superior foresight and planning capabilities. Therefore different control architectures exist, which can be classified by the level of autonomy of the robot system. In an direct master-slave approach each robot is controlled independently by a human operator. This is impractical due to formation requirements. Lee \cite{Lee_05} treats the constrained system as a single slave, while the formation is preserved by the robots autonomously. Many master-slave systems give the operator force-feedback, while she/he commands the motion. This helps the operator compensate for resistances and gives a natural feeling of the interaction with the environment. The structure then is fully bi-directional, ones refers to bilateral telemanipulation. The human is part of the closed loop, since her/his behaviour is directly influenced by the experienced force-feedback. For a remotely located set-up, the time delays in communication may lead to undesired motions, stability of the human-in-the-loop system becomes an issue. Tactile or visual feedback eases this problem, since they are non-reactive. This means they do not induce operator movements reacting to a back-driving force \cite{Massimino_93}. A control architectures that leaves further autonomy to the robot system is Supervisory control, described by a closed local, autonomous control loop. It interacts with the operator by continuously sending information about the state and periodically receiving commands \cite{Sheridian_92}.\\
+
+However a difficulty is the control of the set-up which possess extra degrees-of-freedom. There must be an intuitive way to control the formation of robots. The control scheme shapes each robot's motion to commit to the common task. A disadvantage of having a remotely located operator is an inevitable delay in the control loop. This restricts the operators possibilities to react to unexpected situations.\\
+
+The major challenge in cooperative manipulation is to simultaneously control the forces between the manipulators and the object, so to say the internal stress exerted on the object, and the forces between the object and the environment, i.e. the absolute motion of the object.
 Strategies that map force and velocity of the object to the manipulators have to be considered.\\
 One important assumption is the nature of the connection between manipulator and object. It can be seen as rigid or more general as friction-based. With a rigid fixture the grasp is always stable, on the contrary friction grasps need to be actively stabilized. To comply with the friction constraints a contact normal force has to be set, dependent on the tangential components present during manipulation.\\
 Towards a versatile usage of cooperative manipulation it is vital to let the human operator control the robotic system intuitively and naturally. 
@@ -320,7 +337,7 @@ A physical analogy the impedance control scheme is a spring-mass-damper system.\
 
 %\textit{Note: Do the literature review at an early stage of your project to build on the knowledge of others, not reinvent the wheel over and over again! There is nothing more frustrating after weeks or months of hard work to find that your great solution has been published 5 years ago and is considered old news or that there is a method known that produces superior results.}
 
-\subsection{Control schemes for rigidly connected manipulators}
+\subsection{Control schemes for rigidly connected manipulators}\label{SS:rigidcontrolschemes}
 A rigid fixture between manipulator and object means that both forces and moments are exchanged at the grasp points: all translational and rotational motion components can be transmitted through the contact points. The rigid connections are expressed by a number of kinematic constraints, which reduce the Degrees-of-Freedom (DoF) of the constrained system. The attempt to move in the constrained directions results in internal loading of the object. Therefore trajectories of the manipulators have to be generated to avoid internal stress on the object. Assuming a rigid connection normally no grasping force is needed to stabilize the grasp, i.e. internal forces are undesired because possibly harmful to the object. Nevertheless some papers propose possibilities to specify or control internal forces.\\
 Among the first to use impedance control in cooperative manipulation were Schneider and Cannon \cite{Schneider_92}. They replaced the actual object by a virtual mass and connected it to the environment with a spring and a parallel damper. The resulting impedance equation is:
 \begin{equation}
@@ -422,13 +439,7 @@ f = -f_c = K_c(G_v^T x_v - p)
 The stiffness matrix $ K_c = blockdiag(k_1 I_3, ... , k_n I_3)$ is isotropic. The rest-lengths of the springs are chosen by the size of the virtual object, i.e. by specifying the virtual grasp matrix $ G_v $.\\
 One assumption in \cite{Wimboeck_08} is that internal forces are sufficient to ensure a firm grasp. This is done in a physically meaningful way by choosing the rest-lengths.
 %Allowing a human to directly control the formation (e.g. with gestures), three parameters are to be specified by the operator: position, orientation and grasping force. Tracking and processing human inputs causes a delay, which can be compared to a telemanipulation setting, although the operator may be on-site. A local controller is required to ensure a secure grasp while human interfacing can be higher level control.
-\subsection{A passivity based control structure}
-The controller is divided into two parts, the local one does the real-time interaction of the manipulators with the object. This part is passive, i.e. the robot along with its local controller has a certain amount of energy, the energy can not increase as long as no power is provided by the environment or the higher-level control part. Therefore the two parts will be called Intrinsically Passive Controller and Supervisor, this scheme was introduced by Stramigioli [??] as a general framework with application to robotic hands.
-\subsubsection{The Intrinsically Passive Controller (IPC)}
-The IPC has a physically meaningful behaviour, because it is described by a spatial interconnection of springs, inertias and dampers. Each manipulator is represented by an inertia and connected to the (virtual) object by a spatial spring. The object is modelled by a virtual inertia and its dimensions are represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. This ensures compliant behaviour between object and environment and manipulators and environment. Furthermore object movement is damped with respect to the inertial frame. Dynamic behaviour of the virtual object is simulated in real-time, so no tracking of the object is necessary.  The only values that have to be measured are the end-effector positions, the object speed required for the damping term is computed in the simulation. Dampers parallel to the manipulator-object springs are applicable if manipulator speed is measurable.
-By choosing the rest-length of the  manipulator-object springs a internal force can be indirectly specified. This rest-length can be adjusted on-line without violating passivity, so the operator can adjust grasp forces if necessary (e.g. opening closing grasp). Another example for on-line adjustment of grasp forces is having them determined dependent on dynamic requirements, e.g. higher internal forces during acceleration to satisfy the contact friction constraints at all time.
-\subsubsection{The Supervisor}
-The higher control part has the role of planning and scheduling. It controls the state of energy of the IPC and robot. Trajectory and formation of the manipulators are determined, e.g. moving the robots independently to open or close the grasp, directing the formation of robots to move the object. The grasping process can be controlled by changing the virtual object sphere size. Translation or rotation of the grasped object can be commanded by setting the desired virtual object pose. A human operator taking tasks of the Supervisor causes a delay which can be modelled as transmission line with delay between Supervisor and IPC.The control architecture is still valid in a teleoperation setting. Using scattering the passivity of the IPC can be preserved.  
+
 \subsection{Determination of desired internal forces}
 Non-rigid grasps object and manipulators are connected with friction constraints. Contact force towards the object generates frictional force opposed to external forces tangential to the contact point. If the tangential forces exceed the frictional force the friction constraint is violated and contact slippage occurs. Squeezing or internal forces do not contribute to the motion of the constrained system. They need to be chosen sufficiently high to maintain a stable grasp under external forces acting on the object. On the other hand they must be bounded to not damage the object. These opposed requirements can be formulated as a cost function.\\
 Buss et al. \cite{Buss_96} propose a cost function consisting of two factors: one is a barrier function tending to infinity for violating the friction constraint limit, the other is linear function rising with the exerted force, making high forces costly. The optimal desired internal force is the minimum of the cost function, thus the forces are chosen as small as possible, preserving a stale grasp.\\
@@ -462,7 +473,7 @@ The set-up consists of four manipulators, distributed symmetrically around the o
 \caption[Internal force impedance control with feed-forward of the object dynamics: Translation]{Internal force impedance control with feed-forward of the object dynamics: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
 \label{FIG:abb1}
 \end{figure}
-In the second test case the object is rotated around the $ z $-axis. This is done at a significantly lower speed of at most 1 rad/s, thus the manipulator forces are smaller, desired and actual object trajectory cannot be distinguished in Fig. \ref{FIG:abb2}. However some small internal forces can be seen. Interestingly they are proportional to the simulation step size (running \emph{Simulink's ode3} solver), i.e. a ten-times smaller step size gives ten-times smaller internal forces. Internal forces are calculated based on the geometry of the last simulation step. The correlation between step size and values indicates that these forces are due to the discrete nature of the simulation than of the control law generating internal stress.
+In the second test case the object is rotated around the $ z $-axis. This is done at a significantly lower speed of at most 1 rad/s, thus the manipulator forces are smaller, desired and actual object trajectory cannot be distinguished in Fig. \ref{FIG:abb2}. However some small internal forces can be seen. Interestingly they are proportional to the simulation step size (running \emph{Simulink's ode3} solver), i.e. a ten-times smaller step size gives ten-times smaller internal forces. Internal forces are calculated based on the geometry of the last simulation step. The correlation between step size and values indicates that these forces are rather due to the discrete nature of the simulation than of the control law generating internal stress. Simulation of the constrained system dynamics as well as calculation of internal wrench is done as described in \cite{Erhart_15/2}.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=1\textwidth]{Depascaliorientation.eps}
@@ -472,49 +483,71 @@ In the second test case the object is rotated around the $ z $-axis. This is don
 
 
 \subsection{Internal and external impedance based reference trajectory generation \cite{Caccavale_01}}
-\section{Implementation}
+Results for translational motion (see Fig. \ref{FIG:abb3}) are very similar to that of the previous control scheme. When it comes to rotation, higher internal forces can be observed in Fig. \ref{FIG:abb4}. In this case they are not influenced by numerical parameters of the simulation.
+This architecture in contrast to the previous makes use of measured contact wrenches. Contact wrench as measured can be obtained from the constrained system simulation. As described in subsection \ref{SS:rigidcontrolschemes} this wrench is than decomposed by kineostatic filters in internal and external components. This does not cancel out undesired internal stress but magnifies it: when the contact wrench is not fed back and set to zero in the internal force impedance controller, results are slightly better. Note that the simulation represents an ideal case, where all parameters are exactly known and no deviations in grasp positions occur. Behaviour in a real experiment may be different and this observation does not mean that the kineostatic-filtered feed-back of contact wrench is unjustified in general.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{Caccavaleposition.eps}
+\caption[Internal and external impedance based reference trajectory generation: Translation]{Internal and external impedance based reference trajectory generation: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+\label{FIG:abb3}
+\end{figure}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{Caccavaleorientation.eps}
+\caption[Internal and external impedance based reference trajectory generation: Rotation]{Internal and external impedance based reference trajectory generation: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+\label{FIG:abb4}
+\end{figure}
 
-
-In many (not all cases) there is a clear difference between the general approach (design) and its implementation in your particular circumstances. The design may be more general than what you can do given time and resources. Or you have developed a general design, and are now implementing a prototype on particular hardware. Give all required details. It should be possible to understand all this without referring to the source code. 
-
-This will, in general, include extracts of actual algorithms and hardware components used. Don't list pages of C code, an electronic copy of the source will accompany the submission and should be available to the marker, so there's no point in killing extra trees to put it into the report. Source code, if included at all, goes into the appendix and not the main document.
-
-Make sure you describe your implementation in enough detail. Someone who has nothing else but your thesis report to go by should be able to repeat your work, and arrive at essentially the same implementation. Reproducibility is an important component of scientific work. Also, clearly state the limitations of your implementation, and justify them.
-
-\section{Experimental Results}
-
-A thesis almost always has an experimental part, typically some comparison to other approaches. Benchmarking takes time, for running the experiments, but also for thinking them up in the first place, and for analysing the results. Plan accordingly to spend enough time here!
-
-Think about what makes sense to measure, what you want to learn from your measurements. Think about what is really the relevant contribution of your thesis, and how you can prove that you have achieved your goals. Think about what you can measure in order to get a good insight into the performance of various aspects of your design, how you can distinguish between systematic and accidental effects, how you can convince yourself that your results are right. If you get surprising results, don't just say "surprise, surprise, performance isn't as good as hoped". Find out why. Surprises without explanation indicate either that you are clueless about what's going on, or that you have made a mistake. Unconvincing results, therefore, tend to imply unconvincing marks. 
-
-\paragraph{Statistics:} Measurements always have statistical (sampling) errors. Owing to the deterministic nature of simulations these are sometimes very small, as disturbing factors can be designed. However, the reader should be given an indication of how statistically significant the results are. This is done by providing at least a standard deviation in addition to averages. Whenever the results of several runs are averaged, a standard deviation can (and must) be supplied. After all, you average to reduce statistical errors.
-
-The reproducibility argument applies here just as much as for the implementation. Give enough detail on what you measure, and how you measure it, so that someone who has your implementation (but not your test code) or has re-done your implementation independently, should be able to repeat your measurements and arrive at essentially the same results. In some cases, results seem outright wrong in a thesis. In those cases, not enough detail is provided to allow the supervisor/reader to pinpoint the likely source of the error. Often the cause is systematic errors resulting from an incorrect measurement technique. If it seems wrong, and the text doesn't convince the reader that it is not wrong, the reader will assume that it is wrong.
-
-\section{Discussion}
-
-Discuss and explain your results. Show how they support your thesis (or, if they don't, give a convincing explanation). It is important to separate objective facts clearly from their discussion (which is bound to contain subjective opinion). If the reader doesn't understand your results, reconsider if you have managed to extract the core information and explain it in a straightforward way.
+\subsection{Dynamic Intrinsically Passive Controller (IPC) \cite{Wimboeck_08} }
+%\section{Implementation}
+%
+%
+%In many (not all cases) there is a clear difference between the general approach (design) and its implementation in your particular circumstances. The design may be more general than what you can do given time and resources. Or you have developed a general design, and are now implementing a prototype on particular hardware. Give all required details. It should be possible to understand all this without referring to the source code. 
+%
+%This will, in general, include extracts of actual algorithms and hardware components used. Don't list pages of C code, an electronic copy of the source will accompany the submission and should be available to the marker, so there's no point in killing extra trees to put it into the report. Source code, if included at all, goes into the appendix and not the main document.
+%
+%Make sure you describe your implementation in enough detail. Someone who has nothing else but your thesis report to go by should be able to repeat your work, and arrive at essentially the same implementation. Reproducibility is an important component of scientific work. Also, clearly state the limitations of your implementation, and justify them.
+%
+%\section{Experimental Results}
+%
+%A thesis almost always has an experimental part, typically some comparison to other approaches. Benchmarking takes time, for running the experiments, but also for thinking them up in the first place, and for analysing the results. Plan accordingly to spend enough time here!
+%
+%Think about what makes sense to measure, what you want to learn from your measurements. Think about what is really the relevant contribution of your thesis, and how you can prove that you have achieved your goals. Think about what you can measure in order to get a good insight into the performance of various aspects of your design, how you can distinguish between systematic and accidental effects, how you can convince yourself that your results are right. If you get surprising results, don't just say "surprise, surprise, performance isn't as good as hoped". Find out why. Surprises without explanation indicate either that you are clueless about what's going on, or that you have made a mistake. Unconvincing results, therefore, tend to imply unconvincing marks. 
+%
+%\paragraph{Statistics:} Measurements always have statistical (sampling) errors. Owing to the deterministic nature of simulations these are sometimes very small, as disturbing factors can be designed. However, the reader should be given an indication of how statistically significant the results are. This is done by providing at least a standard deviation in addition to averages. Whenever the results of several runs are averaged, a standard deviation can (and must) be supplied. After all, you average to reduce statistical errors.
+%
+%The reproducibility argument applies here just as much as for the implementation. Give enough detail on what you measure, and how you measure it, so that someone who has your implementation (but not your test code) or has re-done your implementation independently, should be able to repeat your measurements and arrive at essentially the same results. In some cases, results seem outright wrong in a thesis. In those cases, not enough detail is provided to allow the supervisor/reader to pinpoint the likely source of the error. Often the cause is systematic errors resulting from an incorrect measurement technique. If it seems wrong, and the text doesn't convince the reader that it is not wrong, the reader will assume that it is wrong.
+%
+%\section{Discussion}
+%
+%Discuss and explain your results. Show how they support your thesis (or, if they don't, give a convincing explanation). It is important to separate objective facts clearly from their discussion (which is bound to contain subjective opinion). If the reader doesn't understand your results, reconsider if you have managed to extract the core information and explain it in a straightforward way.
 
 %_______________________________________________
 
 
 
 %_____Zusammenfassung, Ausblick_________________________________
-\chapter{Conclusion}
+\chapter{Further work}
+The controller is divided into two parts, the local one does the real-time interaction of the manipulators with the object. This part is passive, i.e. the robot along with its local controller has a certain amount of energy, the energy can not increase as long as no power is provided by the environment or the higher-level control part. Therefore the two parts will be called Intrinsically Passive Controller and Supervisor, this scheme was introduced by Stramigioli [??] as a general framework with application to robotic hands.
+\subsubsection{The Intrinsically Passive Controller (IPC)}
+The IPC has a physically meaningful behaviour, because it is described by a spatial interconnection of springs, inertias and dampers. Each manipulator is represented by an inertia and connected to the (virtual) object by a spatial spring. The object is modelled by a virtual inertia and its dimensions are represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. This ensures compliant behaviour between object and environment and manipulators and environment. Furthermore object movement is damped with respect to the inertial frame. Dynamic behaviour of the virtual object is simulated in real-time, so no tracking of the object is necessary.  The only values that have to be measured are the end-effector positions, the object speed required for the damping term is computed in the simulation. Dampers parallel to the manipulator-object springs are applicable if manipulator speed is measurable.
+By choosing the rest-length of the  manipulator-object springs a internal force can be indirectly specified. This rest-length can be adjusted on-line without violating passivity, so the operator can adjust grasp forces if necessary (e.g. opening closing grasp). Another example for on-line adjustment of grasp forces is having them determined dependent on dynamic requirements, e.g. higher internal forces during acceleration to satisfy the contact friction constraints at all time.
+\subsubsection{The Supervisor}
+The higher control part has the role of planning and scheduling. It controls the state of energy of the IPC and robot. Trajectory and formation of the manipulators are determined, e.g. moving the robots independently to open or close the grasp, directing the formation of robots to move the object. The grasping process can be controlled by changing the virtual object sphere size. Translation or rotation of the grasped object can be commanded by setting the desired virtual object pose. A human operator taking tasks of the Supervisor causes a delay which can be modelled as transmission line with delay between Supervisor and IPC.The control architecture is still valid in a teleoperation setting. Using scattering the passivity of the IPC can be preserved.  
 
-Don't leave it at the discussion: discuss what you/the reader can learn from the results. Draw some real conclusions. Separate discussion/interpretation of the results clearly from the conclusions you draw from them. (So-called "conclusion creep" tends to upset reviewers. It means surrendering your scientific objectivity.) Identify all shortcomings/limitations of your work, and discuss how they could be fixed ("future work"). It is not a sign of weakness of your work, if you clearly analyse and state the limitations. Informed readers will notice them anyway and draw their own conclusions, if not addressed properly.
-
-\vspace{\baselineskip}
-Recap: don't stick to this structure at all cost. Also, remember that the thesis must be:
-
-\begin{itemize}
-	\item honest, stating clearly all limitations;
-	\item self--contained, don't write just for the locals, don't assume that the reader has read the same literature as you, don't let the reader work out the details for themselves.
-\end{itemize}
-
-
-
-This chapter is followed by the list of figures and the bibliography. If you are using acronyms, listing them (with the expanded full name) before the bibliography is also a good idea. The acronyms package helps with consistency and an automatic listing.
+%Don't leave it at the discussion: discuss what you/the reader can learn from the results. Draw some real conclusions. Separate discussion/interpretation of the results clearly from the conclusions you draw from them. (So-called "conclusion creep" tends to upset reviewers. It means surrendering your scientific objectivity.) Identify all shortcomings/limitations of your work, and discuss how they could be fixed ("future work"). It is not a sign of weakness of your work, if you clearly analyse and state the limitations. Informed readers will notice them anyway and draw their own conclusions, if not addressed properly.
+%
+%\vspace{\baselineskip}
+%Recap: don't stick to this structure at all cost. Also, remember that the thesis must be:
+%
+%\begin{itemize}
+%	\item honest, stating clearly all limitations;
+%	\item self--contained, don't write just for the locals, don't assume that the reader has read the same literature as you, don't let the reader work out the details for themselves.
+%\end{itemize}
+%
+%
+%
+%This chapter is followed by the list of figures and the bibliography. If you are using acronyms, listing them (with the expanded full name) before the bibliography is also a good idea. The acronyms package helps with consistency and an automatic listing.
 
 
 %_______________________________________________________________

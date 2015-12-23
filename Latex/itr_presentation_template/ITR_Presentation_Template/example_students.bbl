@@ -1,0 +1,303 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{Bonitz_96}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Bonitz}{B.}%
+     {R.G.}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hsia}{H.}%
+     {T.C.}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BRHT1}
+  \strng{fullhash}{BRHT1}
+  \field{labelyear}{1996}
+  \field{sortinit}{B}
+  \field{number}{1}
+  \field{pages}{78\bibrangedash 89}
+  \field{title}{Internal force-based impedance control for cooperating
+  manipulators}
+  \field{volume}{12}
+  \field{journaltitle}{Robotics and Automation, IEEE Transactions on}
+  \field{year}{1996}
+\endentry
+
+\entry{Caccavale_08}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Caccavale}{C.}%
+     {F.}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chiacchio}{C.}%
+     {P.}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Marino}{M.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Villani}{V.}%
+     {L.}{L.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CF+1}
+  \strng{fullhash}{CFCPMAVL1}
+  \field{labelyear}{2008}
+  \field{sortinit}{C}
+  \field{number}{5}
+  \field{pages}{576\bibrangedash 586}
+  \field{title}{Six-DOF Impedance Control of Dual-Arm Cooperative Manipulators}
+  \field{volume}{13}
+  \field{journaltitle}{Mechatronics, IEEE/ASME Transactions on}
+  \field{year}{2008}
+\endentry
+
+\entry{Caccavale_01}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Caccvale}{C.}%
+     {F.}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Villani}{V.}%
+     {L.}{L.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CFVL1}
+  \strng{fullhash}{CFVL1}
+  \field{labelyear}{2001}
+  \field{sortinit}{C}
+  \field{pages}{343\bibrangedash 348}
+  \field{title}{An impedance control strategy for cooperative manipulation}
+  \field{volume}{1}
+  \field{journaltitle}{Advanced Intelligent Mechatronics, IEEE/ASME
+  International Conference on}
+  \field{year}{2001}
+\endentry
+
+\entry{DePascali_15}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {De~Pascali}{D.~P.}%
+     {L.}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Erhart}{E.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zaccarian}{Z.}%
+     {L.}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Biral}{B.}%
+     {F.}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hirche}{H.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DPL+1}
+  \strng{fullhash}{DPLESZLBFHS1}
+  \field{labelyear}{2015}
+  \field{sortinit}{D}
+  \field{title}{A Decoupling Scheme for Force Control in Cooperative
+  Multi-Robot Manipulation Tasks}
+  \field{journaltitle}{Manuscript submitted for publication}
+  \field{year}{2015}
+\endentry
+
+\entry{Hsu_93}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Hsu}{H.}%
+     {P.}{P.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HP1}
+  \strng{fullhash}{HP1}
+  \field{labelyear}{1993}
+  \field{sortinit}{H}
+  \field{number}{4}
+  \field{pages}{400\bibrangedash 410}
+  \field{title}{Coordinated control of multiple manipulator systems}
+  \field{volume}{9}
+  \field{journaltitle}{Robotics and Automation, IEEE Transactions on}
+  \field{year}{1993}
+\endentry
+
+\entry{Schneider_92}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Schneider}{S.}%
+     {S.A.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cannon}{C.}%
+     {R.H.}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SSCR1}
+  \strng{fullhash}{SSCR1}
+  \field{labelyear}{1992}
+  \field{sortinit}{S}
+  \field{number}{3}
+  \field{pages}{383\bibrangedash 394}
+  \field{title}{Object impedance control for cooperative manipulation: theory
+  and experimental results}
+  \field{volume}{8}
+  \field{journaltitle}{Robotics and Automation, IEEE Transactions on}
+  \field{year}{1992}
+\endentry
+
+\entry{Sieber_15}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Sieber}{S.}%
+     {D.}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Music}{M.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hirche}{H.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SDMSHS1}
+  \strng{fullhash}{SDMSHS1}
+  \field{labelyear}{2015}
+  \field{sortinit}{S}
+  \field{pages}{2440\bibrangedash 2446}
+  \field{title}{Multi-robot manipulation controlled by a human with haptic
+  feedback}
+  \field{journaltitle}{IEEE/RSJ International Conference on Intelligent Robots
+  and Systems (IROS)}
+  \field{year}{2015}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Stramigioli_01}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Stramigioli}{S.}%
+     {Stefano}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer-Verlag London}%
+  }
+  \strng{namehash}{SS1}
+  \strng{fullhash}{SS1}
+  \field{labelyear}{2001}
+  \field{sortinit}{S}
+  \field{isbn}{1852333952}
+  \field{title}{Modeling and IPC Control of Interactive Mechanical Systems: A
+  Coordinate-Free Approach}
+  \list{location}{1}{%
+    {London, UK}%
+  }
+  \field{year}{2001}
+\endentry
+
+\entry{Wen_92}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Wen}{W.}%
+     {J.}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kreutz-Delgado}{K.-D.}%
+     {K.}{K.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{WJKDK1}
+  \strng{fullhash}{WJKDK1}
+  \field{labelyear}{1992}
+  \field{sortinit}{W}
+  \field{number}{4}
+  \field{pages}{729\bibrangedash 743}
+  \field{title}{Motion and Force Control of Multiple Robotic Manipulators}
+  \field{volume}{28}
+  \field{journaltitle}{Automatica}
+  \field{year}{1992}
+\endentry
+
+\entry{Wimboeck_08}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Wimboeck}{W.}%
+     {T.}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ott}{O.}%
+     {C.}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hirzinger}{H.}%
+     {G.}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{WTOCHG1}
+  \strng{fullhash}{WTOCHG1}
+  \field{labelyear}{2008}
+  \field{sortinit}{W}
+  \field{pages}{278\bibrangedash 284}
+  \field{title}{Analysis and experimental evaluation of the Intrinsically
+  Passive Controller (IPC) for multifingered hands}
+  \field{journaltitle}{Robotics and Automation, IEEE International Conference
+  on}
+  \field{year}{2008}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

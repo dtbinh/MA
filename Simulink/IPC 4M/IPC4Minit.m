@@ -58,11 +58,18 @@ delta1 = 9;
 delta2 = 9;
 delta3 = 9;
 delta4 = 9;
-Dc = 10;
+Dc = 0;
 
-Kc = 150;
+Kc = 10;
 l = [1 1 1 1];
 
+k = 10;
+kappa = 10;
+d = 5;
+delta = 5;
+
+%Grasp Selection Matrix PCwF
+H = blkdiag(eye(3), zeros(3),eye(3), zeros(3),eye(3), zeros(3),eye(3), zeros(3));
 
 %constrained system damping
 %dcs22 = delta1+delta2+skew_sm(r(1:3))*d1*eye(3)*skew_sm(r(1:3))'+skew_sm(r(4:6))*d2*eye(3)*skew_sm(r(4:6))';
