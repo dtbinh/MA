@@ -13,11 +13,6 @@ M.~Buss, H.~Hashimoto, and J.B. Moore.
 \newblock {\em Robotics and Automation, IEEE Transactions on}, 12(3):406--418,
   1996.
 
-\bibitem[BJ99]{Bloe_99}
-Adam Bloe and Fred Joe.
-\newblock {Towards a unified solution of $x>y$}.
-\newblock {\em Math and other geeky stuff}, 1(1):1--23, 1999.
-
 \bibitem[BPA98]{Bicchi_98}
 A.~Bicchi, D.~Prattichizzo, and G.~Antognetti.
 \newblock Optimization of internal forces in force-closure grasp.
@@ -28,6 +23,14 @@ A.~Bicchi, D.~Prattichizzo, and G.~Antognetti.
 F.~Caccavale, P.~Chiacchio, A.~Marino, and L.~Villani.
 \newblock Six-dof impedance control of dual-arm cooperative manipulators.
 \newblock {\em Mechatronics, IEEE/ASME Transactions on}, 13(5):576--586, 2008.
+
+\bibitem[CM08]{CoopManipHandbook}
+F.~Caccavle and Uchiyama M.
+\newblock {Cooperative Manipulation}.
+\newblock In Bruno Siciliano and Oussama Khatib, editors, {\em Springer
+  Handbook of Robotics}, chapter~29, pages 701--718. Springer Berlin
+  Heidelberg, May 2008.
+\newblock ISBN 978-3-540-23957-4.
 
 \bibitem[CV01]{Caccavale_01}
 F.~Caccvale and L.~Villani.
@@ -41,11 +44,17 @@ L.~De~Pascali, S.~Erhart, L.~Zaccarian, F.~Biral, and S.~Hirche.
   manipulation tasks.
 \newblock {\em Manuscript submitted for publication}, 2015.
 
-\bibitem[EH15]{Erhart_15}
+\bibitem[EH15a]{Erhart_15}
 S.~Erhart and S.~Hirche.
 \newblock Internal force analysis and load distribution for cooperative
   multi-robot manipulation.
 \newblock {\em Robotics, IEEE Transactions on}, 31(5):1238--1243, 2015.
+
+\bibitem[EH15b]{Erhart_15/2}
+S.~Erhart and S.~Hirche.
+\newblock Model and analysis of the interaction dynamics in cooperative
+  manipulation tasks.
+\newblock {\em Manuscript submitted for publication}, 2015.
 
 \bibitem[GFS{\etalchar{+}}14]{Gioioso_2014}
 G.~Gioioso, A.~Franchi, G.~Salvietti, S.~Scheggi, and D.~Prattichizzo.
@@ -77,16 +86,16 @@ L.~Han, J.C. Trinkle, and Z.X. Li.
 \newblock {\em Robotics and Automation, IEEE Transactions on}, 16(6):663--674,
   2000.
 
-\bibitem[Jay99]{Jay_87}
-D~Jay.
-\newblock {Applications of $x>y$ with respect to constraints in $y$ and bounded
-  $x$}.
-\newblock {\em Journal of Solutions to Bounded Inputs}, 1(3):66--99, 1999.
+\bibitem[LS05]{Lee_05}
+Dongjun Lee and M.W. Spong.
+\newblock Bilateral teleoperation of multiple cooperative robots over delayed
+  communication networks: Theory.
+\newblock pages 360--365, April 2005.
 
-\bibitem[OLH00]{ONeill_2000}
-James O'Neill, Stan Laurel, and Oliver Hardy.
-\newblock {On the correctness of $x>y$: Limits in the case of $z>5$}.
-\newblock {\em Math and other geeky stuff}, 5(3):56--87, 2000.
+\bibitem[MT93]{Massimino_93}
+M.J. Massimino and Sheridian T.B.
+\newblock Sensory substitution for force feedback in teleoperation.
+\newblock {\em Presence, MIT Press Journals}, 2(4):344--352, 1993.
 
 \bibitem[SC92]{Schneider_92}
 S.A. Schneider and R.H. Cannon.
@@ -95,17 +104,49 @@ S.A. Schneider and R.H. Cannon.
 \newblock {\em Robotics and Automation, IEEE Transactions on}, 8(3):383--394,
   1992.
 
+\bibitem[SD01]{Stramigioli_01c}
+S.~Stramigioli and V.~Duindam.
+\newblock Variable spatial springs for robot control applications.
+\newblock 4:1906--1911, 2001.
+
+\bibitem[She92]{Sheridian_92}
+T.B. Sheridian.
+\newblock {\em Telerobotcis, Automation and Human Supervisory Control}.
+\newblock MIT Press, Cambridge, MA, 1992.
+
+\bibitem[SMA99]{Stramigioli_99}
+S.~Stramigioli, Claudio Melchiorri, and S.~Andreotti.
+\newblock A passivity-based control scheme for robotic grasping and
+  manipulation.
+\newblock 3:2951--2956, 1999.
+
 \bibitem[SMH15]{Sieber_15}
 D.~Sieber, S.~Music, and S.~Hirche.
 \newblock Multi-robot manipulation controlled by a human with haptic feedback.
 \newblock {\em IEEE/RSJ International Conference on Intelligent Robots and
   Systems (IROS)}, pages 2440--2446, Sep 2015.
 
-\bibitem[Str01]{Stramigioli_01}
+\bibitem[Str01a]{Stramigioli_01b}
+Stefano Stramigioli.
+\newblock Geometric modeling of mechanical systems for interactive control.
+\newblock In Alfonso Banos, Francoise Lamnabhi-Lagarrigue, and FranciscoJ.
+  Montoya, editors, {\em Advances in the control of nonlinear systems}, volume
+  264 of {\em Lecture Notes in Control and Information Sciences}, pages
+  309--332. Springer London, 2001.
+
+\bibitem[Str01b]{Stramigioli_01}
 Stefano Stramigioli.
 \newblock {\em Modeling and IPC Control of Interactive Mechanical Systems: A
   Coordinate-Free Approach}.
 \newblock Springer-Verlag London, London, UK, 2001.
+
+\bibitem[vdS06]{vanderSchaft_06}
+Arjan van~der {Schaft}.
+\newblock Port-hamiltonian systems: an introductory survey.
+\newblock In M.~{Sanz-Sole}, J.~{Soria}, J.L. {Varona}, and J.~{Verdera},
+  editors, {\em Proceedings of the International Congress of Mathematicians
+  Vol. III: Invited Lectures}, pages 1339--1365, Madrid, Spain, 2006. European
+  Mathematical Society Publishing House (EMS Ph).
 
 \bibitem[WKD92]{Wen_92}
 J.~Wen and K.~Kreutz-Delgado.

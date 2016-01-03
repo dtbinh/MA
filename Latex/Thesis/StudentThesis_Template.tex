@@ -276,7 +276,7 @@ Cooperative manipulation involves two or more robot arms collectively moving or 
 	\item deforming a flexible object
 	\item coordinated use of tools
 \end{itemize}
-For the last point a recent application has been presented at the Fukushima Daiichi Nuclear Power Station. By equipping a two-armed robot with different tools it is capable of grasping an item (e.g. piping) and cutting it with the other, see Fig. \ref{FIG:MEISTer}. For sensitive tools like an angle grinder it is favourable that movement and contact forces of both arms are coordinated.\\
+For the last point a recent application has been presented at the Fukushima Daiichi Nuclear Power Station. By equipping a two-armed robot with different tools it is capable of grasping an item (e.g. piping) and cutting it with the other, see Fig. \ref{FIG:MEISTeR}. For sensitive tools like an angle grinder it is favourable that movement and contact forces of both arms are coordinated.\\
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{mhi-meister.jpg}
@@ -453,7 +453,256 @@ Han et al. \cite{Han_2000} reformulated Buss' positive definite matrix approach 
 
 %_____Kapitel 2_________________________________
 \chapter{Main Part}
+%The controller is divided into two parts, the local one does the real-time interaction of the manipulators with the object. This part is passive, i.e. the robot along with its local controller has a certain amount of energy, the energy can not increase as long as no power is provided by the environment or the higher-level control part. Therefore the two parts will be called Intrinsically Passive Controller and Supervisor, this scheme was introduced by Stramigioli \cite{Stramigioli_01} as a general framework with application to robotic hands.
+\section{port-Hamiltonian systems}
+Port-Hamiltonian systems(PHS) provide a framework to for the geometric description of complex physical systems. The goal is divide the system in simple Hamiltonian subsystems and interconnect them using methods of network theory.\\
+The Hamiltonian equations of motion are related to the better known Euler-Lagrange equations with the Legendre transformation. Both are formulations on energy level thus they are useful for a continuous description of mixed-energy systems, e.g. a pendulum alternating between kinetic and potential energy periodically.
 
+\subsection{Hamiltonian description of mechanical systems}\label{SS:HSdescription}
+The classical Hamiltonian equations for a mechanical system are:
+\begin{eqnarray}
+	\dot{q} = \frac{\partial H}{\partial p}(q,p)\\
+	\dot{p} = -\frac{\partial H}{\partial q}(q,p) + F
+\end{eqnarray}
+Where Hamiltonian $ H(q,p) $ is the total energy of the system, $ q = (q_1,...,q_k)^T $ denotes the generalized coordinates of the system with $ k $-degrees of freedom and $ p = (p_1,...,p_k)^T $ is the vector of the generalized momenta. $ F $ is the input of generalized forces.\\
+An important aspect of PHS is conservation of energy, i.e. supplied work is either stored in the system \cite{vanderSchaft_06}. The energy balance of the system is:
+\begin{equation}
+	\frac{d}{dt}H = \frac{\partial^T H}{\partial q}(q,p)\dot{q} + \frac{\partial^T H}{\partial p}(q,p)\dot{p} = \frac{\partial^T H}{\partial p}(q,p)F = \dot{q}^T F
+\end{equation}
+While the generalized force $ F $ is the input of the system, the output can be defined as $ e = \dot{q} $, for a mechanical system $ \dot{q} $ is the generalized velocity. Note that the product of Force and velocity is mechanical power.\\
+PHS can be described in local coordinates $ x $ on the $ n $-dimensional state space manifold $ \mathcal{X} $, $ x \in \mathcal{X} $:
+\begin{eqnarray}
+	\dot{x} = J(x) \frac{\partial H}{\partial x}(x) + g(x)f \\
+	e = g^T(x) \frac{\partial H}{\partial x}(x)
+\end{eqnarray}
+Where $ J(x) $ is the $ n \times n $ structure matrix, $ J(x) $ is skew-symmetric, i.e. $ J^T(x) = - J(x) $. Furthermore $g(x) $ is the $ n \times m $ input matrix and $ f \in \mathbb{R}^m $ is a general input vector. With the skew-symmetry of $J(x)$ the energy balance of the local coordinate system is $ \frac{dH}{dt}(x) = e^Tf $. \\
+Any energy conservative physical element can be described in this formulation. To account for dissipative elements the previous can be extended by a positive semi-definite matrix $R(x)$.
+\begin{eqnarray}
+	\dot{x} = (J(x)-R(x)) \frac{\partial H}{\partial x}(x) + g(x)f \\
+	e = g^T(x) \frac{\partial H}{\partial x}(x)
+\end{eqnarray}
+The energy balance changes since the supplied power is not only stored but dissipated:
+\begin{equation}
+	\frac{dH}{dt}(x) = e^Tf - \left( \frac{\partial H}{\partial x}(x) \right)^T R(x) \frac{\partial H}{\partial x}(x)
+\end{equation}\\
+Consider the example of a simple one-dimensional spring-mass-damper system described by $ M\ddot{x} = -kx -Dx +F $. Where $ M,k,D,F $ denote the mass, stiffness, damping and external force acting on the mass respectively.
+In the usual state space formulation this is:
+\begin{equation}
+	\begin{bmatrix}\dot{x} \\ \ddot{x}\end{bmatrix} =
+	\begin{bmatrix}0 & 1 \\ -\frac{k}{M} & -D\end{bmatrix}
+	\begin{bmatrix}x \\ \dot{x}\end{bmatrix} + 
+	\begin{bmatrix}0 \\ 1\end{bmatrix}F
+\end{equation}
+One obtains an alternative representation by choosing energy variables as state variables, i.e. the energy stored in the spring is described by the displacement $ x $ and the energy of the moving mass by the momentum $ p = M\dot{x} $:
+\begin{equation}
+	\underbrace{\begin{bmatrix}\dot{x} \\ \dot{p}\end{bmatrix}}_{\dot{\chi}} =
+	\underbrace{\begin{bmatrix}0 & 1 \\ -1 & -D\end{bmatrix}}_{J(\chi)-R(\chi)}
+	\underbrace{\begin{bmatrix}kx \\ \dot{x}\end{bmatrix}}_{\partial_{\chi}H(\chi)} + 
+	\underbrace{\begin{bmatrix}0 \\ 1\end{bmatrix}}_{g(\chi)}\underbrace{F}_f
+\end{equation}
+This corresponds to the first equation of a PHS of the form.
+This simple example can be divided into a set of basic mechanical elements:
+\begin{itemize}
+	\item a moving inertia
+	\item a spring
+	\item a damper
+\end{itemize}
+Each element is described by a effort and a flow variable, the energy state variable is the time integration of the flow variable. Table \ref{TAB:PHSvar_mechanic} summarizes the description variables of mechanical elements. \\
+\begin{table}
+	\centering
+	\caption[PHS variables of mechanical elements]{PHS variables of mechanical elements}
+	\label{TAB:PHSvar_mechanic}
+	
+	\begin{tabular}{ l | l | l | l }
+		& Spring & Mass & Damper \\ \hline
+		Effort variable & Force $F$ & Velocity $\dot{x}$ & Force $ F $ \\ \hline
+		Flow variable & Velocity $ \dot{x} $ & Force $ F = \dot{p} $ & Velocity $ \dot{x} $ \\ \hline
+		State variable & Position $x$ & Momentum $ p $ & - \\ \hline
+		Energy function & $ E(x) = \frac{1}{2}kx^2 $ & $ E(p) = \frac{p^2}{2m} $ & $E(\dot{x}) = D\dot{x}^2  $ (diss. co-energy) \\ 
+	\end{tabular}
+\end{table}
+
+Complex physical systems can be modelled as a network of energy storing and dissipating elements, similar to representation of electrical networks consisting of resistors, inductors and capacitors. The rules of interconnection are Newton's third law (action-reaction), Kirchhoff's laws and power-conserving elements like transformers or gyrators. The aim of PHS-modelling is to describe the power-conserving elements with the interconnection laws as a geometric structure and to define the Hamiltonian function as the total energy of the system.
+
+\subsection{Interconnection of port-Hamiltonian systems} \label{SS:PHSinterconnection}
+Holonomic motion constraints, as in cooperative manipulation (see for example \cite{Erhart_15}) of the form $ A\dot{x} = 0 $ impose algebraic constraints on the system. This constraints restricts the set of possible state-space of the sub-systems, leading to an \emph{implicit system}. Implicit PHS can by defined by the concept of a \emph{Dirac structure}. The linear vector space $ V $ and its dual space $ V^* $. $ V $ can be considered as the space of flows and $ V^* $ the space of efforts. Then the space of power variables is $\mathcal{P} = V \times V^*$. The power is calculated with the duality product $ \langle\, | \, \rangle $:
+\begin{equation}
+	P = \langle e|f \rangle , \;\; e \in V^*, \: f \in V
+\end{equation}
+In euclidean space this simplifies to the standard scalar product, i.e. $ P = e^Tf$.\\
+A constant Dirac structure on $V$ is a linear subspace 
+\begin{equation}
+	\mathcal{D} \subset V \times V^*
+\end{equation}
+such that
+\begin{enumerate}
+	\item $ e^Tf = 0 $ for all $ (e,f) \in \mathcal{D} $
+	\item $ dim\mathcal{D} = dimV $
+	\item $ \mathcal{D} = \mathcal{D}^\perp$ where $\perp$ denotes the orthogonal complement with respect to the bilinear form $\langle \, , \, \rangle_{V \times V^*} $ defined as $ \langle(f_1,e_1),(f_2,e_2)\rangle_{V\times V^*} = \langle e_1 | f_2 \rangle + \langle e_2 | f_1 \rangle $
+\end{enumerate}
+The Dirac structure $ \mathcal{D} $ on $ V $ defines a power power-conserving relation between the power variables $ (f,e) \in V \times V^* $ which has maximal dimension \cite{vanderSchaft_06}.\\
+A general PHS represented as a Dirac structure has four ports for energy exchange (see Fig. \ref{FIG:DiracStr}). These are energy storage port $\mathcal{S}$, the energy-dissipation part $\mathcal{R}$ (accounting for resistive elements) and two external ports, dedicated for energy exchange with the environment $\mathcal{I}$ and with a controller $\mathcal{C}$.\\
+\subsubsection{Energy storage port}
+The port accounts for the internal storage of the system, its port variables are $ (f_S,e_S) $. The resulting energy balance is:
+\begin{equation}\label{EQ:storageport}
+	\frac{d}{dt}H = \left\langle  \frac{\partial H}{\partial x}(x) | \dot{x} \right\rangle = \frac{\partial H}{\partial x}(x) \dot{x}
+\end{equation}
+The flow variable is the energy rate $ f_S = -\dot{x} $ and the effort variable is the co-energy $ e_S = \frac{\partial H}{\partial x}(x) $.
+
+\subsubsection{Energy dissipation port}
+The port corresponds to internal dissipation and can be used to model resistive elements. The port variables are described by the general resistive:
+\begin{equation}
+	R(f_R,e_R)=0
+\end{equation}
+This always holds $ \langle e_R | f_R \rangle \leq 0 $ (energy dissipation).
+For an uncontrolled system that does not interact with the environment, i.e. no energy exchange through the two external ports, the energy balance is:
+\begin{equation}
+	\frac{dH}{dt} = -e_S^Tf_S = e_R^T f_R \leq 0
+\end{equation}
+
+\subsubsection{External ports}
+For a complete description the interaction with the environment can be expressed through the interaction port $\mathcal{I}$ and its variables $(f_I,e_I)$. 
+Furthermore the system is open to controller action through the control port $\mathcal{C} $ with the variables $(f_C,e_C)$.\\
+The power balance of the whole system then is
+\begin{equation}
+	e_S^Tf_S + e_R^T f_R +e_I^Tf_I + e_C^T f_C = 0
+\end{equation} 
+or by using (\ref{EQ:storageport})
+\begin{equation}
+	\frac{dH}{dt} = e_R^T f_R +e_I^Tf_I + e_C^T f_C 
+\end{equation}
+It is important to notice that the interconnection of two PHS is still a PHS. Consider two systems with open control and environment interaction ports:
+\begin{eqnarray}
+	\dot{x}_i = (J_i - R_i)\frac{\partial H}{\partial x}+ (g_i^C & g_i^I)\begin{pmatrix}f_i^C \\ f_i^I\end{pmatrix}\\
+	\begin{pmatrix}e_i^C \\ e_i^I\end{pmatrix} = \begin{pmatrix}(g_i^C)^T \\ (g_i^I)^T\end{pmatrix}\frac{\partial H}{\partial x}
+\end{eqnarray}
+For notational convenience the usual dependencies on the states have been omitted. The control inputs and outputs are now connected by setting $f_1^C = e_2^C $ and $ f_2^C = -e_1^C $. To be consistent with power the minus sign in the last equation is necessary. The power exchanged by the $i$-th system is $P_i = (e_i^C)^Tf_i^C$, therefore the total exchanged energy fulfils $ P_1 + P_2 = 0 $. The resulting interconnected system has still the environment interaction ports open:
+\begin{eqnarray}
+	\dot{x} = (J - R)\frac{\partial H}{\partial x}+ (g_1^I & g_2^I)\begin{pmatrix}f_1^C \\ f_2^I\end{pmatrix}\\
+	\begin{pmatrix}e_1^I \\ e_2^I\end{pmatrix} = \begin{pmatrix}(g_1^I)^T \\ (g_2^I)^T\end{pmatrix}\frac{\partial H}{\partial x}
+\end{eqnarray}
+Where $ x = (x_1, x_2)^T $ and $ H = H_1 + H_2 $ is the sum of the two energies. The structure and dissipation matrix become become
+\[J = \begin{pmatrix} J_1 & g_1^C(g_2^C)^T \\ 
+-g_1^C(g_2^C)^T & J_2\end{pmatrix} \],
+\[R = \begin{pmatrix}
+R_1 & 0 \\ 0 & R_2\end{pmatrix}\]
+
+\section{3D-space modelling of mechanical systems}
+\subsection{Euclidean space and motions}
+\subsubsection{Coordinate frames}
+A coordinate frame of the three-dimensional Euclidean space is a 4-tuple of the form $ \Psi = (o,\hat{x},\hat{y},\hat{z})$. Where $ o $ is the three-dimensional vector of the origin and $ \hat{x},\hat{y},\hat{z} $ are the linear independent, orthonormal coordinate vectors. Consider two coordinate frames $ \Psi_1,\Psi_2 $ which share the same origin but differ in orientation due to different choices of $ \hat{x}_i,\hat{y}_i,\hat{z}_i, \; i=1,2 $. The change of orientation from $ \Psi_i $ to $ \Psi_i $ is described by the rotation matrix $ R_i^j $. The set of rotation matrices is called \emph{special orthonormal} group ($SO(3)$) \cite{Stramigioli_01b} and is defined as:
+\begin{equation}
+	SO(3) = \{R \in \mathbb{R}^{3 \times 3} \; | \; R^{-1} = R^T, det R = 1\}
+\end{equation}
+Usually coordinate frames are defined with respect to an inertial frame, and the coordinate vectors $ \hat{x},\hat{y},\hat{z} $ are chosen equal for all frames, deviations of orientation are represented by a rotation matrix relative to the inertial frame. In general a change of coordinate frames from $ \Psi_i $ to $ \Psi_j $ can be expressed with the homogeneous matrix
+\[ H_i^j := \begin{pmatrix}R_i^j & p_i^j \\ 0_{1\times3} & 1\end{pmatrix} \]
+Where $p_i^j = o_j - o_i$ denotes the changes of origins. A point $ p^1 \in \mathbb{R}^3 $ expressed in $ \Psi_i $ is cast into $\Psi_j$ by
+\begin{equation}\label{EQ:coordchange}
+	\begin{pmatrix}p^j \\ 1\end{pmatrix} = H_i^j \begin{pmatrix}
+		p^i \\ 1\end{pmatrix}
+\end{equation}.
+The inverse transformation $ H_j^i $ is given by 
+\[H_i^j = (H_i^j)^{-1} = \begin{pmatrix}(R_i^j)^T & -(R_i^j)^T p_i^j \\ 0_{1 \times 3} & 1\end{pmatrix} \]
+and is still a homogeneous matrix.
+The set of homogeneous matrices is called the \emph{special Euclidean} group:
+\begin{equation}
+	SE(3) := \{\begin{pmatrix}R & p\\0 & 1\end{pmatrix} \; | \; R \in SO((3), p \in \mathbb{R}^3\} 
+\end{equation}
+The $SE(3)$ is a matrix lie group, composed of the set of homogeneous matrices $H_i^j$ and the matrix multiplication being the group operation. For more information on Lie groups see e.g. \cite{Stramigioli_01}.
+\subsubsection{Twists and wrenches}
+Consider any point $ p $ not moving in coordinate frame $\Psi_i $, i.e. $ \dot{p}^i = 0 $ If $ p $ is moving in another coordinate frame $ \Psi_j $, the two frame move with respect to each other, the trajectory can be described as a function of time: $H_i^j(t) \in SE(3)$. By differentiating \ref{EQ:coordchange} one obtains
+\[\begin{pmatrix}\dot{p}^j(t) \\ 1\end{pmatrix} = \dot{H}_i^j(t) \begin{pmatrix}p^i \\ 1\end{pmatrix} \]
+$ \dot{H}_i^j $ describes both motion and a change of the reference frame. A separated representation is
+\begin{equation}
+	\begin{pmatrix}\dot{p}^j(t) \\ 1\end{pmatrix} = H_i^j(t)\left(\tilde{T}_i^{i,j}\begin{pmatrix}p^i \\ 1\end{pmatrix}\right)
+\end{equation}
+Where $ \tilde{T}_i^{i,j} = H_j^i  \dot{H}_i^j $ is the geometrical representation of the motion of $\Psi_i$ with respect to $\Psi_j$, expressed in $\Psi_i$, called a \emph{twist}. The $4  \times 4$ matrix $\tilde{T} $ can be decomposed and there exists also a vector representation $T\in \mathbb{R}^6$
+\[ \tilde{T} = \begin{pmatrix}\tilde{\omega} & v \\ 0 & 0\end{pmatrix} \; , \; T = \begin{pmatrix}\omega \\ v\end{pmatrix} \]
+Where $\tilde{\omega}$ is the skew-symmetric representation of the vector $\omega$
+\[\omega = \begin{pmatrix}
+\omega_1 \\ \omega_2 \\ \omega_3\end{pmatrix} \; \Rightarrow \; \tilde{\omega} = \begin{pmatrix}0 & -\omega_3 & \omega_2 \\ \omega_3 & 0 & \omega_1 \\ -\omega_2 & \omega_1 & 0\end{pmatrix} \]
+Therein $v$ is the velocity and $\omega$ is the angular velocity. \\
+Changes of coordinates for twists are of the form 
+\[\tilde{T}_i^{j,j} = H_i^j \tilde{T}_i^{i,j} H_j^i\]
+or for the vector representation
+\[\tilde{T}_i^{j,j} = Ad_{H_i^j} \tilde{T}_i^{i,j} \; , \;
+Ad_{H_i^j} = \begin{pmatrix}R_i^j & 0 \\ \tilde{p}_i^j R_i^j & R_i^j\end{pmatrix} \]\\
+The derivative $ \dot{H}_i^j$ is a tangential vector along the trajectory $H_i^j(t)$ and thus in the tangent space of the $SE(3)$: $ \dot{H}_i^j \in T_{H_i^j}SE(3)$. At the identity $ e $ of the $SE(3)$ the tangent space $ T_e SE(3) $ has the structure of a Lie algebra. The Lie algebra of the $SE(3)$ is denoted by $\mathfrak{se}(3)$. Since $ \dot{H}_i^j \in T_{H_i^j}SE(3) $ is transported to the identity by $ H_j^i $ the space of twists is the $\mathfrak{se}(3)$, i.e. the $\mathfrak{se}(3)$ is a vector space. The corresponding dual vector space is called the dual Lie algebra and denoted by $\mathfrak{se}^*(3)$. This is the vector space of linear operations from $\mathfrak{se}(3)$ to $\mathbb{R} $, clearly this is the space of wrenches $W$. Wrenches decompose to moments $ m $ and forces $ f $.
+\[ W = ( m \;\; f) \; , \; \tilde{W} = \begin{pmatrix}
+\tilde{f} & m \\ 0 & 0\end{pmatrix} \]
+The change of coordinates for twists is similar to the case of twists:
+\[(W^i)^T = Ad_{H_i^j}^T (W^j)^T \]
+Here the mapping is in the opposite direction, from $\Psi_j$ to $\Psi_i$, what is a consequence of the fact that wrenches are duals to twists.
+Recalling Subsection \ref{SS:PHSinterconnection} the power flowing through a port is defined by the dual product of an effort and flow pair, which are from a vector space and its dual respectively. On a vector space level the power port $\mathcal{P}$ is defined by the Cartesian product of the Lie algebra $\mathfrak{se}(3)$ and its dual $\mathfrak{se}^*(3)$: $\mathcal{P} = \mathfrak{se}(3) \times \mathfrak{se}^*(3)$. The mechanical power exchanged at the port is simply $P = WT$.
+
+\subsection{Dynamics of physical components}
+\subsubsection{Springs}
+Speaking of a \emph{spring} we mean the ideal, lossless representation of a potential energy storing element. A spring is connected to at least two bodies and is defined by an energy function. The energy is a function of only the relative positions of the bodies to which the spring is attached. Consider a spring between the two bodies $ B_i $ and $ B_j $,  with coordinate frames $ \Psi_i $ and $ \Psi_j $ fixed to the respective body. The stored potential energy is positive definite function of the form \cite{Stramigioli_99}
+\begin{equation}
+	V_{i,j} : SE(3) \rightarrow \mathbb{R}; \; H_i^j \mapsto V_{i,j}(H_i^j)
+\end{equation}
+Recalling the general equations of a PHS and the assignment of the variables from Subsection \ref{SS:HSdescription} we already have the structure of the PHS equations for a spring. The state variable is the relative displacement $H_i^j$, the effort variable is the wrench $ W_i^{j,j} $ and the flow variable is the relative motion $\dot{H}_i^j $
+\begin{eqnarray}
+	\dot{H}_i^j = T_i^{j,j}H_i^j\\
+	W_i^{j,j} = \frac{\partial V_{i,j}}{\partial H_i^j}(H_i^j)^T
+\end{eqnarray}
+Note that $ V_i,j $ has an energetic minimum when $ H_i^j $ is the identity matrix $I_4$. An energetic minimum physically necessary, otherwise infinite energy would be extractable. With $ H_i^j = I_4 $ the frames $ \Psi_i $ and $\Psi_j$ coincide.
+It is possible to define springs with non-zero rest-length by introducing coordinate frames $ \Psi_{ic} $ and $\Psi_{jc}$ rigidly attached to $ \Psi_i $ and $\Psi_j$ respectively. The spring is now between the new frames, thus the energetic minimum is $H_{ic}^{jc} = I_4$. The displacements $ H_i^{ic}, H_j^{jc} $ are the resulting rest-lengths. Frames $ \Psi_{ic} $ and $\Psi_{jc}$ can be chosen to represent the \emph{center of stiffness}, where translation and rotation are maximally decoupled \cite{Loncaric_87}.
+\subsubsection{Variable rest-length springs}
+Varying the rest-lengths of springs in manipulator-object interaction allows to perform a grasp and specify grasping forces. The rest-length influences the energy configuration, to be consistent with the previous an additional power port is introduced. The chosen hinge points $ \Psi_b,\Psi_j $ of the spring define an axis, known as the principal axes of stiffness. Changes of the rest-length leave this axis unaffected, i.e. the displacement is in-line. With reference to Fig. \ref{FIG:variablespring}, the change of rest-length is a change of relative displacement of $ \Psi_b $ and $\Psi_i$: $H_i^b$.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.55\textwidth]{variablespring.jpg}
+	\caption[Variable rest-length spring]{Variable rest-length spring \cite{Stramigioli_99}}
+	\label{FIG:variablespring}
+\end{figure}
+Towards a PHS representation we need to identify the components contributing to the deformation twist of the spring $ T_i^{j,j} $: the displacement twist of the bodies attached to the spring $T_b^{j,j} $ and the twist resulting from a commanded change of rest-length $T_i^{b,b}$ \cite{Stramigioli_01c}.
+\begin{equation}
+	T_b^{j,j} = T_b^{j,j} + Ad_{H_b^j} T_i^{b,b}
+\end{equation}
+Since no additional energy storages were introduced, the Hamiltonian function is equal to the case of the previous simple spring. We can write the two-port Hamiltonian system of a variable length spring as
+\begin{eqnarray}
+	\dot{H}_i^j = \begin{pmatrix}1 & Ad_{H_b^j}\end{pmatrix} \begin{pmatrix}T_b^{j,j} \\ T_i^{b,b}\end{pmatrix}H_i^j\\
+	\begin{pmatrix}W_b^{j,j} \\ W_i^{b,b}\end{pmatrix}  = \begin{pmatrix}1 \\ Ad_{H_b^j}^T\end{pmatrix} \frac{\partial V_{i,j}}{\partial H_i^j}(H_i^j)^T
+\end{eqnarray}
+
+\subsubsection{Inertias}
+The kinetic energy of a body is a function of its relative motion with respect to an inertial frame $ \Psi_0 $. The body's dynamic properties are described by the inertia matrix $M_b$, which consists of mass and rotational inertia components. Consider the classical description of a body's dynamics:
+\begin{equation}
+	M_b \dot{T_b^{b,0}} + C_b T_b^{b,0} = W_b^b
+\end{equation}
+Where $C_b$ accounts for Coriolis and Centripetal terms and $W_b^v$ is the wrench acting on the body.\\
+Recall from Table \ref{TAB:PHSvar_mechanic} that the energy state variable is the momentum $P_b^b = M_b T_b^{b,0}$ and the flow variable is the wrench, we can reformulate the previous equation to PHS form
+\begin{eqnarray}
+	\dot{P_b^b} = C_b \frac{\partial V_k(P_b^b)}{\partial P_b^b} + I_6 W_b^b \\
+	T_b^{b,0} = I_6 \frac{\partial V_k(P_b^b)}{\partial P_b^b}
+\end{eqnarray}
+The kinetic energy function is given as $V_k = \frac{1}{2}(P_b^b)^T M_b^{-1} P_b^b$.
+
+\subsubsection{Dampers}
+Dampers do not have a state since they do not store energy, they only dissipate it. For sake of completeness note that energy is not "destroyed" in the dampers but transformed in to thermal energy. This can be modelled with a thermal port connected to the environment, since we are only interested in free energy this port is omitted. The easiest way to achieve damping is a linear resistive element $R$, such that the wrench is directly proportional to twist. Consider for example a body's motion with respect to the inertial frame
+\begin{equation}
+	W_b^b = R T_b^{b,0}
+\end{equation}
+Or a damper in parallel with spring
+\begin{equation}
+	W_i^{j,j} = R T_i^{j,j}
+\end{equation}
+The dissipated co-energy is $E_d = \frac{1}{2}T^T R T$.
+
+\section{Control of port-Hamiltonian systems}
+\subsubsection{The Intrinsically Passive Controller (IPC)}
+The IPC is a control architecture based entirely on physical intuition. The structure can be seen in Fig. \ref{FIG:IPCsprings}, it is exclusively a geometric interconnection of springs, inertias and dampers. The manipulators are connected with spatial springs to the object. The object is modelled by a virtual inertia and its shape is represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. This ensures compliant behaviour between object and environment and manipulators and environment. Furthermore object movement is damped with respect to the inertial frame. Dynamic behaviour of the virtual object is simulated in real-time, so no tracking of the object is necessary. The only values that have to be measured are the end-effector positions, the object speed required for the damping term is computed in the simulation. Dampers parallel to the manipulator-object springs are applicable if manipulator speed is measurable.
+By varying the rest-length of the manipulator springs a the grasp can be opened or closed. Furthermore in a closed state grasping forces can be specified via the rest-length.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IPCsprings.jpg}
+	\caption[Structure of the IPC]{Structure of the IPC \cite{Stramigioli_99}}
+	\label{FIG:IPCsprings}
+\end{figure}
+
+
+The higher control part has the role of planning and scheduling. It controls the state of energy of the IPC and robot. Trajectory and formation of the manipulators are determined, e.g. moving the robots independently to open or close the grasp, directing the formation of robots to move the object. The grasping process can be controlled by changing the virtual object sphere size. Translation or rotation of the grasped object can be commanded by setting the desired virtual object pose. A human operator taking tasks of the Supervisor causes a delay which can be modelled as transmission line with delay between Supervisor and IPC. The control architecture is still valid in a tele-operation setting. Using scattering the passivity of the IPC can be preserved.
 \section{Performance Comparison of control strategies}
 
 To evaluate the presented controllers in an objective way, they are implemented in \emph{Simulink} an compared in terms of:
@@ -498,7 +747,7 @@ This architecture in contrast to the previous makes use of measured contact wren
 \label{FIG:abb4}
 \end{figure}
 
-\subsection{Dynamic Intrinsically Passive Controller (IPC) \cite{Wimboeck_08} }
+%\subsection{Dynamic Intrinsically Passive Controller (IPC) \cite{Wimboeck_08} }
 %\section{Implementation}
 %
 %
@@ -527,13 +776,8 @@ This architecture in contrast to the previous makes use of measured contact wren
 
 
 %_____Zusammenfassung, Ausblick_________________________________
-\chapter{Further work}
-The controller is divided into two parts, the local one does the real-time interaction of the manipulators with the object. This part is passive, i.e. the robot along with its local controller has a certain amount of energy, the energy can not increase as long as no power is provided by the environment or the higher-level control part. Therefore the two parts will be called Intrinsically Passive Controller and Supervisor, this scheme was introduced by Stramigioli [??] as a general framework with application to robotic hands.
-\subsubsection{The Intrinsically Passive Controller (IPC)}
-The IPC has a physically meaningful behaviour, because it is described by a spatial interconnection of springs, inertias and dampers. Each manipulator is represented by an inertia and connected to the (virtual) object by a spatial spring. The object is modelled by a virtual inertia and its dimensions are represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. This ensures compliant behaviour between object and environment and manipulators and environment. Furthermore object movement is damped with respect to the inertial frame. Dynamic behaviour of the virtual object is simulated in real-time, so no tracking of the object is necessary.  The only values that have to be measured are the end-effector positions, the object speed required for the damping term is computed in the simulation. Dampers parallel to the manipulator-object springs are applicable if manipulator speed is measurable.
-By choosing the rest-length of the  manipulator-object springs a internal force can be indirectly specified. This rest-length can be adjusted on-line without violating passivity, so the operator can adjust grasp forces if necessary (e.g. opening closing grasp). Another example for on-line adjustment of grasp forces is having them determined dependent on dynamic requirements, e.g. higher internal forces during acceleration to satisfy the contact friction constraints at all time.
-\subsubsection{The Supervisor}
-The higher control part has the role of planning and scheduling. It controls the state of energy of the IPC and robot. Trajectory and formation of the manipulators are determined, e.g. moving the robots independently to open or close the grasp, directing the formation of robots to move the object. The grasping process can be controlled by changing the virtual object sphere size. Translation or rotation of the grasped object can be commanded by setting the desired virtual object pose. A human operator taking tasks of the Supervisor causes a delay which can be modelled as transmission line with delay between Supervisor and IPC.The control architecture is still valid in a teleoperation setting. Using scattering the passivity of the IPC can be preserved.  
+\chapter{Conclusion}
+  
 
 %Don't leave it at the discussion: discuss what you/the reader can learn from the results. Draw some real conclusions. Separate discussion/interpretation of the results clearly from the conclusions you draw from them. (So-called "conclusion creep" tends to upset reviewers. It means surrendering your scientific objectivity.) Identify all shortcomings/limitations of your work, and discuss how they could be fixed ("future work"). It is not a sign of weakness of your work, if you clearly analyse and state the limitations. Informed readers will notice them anyway and draw their own conclusions, if not addressed properly.
 %
