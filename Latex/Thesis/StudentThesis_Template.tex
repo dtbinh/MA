@@ -1,6 +1,6 @@
 \documentclass[a4paper,twoside, openright,12pt]{report}
 \usepackage{psfrag,amsbsy,graphics,float,amsmath,amssymb,epstopdf}
-\usepackage{graphicx, color} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
+\usepackage{graphicx, color, mathtools} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
 \usepackage[latin1]{inputenc}
 \usepackage{verbatim} 
 
@@ -610,7 +610,7 @@ The set of homogeneous matrices is called the \emph{special Euclidean} group:
 \end{equation}
 The $SE(3)$ is a matrix lie group, composed of the set of homogeneous matrices $H_i^j$ and the matrix multiplication being the group operation. For more information on Lie groups see e.g. \cite{Stramigioli_01}.
 \subsubsection{Twists and wrenches}
-Consider any point $ p $ not moving in coordinate frame $\Psi_i $, i.e. $ \dot{p}^i = 0 $ If $ p $ is moving in another coordinate frame $ \Psi_j $, the two frame move with respect to each other, the trajectory can be described as a function of time: $H_i^j(t) \in SE(3)$. By differentiating \ref{EQ:coordchange} one obtains
+Consider any point $ p $ not moving in coordinate frame $\Psi_i $, i.e. $ \dot{p}^i = 0 $. If $ p $ is moving in another coordinate frame $ \Psi_j $, the two frame move with respect to each other. The trajectory can be described as a function of time: $H_i^j(t) \in SE(3)$. By differentiating (\ref{EQ:coordchange}) one obtains
 \[\begin{pmatrix}\dot{p}^j(t) \\ 1\end{pmatrix} = \dot{H}_i^j(t) \begin{pmatrix}p^i \\ 1\end{pmatrix} \]
 $ \dot{H}_i^j $ describes both motion and a change of the reference frame. A separated representation is
 \begin{equation}
@@ -619,20 +619,26 @@ $ \dot{H}_i^j $ describes both motion and a change of the reference frame. A sep
 Where $ \tilde{T}_i^{i,j} = H_j^i  \dot{H}_i^j $ is the geometrical representation of the motion of $\Psi_i$ with respect to $\Psi_j$, expressed in $\Psi_i$, called a \emph{twist}. The $4  \times 4$ matrix $\tilde{T} $ can be decomposed and there exists also a vector representation $T\in \mathbb{R}^6$
 \[ \tilde{T} = \begin{pmatrix}\tilde{\omega} & v \\ 0 & 0\end{pmatrix} \; , \; T = \begin{pmatrix}\omega \\ v\end{pmatrix} \]
 Where $\tilde{\omega}$ is the skew-symmetric representation of the vector $\omega$
-\[\omega = \begin{pmatrix}
-\omega_1 \\ \omega_2 \\ \omega_3\end{pmatrix} \; \Rightarrow \; \tilde{\omega} = \begin{pmatrix}0 & -\omega_3 & \omega_2 \\ \omega_3 & 0 & \omega_1 \\ -\omega_2 & \omega_1 & 0\end{pmatrix} \]
+\begin{equation}\label{EQ:skewsymmetricop}
+\omega = \begin{pmatrix}
+\omega_1 \\ \omega_2 \\ \omega_3\end{pmatrix} \; \Rightarrow \; \tilde{\omega} = \begin{pmatrix}0 & -\omega_3 & \omega_2 \\ \omega_3 & 0 & \omega_1 \\ -\omega_2 & \omega_1 & 0\end{pmatrix} \end{equation}
 Therein $v$ is the velocity and $\omega$ is the angular velocity. \\
 Changes of coordinates for twists are of the form 
-\[\tilde{T}_i^{j,j} = H_i^j \tilde{T}_i^{i,j} H_j^i\]
+\[\tilde{T}_i^{j,j} = \tilde{T}_i^{j} = H_i^j \tilde{T}_i^{i,j} H_j^i\]
 or for the vector representation
-\[\tilde{T}_i^{j,j} = Ad_{H_i^j} \tilde{T}_i^{i,j} \; , \;
-Ad_{H_i^j} = \begin{pmatrix}R_i^j & 0 \\ \tilde{p}_i^j R_i^j & R_i^j\end{pmatrix} \]\\
+\[T_i^{j} = Ad_{H_i^j} T_i^{i,j} \; , \;
+Ad_{H_i^j} = \begin{pmatrix}R_i^j & 0 \\ \tilde{p}_i^j R_i^j & R_i^j\end{pmatrix} \]
+Where $T_i^j$ is simply described as the twist of $\Psi_i$ with respect to $\Psi_j$, naturally given in reference frame $\Psi_j$ (and therefore not noted as $T_i^{j,j}$). \\
 The derivative $ \dot{H}_i^j$ is a tangential vector along the trajectory $H_i^j(t)$ and thus in the tangent space of the $SE(3)$: $ \dot{H}_i^j \in T_{H_i^j}SE(3)$. At the identity $ e $ of the $SE(3)$ the tangent space $ T_e SE(3) $ has the structure of a Lie algebra. The Lie algebra of the $SE(3)$ is denoted by $\mathfrak{se}(3)$. Since $ \dot{H}_i^j \in T_{H_i^j}SE(3) $ is transported to the identity by $ H_j^i $ the space of twists is the $\mathfrak{se}(3)$, i.e. the $\mathfrak{se}(3)$ is a vector space. The corresponding dual vector space is called the dual Lie algebra and denoted by $\mathfrak{se}^*(3)$. This is the vector space of linear operations from $\mathfrak{se}(3)$ to $\mathbb{R} $, clearly this is the space of wrenches $W$. Wrenches decompose to moments $ m $ and forces $ f $.
 \[ W = ( m \;\; f) \; , \; \tilde{W} = \begin{pmatrix}
 \tilde{f} & m \\ 0 & 0\end{pmatrix} \]
 The change of coordinates for twists is similar to the case of twists:
 \[(W^i)^T = Ad_{H_i^j}^T (W^j)^T \]
-Here the mapping is in the opposite direction, from $\Psi_j$ to $\Psi_i$, what is a consequence of the fact that wrenches are duals to twists.
+Here the mapping is in the opposite direction, from $\Psi_j$ to $\Psi_i$, what is a consequence of the fact that wrenches are duals to twists. Again there different representations of wrenches: \begin{itemize}
+\item $W_i^k$ is the wrench applied to a mass attached to $\Psi_i$ expressed in the coordinate frame $Psi_k$.
+\item $W_i^{k,j}$ is the wrench applied to a spring connecting $\Psi_i$ to $\Psi_j$ on the side of $\Psi_i$ expressed in the coordinate frame $\Psi_k$.
+\end{itemize}
+
 Recalling Subsection \ref{SS:PHSinterconnection} the power flowing through a port is defined by the dual product of an effort and flow pair, which are from a vector space and its dual respectively. On a vector space level the power port $\mathcal{P}$ is defined by the Cartesian product of the Lie algebra $\mathfrak{se}(3)$ and its dual $\mathfrak{se}^*(3)$: $\mathcal{P} = \mathfrak{se}(3) \times \mathfrak{se}^*(3)$. The mechanical power exchanged at the port is simply $P = WT$.
 
 \subsection{Dynamics of physical components}
@@ -661,7 +667,7 @@ Towards a PHS representation we need to identify the components contributing to 
 	T_b^{j,j} = T_b^{j,j} + Ad_{H_b^j} T_i^{b,b}
 \end{equation}
 Since no additional energy storages were introduced, the Hamiltonian function is equal to the case of the previous simple spring. We can write the two-port Hamiltonian system of a variable length spring as
-\begin{eqnarray}
+\begin{eqnarray}\label{EQ:variablerestlengthspring}
 	\dot{H}_i^j = \begin{pmatrix}1 & Ad_{H_b^j}\end{pmatrix} \begin{pmatrix}T_b^{j,j} \\ T_i^{b,b}\end{pmatrix}H_i^j\\
 	\begin{pmatrix}W_b^{j,j} \\ W_i^{b,b}\end{pmatrix}  = \begin{pmatrix}1 \\ Ad_{H_b^j}^T\end{pmatrix} \frac{\partial V_{i,j}}{\partial H_i^j}(H_i^j)^T
 \end{eqnarray}
@@ -669,7 +675,7 @@ Since no additional energy storages were introduced, the Hamiltonian function is
 \subsubsection{Inertias}
 The kinetic energy of a body is a function of its relative motion with respect to an inertial frame $ \Psi_0 $. The body's dynamic properties are described by the inertia matrix $M_b$, which consists of mass and rotational inertia components. Consider the classical description of a body's dynamics:
 \begin{equation}
-	M_b \dot{T_b^{b,0}} + C_b T_b^{b,0} = W_b^b
+	M_b \dot{T}_b^{b,0} + C_b T_b^{b,0} = W_b^b
 \end{equation}
 Where $C_b$ accounts for Coriolis and Centripetal terms and $W_b^v$ is the wrench acting on the body.\\
 Recall from Table \ref{TAB:PHSvar_mechanic} that the energy state variable is the momentum $P_b^b = M_b T_b^{b,0}$ and the flow variable is the wrench, we can reformulate the previous equation to PHS form
@@ -678,6 +684,21 @@ Recall from Table \ref{TAB:PHSvar_mechanic} that the energy state variable is th
 	T_b^{b,0} = I_6 \frac{\partial V_k(P_b^b)}{\partial P_b^b}
 \end{eqnarray}
 The kinetic energy function is given as $V_k = \frac{1}{2}(P_b^b)^T M_b^{-1} P_b^b$.
+In cooperative manipulation we often deal with heavy objects, it is thus inevitable to model gravity of the virtual object. A mass in the gravitational field has a potential energy and can be modelled with a spring connecting the body and an inertial frame associated with the ground. This spring can be formulated as a PHS in the same manner than in the previous sections
+\begin{eqnarray}
+	\dot{H}_b^0 = T_b^{0,0}H_b^0\\
+	W_b^{0,0} = \frac{\partial V_{g}}{\partial H_b^0}(H_b^0)^T
+\end{eqnarray}
+The combined PHS representation of an inertia is \cite{Stramigioli_01}
+\begin{eqnarray} \label{EQ:PHSinertia}
+\begin{pmatrix}\dot{H}_b^0 \\ \dot{P_b^b}\end{pmatrix} =
+\begin{pmatrix}0 & Ad_{H_b^0} H_o^b \\
+-(H_o^b)^T Ad_{H_b^0}^T & C_b\end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{kg}}{\partial H_b^0} \\ \frac{\partial V_{kg}}{\partial P_b^b}\end{pmatrix} + 
+\begin{pmatrix}0 \\ I_6\end{pmatrix} W_b^b \\
+T_b^0 = \begin{pmatrix}0 & Ad_{H_b^0}\end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{kg}}{\partial H_b^0} \\ \frac{\partial V_{kg}}{\partial P_b^b}\end{pmatrix}
+\end{eqnarray} 
 
 \subsubsection{Dampers}
 Dampers do not have a state since they do not store energy, they only dissipate it. For sake of completeness note that energy is not "destroyed" in the dampers but transformed in to thermal energy. This can be modelled with a thermal port connected to the environment, since we are only interested in free energy this port is omitted. The easiest way to achieve damping is a linear resistive element $R$, such that the wrench is directly proportional to twist. Consider for example a body's motion with respect to the inertial frame
@@ -692,14 +713,41 @@ The dissipated co-energy is $E_d = \frac{1}{2}T^T R T$.
 
 \section{Control of port-Hamiltonian systems}
 \subsubsection{The Intrinsically Passive Controller (IPC)}
-The IPC is a control architecture based entirely on physical intuition. The structure can be seen in Fig. \ref{FIG:IPCsprings}, it is exclusively a geometric interconnection of springs, inertias and dampers. The manipulators are connected with spatial springs to the object. The object is modelled by a virtual inertia and its shape is represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. This ensures compliant behaviour between object and environment and manipulators and environment. Furthermore object movement is damped with respect to the inertial frame. Dynamic behaviour of the virtual object is simulated in real-time, so no tracking of the object is necessary. The only values that have to be measured are the end-effector positions, the object speed required for the damping term is computed in the simulation. Dampers parallel to the manipulator-object springs are applicable if manipulator speed is measurable.
-By varying the rest-length of the manipulator springs a the grasp can be opened or closed. Furthermore in a closed state grasping forces can be specified via the rest-length.
+The IPC is a control architecture based entirely on physical intuition. The structure can be seen in Fig. \ref{FIG:IPCsprings}, it is exclusively a geometric interconnection of springs, inertias and dampers. The manipulators are connected with spatial springs to the object. The object is modelled by a virtual inertia and its shape is represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. Note that these springs do not exist in reality, they are models to establish compliant behaviour in the controller. The simulated manipulator forces are then applied to the real object, in order to transfer the virtual complaint behaviour to the real world.\\
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{IPCsprings.jpg}
 	\caption[Structure of the IPC]{Structure of the IPC \cite{Stramigioli_99}}
 	\label{FIG:IPCsprings}
 \end{figure}
+Starting point for the controller design is the virtual object. It is already given by equation (\ref{EQ:PHSinertia}). Springs to environment and manipulator exert wrenches on the object, in terms of port-Hamiltonian representation they are connected through the control port.\\
+From a geometric point of view the object-environment spring directly connects to the virtual object frame $\Psi_b$. The other end is attached to the desired object position, denoted with frame $\Psi_v$. This desired object position is the main control objective, by means of this the motion of the constrained robot-object system is directed. The representation in PHS form is:
+\begin{eqnarray}
+	\dot{H}_v^b = T_v^{b,b}H_v^b\\
+	W_v^{b,b} = \frac{\partial V_{v,b}}{\partial H_v^b}(H_v^b)^T
+\end{eqnarray}
+Since we already have a spring relation between the virtual object and the inertial frame it is useful to split this spring into two springs: one between desired position and inertial frame and the other between inertial frame and object position: $H_v^b$ = $H_0^b H_v^0 $.\\
+Additionally the have a spring connecting object and each of the $n$-manipulators. As stated before these are variable rest-length springs, to allow for contraction and widening of the formation. Therefore the springs do not connect to the object frame but to a additional supporting frame denoted by $\Psi_v(i)$, which is rigidly attached to $\Psi_b$. Clearly the frames $\Psi_v(i),\; i=1...N$ define the sphere of the virtual object. The springs are situated between the manipulators and the virtual object sphere: $H_v(i)^i$ The rest-length is between the sphere and the virtual object frame: $H_b^v(i)$. The spring forces act on the virtual object in the virtual contact points $\Psi_v(i)$. Therefore we need to map the spring forces to the object. This is done by the grasp map, a well known concept in cooperative manipulation (see e.g. \cite{CoopManipHandbook}). It relates both wrenches and motion between manipulators and object. For example the relation of the $i$-th spring to the object (angular) velocity $(\omega_b^T, v_b^T)^T$ is
+\[ \begin{pmatrix}\omega_{v(i)} \\ v_{v(i)}\end{pmatrix} = \begin{pmatrix}\omega_b  \\ v_b + p_{v(i)}^b \times \omega_b \end{pmatrix} \]
+We can combine this for all $ n $-manipulators and obtain the grasp matrix
+\[ G = \begin{pmatrix*}[l]
+S(p_{v(1)}^b) & I_3 \; \cdots \; S(p_{v(N)}^b) & I_3 \\ I_3 & 0_3 \; \cdots \; I_3 & 0_3 \end{pmatrix*} \]
+Wherein $S(\cdot)$ denotes the skew symmetric operation, defined in (\ref{EQ:skewsymmetricop}).
+The grasp matrix is a useful tool relating both twists and wrenches between object and manipulators:
+\begin{equation}
+W_b = GW \; , \; T = G^T T_b
+\end{equation}
+Where $W = (W_{v(1)}^T,...,W_{v(N)}^T)^T$ and $T = (T_{v(1)}^T,...,T_{v(N)}^T)^T$ are the stacked vectors of wrenches and twists respectively.\\
+Since we have defined geometric structure of the springs, we can give the PHS representation (see also (\ref{EQ:variablerestlengthspring}))
+\begin{eqnarray}\label{EQ:variablerestlengthspring}
+	\dot{H}_{v(i)}^i = \begin{pmatrix}1 & Ad_{H_b^i}\end{pmatrix} \begin{pmatrix}T_b^{i} \\ T_{v(i)}^{b}\end{pmatrix}H_{v(i)}^i\\
+	\begin{pmatrix}W_b^{i,i} \\ W_{v(i)}^{b,b}\end{pmatrix}  = \begin{pmatrix}1 \\ Ad_{H_b^i}^T\end{pmatrix} \frac{\partial V_{v(i),i}}{\partial H_{v(i)}^i}(H_{v(i)}^i)^T
+\end{eqnarray}
+
+
+
+This ensures compliant behaviour between object and environment and manipulators and environment. Furthermore object movement is damped with respect to the inertial frame. Dynamic behaviour of the virtual object is simulated in real-time, so no tracking of the object is necessary. The only values that have to be measured are the end-effector positions, the object speed required for the damping term is computed in the simulation. Dampers parallel to the manipulator-object springs are applicable if manipulator speed is measurable.
+By varying the rest-length of the manipulator springs a the grasp can be opened or closed. Furthermore in a closed state grasping forces can be specified via the rest-length.
 
 
 The higher control part has the role of planning and scheduling. It controls the state of energy of the IPC and robot. Trajectory and formation of the manipulators are determined, e.g. moving the robots independently to open or close the grasp, directing the formation of robots to move the object. The grasping process can be controlled by changing the virtual object sphere size. Translation or rotation of the grasped object can be commanded by setting the desired virtual object pose. A human operator taking tasks of the Supervisor causes a delay which can be modelled as transmission line with delay between Supervisor and IPC. The control architecture is still valid in a tele-operation setting. Using scattering the passivity of the IPC can be preserved.

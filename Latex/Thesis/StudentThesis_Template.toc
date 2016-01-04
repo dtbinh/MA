@@ -19,12 +19,12 @@
 \contentsline {subsubsection}{Springs}{22}{section*.7}
 \contentsline {subsubsection}{Variable rest-length springs}{22}{section*.8}
 \contentsline {subsubsection}{Inertias}{23}{section*.9}
-\contentsline {subsubsection}{Dampers}{23}{section*.10}
-\contentsline {section}{\numberline {2.3}Control of port-Hamiltonian systems}{24}{section.2.3}
-\contentsline {subsubsection}{The Intrinsically Passive Controller (IPC)}{24}{section*.11}
-\contentsline {section}{\numberline {2.4}Performance Comparison of control strategies}{25}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Internal force impedance control with feed-forward of the object dynamics \cite {DePascali_15}}{25}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Internal and external impedance based reference trajectory generation \cite {Caccavale_01}}{26}{subsection.2.4.2}
-\contentsline {chapter}{\numberline {3}Conclusion}{29}{chapter.3}
-\contentsline {chapter}{List of Figures}{31}{chapter.3}
-\contentsline {chapter}{Bibliography}{33}{chapter*.12}
+\contentsline {subsubsection}{Dampers}{24}{section*.10}
+\contentsline {section}{\numberline {2.3}Control of port-Hamiltonian systems}{25}{section.2.3}
+\contentsline {subsubsection}{The Intrinsically Passive Controller (IPC)}{25}{section*.11}
+\contentsline {section}{\numberline {2.4}Performance Comparison of control strategies}{27}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Internal force impedance control with feed-forward of the object dynamics \cite {DePascali_15}}{27}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Internal and external impedance based reference trajectory generation \cite {Caccavale_01}}{28}{subsection.2.4.2}
+\contentsline {chapter}{\numberline {3}Conclusion}{31}{chapter.3}
+\contentsline {chapter}{List of Figures}{33}{chapter.3}
+\contentsline {chapter}{Bibliography}{35}{chapter*.12}
