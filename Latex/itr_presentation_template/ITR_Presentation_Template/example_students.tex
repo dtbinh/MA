@@ -20,21 +20,32 @@
     \titlepage
 \end{frame}
 
-\begin{frame}
-	\frametitle{Overview}
-    \tableofcontents%[hideallsubsections]%[pausesections]
-\end{frame}
+%\begin{frame}
+%	\frametitle{Overview}
+%    \tableofcontents%[hideallsubsections]%[pausesections]
+%\end{frame}
 
 \section{Introduction}
 
 \begin{frame}
-	\frametitle{Motivation}
-		\begin{figure}[htb]
+	\frametitle{Cooperative Manipulation Tasks}
+		\begin{columns}
+		\column{0.6\linewidth}
+			\begin{figure}[htb]
 			\centering
 			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-			\includegraphics[width=0.7\textwidth]{mhi-meister45.jpg}
-			\caption{Demonstration of MHI MEISTeR at Fukushima Daiichi 					Nuclear Power Station}
-		\end{figure}
+			\includegraphics[width=0.98\textwidth]{mhi-meister45.jpg}
+			\caption{Demonstration of MHI MEISTeR at 						Fukushima Daiichi 					Nuclear 						Power Station\cite{}}
+			\end{figure} 
+		\column{0.45\linewidth}
+			\begin{itemize}
+				\item transportation of large/heavy objects
+	\item assembly of multiple parts 
+	\item grasping an object without rigid fixture 
+	\item deforming a flexible object
+	\item coordinated use of tools
+			\end{itemize}
+			\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -166,15 +177,43 @@
 \end{frame}
 
 \section{Results}
-
 \begin{frame}
-	\frametitle{Ergebnisse1}
-	...
+	\frametitle{Grasping force optimization for friction contacts}
+	\begin{columns}
+	\column{0.6\textwidth}
+	\begin{itemize}
+	\item required contact normal force is dependent on tangential forces
+	\item high tangential forces arise during acceleration
+	\item other requirements: safety margin, maximum grasping force $\Rightarrow$ cost function
+	\item linear matrix inequality (LMI) problem
+	\end{itemize}
+	\column{0.5\textwidth}
+
+\begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.9\textwidth]{Hanposforce.eps}
+			\caption{Position, Internal wrench}
+\end{figure}
+\end{columns}
+\end{frame}
+\begin{frame}
+	\frametitle{Comparison of Grasp Controllers 1}
+Impedance-based reference trajectory generation \cite{Caccavale_01}
+ \begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.9\textwidth]{Caccavaleorientation.eps}
+			\caption{Position, Velocity, Manipulator wrench, Internal wrench}
+\end{figure}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Ergebnisse2}
-	...
+	\frametitle{Comparison of Grasp Controllers 2}
+Internal impedance control with object force-feedforward \cite{DePascali_15}
+ \begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.9\textwidth]{Depascaliorientation.eps}
+			\caption{Position, Velocity, Manipulator wrench, Internal wrench}
+\end{figure}
 \end{frame}
 
 \section{Conclusion}

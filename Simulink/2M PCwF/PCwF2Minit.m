@@ -44,27 +44,27 @@ r = [1; 0; 0;
 %A = [-eye(3),skew_sm(r(1:3)),eye(3),zeros(3,9);zeros(3),-eye(3),zeros(3),eye(3),zeros(3,6);-eye(3),skew_sm(r(4:6)),zeros(3,6),eye(3),zeros(3);zeros(3),-eye(3),zeros(3,9),eye(3)];
 
 %friction constant
-mu = 0.55;
+mu = 0.9;
 
 %stiffness
-k1 = 50;
-k2 = 50;
-k3 = 5;
-k4 = 5;
-kappa1 = 50;
-kappa2 = 50;
-kappa3 = 50;
-kappa4 = 50;
+k1 = 5000;
+k2 = 5000;
+k3 = 500;
+k4 = 500;
+kappa1 = 1000;
+kappa2 = 1000;
+kappa3 = 1000;
+kappa4 = 1000;
 
 %damping
-d1 = 100;
-d2 = 100;
-d3 = 100;
-d4 = 100;
-delta1 = 30;
-delta2 = 30;
-delta3 = 30;
-delta4 = 30;
+d1 = 550;
+d2 = 550;
+d3 = 80;
+d4 = 80;
+delta1 = 200;
+delta2 = 200;
+delta3 = 200;
+delta4 = 200;
 
 
 
