@@ -63,6 +63,11 @@ G.~Gioioso, A.~Franchi, G.~Salvietti, S.~Scheggi, and D.~Prattichizzo.
 \newblock {\em Robotics and Automation (ICRA), 2014 IEEE International
   Conference on}, pages 4335--4341, May 2014.
 
+\bibitem[Goe52]{Goertz_52}
+R.C. Goertz.
+\newblock Fundamentals of general-purpose remote manipulators.
+\newblock {\em Nucleonics}, 10(11):36--45, 1952.
+
 \bibitem[HKDN13]{Heck_13}
 D.~Heck, D.~Kostic, A.~Denasi, and H.~Nijmeijer.
 \newblock Six-dof impedance control of dual-arm cooperative manipulators.

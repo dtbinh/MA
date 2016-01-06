@@ -588,7 +588,7 @@ Where $ x = (x_1, x_2)^T $ and $ H = H_1 + H_2 $ is the sum of the two energies.
 R_1 & 0 \\ 0 & R_2\end{pmatrix}\]
 
 \section{3D-space modelling of mechanical systems}
-\subsection{Euclidean space and motions}
+\subsection{Euclidean space and motions}\label{[SS:euclideanspacemotions]}
 \subsubsection{Coordinate frames}
 A coordinate frame of the three-dimensional Euclidean space is a 4-tuple of the form $ \Psi = (o,\hat{x},\hat{y},\hat{z})$. Where $ o $ is the three-dimensional vector of the origin and $ \hat{x},\hat{y},\hat{z} $ are the linear independent, orthonormal coordinate vectors. Consider two coordinate frames $ \Psi_1,\Psi_2 $ which share the same origin but differ in orientation due to different choices of $ \hat{x}_i,\hat{y}_i,\hat{z}_i, \; i=1,2 $. The change of orientation from $ \Psi_i $ to $ \Psi_i $ is described by the rotation matrix $ R_i^j $. The set of rotation matrices is called \emph{special orthonormal} group ($SO(3)$) \cite{Stramigioli_01b} and is defined as:
 \begin{equation}
@@ -617,10 +617,10 @@ $ \dot{H}_i^j $ describes both motion and a change of the reference frame. A sep
 	\begin{pmatrix}\dot{p}^j(t) \\ 1\end{pmatrix} = \tilde{T}_i^{j,j}\left(H_i^{j}\begin{pmatrix}p^i \\ 1\end{pmatrix}\right)
 \end{equation}
 
-More formally speaking $ \dot{H}_i^j$ is a tangential vector along the trajectory $H_i^j(t)$ and thus in the tangent space of the $SE(3)$: $ \dot{H}_i^j \in T_{H_i^j}SE(3)$. The tangent space $T_{H_i^j}SE(3)$ depends on the relation of $\Psi_i$ and $\Psi_j$. To obtain a representation of motion which is referenced to a coordinate frame, we can map $\dot{H}_i^j$ to the identity of the $SE(3)$. At the identity $ e $ of the $SE(3)$ the tangent space $ T_e SE(3) $ has the structure of a Lie algebra. The Lie algebra of the $SE(3)$ is denoted by $\mathfrak{se}(3)$. This is done either by left or right translation, for a definition see \cite{Stramigioli_01}. The right translation is used in (\ref{EQ:twistrighttranslation}) (and will be used throughout the thesis) and is written compact
-\begin{equation}
+More formally speaking $ \dot{H}_i^j$ is a tangential vector along the trajectory $H_i^j(t)$ and thus in the tangent space of the $SE(3)$: $ \dot{H}_i^j \in T_{H_i^j}SE(3)$. The tangent space $T_{H_i^j}SE(3)$ depends on the relation of $\Psi_i$ and $\Psi_j$. To obtain a representation of motion which is referenced to a coordinate frame, we can map $\dot{H}_i^j$ to the identity of the $SE(3)$. At the identity $ e $ of the $SE(3)$ the tangent space $ T_e SE(3) $ has the structure of a Lie algebra. The Lie algebra of the $SE(3)$ is denoted by $\mathfrak{se}(3)$. This is done either by left or right translation, for a definition see \cite{Stramigioli_01}. The right translation is used in (\ref{EQ:twistrighttranslation}) and is written compact
+\begin{equation}\label{EQ:righttranslation}
 \dot{H}_i^j = \tilde{T}_i^{j,j} H_i^j
-\end{equation}
+\end{equation}\label{EQ:lefttranslation}
 The left translation leads to
 \begin{equation}
 \dot{H}_i^j = H_i^j \tilde{T}_i^{i,j} 
@@ -653,7 +653,7 @@ Here the mapping is in the opposite direction, from $\Psi_j$ to $\Psi_i$, what i
 \item $W_i^k$ is the wrench applied to a mass attached to $\Psi_i$ expressed in the coordinate frame $\Psi_k$.
 \item $W_i^{k,j}$ is the wrench applied to a spring connecting $\Psi_i$ to $\Psi_j$ on the side of $\Psi_i$ expressed in the coordinate frame $\Psi_k$.
 \end{itemize}
-Note that the first representation is mainly used for bodies, the wrench is exerted \emph{on} the body. The second is useful for springs, the wrench is exerted on the spring \emph{by} the body: $W_i^k = - W_i^{k,j}$
+Note that the first representation is mainly used for bodies, the wrench is exerted \emph{on} the body. The second is useful for springs, the wrench is exerted on the spring \emph{by} the body: $W_i^k = - W_i^{k,j}$. Also it is clear from Newton's third law (action - reaction) that $W_i^{k,j} = - W_j^{k,i}$.
 
 Recalling Subsection \ref{SS:PHSinterconnection} the power flowing through a port is defined by the dual product of an effort and flow pair, which are from a vector space and its dual respectively. On a vector space level the power port $\mathcal{P}$ is defined by the Cartesian product of the Lie algebra $\mathfrak{se}(3)$ and its dual $\mathfrak{se}^*(3)$: $\mathcal{P} = \mathfrak{se}(3) \times \mathfrak{se}^*(3)$. The mechanical power exchanged at the port is simply $P = WT$.
 
@@ -680,7 +680,7 @@ Varying the rest-lengths of springs in manipulator-object interaction allows to 
 \end{figure}
 Towards a PHS representation we need to identify the components contributing to the deformation twist of the spring $ T_i^{j} $: the displacement twist of the bodies attached to the spring $T_b^{j} $ and the twist resulting from a commanded change of rest-length $T_i^{b}$ \cite{Stramigioli_01c}.
 \begin{equation}
-	T_b^{j} = T_b^{j} + Ad_{H_b^j} T_i^{b}
+	T_i^{j} = T_b^{j} + Ad_{H_b^j} T_i^{b}
 \end{equation}
 Since no additional energy storages were introduced, the Hamiltonian function is equal to the case of the previous simple spring. We can write the two-port Hamiltonian system of a variable length spring as
 \begin{eqnarray}\label{EQ:variablerestlengthspring}
@@ -700,24 +700,25 @@ Recall from Table \ref{TAB:PHSvar_mechanic} that the energy state variable is th
 	T_b^{b,0} = I_6 \frac{\partial V_k(P_b^b)}{\partial P_b^b}
 \end{eqnarray}
 The kinetic energy function is given as $V_k = \frac{1}{2}(P_b^b)^T M_b^{-1} P_b^b$.
-In cooperative manipulation we often deal with heavy objects, it is thus inevitable to model gravity of the virtual object.  A potential energy is assigned to a mass in the gravitational field. This can be modelled with a spring connecting the body and an inertial frame associated with the ground. This spring can be formulated as a PHS in the same manner than in the previous subsections
+In cooperative manipulation we often deal with heavy objects, it is thus inevitable to model gravity of the virtual object.  A potential energy is assigned to a mass in the gravitational field. This can be modelled with a spring connecting the body and an inertial frame associated with the ground. This spring can be formulated as a PHS using the left translation (\ref{EQ:lefttranslation})
 \begin{eqnarray}
-	\dot{H}_b^0 = T_b^{0}H_b^0\\
-	W_b^{0,0} = \frac{\partial V_{g}}{\partial H_b^0}(H_b^0)^T
+	\dot{H}_b^0 = H_b^0 T_b^{b,0}\\
+	W_b^{b,0} = (H_b^0)^T\frac{\partial V_{g}}{\partial H_b^0}
 \end{eqnarray}
-Where $V_g$ is the gravitational potential energy of the body. For a combined description the potential and kinetic energy add up: $V_{kg} = V_k + V_g$. Since there are two types of energy stored by \emph{one} body, the twists in both energy systems are equal $ T_b^0 = Ad_{H_b^0} T_b^{b,0} $.    The wrenches on the body add up   
-\[W_{kg}^b = W_{ext}^b + C_b \frac{\partial V_{kg}}{\partial P_b^b} - Ad_{H_0^b}^T \frac{\partial V_{kg}}{\partial H_b^0}(H_b^0)^T \]
-Note that the negative sign in the upper equation comes from $W_b^b = - W_b^{b,0} = - Ad_{H_0^b}^T W_b^{0,0}$.\\
+Where $V_g$ is the gravitational potential energy of the body. For a combined description the potential and kinetic energy add up: $V_{kg} = V_k + V_g$. Since there are two types of energy stored by \emph{one} body, the twists in both energy systems are equal. The wrenches on the body add up   
+\[W_{kg}^b = W_{ext}^b + C_b \frac{\partial V_{kg}}{\partial P_b^b} - (H_b^0)^T \frac{\partial V_{kg}}{\partial H_b^0} \]
+Note that the negative sign in the upper equation comes from $W_b^b = - W_b^{b,0} $\\
 With this knowledge we can write the combined PHS representation
 \begin{eqnarray} \label{EQ:PHSinertia}
 \begin{pmatrix}\dot{H}_b^0 \\ \dot{P_b^b}\end{pmatrix} =
-\begin{pmatrix}0 & Ad_{H_b^0} H_o^b \\
--(H_o^b)^T Ad_{H_b^0}^T & C_b\end{pmatrix}
-\begin{pmatrix}\frac{\partial V_{kg}}{\partial H_b^0} \\ \frac{\partial V_{kg}}{\partial P_b^b}\end{pmatrix} + 
-\begin{pmatrix}0 \\ I_6\end{pmatrix} W_b^b \\
+\begin{pmatrix} 0 & H_b^0  \\
+- (H_b^0)^T & C_b\end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{kg}}{\partial H_b^0} \\ \frac{\partial V_{kg}}{\partial P_b^b}\end{pmatrix}+
+\begin{pmatrix}0 \\ W_{ext}^b\end{pmatrix} \\
 T_b^0 = \begin{pmatrix}0 & Ad_{H_b^0}\end{pmatrix}
 \begin{pmatrix}\frac{\partial V_{kg}}{\partial H_b^0} \\ \frac{\partial V_{kg}}{\partial P_b^b}\end{pmatrix}
-\end{eqnarray} 
+\end{eqnarray}
+
 
 \subsubsection{Dampers}
 Dampers do not have a state since they do not store energy, they only dissipate it. For sake of completeness note that energy is not "destroyed" in the dampers but transformed in to thermal energy. This can be modelled with a thermal port connected to the environment, since we are only interested in free energy this port is omitted. The easiest way to achieve damping is a linear resistive element $R$, such that the wrench is directly proportional to twist. Consider for example a body's motion with respect to the inertial frame
@@ -726,27 +727,35 @@ Dampers do not have a state since they do not store energy, they only dissipate 
 \end{equation}
 Or a damper in parallel with spring
 \begin{equation}
-	W_i^{j,j} = R T_i^{j,j}
+	W_i^{j,j} = R T_i^{j}
 \end{equation}
 The dissipated co-energy is $E_d = \frac{1}{2}T^T R T$.
 
 \section{Control of port-Hamiltonian systems}
-\subsubsection{The Intrinsically Passive Controller (IPC)}
+\subsection{The Intrinsically Passive Controller (IPC)}
 The IPC is a control architecture based entirely on physical intuition. The structure can be seen in Fig. \ref{FIG:IPCsprings}, it is exclusively a geometric interconnection of springs, inertias and dampers. The manipulators are connected with spatial springs to the object. The object is modelled by a virtual inertia and its shape is represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. Note that these springs do not exist in reality, they are models to establish compliant behaviour in the controller. The simulated manipulator forces are then applied to the real object, in order to transfer the virtual complaint behaviour to the real world.\\
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IPCsprings.jpg}
+	\includegraphics[width=0.8\textwidth]{IPCsprings.png}
 	\caption[Structure of the IPC]{Structure of the IPC \cite{Stramigioli_99}}
 	\label{FIG:IPCsprings}
 \end{figure}
 Starting point for the controller design is the virtual object. It is already given by equation (\ref{EQ:PHSinertia}). Springs to environment and manipulator exert wrenches on the object, in terms of port-Hamiltonian representation they are connected through the control port.\\
-From a geometric point of view the object-environment spring directly connects to the virtual object frame $\Psi_b$. The other end is attached to the desired object position, denoted with frame $\Psi_v$. This desired object position is the main control objective, by means of this the motion of the constrained robot-object system is directed. The representation in PHS form is:
+
+From a geometric point of view the object-environment spring directly connects to the virtual object frame $\Psi_b$. The other end is attached to the desired object position, denoted with frame $\Psi_v$. This desired object position is the main control objective, by means of this, the motion of the constrained robot-object system is directed. The representation in PHS form is:
 \begin{eqnarray}
-	\dot{H}_v^b = T_v^{b,b}H_v^b\\
+	\dot{H}_v^b = T_v^{b}H_v^b\\
 	W_v^{b,b} = \frac{\partial V_{v,b}}{\partial H_v^b}(H_v^b)^T
 \end{eqnarray}
 Since we already have a spring relation between the virtual object and the inertial frame it is useful to split this spring into two springs: one between desired position and inertial frame and the other between inertial frame and object position: $H_v^b$ = $H_0^b H_v^0 $.\\
-Additionally the have a spring connecting object and each of the $n$-manipulators. As stated before these are variable rest-length springs, to allow for contraction and widening of the formation. Therefore the springs do not connect to the object frame but to a additional supporting frame denoted by $\Psi_v(i)$, which is rigidly attached to $\Psi_b$. Clearly the frames $\Psi_v(i),\; i=1...N$ define the sphere of the virtual object. The springs are situated between the manipulators and the virtual object sphere: $H_v(i)^i$ The rest-length is between the sphere and the virtual object frame: $H_b^v(i)$. The spring forces act on the virtual object in the virtual contact points $\Psi_v(i)$. Therefore we need to map the spring forces to the object. This is done by the grasp map, a well known concept in cooperative manipulation (see e.g. \cite{CoopManipHandbook}). It relates both wrenches and motion between manipulators and object. For example the relation of the $i$-th spring to the object (angular) velocity $(\omega_b^T, v_b^T)^T$ is
+Additionally the have a spring connecting object and each of the $n$-manipulators. As stated before these are variable rest-length springs, to allow for contraction and widening of the formation. Therefore the springs do not connect to the object frame but to a additional supporting frame denoted by $\Psi_v(i)$, which is rigidly attached to $\Psi_b$. Clearly the frames $\Psi_v(i),\; i=1...N$ define the sphere of the virtual object. The springs are situated between the manipulators and the virtual object sphere: $H_{v(i)}^i$ The rest-length is between the sphere and the virtual object frame: $H_b^{v(i)}$, the set-up is illustrated in Fig. \ref{FIG:IPCobject}.
+\begin{figure}
+	\centering
+		\includegraphics[width=0.8\textwidth]{IPCobjects.png}
+		\caption[Virtual object and springs]{Virtual object and springs \cite{Wimboeck_08}}
+		\label{FIG:IPCobject}
+\end{figure}
+ The spring forces act on the virtual object in the virtual contact points $\Psi_{v(i)}$. Therefore we need to map the spring forces to the object. This is done by the grasp map, a well known concept in cooperative manipulation (see e.g. \cite{CoopManipHandbook}). It relates both wrenches and motion between manipulators and object. For example the relation of the $i$-th spring to the object (angular) velocity $(\omega_b^T, v_b^T)^T$ is
 \[ \begin{pmatrix}\omega_{v(i)} \\ v_{v(i)}\end{pmatrix} = \begin{pmatrix}\omega_b  \\ v_b + p_{v(i)}^b \times \omega_b \end{pmatrix} \]
 We can combine this for all $ n $-manipulators and obtain the grasp matrix
 \[ G = \begin{pmatrix*}[l]
@@ -760,9 +769,28 @@ Where $W = (W_{v(1)}^T,...,W_{v(N)}^T)^T$ and $T = (T_{v(1)}^T,...,T_{v(N)}^T)^T
 Since we have defined geometric structure of the springs, we can give the PHS representation (see also (\ref{EQ:variablerestlengthspring}))
 \begin{eqnarray}\label{EQ:variablerestlengthspring}
 	\dot{H}_{v(i)}^i = \left( \begin{pmatrix}1 & Ad_{H_b^i}\end{pmatrix} \begin{pmatrix}T_b^{i} \\ T_{v(i)}^{b}\end{pmatrix} \right) H_{v(i)}^i\\
-	\begin{pmatrix}W_b^{i,i} \\ W_{v(i)}^{b,b}\end{pmatrix}  = \begin{pmatrix}1 \\ Ad_{H_b^i}^T\end{pmatrix}\left(  \frac{\partial V_{v(i),i}}{\partial H_{v(i)}^i}  (H_{v(i)}^i)^T \right)
+	\begin{pmatrix}W_b^{i,i} \\ W_{v(i)}^{b,b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^i}^T\end{pmatrix}  \frac{\partial V_{v(i),i}}{\partial H_{v(i)}^i} \right) (H_{v(i)}^i)^T 
 \end{eqnarray}
-At this point it is use useful to 
+To combine all the presented equations to the full system as shown in Fig. \ref{FIG:IPCsprings}, we express the spring equations with respect to the inertial frame $\Psi_0$.
+This is done for the virtual object spring by splitting the twists
+\[T_v^b = (Ad_{H_0^b} \;\; -Ad_{H_0^b}) \begin{pmatrix} T_v^0 \\ T_b^0 \end{pmatrix}  \]
+and the wrenches which obey the principle of action and reaction. From now on we will express wrenches acting on bodies no more on springs, since this is more convenient when various springs act on a single body. Recall from subsection \ref{[SS:euclideanspacemotions]} that $W_v^b = -W_v^{b,b}$.
+\[ \begin{pmatrix}W_v^{0} \\ W_b^{0}\end{pmatrix}  = 
+\begin{pmatrix}Ad_{H_0^b}^T \\ -Ad_{H_0^b}^T \end{pmatrix} W_v^{b} \]
+We can write the resulting PHS
+\begin{eqnarray}
+	\dot{H}_v^b = (Ad_{H_0^b} \;\; -Ad_{H_0^b}) \begin{pmatrix} T_v^0 \\ T_b^0 \end{pmatrix} H_v^b \\
+	\begin{pmatrix}W_v^{0} \\ W_b^{0}\end{pmatrix}  = 
+	\begin{pmatrix}-Ad_{H_0^b}^T \\ Ad_{H_0^b}^T \end{pmatrix}
+	\frac{\partial V_{v,b}}{\partial H_v^b} (H_v^b)^T
+\end{eqnarray} 
+This is done with the manipulator springs in the same manner. Note that the twists and wrenches due to rest-length changes are not brought to the inertial frame, since they represent a distinct power port. As a result we can combine all twists and wrenches in vectors
+\[\begin{pmatrix}T_b^0 \\ T_v^0 \\ T_1^0 \\ \vdots \\ T_N^0 \\ T_{v(1)}^b \\ \vdots \\ T_{v(N)}^b\end{pmatrix}
+ \; , \; 
+\begin{pmatrix}W_b^0 \\ W_v^0 \\ W_1^0 \\ \vdots \\ W_N^0 \\ W_{v(1)}^b \\ \vdots \\ W_{v(N)}^b\end{pmatrix}
+\]
+...
+\subsubsection{Interconnection of springs and virtual object}
 
 
 
