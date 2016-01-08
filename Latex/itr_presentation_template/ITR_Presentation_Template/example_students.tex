@@ -140,6 +140,9 @@
 \begin{frame}
 	\frametitle{Interconnection of energy-discrete elements}
 	\begin{itemize}
+			\item interconnection through power ports
+		\[ \mathcal{P} = \mathcal{V} \times \mathcal{V}^* \]
+
 		\item mechanical elements
 			\begin{itemize}
 			\item spring
@@ -151,11 +154,13 @@
 			\item transformer
 			\item gyrator
 			\end{itemize}
-		\item interconnection through power ports
-		\[ \mathcal{P} = \mathcal{V} \times \mathcal{V}^* \]
-		\end{itemize}
+		\item Example: variable rest-length spring
+		\begin{eqnarray}\label{EQ:variablerestlengthspring}
+	\dot{H}_i^j =\left( \begin{pmatrix}1 & Ad_{H_b^j}\end{pmatrix} \begin{pmatrix}T_b^{j} \\ T_i^{b}\end{pmatrix} \right) H_i^j\\
+	\begin{pmatrix}W_b^{j,j} \\ W_i^{b,b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^j}^T\end{pmatrix} \frac{\partial V_{i,j}}{\partial H_i^j} \right) (H_i^j)^T
+\end{eqnarray}
 
-
+\end{itemize}
 
 \end{frame}
 
@@ -303,7 +308,7 @@ Internal impedance control with object force-feedforward \cite{DePascali_15}
 \appendix
 %\nocite{buss11}
 %\nocite{bauer09}
-\begin{frame}
+\begin{frame}[allowframebreaks]
 	\frametitle{References}
 	%\tiny
 	%\bibliographystyle{plain}

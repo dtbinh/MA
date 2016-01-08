@@ -255,46 +255,36 @@
   \name{editor}{4}{}{%
     {{}%
      {Camlibel}{C.}%
-     {M.~Kanat}{M.~K.}%
+     {M.~K.}{M.~K.}%
      {}{}%
      {}{}}%
     {{}%
      {Julius}{J.}%
-     {A.~Agung}{A.~A.}%
+     {A.~A.}{A.~A.}%
      {}{}%
      {}{}}%
     {{}%
      {Pasumarthy}{P.}%
-     {Ramkrishna}{R.}%
+     {R.}{R.}%
      {}{}%
      {}{}}%
     {{}%
      {Scherpen}{S.}%
-     {Jacquelien~M.A.}{J.~M.}%
+     {J.}{J.}%
      {}{}%
      {}{}}%
   }
-  \list{language}{1}{%
-    {English}%
-  }
   \list{publisher}{1}{%
-    {Springer International Publishing}%
+    {Springer London}%
   }
   \strng{namehash}{SS1}
   \strng{fullhash}{SS1}
   \field{labelyear}{2015}
   \field{sortinit}{S}
   \field{booktitle}{Mathematical Control Theory I}
-  \verb{doi}
-  \verb 10.1007/978-3-319-20988-3_3
-  \endverb
-  \field{isbn}{978-3-319-20987-6}
   \field{pages}{37\bibrangedash 50}
   \field{series}{Lecture Notes in Control and Information Sciences}
   \field{title}{Energy-Aware Robotics}
-  \verb{url}
-  \verb http://dx.doi.org/10.1007/978-3-319-20988-3_3
-  \endverb
   \field{volume}{461}
   \field{year}{2015}
 \endentry
