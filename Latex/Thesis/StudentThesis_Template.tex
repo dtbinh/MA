@@ -653,7 +653,7 @@ Here the mapping is in the opposite direction, from $\Psi_j$ to $\Psi_i$, what i
 \item $W_i^k$ is the wrench applied to a mass attached to $\Psi_i$ expressed in the coordinate frame $\Psi_k$.
 \item $W_i^{k,j}$ is the wrench applied to a spring connecting $\Psi_i$ to $\Psi_j$ on the side of $\Psi_i$ expressed in the coordinate frame $\Psi_k$.
 \end{itemize}
-Note that the first representation is mainly used for bodies, the wrench is exerted \emph{on} the body. The second is useful for springs, the wrench is exerted on the spring \emph{by} the body: $W_i^k = - W_i^{k,j}$. Also it is clear from Newton's third law (action - reaction) that $W_i^{k,j} = - W_j^{k,i}$.
+Note that the first representation is mainly used for bodies, the wrench is exerted \emph{on} the body. The second is useful for springs, the wrench is exerted on the spring \emph{by} the body: $W_i^k = - W_i^{k,j}$. Also it is clear from Newton's third law (action - reaction) that $W_i^{k,j} = - W_j^{k,i}$, thus $ W_i^k = W_j^{k,i} $
 
 Recalling Subsection \ref{SS:PHSinterconnection} the power flowing through a port is defined by the dual product of an effort and flow pair, which are from a vector space and its dual respectively. On a vector space level the power port $\mathcal{P}$ is defined by the Cartesian product of the Lie algebra $\mathfrak{se}(3)$ and its dual $\mathfrak{se}^*(3)$: $\mathcal{P} = \mathfrak{se}(3) \times \mathfrak{se}^*(3)$. The mechanical power exchanged at the port is simply $P = WT$.
 
@@ -771,27 +771,36 @@ Since we have defined geometric structure of the springs, we can give the PHS re
 	\dot{H}_{v(i)}^i = \left( \begin{pmatrix}1 & Ad_{H_b^i}\end{pmatrix} \begin{pmatrix}T_b^{i} \\ T_{v(i)}^{b}\end{pmatrix} \right) H_{v(i)}^i\\
 	\begin{pmatrix}W_b^{i,i} \\ W_{v(i)}^{b,b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^i}^T\end{pmatrix}  \frac{\partial V_{v(i),i}}{\partial H_{v(i)}^i} \right) (H_{v(i)}^i)^T 
 \end{eqnarray}
+\subsubsection{Geometric interconnection of springs}
 To combine all the presented equations to the full system as shown in Fig. \ref{FIG:IPCsprings}, we express the spring equations with respect to the inertial frame $\Psi_0$.
 This is done for the virtual object spring by splitting the twists
-\[T_v^b = (Ad_{H_0^b} \;\; -Ad_{H_0^b}) \begin{pmatrix} T_v^0 \\ T_b^0 \end{pmatrix}  \]
+\[T_b^v = (Ad_{H_0^v} \;\; -Ad_{H_0^v}) \begin{pmatrix} T_b^0 \\ T_v^0 \end{pmatrix}  \]
 and the wrenches which obey the principle of action and reaction. From now on we will express wrenches acting on bodies no more on springs, since this is more convenient when various springs act on a single body. Recall from subsection \ref{[SS:euclideanspacemotions]} that $W_v^b = -W_v^{b,b}$.
-\[ \begin{pmatrix}W_v^{0} \\ W_b^{0}\end{pmatrix}  = 
-\begin{pmatrix}Ad_{H_0^b}^T \\ -Ad_{H_0^b}^T \end{pmatrix} W_v^{b} \]
+\[ \begin{pmatrix}W_b^{0} \\ W_v^{0}\end{pmatrix}  = 
+\begin{pmatrix}-Ad_{H_0^v}^T \\ Ad_{H_0^v}^T \end{pmatrix} W_b^{v} \]
 We can write the resulting PHS
 \begin{eqnarray}
-	\dot{H}_v^b = (Ad_{H_0^b} \;\; -Ad_{H_0^b}) \begin{pmatrix} T_v^0 \\ T_b^0 \end{pmatrix} H_v^b \\
-	\begin{pmatrix}W_v^{0} \\ W_b^{0}\end{pmatrix}  = 
-	\begin{pmatrix}-Ad_{H_0^b}^T \\ Ad_{H_0^b}^T \end{pmatrix}
-	\frac{\partial V_{v,b}}{\partial H_v^b} (H_v^b)^T
+	\dot{H}_b^v = (Ad_{H_0^v} \;\; -Ad_{H_0^v}) \begin{pmatrix} T_b^0 \\ T_v^0 \end{pmatrix} H_b^v \\
+	\begin{pmatrix}W_b^{0} \\ W_v^{0}\end{pmatrix}  = 
+	\begin{pmatrix}-Ad_{H_0^v}^T \\ Ad_{H_0^v}^T \end{pmatrix}
+	\frac{\partial V_{v,b}}{\partial H_b^v} (H_b^v)^T
 \end{eqnarray} 
-This is done with the manipulator springs in the same manner. Note that the twists and wrenches due to rest-length changes are not brought to the inertial frame, since they represent a distinct power port. As a result we can combine all twists and wrenches in vectors
-\[\begin{pmatrix}T_b^0 \\ T_v^0 \\ T_1^0 \\ \vdots \\ T_N^0 \\ T_{v(1)}^b \\ \vdots \\ T_{v(N)}^b\end{pmatrix}
- \; , \; 
-\begin{pmatrix}W_b^0 \\ W_v^0 \\ W_1^0 \\ \vdots \\ W_N^0 \\ W_{v(1)}^b \\ \vdots \\ W_{v(N)}^b\end{pmatrix}
-\]
-...
+This is done with the manipulator springs in the same manner:
+$T_{v(i)}^i = Ad_{H_0^i} T_b^0 - Ad_{H_0^i} T_i^0 + Ad_{H_b^i} T_{v(i)}^b $ Note that the twists and wrenches due to rest-length changes are not brought to the inertial frame, since they represent a distinct power port. As a result we can combine springs in a PHS
+\begin{eqnarray}
+\underbrace{\begin{pmatrix}\dot{H}_{v(1)}^1 \\ \vdots \\ \dot{H}_{v(N)}^N \\ \dot{H}_b^v \end{pmatrix}}_{\dot{x}_s} =
+\begin{pmatrix}
+\phi_b & \phi_v & \phi_i & \phi_{rl}\end{pmatrix}
+\begin{pmatrix}T_b^0 \\ T_v^0 \\ T_1^0 \\ \vdots \\ T_N^0 \\ T_{v(1)}^b \\ \vdots \\ T_{v(N)}^b\end{pmatrix}
+\\
+\begin{pmatrix}W_b^0 \\ W_v^0 \\ W_1^0 \\ \vdots \\ W_N^0 \\ W_{v(1)}^b \\ \vdots \\ W_{v(N)}^b\end{pmatrix} = 
+\begin{pmatrix} \phi_b^T \\ \phi_v^T \\ \phi_i^T \\ \phi_{rl}^T\end{pmatrix} \frac{\partial V_s}{\partial x_s}
+\end{eqnarray}
+Where $V_s = V_{v,b} + \sum_{i=1}^N V_{v(i),i} $ is the sum of energy stored in the springs. The geometric interconnection of the springs is described with the matrices $\phi_b , \phi_v , \phi_i , \phi_{rl}$. The relation of the virtual object twist to the relative motion of the springs is 
+\[\psi_b = \begin{pmatrix}
+\end{pmatrix} \]
 \subsubsection{Interconnection of springs and virtual object}
-
+...
 
 
 This ensures compliant behaviour between object and environment and manipulators and environment. Furthermore object movement is damped with respect to the inertial frame. Dynamic behaviour of the virtual object is simulated in real-time, so no tracking of the object is necessary. The only values that have to be measured are the end-effector positions, the object speed required for the damping term is computed in the simulation. Dampers parallel to the manipulator-object springs are applicable if manipulator speed is measurable.

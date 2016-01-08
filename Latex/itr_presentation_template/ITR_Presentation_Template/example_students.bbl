@@ -16,32 +16,6 @@
   {}
 \endgroup
 
-\entry{Bonitz_96}{article}{}
-  \name{author}{2}{}{%
-    {{}%
-     {Bonitz}{B.}%
-     {R.G.}{R.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Hsia}{H.}%
-     {T.C.}{T.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{BRHT1}
-  \strng{fullhash}{BRHT1}
-  \field{labelyear}{1996}
-  \field{sortinit}{B}
-  \field{number}{1}
-  \field{pages}{78\bibrangedash 89}
-  \field{title}{Internal force-based impedance control for cooperating
-  manipulators}
-  \field{volume}{12}
-  \field{journaltitle}{Robotics and Automation, IEEE Transactions on}
-  \field{year}{1996}
-\endentry
-
 \entry{Caccavale_08}{article}{}
   \name{author}{4}{}{%
     {{}%
@@ -140,50 +114,103 @@
   \field{year}{2015}
 \endentry
 
-\entry{Hsu_93}{article}{}
-  \name{author}{1}{}{%
+\entry{Gioioso_2014}{article}{}
+  \name{author}{5}{}{%
     {{}%
-     {Hsu}{H.}%
-     {P.}{P.}%
+     {Gioioso}{G.}%
+     {G.}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Franchi}{F.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Salvietti}{S.}%
+     {G.}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Scheggi}{S.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Prattichizzo}{P.}%
+     {D.}{D.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{HP1}
-  \strng{fullhash}{HP1}
-  \field{labelyear}{1993}
-  \field{sortinit}{H}
-  \field{number}{4}
-  \field{pages}{400\bibrangedash 410}
-  \field{title}{Coordinated control of multiple manipulator systems}
-  \field{volume}{9}
-  \field{journaltitle}{Robotics and Automation, IEEE Transactions on}
-  \field{year}{1993}
+  \strng{namehash}{GG+1}
+  \strng{fullhash}{GGFASGSSPD1}
+  \field{labelyear}{2014}
+  \field{sortinit}{G}
+  \field{pages}{4335\bibrangedash 4341}
+  \field{title}{The flying hand: A formation of {UAVs} for cooperative aerial
+  tele-manipulation}
+  \field{journaltitle}{Robotics and Automation (ICRA), 2014 IEEE International
+  Conference on}
+  \field{year}{2014}
+  \warn{\item Invalid format of field 'month'}
 \endentry
 
-\entry{Schneider_92}{article}{}
+\entry{Lee_05}{article}{}
   \name{author}{2}{}{%
     {{}%
-     {Schneider}{S.}%
-     {S.A.}{S.}%
+     {Lee}{L.}%
+     {Dongjun}{D.}%
      {}{}%
      {}{}}%
     {{}%
-     {Cannon}{C.}%
-     {R.H.}{R.}%
+     {Spong}{S.}%
+     {M.W.}{M.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{SSCR1}
-  \strng{fullhash}{SSCR1}
-  \field{labelyear}{1992}
+  \strng{namehash}{LDSM1}
+  \strng{fullhash}{LDSM1}
+  \field{labelyear}{2005}
+  \field{sortinit}{L}
+  \field{booktitle}{Robotics and Automation (ICRA), International Conference
+  on}
+  \field{pages}{360\bibrangedash 365}
+  \field{title}{Bilateral Teleoperation of Multiple Cooperative Robots over
+  Delayed Communication Networks: Theory}
+  \field{year}{2005}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Scheggi_14}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Scheggi}{S.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morbidi}{M.}%
+     {F.}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Prattichizzo}{P.}%
+     {D.}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SSMFPD1}
+  \strng{fullhash}{SSMFPD1}
+  \field{labelyear}{2014}
   \field{sortinit}{S}
-  \field{number}{3}
-  \field{pages}{383\bibrangedash 394}
-  \field{title}{Object impedance control for cooperative manipulation: theory
-  and experimental results}
-  \field{volume}{8}
-  \field{journaltitle}{Robotics and Automation, IEEE Transactions on}
-  \field{year}{1992}
+  \field{number}{4}
+  \field{pages}{499\bibrangedash 511}
+  \field{title}{Human-Robot Formation Control via Visual and Vibrotactile
+  Haptic Feedback}
+  \field{volume}{7}
+  \field{journaltitle}{Haptics, IEEE Transactions on}
+  \field{year}{2014}
+  \warn{\item Invalid format of field 'month'}
 \endentry
 
 \entry{Sieber_15}{article}{}
@@ -217,6 +244,61 @@
   \warn{\item Invalid format of field 'month'}
 \endentry
 
+\entry{Stramigioli_15}{incollection}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Stramigioli}{S.}%
+     {Stefano}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \name{editor}{4}{}{%
+    {{}%
+     {Camlibel}{C.}%
+     {M.~Kanat}{M.~K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Julius}{J.}%
+     {A.~Agung}{A.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pasumarthy}{P.}%
+     {Ramkrishna}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Scherpen}{S.}%
+     {Jacquelien~M.A.}{J.~M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{language}{1}{%
+    {English}%
+  }
+  \list{publisher}{1}{%
+    {Springer International Publishing}%
+  }
+  \strng{namehash}{SS1}
+  \strng{fullhash}{SS1}
+  \field{labelyear}{2015}
+  \field{sortinit}{S}
+  \field{booktitle}{Mathematical Control Theory I}
+  \verb{doi}
+  \verb 10.1007/978-3-319-20988-3_3
+  \endverb
+  \field{isbn}{978-3-319-20987-6}
+  \field{pages}{37\bibrangedash 50}
+  \field{series}{Lecture Notes in Control and Information Sciences}
+  \field{title}{Energy-Aware Robotics}
+  \verb{url}
+  \verb http://dx.doi.org/10.1007/978-3-319-20988-3_3
+  \endverb
+  \field{volume}{461}
+  \field{year}{2015}
+\endentry
+
 \entry{Stramigioli_01}{book}{}
   \name{author}{1}{}{%
     {{}%
@@ -239,31 +321,6 @@
     {London, UK}%
   }
   \field{year}{2001}
-\endentry
-
-\entry{Wen_92}{article}{}
-  \name{author}{2}{}{%
-    {{}%
-     {Wen}{W.}%
-     {J.}{J.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Kreutz-Delgado}{K.-D.}%
-     {K.}{K.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{WJKDK1}
-  \strng{fullhash}{WJKDK1}
-  \field{labelyear}{1992}
-  \field{sortinit}{W}
-  \field{number}{4}
-  \field{pages}{729\bibrangedash 743}
-  \field{title}{Motion and Force Control of Multiple Robotic Manipulators}
-  \field{volume}{28}
-  \field{journaltitle}{Automatica}
-  \field{year}{1992}
 \endentry
 
 \entry{Wimboeck_08}{article}{}
@@ -294,6 +351,37 @@
   \field{journaltitle}{Robotics and Automation, IEEE International Conference
   on}
   \field{year}{2008}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Wimboeck_06}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Wimboeck}{W.}%
+     {T.}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ott}{O.}%
+     {C.}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hirzinger}{H.}%
+     {G.}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{WTOCHG1}
+  \strng{fullhash}{WTOCHG1}
+  \field{labelyear}{2006}
+  \field{sortinit}{W}
+  \field{pages}{4621\bibrangedash 4627}
+  \field{title}{Passivity-based Object-Level Impedance Control for a
+  Multifingered Hand}
+  \field{journaltitle}{IEEE/RSJ International Conference on Intelligent Robots
+  and Systems (IROS)}
+  \field{year}{2006}
   \warn{\item Invalid format of field 'month'}
 \endentry
 
