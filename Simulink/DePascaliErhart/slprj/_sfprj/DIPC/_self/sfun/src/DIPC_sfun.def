@@ -1,0 +1,3 @@
+LIBRARY DIPC_sfun.mexw64
+EXPORTS
+mexFunction
