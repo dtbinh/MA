@@ -1,15 +1,13 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  8 JAN 2016 15:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.5)  11 JAN 2016 00:07
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
 **StudentThesis_Template.tex
-(./StudentThesis_Template.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 78 languages loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+(StudentThesis_Template.tex
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 69 languages loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\report.cls"
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@chapter=\count80
@@ -24,27 +22,27 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texlive/texmf-dist/tex/latex/psfrag/psfrag.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psfrag\psfrag.sty"
 Package: psfrag 1998/04/11 v3.04 PSfrag (MCG)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 94.
 
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
@@ -53,17 +51,17 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \pfg@scount=\count90
 \pfg@temp=\write3
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks14
 \ex@=\dimen103
 )
 \pmbraise@=\dimen104
 )
-(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count91
 \float@exts=\toks15
@@ -71,15 +69,15 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks16
 \@floatcapt=\box27
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count92
@@ -120,42 +118,42 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
 Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks21
 )
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
 Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
@@ -164,11 +162,11 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
@@ -181,43 +179,41 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-)))
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 130.
+Package color Info: Driver file: pdftex.def on input line 142.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/mh/mathtools.sty
-Package: mathtools 2013/02/12 v1.13 mathematical typesetting tools
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty"
+Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
 
-(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count104
 \calc@Bcount=\count105
 \calc@Adimen=\dimen114
 \calc@Bdimen=\dimen115
 \calc@Askip=\skip46
 \calc@Bskip=\skip47
-LaTeX Info: Redefining \setlength on input line 76.
-LaTeX Info: Redefining \addtolength on input line 77.
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count106
 \calc@Cskip=\skip48
 )
-(/usr/share/texlive/texmf-dist/tex/latex/mh/mhsetup.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty"
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \g_MT_multlinerow_int=\count107
@@ -230,21 +226,21 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen121
 \l_MT_below_shortintertext_sep=\dimen122
 )
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2008/03/30 v1.1d Input encoding file
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks22
 \inpenc@posthook=\toks23
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\latin1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks24
 \verbatim@line=\toks25
 \verbatim@in@stream=\read1
 )
-(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 \fancy@headwidth=\skip50
 \f@ncyO@elh=\skip51
 \f@ncyO@erh=\skip52
@@ -255,16 +251,16 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \f@ncyO@olf=\skip57
 \f@ncyO@orf=\skip58
 )
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
 
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
 Package hobsub Info: Skipping package `ltxcmds' (already loaded).
 Package hobsub Info: Skipping package `ifluatex' (already loaded).
@@ -284,7 +280,7 @@ Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
 )
 Package hobsub Info: Skipping package `hobsub' (already loaded).
 Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
 Package: xcolor-patch 2011/01/30 xcolor patch
 Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
@@ -292,22 +288,22 @@ Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
 \@linkdim=\dimen123
 \Hy@linkcounter=\count108
 \Hy@pagecounter=\count109
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count110
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4443.
@@ -319,7 +315,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count111
 
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -344,25 +340,23 @@ LaTeX Info: Redefining \pageref on input line 6369.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count116
 \c@bookmark@seq@number=\count117
 
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip59
 )
-(./StudentThesis_Template.aux
+(StudentThesis_Template.aux
 
 LaTeX Warning: Label `EQ:variablerestlengthspring' multiply defined.
 
 )
-\openout1 = `StudentThesis_Template.aux'.
-
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
@@ -377,7 +371,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count118
 \scratchdimen=\dimen127
@@ -393,10 +387,10 @@ LaTeX Font Info:    ... okay on input line 47.
 )
 \AtBeginShipoutBox=\box31
 Package hyperref Info: Link coloring OFF on input line 47.
- (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count124
@@ -405,24 +399,21 @@ LaTeX Info: Redefining \ref on input line 47.
 LaTeX Info: Redefining \pageref on input line 47.
 LaTeX Info: Redefining \nameref on input line 47.
 
-(./StudentThesis_Template.out) (./StudentThesis_Template.out)
+(StudentThesis_Template.out) (StudentThesis_Template.out)
 \@outlinefile=\write4
-\openout4 = `StudentThesis_Template.out'.
-
 LaTeX Font Info:    Try loading font information for U+msa on input line 78.
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 78.
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 Non-PDF special ignored!
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-[2
+{C:/Users/Martin/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
 
 ] [3]pdfTeX warning (ext4): destination with the same identifier (name{page.1})
  has been already used, duplicate ignored
@@ -438,7 +429,7 @@ l.111 \end{abstract}
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 129.
 
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 
@@ -456,10 +447,8 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.129 \tableofcontents
-                       [2] (./StudentThesis_Template.toc)
+                       [2] (StudentThesis_Template.toc)
 \tf@toc=\write5
-\openout5 = `StudentThesis_Template.toc'.
-
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -487,17 +476,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Chapter 1.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 274.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 274.
 
-<mhi-meister.jpg, id=155, 641.39626pt x 486.81876pt>
+<mhi-meister.jpg, id=139, 641.39626pt x 486.81876pt>
 File: mhi-meister.jpg Graphic file (type jpg)
  <use mhi-meister.jpg>
 Package pdftex.def Info: mhi-meister.jpg used on input line 282.
 (pdftex.def)             Requested size: 341.43436pt x 259.14923pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--287
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 279--287
 
@@ -510,10 +504,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 288--289
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -521,6 +511,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6 <./mhi-meister.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 317--324
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -528,14 +522,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 314--319
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--319
-
- []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -544,10 +532,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 321--327
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -561,9 +545,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 403--406
+[10
 
+]
+Chapter 2.
+
+Overfull \hbox (0.50424pt too wide) in paragraph at lines 470--472
+\OT1/cmr/m/n/12 The Hamil-to-nian equa-tions of mo-tion are re-lated to the bet
+-ter known Euler-Lagrange
  []
 
 
@@ -573,9 +562,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -591,6 +577,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [13]
 
+LaTeX Warning: Reference `FIG:DiracStr' on page 14 undefined on input line 556.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 555--557
+
+ []
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -604,68 +599,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [15]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[16
-
-]
-Chapter 2.
-
-Overfull \hbox (0.50424pt too wide) in paragraph at lines 465--467
-\OT1/cmr/m/n/12 The Hamil-to-nian equa-tions of mo-tion are re-lated to the bet
--ter known Euler-Lagrange
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[17]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[18]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[19]
-
-LaTeX Warning: Reference `FIG:DiracStr' on page 20 undefined on input line 551.
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 550--552
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[20]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[21]
-LaTeX Font Info:    Try loading font information for U+euf on input line 627.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+LaTeX Font Info:    Try loading font information for U+euf on input line 632.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\ueuf.fd"
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 
@@ -674,16 +609,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22]
+[16]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23]
+[17]
 
-LaTeX Warning: Citation `Loncaric_87' on page 24 undefined on input line 679.
+LaTeX Warning: Citation `Loncaric_87' on page 18 undefined on input line 684.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -691,11 +626,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24] <variablespring.jpg, id=384, 770.12718pt x 289.08pt>
+[18] <variablespring.jpg, id=317, 770.12718pt x 289.08pt>
 File: variablespring.jpg Graphic file (type jpg)
 
 <use variablespring.jpg>
-Package pdftex.def Info: variablespring.jpg used on input line 684.
+Package pdftex.def Info: variablespring.jpg used on input line 689.
 (pdftex.def)             Requested size: 234.73653pt x 88.10971pt.
 
 
@@ -704,27 +639,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./variablespring.jpg>]
+[19 <./variablespring.jpg>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26] <IPCsprings.png, id=408, 890.5772pt x 624.83438pt>
+[20] <IPCsprings.png, id=341, 890.5772pt x 624.83438pt>
 File: IPCsprings.png Graphic file (type png)
  <use IPCsprings.png>
-Package pdftex.def Info: IPCsprings.png used on input line 746.
+Package pdftex.def Info: IPCsprings.png used on input line 751.
 (pdftex.def)             Requested size: 341.43436pt x 239.54659pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 743--751
+Underfull \hbox (badness 10000) in paragraph at lines 748--756
 
  []
 
-<IPCobjects.png, id=412, 773.13844pt x 543.53062pt>
+<IPCobjects.png, id=345, 773.13844pt x 543.53062pt>
 File: IPCobjects.png Graphic file (type png)
  <use IPCobjects.png>
-Package pdftex.def Info: IPCobjects.png used on input line 761.
+Package pdftex.def Info: IPCobjects.png used on input line 766.
 (pdftex.def)             Requested size: 341.43436pt x 240.03333pt.
 
 
@@ -733,71 +668,70 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27]
+[21]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28 <./IPCsprings.png (PNG copy)>]
+[22 <./IPCsprings.png (PNG copy)>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29 <./IPCobjects.png (PNG copy)>]
+[23 <./IPCobjects.png (PNG copy)>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30]
+[24]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 829.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 829.
-
+[25]
 Package epstopdf Info: Source file: <Depascliposition.eps>
-(epstopdf)                    date: 2015-12-21 09:56:56
+(epstopdf)                    date: 2015-12-20 18:18:17
 (epstopdf)                    size: 681392 bytes
 (epstopdf)             Output file: <Depascliposition-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-12-21 09:56:56
+(epstopdf)                    date: 2015-12-20 22:06:31
 (epstopdf)                    size: 122576 bytes
-(epstopdf)             Command: <repstopdf --outfile=Depascliposition-eps-conve
-rted-to.pdf Depascliposition.eps>
-(epstopdf)             \includegraphics on input line 833.
+(epstopdf)             Command: <epstopdf --outfile=Depascliposition-eps-conver
+ted-to.pdf Depascliposition.eps>
+(epstopdf)             \includegraphics on input line 850.
 Package epstopdf Info: Output file is already uptodate.
-<Depascliposition-eps-converted-to.pdf, id=450, 1399.2275pt x 827.09pt>
+ <Depascliposition-eps-converted-to.pdf, id=388, 1399.2275pt x 827.09pt>
 File: Depascliposition-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Depascliposition-eps-converted-to.pdf>
 Package pdftex.def Info: Depascliposition-eps-converted-to.pdf used on input li
-ne 833.
+ne 850.
 (pdftex.def)             Requested size: 426.79134pt x 252.26839pt.
 Package epstopdf Info: Source file: <Depascaliorientation.eps>
-(epstopdf)                    date: 2015-12-21 09:56:56
+(epstopdf)                    date: 2015-12-20 22:10:36
 (epstopdf)                    size: 798029 bytes
 (epstopdf)             Output file: <Depascaliorientation-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2015-12-21 09:56:56
+(epstopdf)                    date: 2015-12-20 22:11:26
 (epstopdf)                    size: 130020 bytes
-(epstopdf)             Command: <repstopdf --outfile=Depascaliorientation-eps-c
-onverted-to.pdf Depascaliorientation.eps>
-(epstopdf)             \includegraphics on input line 840.
+(epstopdf)             Command: <epstopdf --outfile=Depascaliorientation-eps-co
+nverted-to.pdf Depascaliorientation.eps>
+(epstopdf)             \includegraphics on input line 857.
 Package epstopdf Info: Output file is already uptodate.
 
-<Depascaliorientation-eps-converted-to.pdf, id=453, 1399.2275pt x 827.09pt>
+<Depascaliorientation-eps-converted-to.pdf, id=391, 1399.2275pt x 827.09pt>
 File: Depascaliorientation-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Depascaliorientation-eps-converted-to.pdf>
 Package pdftex.def Info: Depascaliorientation-eps-converted-to.pdf used on inpu
-t line 840.
+t line 857.
 (pdftex.def)             Requested size: 426.79134pt x 252.26839pt.
 
 
@@ -806,50 +740,95 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[31]
+[26 <./Depascliposition-eps-converted-to.pdf>]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 846.
+LaTeX Warning: Reference `EQ:ObjectDynamics' on page 27 undefined on input line
+ 869.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 846.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
+[27 <./Depascaliorientation-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Caccavaleposition.eps>
-(epstopdf)                    date: 2015-12-21 12:05:46
+(epstopdf)                    date: 2016-01-03 22:13:15
 (epstopdf)                    size: 635043 bytes
 (epstopdf)             Output file: <Caccavaleposition-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-12-21 12:21:53
+(epstopdf)                    date: 2016-01-03 22:13:15
 (epstopdf)                    size: 306915 bytes
-(epstopdf)             Command: <repstopdf --outfile=Caccavaleposition-eps-conv
-erted-to.pdf Caccavaleposition.eps>
-(epstopdf)             \includegraphics on input line 851.
+(epstopdf)             Command: <epstopdf --outfile=Caccavaleposition-eps-conve
+rted-to.pdf Caccavaleposition.eps>
+(epstopdf)             \includegraphics on input line 883.
 Package epstopdf Info: Output file is already uptodate.
-<Caccavaleposition-eps-converted-to.pdf, id=465, 1257.69875pt x 685.56125pt>
+
+<Caccavaleposition-eps-converted-to.pdf, id=424, 1257.69875pt x 685.56125pt>
 File: Caccavaleposition-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Caccavaleposition-eps-converted-to.pdf>
 Package pdftex.def Info: Caccavaleposition-eps-converted-to.pdf used on input l
-ine 851.
+ine 883.
 (pdftex.def)             Requested size: 426.79134pt x 232.63792pt.
 Package epstopdf Info: Source file: <Caccavaleorientation.eps>
-(epstopdf)                    date: 2015-12-21 11:22:41
+(epstopdf)                    date: 2016-01-03 22:13:15
 (epstopdf)                    size: 780367 bytes
 (epstopdf)             Output file: <Caccavaleorientation-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2015-12-21 12:21:54
+(epstopdf)                    date: 2016-01-03 22:13:15
 (epstopdf)                    size: 366669 bytes
-(epstopdf)             Command: <repstopdf --outfile=Caccavaleorientation-eps-c
-onverted-to.pdf Caccavaleorientation.eps>
-(epstopdf)             \includegraphics on input line 857.
+(epstopdf)             Command: <epstopdf --outfile=Caccavaleorientation-eps-co
+nverted-to.pdf Caccavaleorientation.eps>
+(epstopdf)             \includegraphics on input line 889.
 Package epstopdf Info: Output file is already uptodate.
 
-<Caccavaleorientation-eps-converted-to.pdf, id=466, 1257.69875pt x 685.56125pt>
+<Caccavaleorientation-eps-converted-to.pdf, id=425, 1257.69875pt x 685.56125pt>
 File: Caccavaleorientation-eps-converted-to.pdf Graphic file (type pdf)
 <use Caccavaleorientation-eps-converted-to.pdf>
 Package pdftex.def Info: Caccavaleorientation-eps-converted-to.pdf used on inpu
-t line 857.
+t line 889.
 (pdftex.def)             Requested size: 426.79134pt x 232.63792pt.
+Package epstopdf Info: Source file: <DIPCtranslation.eps>
+(epstopdf)                    date: 2016-01-10 23:56:44
+(epstopdf)                    size: 258825 bytes
+(epstopdf)             Output file: <DIPCtranslation-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-01-11 00:06:12
+(epstopdf)                    size: 56643 bytes
+(epstopdf)             Command: <epstopdf --outfile=DIPCtranslation-eps-convert
+ed-to.pdf DIPCtranslation.eps>
+(epstopdf)             \includegraphics on input line 898.
+Package epstopdf Info: Output file is already uptodate.
+
+<DIPCtranslation-eps-converted-to.pdf, id=430, 574.145pt x 459.7175pt>
+File: DIPCtranslation-eps-converted-to.pdf Graphic file (type pdf)
+
+<use DIPCtranslation-eps-converted-to.pdf>
+Package pdftex.def Info: DIPCtranslation-eps-converted-to.pdf used on input lin
+e 898.
+(pdftex.def)             Requested size: 426.79134pt x 341.73587pt.
+Package epstopdf Info: Source file: <DIPCrotation.eps>
+(epstopdf)                    date: 2016-01-11 00:07:44
+(epstopdf)                    size: 307122 bytes
+(epstopdf)             Output file: <DIPCrotation-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-01-11 00:06:14
+(epstopdf)                    size: 77526 bytes
+(epstopdf)             Command: <epstopdf --outfile=DIPCrotation-eps-converted-
+to.pdf DIPCrotation.eps>
+(epstopdf)             \includegraphics on input line 904.
+runsystem(epstopdf --outfile=DIPCrotation-eps-converted-to.pdf DIPCrotation.eps
+)...executed (allowed).
+
+Package epstopdf Info: Result file: <DIPCrotation-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-01-11 00:07:58
+(epstopdf)                    size: 56703 bytes.
+
+<DIPCrotation-eps-converted-to.pdf, id=431, 574.145pt x 459.7175pt>
+File: DIPCrotation-eps-converted-to.pdf Graphic file (type pdf)
+
+<use DIPCrotation-eps-converted-to.pdf>
+Package pdftex.def Info: DIPCrotation-eps-converted-to.pdf used on input line 9
+04.
+(pdftex.def)             Requested size: 426.79134pt x 341.73587pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -857,23 +836,57 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32 <./Depascliposition-eps-converted-to.pdf>]
+[28]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33 <./Depascaliorientation-eps-converted-to.pdf>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[34 <./Caccavaleposition-eps-converted-to.pdf> <./Caccavaleorientation-eps-conv
+[29 <./Caccavaleposition-eps-converted-to.pdf> <./Caccavaleorientation-eps-conv
 erted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30 <./DIPCtranslation-eps-converted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[31 <./DIPCrotation-eps-converted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32
+
+]
 Chapter 3.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[33]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34
+
+] (StudentThesis_Template.lof)
+\tf@lof=\write6
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -891,11 +904,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [36
 
-] (./StudentThesis_Template.lof)
-\tf@lof=\write6
-\openout6 = `StudentThesis_Template.lof'.
-
-
+] (StudentThesis_Template.bbl
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -911,59 +920,41 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38
-
-] (./StudentThesis_Template.bbl
+[38])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[39
+[39]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[40
 
 ]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 983.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[40])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[41]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[42
+[41
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 938.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[43
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 938.
- (./StudentThesis_Template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 938.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 938.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 983.
+ (StudentThesis_Template.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 983.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 983.
 Package rerunfilecheck Info: File `StudentThesis_Template.out' has not changed.
 
-(rerunfilecheck)             Checksum: 8CAAAFDD40BD3AEA7F33C88E14C6D4BA;1714.
+(rerunfilecheck)             Checksum: A9A16B3C2ABF3E984AB186075530D9F5;1502.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -974,37 +965,36 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 938.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 983.
  ) 
 Here is how much of TeX's memory you used:
- 7259 strings out of 493304
- 106502 string characters out of 6139871
- 202588 words of memory out of 5000000
- 10405 multiletter control sequences out of 15000+600000
- 16534 words of font info for 59 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 42i,20n,43p,1855b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts
+ 7239 strings out of 493673
+ 106950 string characters out of 3141528
+ 202179 words of memory out of 3000000
+ 10287 multiletter control sequences out of 15000+200000
+ 13525 words of font info for 46 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 42i,20n,43p,1717b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/euler/eufm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 /type1/urw/helvetic/uhvr8a.pfb>
-Output written on StudentThesis_Template.pdf (47 pages, 1768896 bytes).
+Output written on StudentThesis_Template.pdf (45 pages, 1913701 bytes).
 PDF statistics:
- 664 PDF objects out of 1000 (max. 8388607)
- 566 compressed objects within 6 object streams
- 174 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 633 PDF objects out of 1000 (max. 8388607)
+ 161 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 

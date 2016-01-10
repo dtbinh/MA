@@ -283,19 +283,22 @@ For the last point a recent application has been presented at the Fukushima Daii
 	\caption[Demonstration of MHI MEISTeR at Fukushima Daiichi NPS]{Demonstration of the tele-operated MHI MEISTeR robot at Fukushima Daiichi Nuclear Power Station}
 	\label{FIG:MEISTeR}
 \end{figure}
-Space and hazardous environments are fruitful environments for cooperative manipulators, often they are directly controlled by a human operator. Combining human reasoning and the enhanced flexibility of a cooperative set-up is a powerful combination in an unstructured environment. A human in the control loop comes with superior foresight and planning capabilities. Therefore different control architectures exist, which can be classified by the level of autonomy of the robot system. In an direct master-slave approach each robot is controlled independently by a human operator. This is impractical due to formation requirements. Lee \cite{Lee_05} treats the constrained system as a single slave, while the formation is preserved by the robots autonomously. Many master-slave systems give the operator force-feedback, while she/he commands the motion. This helps the operator compensate for resistances and gives a natural feeling of the interaction with the environment. The structure then is fully bi-directional, ones refers to bilateral telemanipulation. The human is part of the closed loop, since her/his behaviour is directly influenced by the experienced force-feedback. For a remotely located set-up, the time delays in communication may lead to undesired motions, stability of the human-in-the-loop system becomes an issue. Tactile or visual feedback eases this problem, since they are non-reactive. This means they do not induce operator movements reacting to a back-driving force \cite{Massimino_93}. A control architectures that leaves further autonomy to the robot system is Supervisory control, described by a closed local, autonomous control loop. It interacts with the operator by continuously sending information about the state and periodically receiving commands \cite{Sheridian_92}.\\
+Space and hazardous environments are fruitful environments for cooperative manipulators, often they are directly controlled by a human operator. Combining human reasoning and the enhanced flexibility of a cooperative set-up is a powerful combination in an unstructured environment. A human in the control loop comes with superior foresight and planning capabilities. To fully exploit this additional flexibility we require control architectures able to perform all the fore-mentioned tasks and operable in a comfortable and efficient manner.\\\\
 
-However a difficulty is the control of the set-up which possess extra degrees-of-freedom. There must be an intuitive way to control the formation of robots. The control scheme shapes each robot's motion to commit to the common task. A disadvantage of having a remotely located operator is an inevitable delay in the control loop. This restricts the operators possibilities to react to unexpected situations.\\
+To address the first requirement the controller realizes changes of formation and relocates the constrained system. A change of formation first of all means the opening and closing of a grasp a around a common object. A virtual object and variable rest-length springs are introduced, the springs couple the virtual and the actual object. The size of virtual object specifies the rest-lengths, by choosing the it smaller than the actual a grasping force is exerted. By choosing it bigger the grasp is opened and the actual object is released. Changing of rest-lengths means to change the potential energy stored in the springs. Since the controller itself is passive, the energy is exchanged with a distinct power port. In order to relocate the formation a spring is connected from the virtual object center to the desired new position/orientation. This ensures compliant behavior between (virtual) object and environment. Note that this concept is called \emph{Intrinsically Passive Controller} (IPC) and was introduced by Stramigioli \cite{Stramigioli_01}, the control architecture described in the main part will closely stick to this concept. \\
+The controller provides a reasonable layer of abstraction and takes responsibilities from the operator, in order to not overstrain her/his attention and let him focus on important elements of the task. To ensure a secure and stable grasp, the formation of robots is locally controlled without the help of the human. For dynamic manipulation tasks grasp force optimization can be utilized to limit internal to the absolute minimum. The control system provides appropriate feedback to provide better perception on the work environment and to make the job more intuitive. The user specifies system motion and is provided with information about the necessary forces to accomplish the commanded motion. Thereby s/he gets a natural intuition of how much work has been done by the robots. To this end the controller shall never be a source of additional energy, the only way energy is fed into the system is by request of the operator, i.e. the controlled robots are passive. The maximum extractable energy is always bounded, the operator can estimate the stored energy and possible effects when interacting with the environment. Passive robotic systems are always stable when interconnected passive environments/humans and can be stable with some active systems. On the contrary, if the controlled robot is not passive, there is always a passive environment that destabilizes the interconnected system \cite{Stramigioli_15}.
 
-The major challenge in cooperative manipulation is to simultaneously control the forces between the manipulators and the object, so to say the internal stress exerted on the object, and the forces between the object and the environment, i.e. the absolute motion of the object.
-Strategies that map force and velocity of the object to the manipulators have to be considered.\\
-One important assumption is the nature of the connection between manipulator and object. It can be seen as rigid or more general as friction-based. With a rigid fixture the grasp is always stable, on the contrary friction grasps need to be actively stabilized. To comply with the friction constraints a contact normal force has to be set, dependent on the tangential components present during manipulation.\\
-Towards a versatile usage of cooperative manipulation it is vital to let the human operator control the robotic system intuitively and naturally. 
-A promising approach is gesture control. Gioioso et al. \cite{Gioioso_2014} demonstrated this for a formation of unmanned aerial vehicles. They are able to control opening and closing of the grasp. In a grasped state the objects's pose and the grasping forces can be changed, just by tracking gesture of a single human hand. 
-Directly integrating the human into the control scheme makes use of the visual tracking capacities of the human and eases operation in unknown environments. Regardless of the operator being present on-site with the robots or not, hand tracking and analysis requires a certain time. This delay in the control loop can cause instability. The problem can be modelled as a transmission line with delay and treated with methods known from tele-operation.
-The human takes the role of a supervisor, representing a high-level part of the control scheme. He is responsible for planning, choosing a trajectory and if necessary setting of grasping forces.
-On a local low-level robots need to coordinate their motion compliant with the commanded trajectory and adjust their formation to realize the desired internal forces. For non-rigid fixtures the local robot controller requires the position of the other manipulators. The local communication between the robots causes delay, which has to be treated with tele-operation techniques in order to ensure stability.\\
-Haptic feedback??
+
+
+%The major challenge in cooperative manipulation is to simultaneously control the forces between the manipulators and the object, so to say the internal stress exerted on the object, and the forces between the object and the environment, i.e. the absolute motion of the object.
+%Strategies that map force and velocity of the object to the manipulators have to be considered.\\
+%One important assumption is the nature of the connection between manipulator and object. It can be seen as rigid or more general as friction-based. With a rigid fixture the grasp is always stable, on the contrary friction grasps need to be actively stabilized. To comply with the friction constraints a contact normal force has to be set, dependent on the tangential components present during manipulation.\\
+%Towards a versatile usage of cooperative manipulation it is vital to let the human operator control the robotic system intuitively and naturally. 
+%A promising approach is gesture control. Gioioso et al. \cite{Gioioso_2014} demonstrated this for a formation of unmanned aerial vehicles. They are able to control opening and closing of the grasp. In a grasped state the objects's pose and the grasping forces can be changed, just by tracking gesture of a single human hand. 
+%Directly integrating the human into the control scheme makes use of the visual tracking capacities of the human and eases operation in unknown environments. Regardless of the operator being present on-site with the robots or not, hand tracking and analysis requires a certain time. This delay in the control loop can cause instability. The problem can be modelled as a transmission line with delay and treated with methods known from tele-operation.
+%The human takes the role of a supervisor, representing a high-level part of the control scheme. He is responsible for planning, choosing a trajectory and if necessary setting of grasping forces.
+%On a local low-level robots need to coordinate their motion compliant with the commanded trajectory and adjust their formation to realize the desired internal forces. For non-rigid fixtures the local robot controller requires the position of the other manipulators. The local communication between the robots causes delay, which has to be treated with tele-operation techniques in order to ensure stability.\\
+%Haptic feedback??
 
  
 
@@ -312,18 +315,20 @@ Energetic passivity of the robotic system ensures stability of the interconnecti
 
 \section{Related Work}
 A notable class of control architectures for cooperative manipulation is hybrid position/force control, with a motion control loop for trajectory tracking and a force control loop for internal forces \cite{Wen_92,Hsu_93}. Their drawback is the inability to handle non-contact to contact transitions. Hogan introduced impedance control, which enforces a relation between force and motion \cite{Hogan_84}. Its first application in cooperative manipulation was in \cite{Schneider_92} for realizing compliant object-environment interaction (external impedance control). Bonitz and Hsia \cite{Bonitz_96} applied the concept to the manipulator-object relation (internal impedance control).\\
-More recent impedance control schemes can be classified in terms of the information and sensor data available for the problem. Frugal architectures are formation control \cite{Sieber_15} and the static IPC \cite{Wimboeck_06}. Both do not incorporate the object dynamics in control, thus very little knowledge about the object to manipulate(e.g. dimensions) is necessary. The control loops depend only on relative positions and velocities of the manipulators and do not require object tracking. Neglecting considerable object dynamics is an obvious drawback of the schemes.\\
-The IPC introduced by Stramigioli \cite{Stramigioli_01} and called dynamic IPC by Wimb\"ock et al. \cite{Wimboeck_08} tries to overcome some of the limitations. In the controller the object is represented by a virtual pendent and simulated to reproduce its dynamics for control purpose. This has the advantage that still no tracking of the object is required, object velocity and even acceleration can be obtained from the simulation. \\
-Techniques which rely on exact knowledge of the object motion were introduced by Caccavale et al. \cite{Caccavale_01,Caccavale_08} and more recent \cite{Heck_13} and \cite{DePascali_15}. It is common to them that they assume rigid fixtures to a rigid object, these conditions overcome the problem of object tracking. The approaches by Caccavale and co-workers use force/torque sensors at the manipulators to establish compliant object environment interaction, for this purpose Heck \cite{Heck_13} assumes to have an exact model of the environment. Stramigioli's IPC implements a compliant relation between virtual object and environment. \\
+More recent impedance control schemes can be classified in terms of the information and sensor data available for the problem. Frugal architectures are formation control \cite{Sieber_15} and the static IPC \cite{Wimboeck_06}. Both do not incorporate the object dynamics in control, thus very little knowledge about the object (e.g. dimensions) is necessary. The control loops depend only on relative positions and velocities of the manipulators and do not require object tracking. Neglecting considerable object dynamics is an obvious drawback of the schemes.\\
+The concept of the \emph{Intrinsically Passive Controller} (IPC), introduced by Stramigioli \cite{Stramigioli_01} and called dynamic IPC by Wimb\"ock et al. \cite{Wimboeck_08}, tries to overcome some of the limitations. In the controller the object is represented by a virtual pendent and simulated to reproduce its dynamics for control purpose. This has the advantage that still no tracking of the object is required, object velocity and even acceleration can be obtained from the simulation. \\
+Techniques which rely on exact knowledge of the object motion were introduced by Caccavale et al. \cite{Caccavale_01,Caccavale_08} and more recent \cite{Heck_13} and \cite{DePascali_15}. It is common to them that they assume rigid fixtures to a rigid object, these conditions overcome the problem of object tracking. The approaches by Caccavale and co-workers use force/torque sensors at the manipulators to establish compliant object environment interaction, for this purpose Heck et al. \cite{Heck_13} assume to have an exact model of the environment. Stramigioli's IPC implements a compliant relation between virtual object and environment. \\
+The human operator must be able control the manipulators at a reasonable degree of complexity, therefore in an direct master-slave approach each robot is controlled independently by a human operator. Exactly coordinating their motions is a difficult task for humans, as a consequence a certain amount of autonomy is left to the robot system, enabling a single operator to control the cooperative system. Lee and Spong \cite{Lee_05} apply the master-slave scheme but treat the constrained system as a single slave, while the formation is preserved by the robots autonomously. Many master-slave systems give the operator force-feedback, while s/he commands the motion. This helps the operator compensate for resistances and gives a natural feeling of the interaction with the environment. The structure then is fully bi-directional, ones refers to bilateral telemanipulation \cite{TeleoperationHandbook}. Leader-follower \cite{Sieber_15,Scheggi_14} schemes differ in terms of feedback provided to the operator. Tactile and visual types are non-reactive, i.e. they do not induce operator movements reacting to a back-driving force \cite{Massimino_93}. A purely vision-based architecture is introduced by Gioioso et al. \cite{Gioioso_2014}, hand gestures are used to both control the motion of the constrained system and the opening and closing of a grasp. Control architectures that leave even further autonomy to the robot system and possess a closed local, autonomous control loop, are categorized as supervisory control. They interacts with the operator by continuously sending information about the state and periodically receiving commands \cite{Sheridian_92}.\\
+The assumption of rigid fixtures between manipulators and object is very common in cooperative manipulation, Lee and Spong \cite{Lee_05} are an exception. Friction grasps are mainly researched in robot hand literature (\cite{Wimboeck_06,Wimboeck_08,Stramigioli_01}). For the stabilization of a friction grasp it is vital to choose appropriate forces depending on the dynamic state. Therefore the Coulomb friction constraints along with other criteria (safety margins, force limits) can be formulated as a cost function for optimization. Buss et al. \cite{Buss_96} realized that the Coulomb friction constraints can be formulated as positive definite matrices, Han et al. \cite{Han_2000} gave a linear matrix inequality problem. For this type of optimization problems very efficient, real-time solvers exist.
 \\
 
 
-Control strategies suitable for Cooperative Manipulation can be classified dependent on the nature of the manipulator-object connection: rigid-fixture and friction-grasps.
-An import group within the former are the hybrid position/force control approaches. 
-Control action is decomposed in a motion control loop, accounting for the tracking if the desired trajectory for the overall system and a force control loop to control the internal forces on the object. A pre-defined selection matrix determines for every workspace coordinate whether it is position or force controlled. Controlling the robot on joint level, the necessary torques can be computed using a PD plus gravity compensation control scheme. The desired joint positions and velocities are computed by inverse kinematics \cite{Wen_92}.
-Object level control architectures often use feedback linearisation of the non-linear manipulator dynamics to achieve a linear and decoupled control of motion and grasping force \cite{Hsu_93}.
-Force control is only meaningful if contact between manipulator and object. Motion control leads to unbounded forces if the motion direction is not consistent with the constraints,  since force in this direction is not controlled. The transition between contact and no contact during grasping cannot be handled with these approaches. For these reasons in the following only the better suited impedance control schemes are considered. Impedance control, introduced by Hogan \cite{Hogan_84}, is a well known strategy to avoid unbounded forces when it comes to interaction of manipulators with objects/environment. It does not control one state variable (position, velocity, force) dynamically enforces a relation between forces and system state. Contact directions do not have to be pre-specified. The controller is stable independently of the contact state.
-A physical analogy the impedance control scheme is a spring-mass-damper system.\\  
+%Control strategies suitable for Cooperative Manipulation can be classified dependent on the nature of the manipulator-object connection: rigid-fixture and friction-grasps.
+%An import group within the former are the hybrid position/force control approaches. 
+%Control action is decomposed in a motion control loop, accounting for the tracking if the desired trajectory for the overall system and a force control loop to control the internal forces on the object. A pre-defined selection matrix determines for every workspace coordinate whether it is position or force controlled. Controlling the robot on joint level, the necessary torques can be computed using a PD plus gravity compensation control scheme. The desired joint positions and velocities are computed by inverse kinematics \cite{Wen_92}.
+%Object level control architectures often use feedback linearisation of the non-linear manipulator dynamics to achieve a linear and decoupled control of motion and grasping force \cite{Hsu_93}.
+%Force control is only meaningful if contact between manipulator and object. Motion control leads to unbounded forces if the motion direction is not consistent with the constraints,  since force in this direction is not controlled. The transition between contact and no contact during grasping cannot be handled with these approaches. For these reasons in the following only the better suited impedance control schemes are considered. Impedance control, introduced by Hogan \cite{Hogan_84}, is a well known strategy to avoid unbounded forces when it comes to interaction of manipulators with objects/environment. It does not control one state variable (position, velocity, force) dynamically enforces a relation between forces and system state. Contact directions do not have to be pre-specified. The controller is stable independently of the contact state.
+%A physical analogy the impedance control scheme is a spring-mass-damper system.\\  
 
 %\textit{From Kevin Elphinstone's \emph{A Small Guide to Writing Your Thesis}\cite{Elphinstone2014}:}
 %
@@ -344,116 +349,116 @@ A physical analogy the impedance control scheme is a spring-mass-damper system.\
 
 %\textit{Note: Do the literature review at an early stage of your project to build on the knowledge of others, not reinvent the wheel over and over again! There is nothing more frustrating after weeks or months of hard work to find that your great solution has been published 5 years ago and is considered old news or that there is a method known that produces superior results.}
 
-\subsection{Control schemes for rigidly connected manipulators}\label{SS:rigidcontrolschemes}
-A rigid fixture between manipulator and object means that both forces and moments are exchanged at the grasp points: all translational and rotational motion components can be transmitted through the contact points. The rigid connections are expressed by a number of kinematic constraints, which reduce the Degrees-of-Freedom (DoF) of the constrained system. The attempt to move in the constrained directions results in internal loading of the object. Therefore trajectories of the manipulators have to be generated to avoid internal stress on the object. Assuming a rigid connection normally no grasping force is needed to stabilize the grasp, i.e. internal forces are undesired because possibly harmful to the object. Nevertheless some papers propose possibilities to specify or control internal forces.\\
-Among the first to use impedance control in cooperative manipulation were Schneider and Cannon \cite{Schneider_92}. They replaced the actual object by a virtual mass and connected it to the environment with a spring and a parallel damper. The resulting impedance equation is:
-\begin{equation}
-M_{o,d} (\ddot{x}_o^d - \ddot{x}_o) + D_o (\dot{x}_o^d - \dot{x}_o) + K_o(x_o^d,x_o) = h_{env} 
-\end{equation}
-Here $ M_{o,d} $ denotes the inertia of the virtual object, $ D_o $ is the damping along the spring, which is represented by $ K_o(x_d,x) $. $ x_o = (p_o^T,Q_o^T)^T $ is the stacked vector of position and orientation of the object. $ x^d $ denotes a desired quantity. The external wrench, exerted by the environment on the object, $ h_{env} = (f_{env}^T,t_{env}^T)^T$ consists of force and torque vectors.
-The dynamics of the virtual object is then given as:
-\begin{equation}
-M_{o,d}\ddot{x} = -h_{env} + h_o^{\Sigma} = -h_{env} + M_{o,d}\ddot{x}_d + D_o (\dot{x}_d - \dot{x}) + K_o(x_d,x)
-\end{equation}
-The resulting impedance control output $ h_o^{\Sigma} $ is than mapped to the manipulators using a generalized inverse of the grasp matrix:
-\begin{equation}
-h^{\Sigma} = G^\dagger h_o^{\Sigma}
-\end{equation}
-Performance of this strategy depends on choosing the virtual inertia close to the actual, i.e. good knowledge of the object is required. Furthermore gravity compensation would be necessary to model the full object dynamics. In general the equation of motion for a rigid object is:
-\begin{equation}\label{EQ:ObjectDynamics}
-M_o \ddot{x}_o + C_o \dot{x}_o + g_o = h_{env} + h^\Sigma
-\end{equation}
-Wherein $ M_o $ is the actual object inertia, $ C_o $ is the Matrix accounting for the Coriolis force and $ g_o $ is the gravity. 
-For notational convenience the pose dependencies of the parameter matrices, e.g. $ M_o(x_o) $, are omitted.\\
-Bonitz and Hsia \cite{Bonitz_96} propose to model each manipulator as an impedance relation. Thereby a relation between manipulator dynamics and internal forces on the object is enforced:
-\begin{equation}
-M_i(\ddot{x}_i^d - \ddot{x}_i) + D_i (\dot{x}_i^d - \dot{x}_i) + K_i(x_i^d,x_i) = h_{int}
-\end{equation}
-$ M_i, D_i, K_i(x_i^d,x_i) $ are the desired inertia, damping and stiffness representations of the i-th manipulator.The internal wrench $ h_{int} = VV^\dagger h $ is calculated from the measured contact wrench $ h $. $ V $ is a basis of the nullspace of the grasp matrix, $ V^\dagger $ denotes the pseudoinverse. No assumptions on the object are necessary because it is not considered in the control scheme.\\ 
-The first approach ensures compliant object-environment interaction, while the second limits internal forces even in case of end-effector displacements. The both have been combined by Caccavale and Villani \cite{Caccavale_01}. Their control architecture is cascaded, consisting of a two level reference trajectory generation and a motion control loop below. On top-level an impedance relation between object and environment is used to generate a compliant trajectory subject to environmental forces:
-\begin{equation}
-\alpha M_o(\ddot{x}_o^d - \ddot{x}_o^r)  + D_o(\dot{x}_o^d - \dot{x}_o^r) + K_o(x_o^d,x_o^r)  = h_{env}
-\end{equation}
-The constant $ \alpha $ scales the object inertia proportionally to a desired value.
-The control output is the reference object acceleration $ \ddot{x}_o^r $, $ h_{env} $ is an input. This is sometimes called admittance control, admittance being the inverse of impedance. $ h_{env} $ has to be known, but is not easily measured in a practical set-up. Recalling (\ref{EQ:ObjectDynamics}) the environmental forces can be expressed as:
-\begin{equation}
-h_{env} =  M_o \ddot{x}_o^r + C_o \dot{x}_o^r + g_o - G^\dagger h
-\end{equation}
-Herein $ G^\dagger $ is a generalized inverse of the grasp matrix, selecting the motion inducing components from the measured contact wrench $ h $. $ \dot{x}_o^r, x_o^r $ are calculated from $ \ddot{x}_o^r $ by integration.
-From the compliant object trajectory ($ \ddot{x}_o^r,\dot{x}_o^r,x_o^r $) the desired trajectories of the manipulator ($ \ddot{x}_i^d,\dot{x}_i^d,x_i^d $) using the kinematic constraints. The reference manipulator trajectory, enforcing compliant behaviour between manipulators and object, is calculated from manipulator dynamics and internal forces: 
-\begin{equation}
-M_i(\ddot{x}_i^d - \ddot{x}_i^r) + D_i (\dot{x}_i^d - \dot{x}_i^r) + K_i(x_i^d,x_i^r) = VV^\dagger h
-\end{equation}
-The control output is the reference acceleration of the i-th manipulator $ \ddot{x}_i^r $, $ \dot{x}_i^r,x_i^r $ are obtained from integration. These variables are the inputs the inner motion control loop (PD-type). The strategy of compliant trajectories allows for high gains in the motion controller. Knowledge of object dynamics and measurement of the contact wrenches is required.\\
-In a frequently cited follow-up paper Caccavale et al. \cite{Caccavale_08} combine the concept of \emph{geometrically consistent stiffness} with the same architecture. This allows for selective stiffness behaviour along different directions.\\
-Recently Heck et al. \cite{Heck_13} worked with this architecture, they assume knowledge of the environment instead of the object.
-The environmental wrench is than derived as:
-\begin{equation}
-h_{env} =  \Sigma D_{env} (\dot{x}_o^d - \dot{x}_o^r)  + \Sigma K_{env}(x_o^d,x_o^r)
-\end{equation}
-It is assumed here that the environment has a constant stiffness and damping ($ K_{env}(x_o^d,x_o^r),D_{env}) $. $ \Sigma $ is a diagonal selection matrix modelling the direction of contact.\\
-A combination of impedance control on manipulator/object level and feed-forward object dynamics is presented in\cite{DePascali_15}. The manipulators are modelled as springs and dampers, inertia is used to feed-forward the desired acceleration: 
-\begin{equation}
-M_i \ddot{x}_i^d + D_i (\dot{x}_i^d - \dot{x}_i) + K_i(x_i^d,x_i) = h^x
-\end{equation}
-This avoids the necessity of either measuring manipulator acceleration or contact force.
-Object dynamics is represented with feed-forward term, mapped to the manipulators with a weighted pseudoinverse $ G^+ $ of the grasp matrix:
-\begin{equation}
-h^d = G^+ (M_o \ddot{x_o^d} + C_o \dot{x_o^d} + g_o)
-\end{equation}
-Note that this term is not an impedance relation and does not adjust if the environment hinders motion.
-The combined control law is $ h^\Sigma = h^x + h^d $.\\
- 
-
-
-\subsection{Friction grasps in Cooperative Manipulation}
-The assumption of rigid-fixture between object and manipulators only holds f the manipulators are equipped with  appropriate grasping devices. In analogy to a human this device would be fingers wrapping around an inhomogeneity on the object, to achieve a rigid grasp. For an even object (e.g. a ball) humans use their hand palms to realize a friction grasp. Grasp stability is ensured by pressing the object. Technical applications where cooperative manipulators should be able to do a friction grasp are numerous, e.g. when no appropriate grasping device is available (or shall be avoided) or the object structure is not graspable.\\
-Research of friction grasps is mainly done with robotic hands, the fingertips being the contact points. Depending on the nature of the tip a certain number of contacts is required to achieve a firm grasp: for non-deformable and small but frictional contacts, three are required to hold an object with 6 \emph{DoF} tightly. This contact model is called \emph{Hard Finger} or \emph{Point Contact with Friction (PCwF)}. It allows to transmit forces along the contact normal in pushing direction and for forces in tangential plane. If the contact is deformable or of considerable size, two are sufficient contact points form a firm grasp. This is called \emph{Soft Finger} model. In addition to the \emph{Hard Finger} torques around the contact normal are transferred.\\
-The problem of grasping divides into three sub-problems: selection of suitable grasp points, coordinated motion of the constrained system and control of the grasping force especially when interacting with the environment. The problem of coordinated motion is very similar to the case of rigid-fixture, while the control is exclusive to friction grasps. With robot hands it is most important to maintain a stable grasp. Undesired or unnecessary and possibly harmful internal forces occur during dynamic manipulation and interaction with the environment. Since discrete robots in cooperative manipulation are often powerful, proper control of the internal forces becomes more important.\\
-For the reasons stated in the previous subsection hybrid position/force control approaches are less suitable than impedance control and will not be considered. The control architectures for rigid-fixture can be re-used if a internal force is applied in addition. By definition internal forces do not contribute to the motion of the constrained system and thus do not interfere with the control goals of rigid-fixture. Formally this can be described as $ G h_{int} = 0 $, i.e. the internal forces $ h_{int} $ lie in the null-space of the grasp matrix $ G $. To calculate desired internal forces a suitable vector $ z $ is multiplied with a basis of the null-space of the grasp matrix $ V $: $ h_{int}^d = V z $.\\
-When it comes to position uncertainties of contact points or deformable objects, calculating internal forces from a fixed grasp matrix may lead to undesired results. One alternative are \emph{Artificial Potential Fields (AFP)} to realize a desired formation of manipulators relative to each other in 3D space. 
-Sieber et al.\cite{Sieber_15} use \emph{AFP} to build up a formation of robots around an object. The object is grasped by varying the desired distances between the manipulators. The internal forces can thus be set in a physically meaningful way. The generated force of manipulator $ i $ in Cartesian direction $ k $ due to the springs connecting to the other manipulators $ j \in N_i $ is:
-\begin{equation}
-f_{i,k}^d = - \sum_{\substack{j\in N_i}} k_{ij} \dfrac{p_{i,k} - p_{j,k}}{\vert p_{i,k} - p_{j,k} \vert} (\vert p_{i,k}-p_{j,k}\vert - d_{ij,k})
-\end{equation}
-Notably here $ p\in\mathbb{R}^3 $ only represents the position of the manipulator, orientation information is omitted. Using the \emph{Hard Finger} contact model a pure translational representation is sufficient since it does not transmit torques. $ k_{ij} > 0$ is a control gain. The desired distance is defined by $ d_{ij,k} $.
-The approach controls only the formation of the robots and does not take the object dynamics into account. Positional control for the object is done assuming the object to be in the middle of the manipulators: $ p_o = \frac{1}{N} \sum\nolimits_{i=1}^{N} x_i $. This has important advantages: no need to know the object's dynamics and no need for tracking the object.\\
-Similar to the concept of \emph{AFP} are 1-\emph{DoF} springs with a desired rest-length. They only allow to set the absolute distance between two points in space, while \emph{AFP} control the distance along each direction. 1-\emph{DoF} can be more intuitive to control, because only one distance parameter has to be changed in contrast to a relative formation in 3D space.\\
-One approach using 1-\emph{DoF} springs is the \emph{Static IPC} by Wimb\"ock et al. \cite{Wimboeck_06}. The concept of the \emph{intrisically passive controller (IPC)} was introduced by Stramigioli \cite{Stramigioli_01} and will be covered later on. Here the rest-length springs connect to the middle of the manipulator set-up. The force generated by a single spring connecting from manipulator $ i $ to the center is: $ k_{i} \frac{p_i - p_o}{\vert p_i - p_o \vert} (\vert p_i-p_o\vert - d_{i}) $. Here $ k_i \in \mathbb{R}^3 $ is the stiffness matrix and $ d_i $ is the rest-length of the $ i $-th spring.
-Considering the cross-coupling of the springs the generated forces are:
-\begin{equation}
-f^d  = - \sum_{i=1}^N\left[\dfrac{\partial (p_i-p_o)^T}{\partial p} k_i \dfrac{p_i-p_o}{\vert p_i-p_o\vert}  (\vert p_i-p_o\vert - d_i) \right]
-\end{equation}
-Wherein $ \frac{\partial (p_i-p_o)^T}{\partial p} \in \mathbb{R}^{3N \times 3} $ is the cross-coupling matrix.
-Furthermore this approach uses another spring to connect environment and object. This is a 6-\emph{DoF} spring, thus the object's position and orientation is controlled. Force and torque are computed as:
-\begin{subequations}
-\begin{align}
-f_o^d = K_{o,t} R_o^T (p_o-p_o^d) \\
-t_o^d = 4 J^T_{\omega\epsilon} K_{o,r} \epsilon_d 
-\end{align}
-\end{subequations}
-The translational and rotational stiffness matrices are denoted by $ K_{o,t},K_{o,r} $. $ R_o $ is a rotation matrix indicating the object orientation, it is defined by the manipulator positions. $ \epsilon_d $ is the rotational error represented by the vector part of the quaternion, $ J^T_{\omega\epsilon} $ denotes the reduced quaternion product.\\
-Damping along each spring is proposed. This important especially for the cross-coupling springs to suppress oscillatory internal motions.\\
-While $ f^d $ acts on the manipulators, $ f_o^d $ and $ t_o^d $ act on the object. This is resolved by the hand geometry, different hand \emph{Jacobian} matrices cast the wrenches into joint torques. If no kinematic structure is present (e.g. when using discrete robots) often a weighted pseudoinverse of the grasp matrix (\cite{Schneider_92,DePascali_15}) is used. According to Stramigioli\cite{Stramigioli_01} the physically meaning of the weighting coefficients is small. Erhart and Hirche\cite{Erhart_15} recently presented weighted pseudoinverses based on inertia and geometry of object and manipulators. However (in some cases) this requires konwledge of the object properties. Stramigioli therefore introduces a virtual object, the wrench acts directly onto the virtual object and thus  influences its dynamics. The manipulators are connected to the virtual object with rest-length springs, so the object wrench is mapped to the manipulators via the virtual object dynamics.
-Wimb\"ock et al. implement Stramigioli's \emph{IPC} in a simplified version on a four fingered robotic hand\cite{Wimboeck_08}. The dynamics of the virtual object are:
-\begin{equation}
-M_v \ddot{x}_v + C_v \dot{x}_v + g_v = w_v
-\end{equation}
-The virtual object wrench $ w_v $ is composed of environment interaction $ w_{vo} $ and manipulator forces $ f_c $: $ w_v = w_{vo} + G_v f_c $. Where $ G_v $ is the virtual grasp matrix. Environment interaction is described by a 6 \emph{DoF} spring: $ w_{vo} = K(x_v^d,x_v) $. The springs connecting to the manipulators exert the wrench on the virtual object: $ G_v f_c = G_v K_c (p - G_v^T x_v) $. The control law for the manipulators is already given as:
-\begin{equation}
-f = -f_c = K_c(G_v^T x_v - p)
-\end{equation}
-The stiffness matrix $ K_c = blockdiag(k_1 I_3, ... , k_n I_3)$ is isotropic. The rest-lengths of the springs are chosen by the size of the virtual object, i.e. by specifying the virtual grasp matrix $ G_v $.\\
-One assumption in \cite{Wimboeck_08} is that internal forces are sufficient to ensure a firm grasp. This is done in a physically meaningful way by choosing the rest-lengths.
+%\subsection{Control schemes for rigidly connected manipulators}\label{SS:rigidcontrolschemes}
+%A rigid fixture between manipulator and object means that both forces and moments are exchanged at the grasp points: all translational and rotational motion components can be transmitted through the contact points. The rigid connections are expressed by a number of kinematic constraints, which reduce the Degrees-of-Freedom (DoF) of the constrained system. The attempt to move in the constrained directions results in internal loading of the object. Therefore trajectories of the manipulators have to be generated to avoid internal stress on the object. Assuming a rigid connection normally no grasping force is needed to stabilize the grasp, i.e. internal forces are undesired because possibly harmful to the object. Nevertheless some papers propose possibilities to specify or control internal forces.\\
+%Among the first to use impedance control in cooperative manipulation were Schneider and Cannon \cite{Schneider_92}. They replaced the actual object by a virtual mass and connected it to the environment with a spring and a parallel damper. The resulting impedance equation is:
+%\begin{equation}
+%M_{o,d} (\ddot{x}_o^d - \ddot{x}_o) + D_o (\dot{x}_o^d - \dot{x}_o) + K_o(x_o^d,x_o) = h_{env} 
+%\end{equation}
+%Here $ M_{o,d} $ denotes the inertia of the virtual object, $ D_o $ is the damping along the spring, which is represented by $ K_o(x_d,x) $. $ x_o = (p_o^T,Q_o^T)^T $ is the stacked vector of position and orientation of the object. $ x^d $ denotes a desired quantity. The external wrench, exerted by the environment on the object, $ h_{env} = (f_{env}^T,t_{env}^T)^T$ consists of force and torque vectors.
+%The dynamics of the virtual object is then given as:
+%\begin{equation}
+%M_{o,d}\ddot{x} = -h_{env} + h_o^{\Sigma} = -h_{env} + M_{o,d}\ddot{x}_d + D_o (\dot{x}_d - \dot{x}) + K_o(x_d,x)
+%\end{equation}
+%The resulting impedance control output $ h_o^{\Sigma} $ is than mapped to the manipulators using a generalized inverse of the grasp matrix:
+%\begin{equation}
+%h^{\Sigma} = G^\dagger h_o^{\Sigma}
+%\end{equation}
+%Performance of this strategy depends on choosing the virtual inertia close to the actual, i.e. good knowledge of the object is required. Furthermore gravity compensation would be necessary to model the full object dynamics. In general the equation of motion for a rigid object is:
+%\begin{equation}\label{EQ:ObjectDynamics}
+%M_o \ddot{x}_o + C_o \dot{x}_o + g_o = h_{env} + h^\Sigma
+%\end{equation}
+%Wherein $ M_o $ is the actual object inertia, $ C_o $ is the Matrix accounting for the Coriolis force and $ g_o $ is the gravity. 
+%For notational convenience the pose dependencies of the parameter matrices, e.g. $ M_o(x_o) $, are omitted.\\
+%Bonitz and Hsia \cite{Bonitz_96} propose to model each manipulator as an impedance relation. Thereby a relation between manipulator dynamics and internal forces on the object is enforced:
+%\begin{equation}
+%M_i(\ddot{x}_i^d - \ddot{x}_i) + D_i (\dot{x}_i^d - \dot{x}_i) + K_i(x_i^d,x_i) = h_{int}
+%\end{equation}
+%$ M_i, D_i, K_i(x_i^d,x_i) $ are the desired inertia, damping and stiffness representations of the i-th manipulator.The internal wrench $ h_{int} = VV^\dagger h $ is calculated from the measured contact wrench $ h $. $ V $ is a basis of the nullspace of the grasp matrix, $ V^\dagger $ denotes the pseudoinverse. No assumptions on the object are necessary because it is not considered in the control scheme.\\ 
+%The first approach ensures compliant object-environment interaction, while the second limits internal forces even in case of end-effector displacements. The both have been combined by Caccavale and Villani \cite{Caccavale_01}. Their control architecture is cascaded, consisting of a two level reference trajectory generation and a motion control loop below. On top-level an impedance relation between object and environment is used to generate a compliant trajectory subject to environmental forces:
+%\begin{equation}
+%\alpha M_o(\ddot{x}_o^d - \ddot{x}_o^r)  + D_o(\dot{x}_o^d - \dot{x}_o^r) + K_o(x_o^d,x_o^r)  = h_{env}
+%\end{equation}
+%The constant $ \alpha $ scales the object inertia proportionally to a desired value.
+%The control output is the reference object acceleration $ \ddot{x}_o^r $, $ h_{env} $ is an input. This is sometimes called admittance control, admittance being the inverse of impedance. $ h_{env} $ has to be known, but is not easily measured in a practical set-up. Recalling (\ref{EQ:ObjectDynamics}) the environmental forces can be expressed as:
+%\begin{equation}
+%h_{env} =  M_o \ddot{x}_o^r + C_o \dot{x}_o^r + g_o - G^\dagger h
+%\end{equation}
+%Herein $ G^\dagger $ is a generalized inverse of the grasp matrix, selecting the motion inducing components from the measured contact wrench $ h $. $ \dot{x}_o^r, x_o^r $ are calculated from $ \ddot{x}_o^r $ by integration.
+%From the compliant object trajectory ($ \ddot{x}_o^r,\dot{x}_o^r,x_o^r $) the desired trajectories of the manipulator ($ \ddot{x}_i^d,\dot{x}_i^d,x_i^d $) using the kinematic constraints. The reference manipulator trajectory, enforcing compliant behaviour between manipulators and object, is calculated from manipulator dynamics and internal forces: 
+%\begin{equation}
+%M_i(\ddot{x}_i^d - \ddot{x}_i^r) + D_i (\dot{x}_i^d - \dot{x}_i^r) + K_i(x_i^d,x_i^r) = VV^\dagger h
+%\end{equation}
+%The control output is the reference acceleration of the i-th manipulator $ \ddot{x}_i^r $, $ \dot{x}_i^r,x_i^r $ are obtained from integration. These variables are the inputs the inner motion control loop (PD-type). The strategy of compliant trajectories allows for high gains in the motion controller. Knowledge of object dynamics and measurement of the contact wrenches is required.\\
+%In a frequently cited follow-up paper Caccavale et al. \cite{Caccavale_08} combine the concept of \emph{geometrically consistent stiffness} with the same architecture. This allows for selective stiffness behaviour along different directions.\\
+%Recently Heck et al. \cite{Heck_13} worked with this architecture, they assume knowledge of the environment instead of the object.
+%The environmental wrench is than derived as:
+%\begin{equation}
+%h_{env} =  \Sigma D_{env} (\dot{x}_o^d - \dot{x}_o^r)  + \Sigma K_{env}(x_o^d,x_o^r)
+%\end{equation}
+%It is assumed here that the environment has a constant stiffness and damping ($ K_{env}(x_o^d,x_o^r),D_{env}) $. $ \Sigma $ is a diagonal selection matrix modelling the direction of contact.\\
+%A combination of impedance control on manipulator/object level and feed-forward object dynamics is presented in\cite{DePascali_15}. The manipulators are modelled as springs and dampers, inertia is used to feed-forward the desired acceleration: 
+%\begin{equation}
+%M_i \ddot{x}_i^d + D_i (\dot{x}_i^d - \dot{x}_i) + K_i(x_i^d,x_i) = h^x
+%\end{equation}
+%This avoids the necessity of either measuring manipulator acceleration or contact force.
+%Object dynamics is represented with feed-forward term, mapped to the manipulators with a weighted pseudoinverse $ G^+ $ of the grasp matrix:
+%\begin{equation}
+%h^d = G^+ (M_o \ddot{x_o^d} + C_o \dot{x_o^d} + g_o)
+%\end{equation}
+%Note that this term is not an impedance relation and does not adjust if the environment hinders motion.
+%The combined control law is $ h^\Sigma = h^x + h^d $.\\
+% 
+%
+%
+%\subsection{Friction grasps in Cooperative Manipulation}
+%The assumption of rigid-fixture between object and manipulators only holds f the manipulators are equipped with  appropriate grasping devices. In analogy to a human this device would be fingers wrapping around an inhomogeneity on the object, to achieve a rigid grasp. For an even object (e.g. a ball) humans use their hand palms to realize a friction grasp. Grasp stability is ensured by pressing the object. Technical applications where cooperative manipulators should be able to do a friction grasp are numerous, e.g. when no appropriate grasping device is available (or shall be avoided) or the object structure is not graspable.\\
+%Research of friction grasps is mainly done with robotic hands, the fingertips being the contact points. Depending on the nature of the tip a certain number of contacts is required to achieve a firm grasp: for non-deformable and small but frictional contacts, three are required to hold an object with 6 \emph{DoF} tightly. This contact model is called \emph{Hard Finger} or \emph{Point Contact with Friction (PCwF)}. It allows to transmit forces along the contact normal in pushing direction and for forces in tangential plane. If the contact is deformable or of considerable size, two are sufficient contact points form a firm grasp. This is called \emph{Soft Finger} model. In addition to the \emph{Hard Finger} torques around the contact normal are transferred.\\
+%The problem of grasping divides into three sub-problems: selection of suitable grasp points, coordinated motion of the constrained system and control of the grasping force especially when interacting with the environment. The problem of coordinated motion is very similar to the case of rigid-fixture, while the control is exclusive to friction grasps. With robot hands it is most important to maintain a stable grasp. Undesired or unnecessary and possibly harmful internal forces occur during dynamic manipulation and interaction with the environment. Since discrete robots in cooperative manipulation are often powerful, proper control of the internal forces becomes more important.\\
+%For the reasons stated in the previous subsection hybrid position/force control approaches are less suitable than impedance control and will not be considered. The control architectures for rigid-fixture can be re-used if a internal force is applied in addition. By definition internal forces do not contribute to the motion of the constrained system and thus do not interfere with the control goals of rigid-fixture. Formally this can be described as $ G h_{int} = 0 $, i.e. the internal forces $ h_{int} $ lie in the null-space of the grasp matrix $ G $. To calculate desired internal forces a suitable vector $ z $ is multiplied with a basis of the null-space of the grasp matrix $ V $: $ h_{int}^d = V z $.\\
+%When it comes to position uncertainties of contact points or deformable objects, calculating internal forces from a fixed grasp matrix may lead to undesired results. One alternative are \emph{Artificial Potential Fields (AFP)} to realize a desired formation of manipulators relative to each other in 3D space. 
+%Sieber et al.\cite{Sieber_15} use \emph{AFP} to build up a formation of robots around an object. The object is grasped by varying the desired distances between the manipulators. The internal forces can thus be set in a physically meaningful way. The generated force of manipulator $ i $ in Cartesian direction $ k $ due to the springs connecting to the other manipulators $ j \in N_i $ is:
+%\begin{equation}
+%f_{i,k}^d = - \sum_{\substack{j\in N_i}} k_{ij} \dfrac{p_{i,k} - p_{j,k}}{\vert p_{i,k} - p_{j,k} \vert} (\vert p_{i,k}-p_{j,k}\vert - d_{ij,k})
+%\end{equation}
+%Notably here $ p\in\mathbb{R}^3 $ only represents the position of the manipulator, orientation information is omitted. Using the \emph{Hard Finger} contact model a pure translational representation is sufficient since it does not transmit torques. $ k_{ij} > 0$ is a control gain. The desired distance is defined by $ d_{ij,k} $.
+%The approach controls only the formation of the robots and does not take the object dynamics into account. Positional control for the object is done assuming the object to be in the middle of the manipulators: $ p_o = \frac{1}{N} \sum\nolimits_{i=1}^{N} x_i $. This has important advantages: no need to know the object's dynamics and no need for tracking the object.\\
+%Similar to the concept of \emph{AFP} are 1-\emph{DoF} springs with a desired rest-length. They only allow to set the absolute distance between two points in space, while \emph{AFP} control the distance along each direction. 1-\emph{DoF} can be more intuitive to control, because only one distance parameter has to be changed in contrast to a relative formation in 3D space.\\
+%One approach using 1-\emph{DoF} springs is the \emph{Static IPC} by Wimb\"ock et al. \cite{Wimboeck_06}. The concept of the \emph{intrisically passive controller (IPC)} was introduced by Stramigioli \cite{Stramigioli_01} and will be covered later on. Here the rest-length springs connect to the middle of the manipulator set-up. The force generated by a single spring connecting from manipulator $ i $ to the center is: $ k_{i} \frac{p_i - p_o}{\vert p_i - p_o \vert} (\vert p_i-p_o\vert - d_{i}) $. Here $ k_i \in \mathbb{R}^3 $ is the stiffness matrix and $ d_i $ is the rest-length of the $ i $-th spring.
+%Considering the cross-coupling of the springs the generated forces are:
+%\begin{equation}
+%f^d  = - \sum_{i=1}^N\left[\dfrac{\partial (p_i-p_o)^T}{\partial p} k_i \dfrac{p_i-p_o}{\vert p_i-p_o\vert}  (\vert p_i-p_o\vert - d_i) \right]
+%\end{equation}
+%Wherein $ \frac{\partial (p_i-p_o)^T}{\partial p} \in \mathbb{R}^{3N \times 3} $ is the cross-coupling matrix.
+%Furthermore this approach uses another spring to connect environment and object. This is a 6-\emph{DoF} spring, thus the object's position and orientation is controlled. Force and torque are computed as:
+%\begin{subequations}
+%\begin{align}
+%f_o^d = K_{o,t} R_o^T (p_o-p_o^d) \\
+%t_o^d = 4 J^T_{\omega\epsilon} K_{o,r} \epsilon_d 
+%\end{align}
+%\end{subequations}
+%The translational and rotational stiffness matrices are denoted by $ K_{o,t},K_{o,r} $. $ R_o $ is a rotation matrix indicating the object orientation, it is defined by the manipulator positions. $ \epsilon_d $ is the rotational error represented by the vector part of the quaternion, $ J^T_{\omega\epsilon} $ denotes the reduced quaternion product.\\
+%Damping along each spring is proposed. This important especially for the cross-coupling springs to suppress oscillatory internal motions.\\
+%While $ f^d $ acts on the manipulators, $ f_o^d $ and $ t_o^d $ act on the object. This is resolved by the hand geometry, different hand \emph{Jacobian} matrices cast the wrenches into joint torques. If no kinematic structure is present (e.g. when using discrete robots) often a weighted pseudoinverse of the grasp matrix (\cite{Schneider_92,DePascali_15}) is used. According to Stramigioli\cite{Stramigioli_01} the physically meaning of the weighting coefficients is small. Erhart and Hirche\cite{Erhart_15} recently presented weighted pseudoinverses based on inertia and geometry of object and manipulators. However (in some cases) this requires konwledge of the object properties. Stramigioli therefore introduces a virtual object, the wrench acts directly onto the virtual object and thus  influences its dynamics. The manipulators are connected to the virtual object with rest-length springs, so the object wrench is mapped to the manipulators via the virtual object dynamics.
+%Wimb\"ock et al. implement Stramigioli's \emph{IPC} in a simplified version on a four fingered robotic hand\cite{Wimboeck_08}. The dynamics of the virtual object are:
+%\begin{equation}
+%M_v \ddot{x}_v + C_v \dot{x}_v + g_v = w_v
+%\end{equation}
+%The virtual object wrench $ w_v $ is composed of environment interaction $ w_{vo} $ and manipulator forces $ f_c $: $ w_v = w_{vo} + G_v f_c $. Where $ G_v $ is the virtual grasp matrix. Environment interaction is described by a 6 \emph{DoF} spring: $ w_{vo} = K(x_v^d,x_v) $. The springs connecting to the manipulators exert the wrench on the virtual object: $ G_v f_c = G_v K_c (p - G_v^T x_v) $. The control law for the manipulators is already given as:
+%\begin{equation}
+%f = -f_c = K_c(G_v^T x_v - p)
+%\end{equation}
+%The stiffness matrix $ K_c = blockdiag(k_1 I_3, ... , k_n I_3)$ is isotropic. The rest-lengths of the springs are chosen by the size of the virtual object, i.e. by specifying the virtual grasp matrix $ G_v $.\\
+%One assumption in \cite{Wimboeck_08} is that internal forces are sufficient to ensure a firm grasp. This is done in a physically meaningful way by choosing the rest-lengths.
 %Allowing a human to directly control the formation (e.g. with gestures), three parameters are to be specified by the operator: position, orientation and grasping force. Tracking and processing human inputs causes a delay, which can be compared to a telemanipulation setting, although the operator may be on-site. A local controller is required to ensure a secure grasp while human interfacing can be higher level control.
 
-\subsection{Determination of desired internal forces}
-Non-rigid grasps object and manipulators are connected with friction constraints. Contact force towards the object generates frictional force opposed to external forces tangential to the contact point. If the tangential forces exceed the frictional force the friction constraint is violated and contact slippage occurs. Squeezing or internal forces do not contribute to the motion of the constrained system. They need to be chosen sufficiently high to maintain a stable grasp under external forces acting on the object. On the other hand they must be bounded to not damage the object. These opposed requirements can be formulated as a cost function.\\
-Buss et al. \cite{Buss_96} propose a cost function consisting of two factors: one is a barrier function tending to infinity for violating the friction constraint limit, the other is linear function rising with the exerted force, making high forces costly. The optimal desired internal force is the minimum of the cost function, thus the forces are chosen as small as possible, preserving a stale grasp.\\
-Non-linear friction constraints are given for the \textit{point contact friction} and the \textit{soft contact friction} model:\\
-The \textit{point contact friction} constraint allows transmitting force in tangential  and normal  (only towards the object) direction. In addition the \textit{soft contact} constraint transmits the torsional moment around the normal axes. Buss' main contribution is that friction constraints can be reformulated  equivalent to positive definite matrices. These matrices are used to construct the cost function. This results in a convex optimization problem, thus an optimum is always a global optimum. \\
-Bicchi et al. \cite{Bicchi_98} limit their contribution to the \textit{point contact friction} model but expand the cost function. A maximum contact force is introduced, this is useful for rather loosing contact than destroying the object. Furthermore a minimum force in normal direction is specified to ensure grasp stability even under uncertainties. This two add up to with the friction constraint to a function, which has a negative scalar value if the set of constraints are respected. The sum of this functions for all contact points forms the cost function.\\ 
-Han et al. \cite{Han_2000} reformulated Buss' positive definite matrix approach as a \textit{linear matrix inequality}(LMI) problem. Being a common optimization task, efficient solvers (e.g. interior point algorithm) exist. Calculation time could be significantly reduced.
+%\subsection{Determination of desired internal forces}
+%Non-rigid grasps object and manipulators are connected with friction constraints. Contact force towards the object generates frictional force opposed to external forces tangential to the contact point. If the tangential forces exceed the frictional force the friction constraint is violated and contact slippage occurs. Squeezing or internal forces do not contribute to the motion of the constrained system. They need to be chosen sufficiently high to maintain a stable grasp under external forces acting on the object. On the other hand they must be bounded to not damage the object. These opposed requirements can be formulated as a cost function.\\
+%Buss et al. \cite{Buss_96} propose a cost function consisting of two factors: one is a barrier function tending to infinity for violating the friction constraint limit, the other is linear function rising with the exerted force, making high forces costly. The optimal desired internal force is the minimum of the cost function, thus the forces are chosen as small as possible, preserving a stale grasp.\\
+%Non-linear friction constraints are given for the \textit{point contact friction} and the \textit{soft contact friction} model:\\
+%The \textit{point contact friction} constraint allows transmitting force in tangential  and normal  (only towards the object) direction. In addition the \textit{soft contact} constraint transmits the torsional moment around the normal axes. Buss' main contribution is that friction constraints can be reformulated  equivalent to positive definite matrices. These matrices are used to construct the cost function. This results in a convex optimization problem, thus an optimum is always a global optimum. \\
+%Bicchi et al. \cite{Bicchi_98} limit their contribution to the \textit{point contact friction} model but expand the cost function. A maximum contact force is introduced, this is useful for rather loosing contact than destroying the object. Furthermore a minimum force in normal direction is specified to ensure grasp stability even under uncertainties. This two add up to with the friction constraint to a function, which has a negative scalar value if the set of constraints are respected. The sum of this functions for all contact points forms the cost function.\\ 
+%Han et al. \cite{Han_2000} reformulated Buss' positive definite matrix approach as a \textit{linear matrix inequality}(LMI) problem. Being a common optimization task, efficient solvers (e.g. interior point algorithm) exist. Calculation time could be significantly reduced.
 %____________________________________________________
 
 
@@ -826,7 +831,19 @@ To evaluate the presented controllers in an objective way, they are implemented 
 
 %Having explained the problem, and what others have done in similar situations, now explain your approach. Again, give a general overview of your design first, and then go into detail. The important part here is the concept of your work, not the actual implementation! Make sure that the document (particularly a thesis) is self-contained: It should be possible for a reader familiar with the general area to understand your design. Again, be forthright about the limitations of your design. Also, make sure you justify any shortcuts/limitations convincingly.
 
-\subsection{Internal force impedance control with feed-forward of the object dynamics \cite{DePascali_15}}
+\subsection{Internal impedance control with feed-forward of the object dynamics}
+De Pascali et al. \cite{DePascali_15} present combination of impedance control on manipulator/object level and feed-forward object dynamics. The internal impedance control relation (between object and manipulator) encompasses a spring and a parallel damper, inertia is used to feed-forward the desired acceleration: 
+\begin{equation}
+M_i \ddot{x}_i^d + D_i (\dot{x}_i^d - \dot{x}_i) + K_i(x_i^d,x_i) = h^x
+\end{equation}
+\textit{I know I have to use consistent notation and explain the variables, comes later ;)}
+This avoids the necessity of either measuring manipulator acceleration or contact force.
+Object dynamics is represented with a feed-forward term, mapped to the manipulators with a weighted pseudoinverse $ G^+ $ of the grasp matrix:
+\begin{equation}
+h^d = G^+ (M_o \ddot{x_o^d} + C_o \dot{x_o^d} + g_o)
+\end{equation}
+Note that this term is not an impedance relation and does not adjust if the environment hinders motion.
+The combined control law is $ h^\Sigma = h^x + h^d $.\\
 The set-up consists of four manipulators, distributed symmetrically around the object. In the first case translation in x-direction commanded. Results in Fig. \ref{FIG:abb1} show good tracking behaviour: no position errors in steady state and only small deviations from the desired values during transient phase. No internal stress is exerted on the object. Due to fast translation high manipulator forces occur. 
 \begin{figure}[htb]
 \centering
@@ -843,9 +860,24 @@ In the second test case the object is rotated around the $ z $-axis. This is don
 \end{figure}
 
 
-\subsection{Internal and external impedance based reference trajectory generation \cite{Caccavale_01}}
+\subsection{Internal and external impedance based reference trajectory generation}
+Caccavale and Villani \cite{Caccavale_01} combine both internal and external impedance control. With external we mean a compliant relation between object and (external) environment. The architecture is cascaded, consisting of a two level reference trajectory generation and a motion control loop below. On top-level an impedance relation between object and environment is used to generate a compliant trajectory subject to environmental forces:
+\begin{equation}
+\alpha M_o(\ddot{x}_o^d - \ddot{x}_o^r)  + D_o(\dot{x}_o^d - \dot{x}_o^r) + K_o(x_o^d,x_o^r)  = h_{env}
+\end{equation}
+The constant $ \alpha $ scales the object inertia proportionally to a desired value.
+The control output is the reference object acceleration $ \ddot{x}_o^r $, $ h_{env} $ is an input. This is sometimes called admittance control, admittance being the inverse of impedance. $ h_{env} $ has to be known, but is not easily measured in a practical set-up. Recalling (\ref{EQ:ObjectDynamics}) the environmental forces can be expressed as:
+\begin{equation}
+h_{env} =  M_o \ddot{x}_o^r + C_o \dot{x}_o^r + g_o - G^\dagger h
+\end{equation}
+Herein $ G^\dagger $ is a generalized inverse of the grasp matrix, selecting the motion inducing components from the measured contact wrench $ h $. $ \dot{x}_o^r, x_o^r $ are calculated from $ \ddot{x}_o^r $ by integration.
+From the compliant object trajectory ($ \ddot{x}_o^r,\dot{x}_o^r,x_o^r $) the desired trajectories of the manipulator ($ \ddot{x}_i^d,\dot{x}_i^d,x_i^d $) using the kinematic constraints. The reference manipulator trajectory, enforcing compliant behaviour between manipulators and object, is calculated from manipulator dynamics and internal forces: 
+\begin{equation}
+M_i(\ddot{x}_i^d - \ddot{x}_i^r) + D_i (\dot{x}_i^d - \dot{x}_i^r) + K_i(x_i^d,x_i^r) = VV^\dagger h
+\end{equation}
+The control output is the reference acceleration of the i-th manipulator $ \ddot{x}_i^r $, $ \dot{x}_i^r,x_i^r $ are obtained from integration. These variables are the inputs the inner motion control loop (PD-type). The strategy of compliant trajectories allows for high gains in the motion controller. Knowledge of object dynamics and measurement of the contact wrenches is required.\\
 Results for translational motion (see Fig. \ref{FIG:abb3}) are very similar to that of the previous control scheme. When it comes to rotation, higher internal forces can be observed in Fig. \ref{FIG:abb4}. In this case they are not influenced by numerical parameters of the simulation.
-This architecture in contrast to the previous makes use of measured contact wrenches. Contact wrench as measured can be obtained from the constrained system simulation. As described in subsection \ref{SS:rigidcontrolschemes} this wrench is than decomposed by kineostatic filters in internal and external components. This does not cancel out undesired internal stress but magnifies it: when the contact wrench is not fed back and set to zero in the internal force impedance controller, results are slightly better. Note that the simulation represents an ideal case, where all parameters are exactly known and no deviations in grasp positions occur. Behaviour in a real experiment may be different and this observation does not mean that the kineostatic-filtered feed-back of contact wrench is unjustified in general.
+This architecture in contrast to the previous makes use of measured contact wrenches. Contact wrench as measured can be obtained from the constrained system simulation. As described in \cite{CoopManipHandbook} this wrench is than decomposed by kineostatic filters in internal and external components. In this simulation this not cancel out undesired internal stress but magnifies it: when the contact wrench is not fed back and set to zero in the internal force impedance controller, results are slightly better. Note that the simulation represents an ideal case, where all parameters are exactly known and no deviations in grasp positions occur. Behavior in a real experiment may be different and this observation does not mean that the kineostatic-filtered feed-back of contact wrench is unjustified in general.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=1\textwidth]{Caccavaleposition.eps}
@@ -859,7 +891,20 @@ This architecture in contrast to the previous makes use of measured contact wren
 \label{FIG:abb4}
 \end{figure}
 
-%\subsection{Dynamic Intrinsically Passive Controller (IPC) \cite{Wimboeck_08} }
+\subsection{Intrinsically Passive Controller (IPC)}
+Introduced by Stramigioli \cite{Stramigioli_01} and implemented by Wimb\"ock et al. \cite{Wimboeck_08}, the architecture has been detailed throughout this work. In contrast to Stramigioli dampers are used in parallel with the manipulator springs and in contrast to Wimb\"ock all springs have 6-DoF. Again results for pure translation compare to the previous and no internal forces can be observed, see \ref{FIG:DIPCtrans}. For rotation (\ref{FIG:DIPCrot}) high internal forces are present.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{DIPCtranslation.eps}
+	\caption[IPC: Translation]{Intrinsically Passive Controller: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+	\label{FIG:DIPCtrans}
+\end{figure}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{DIPCrotation.eps}
+	\caption[IPC: Rotation]{Intrinsically Passive Controller: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+	\label{FIG:DIPCrot}
+\end{figure}
 %\section{Implementation}
 %
 %

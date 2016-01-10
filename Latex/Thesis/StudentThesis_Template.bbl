@@ -13,12 +13,6 @@ M.~Buss, H.~Hashimoto, and J.B. Moore.
 \newblock {\em Robotics and Automation, IEEE Transactions on}, 12(3):406--418,
   1996.
 
-\bibitem[BPA98]{Bicchi_98}
-A.~Bicchi, D.~Prattichizzo, and G.~Antognetti.
-\newblock Optimization of internal forces in force-closure grasp.
-\newblock {\em Proc. of the the 6th IEEE Mediterranean Conf. on Control and
-  Systems}, 16(6), 1998.
-
 \bibitem[CCMV08]{Caccavale_08}
 F.~Caccavale, P.~Chiacchio, A.~Marino, and L.~Villani.
 \newblock Six-dof impedance control of dual-arm cooperative manipulators.
@@ -102,6 +96,14 @@ M.J. Massimino and Sheridian T.B.
 \newblock Sensory substitution for force feedback in teleoperation.
 \newblock {\em Presence, MIT Press Journals}, 2(4):344--352, 1993.
 
+\bibitem[NPH08]{TeleoperationHandbook}
+G.~Niemeyer, C.~Preusche, and G.~Hirzinger.
+\newblock {Telerobotics}.
+\newblock In Bruno Siciliano and Oussama Khatib, editors, {\em Springer
+  Handbook of Robotics}, chapter~31, pages 741--757. Springer Berlin
+  Heidelberg, May 2008.
+\newblock ISBN 978-3-540-23957-4.
+
 \bibitem[SC92]{Schneider_92}
 S.A. Schneider and R.H. Cannon.
 \newblock Object impedance control for cooperative manipulation: theory and
@@ -131,6 +133,12 @@ D.~Sieber, S.~Music, and S.~Hirche.
 \newblock {\em IEEE/RSJ International Conference on Intelligent Robots and
   Systems (IROS)}, pages 2440--2446, Sep 2015.
 
+\bibitem[SMP14]{Scheggi_14}
+S.~Scheggi, F.~Morbidi, and D.~Prattichizzo.
+\newblock Human-robot formation control via visual and vibrotactile haptic
+  feedback.
+\newblock {\em Haptics, IEEE Transactions on}, 7(4):499--511, Oct 2014.
+
 \bibitem[Str01a]{Stramigioli_01b}
 Stefano Stramigioli.
 \newblock Geometric modeling of mechanical systems for interactive control.
@@ -144,6 +152,14 @@ Stefano Stramigioli.
 \newblock {\em Modeling and IPC Control of Interactive Mechanical Systems: A
   Coordinate-Free Approach}.
 \newblock Springer-Verlag London, London, UK, 2001.
+
+\bibitem[Str15]{Stramigioli_15}
+Stefano Stramigioli.
+\newblock Energy-aware robotics.
+\newblock In M.~K. Camlibel, A.~A. Julius, R.~Pasumarthy, and J.~Scherpen,
+  editors, {\em Mathematical Control Theory I}, volume 461 of {\em Lecture
+  Notes in Control and Information Sciences}, pages 37--50. Springer London,
+  2015.
 
 \bibitem[vdS06]{vanderSchaft_06}
 Arjan van~der {Schaft}.
