@@ -1,8 +1,58 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: StudentThesis_Template.aux
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: StudentThesis_Template.aux
 The style file: alphaurl.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: mybib.bib
+Warning--entry type for "MHI-MEISTeR" isn't style-file defined
+--line 284 of file mybib.bib
 Warning--I didn't find a database entry for "Loncaric_87"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty journal in Lee_05
 Warning--empty journal in Stramigioli_01c
 Warning--empty journal in Stramigioli_99
-(There were 4 warnings)
+You've used 31 entries,
+            3274 wiz_defined-function locations,
+            891 strings with 10950 characters,
+and the built_in function-call counts, 17507 in all, are:
+= -- 1805
+> -- 703
+< -- 25
++ -- 221
+- -- 215
+* -- 1035
+:= -- 2528
+add.period$ -- 101
+call.type$ -- 31
+change.case$ -- 193
+chr.to.int$ -- 29
+cite$ -- 34
+duplicate$ -- 580
+empty$ -- 1464
+format.name$ -- 252
+if$ -- 4347
+int.to.chr$ -- 3
+int.to.str$ -- 0
+missing$ -- 32
+newline$ -- 162
+num.names$ -- 103
+pop$ -- 295
+preamble$ -- 1
+purify$ -- 226
+quote$ -- 0
+skip$ -- 1226
+stack$ -- 0
+substring$ -- 893
+swap$ -- 150
+text.length$ -- 25
+text.prefix$ -- 8
+top$ -- 0
+type$ -- 240
+warning$ -- 3
+while$ -- 128
+width$ -- 35
+write$ -- 414
+(There were 5 warnings)

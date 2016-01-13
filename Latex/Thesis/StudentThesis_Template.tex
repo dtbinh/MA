@@ -1,6 +1,6 @@
 \documentclass[a4paper,twoside, openright,12pt]{report}
 \usepackage{psfrag,amsbsy,graphics,float,amsmath,amssymb,epstopdf}
-\usepackage{graphicx, color, mathtools} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
+\usepackage{graphicx, color, mathtools,amsfonts,tikz,pgfplots} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
 \usepackage[latin1]{inputenc}
 \usepackage{verbatim} 
 
@@ -280,12 +280,12 @@ For the last point a recent application has been presented at the Fukushima Daii
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{mhi-meister.jpg}
-	\caption[Demonstration of MHI MEISTeR at Fukushima Daiichi NPS]{Demonstration of the tele-operated MHI MEISTeR robot at Fukushima Daiichi Nuclear Power Station}
+	\caption[Demonstration of MHI MEISTeR at Fukushima Daiichi NPS]{Demonstration of the tele-operated MHI MEISTeR robot at Fukushima Daiichi Nuclear Power Station \cite{MHI-MEISTeR}}
 	\label{FIG:MEISTeR}
 \end{figure}
 Space and hazardous environments are fruitful environments for cooperative manipulators, often they are directly controlled by a human operator. Combining human reasoning and the enhanced flexibility of a cooperative set-up is a powerful combination in an unstructured environment. A human in the control loop comes with superior foresight and planning capabilities. To fully exploit this additional flexibility we require control architectures able to perform all the fore-mentioned tasks and operable in a comfortable and efficient manner.\\\\
 
-To address the first requirement the controller realizes changes of formation and relocates the constrained system. A change of formation first of all means the opening and closing of a grasp a around a common object. A virtual object and variable rest-length springs are introduced, the springs couple the virtual and the actual object. The size of virtual object specifies the rest-lengths, by choosing the it smaller than the actual a grasping force is exerted. By choosing it bigger the grasp is opened and the actual object is released. Changing of rest-lengths means to change the potential energy stored in the springs. Since the controller itself is passive, the energy is exchanged with a distinct power port. In order to relocate the formation a spring is connected from the virtual object center to the desired new position/orientation. This ensures compliant behavior between (virtual) object and environment. Note that this concept is called \emph{Intrinsically Passive Controller} (IPC) and was introduced by Stramigioli \cite{Stramigioli_01}, the control architecture described in the main part will closely stick to this concept. \\
+To address the first requirement the controller realizes changes of formation and relocates the constrained system. A change of formation first of all means the opening and closing of a grasp a around a common object. A virtual object and variable rest-length springs are introduced, the springs couple the virtual and the actual object. The size of virtual object specifies the rest-lengths, by choosing it smaller than the actual a grasping force is exerted. By choosing it bigger the grasp is opened and the actual object is released. Changing of rest-lengths means to change the potential energy stored in the springs. Since the controller itself is passive, the energy is exchanged with a distinct power port. In order to relocate the formation a spring is connected from the virtual object center to the desired new position/orientation. This ensures compliant behavior between (virtual) object and environment. Note that this concept is called \emph{Intrinsically Passive Controller} (IPC) and was introduced by Stramigioli \cite{Stramigioli_01}, the control architecture described in the main part will closely stick to this concept. \\
 The controller provides a reasonable layer of abstraction and takes responsibilities from the operator, in order to not overstrain her/his attention and let him focus on important elements of the task. To ensure a secure and stable grasp, the formation of robots is locally controlled without the help of the human. For dynamic manipulation tasks grasp force optimization can be utilized to limit internal to the absolute minimum. The control system provides appropriate feedback to provide better perception on the work environment and to make the job more intuitive. The user specifies system motion and is provided with information about the necessary forces to accomplish the commanded motion. Thereby s/he gets a natural intuition of how much work has been done by the robots. To this end the controller shall never be a source of additional energy, the only way energy is fed into the system is by request of the operator, i.e. the controlled robots are passive. The maximum extractable energy is always bounded, the operator can estimate the stored energy and possible effects when interacting with the environment. Passive robotic systems are always stable when interconnected passive environments/humans and can be stable with some active systems. On the contrary, if the controlled robot is not passive, there is always a passive environment that destabilizes the interconnected system \cite{Stramigioli_15}.
 
 
@@ -662,11 +662,12 @@ Again $\tilde{W} \in \mathbb{R}^{4\times 4}$ is a matrix while $W \in \mathbb{R}
 The change of coordinates for twists is similar to the case of twists:
 \[(W^i)^T = Ad_{H_i^j}^T (W^j)^T \]
 Here the mapping is in the opposite direction, from $\Psi_j$ to $\Psi_i$, what is a consequence of the fact that wrenches are duals to twists. Again there are different representations of wrenches: \begin{itemize}
-\item $W_i^k$ is the wrench applied to a mass attached to $\Psi_i$ expressed in the coordinate frame $\Psi_k$.
 \item $W_i^{k,j}$ is the wrench applied to a spring connecting $\Psi_i$ to $\Psi_j$ on the side of $\Psi_i$ expressed in the coordinate frame $\Psi_k$.
-\end{itemize}
-Note that the first representation is mainly used for bodies, the wrench is exerted \emph{on} the body. The second is useful for springs, the wrench is exerted on the spring \emph{by} the body: $W_i^k = - W_i^{k,j}$. Also it is clear from Newton's third law (action - reaction) that $W_i^{k,j} = - W_j^{k,i}$, thus $ W_i^k = W_j^{k,i} $
+\item $W_i^j = W_i^{j,j}$ is the wrench applied (by a body attached to $\Psi_i$) to a spring between $\Psi_i$ and $\Psi_j$ expressed in the coordinate frame $\Psi_j$.
 
+\end{itemize}
+Both representations describe the wrench by a body on a spring. Applying the principle of action and reaction the wrench exerted by a spring on a body is simply $-W_i^j$ or $-W_i^{k,j}$ respectively. Due to the nodicity of a spring we have: $ W_i^{k,j} = -W_j^{k,i} $
+\\
 Recalling Subsection \ref{SS:PHSinterconnection} the power flowing through a port is defined by the dual product of an effort and flow pair, which are from a vector space and its dual respectively. On a vector space level the power port $\mathcal{P}$ is defined by the Cartesian product of the Lie algebra $\mathfrak{se}(3)$ and its dual $\mathfrak{se}^*(3)$: $\mathcal{P} = \mathfrak{se}(3) \times \mathfrak{se}^*(3)$. The mechanical power exchanged at the port is simply $P = WT$.
 
 \subsection{Dynamics of physical components}
@@ -678,7 +679,7 @@ Speaking of a \emph{spring} we mean the ideal, lossless representation of a pote
 Recalling the general equations of a PHS and the assignment of the variables from Subsection \ref{SS:HSdescription} we already have the structure of the PHS equations for a spring. The state variable is the relative displacement $H_i^j$, the effort variable is the wrench $ W_i^{j,j} $ and the flow variable is the relative motion $\dot{H}_i^j $
 \begin{eqnarray}
 	\dot{H}_i^j = T_i^{j}H_i^j\\
-	W_i^{j,j} = \frac{\partial V_{i,j}}{\partial H_i^j}(H_i^j)^T
+	W_i^{j} = \frac{\partial V_{i,j}}{\partial H_i^j}(H_i^j)^T
 \end{eqnarray}
 Note that $ V_i,j $ has an energetic minimum when $ H_i^j $ is the identity matrix $I_4$. An energetic minimum physically necessary, otherwise infinite energy would be extractable. With $ H_i^j = I_4 $ the frames $ \Psi_i $ and $\Psi_j$ coincide.
 It is possible to define springs with non-zero rest-length by introducing coordinate frames $ \Psi_{ic} $ and $\Psi_{jc}$ rigidly attached to $ \Psi_i $ and $\Psi_j$ respectively. The spring is now between the new frames, thus the energetic minimum is $H_{ic}^{jc} = I_4$. The displacements $ H_i^{ic}, H_j^{jc} $ are the resulting rest-lengths. Frames $ \Psi_{ic} $ and $\Psi_{jc}$ can be chosen to represent the \emph{center of stiffness}, where translation and rotation are maximally decoupled \cite{Loncaric_87}.
@@ -697,13 +698,13 @@ Towards a PHS representation we need to identify the components contributing to 
 Since no additional energy storages were introduced, the Hamiltonian function is equal to the case of the previous simple spring. We can write the two-port Hamiltonian system of a variable length spring as
 \begin{eqnarray}\label{EQ:variablerestlengthspring}
 	\dot{H}_i^j =\left( \begin{pmatrix}1 & Ad_{H_b^j}\end{pmatrix} \begin{pmatrix}T_b^{j} \\ T_i^{b}\end{pmatrix} \right) H_i^j\\
-	\begin{pmatrix}W_b^{j,j} \\ W_i^{b,b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^j}^T\end{pmatrix} \frac{\partial V_{i,j}}{\partial H_i^j} \right) (H_i^j)^T
+	\begin{pmatrix}W_b^{j} \\ W_i^{b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^j}^T\end{pmatrix} \frac{\partial V_{i,j}}{\partial H_i^j} \right) (H_i^j)^T
 \end{eqnarray}
 
 \subsubsection{Inertias}
 The kinetic energy of a body is a function of its relative motion with respect to an inertial frame $ \Psi_0 $. The body's dynamic properties are described by the inertia matrix $M_b$, which consists of mass and rotational inertia components. Consider the classical description of a body's dynamics:
 \begin{equation}
-	M_b \dot{T}_b^{b,0}  = C_b T_b^{b,0} + W_b^b
+	M_b \dot{T}_b^{b,0}  = C_b T_b^{b,0} + W_{ext}^b
 \end{equation}
 Where $C_b$ accounts for Coriolis and Centripetal terms and $W_{ext}^b$ is the external wrench acting on the body.\\
 Recall from Table \ref{TAB:PHSvar_mechanic} that the energy state variable is the momentum $P_b^b = M_b T_b^{b,0}$ and the flow variable is the wrench, we can reformulate the previous equation to PHS form
@@ -739,11 +740,12 @@ Dampers do not have a state since they do not store energy, they only dissipate 
 \end{equation}
 Or a damper in parallel with spring
 \begin{equation}
-	W_i^{j,j} = R T_i^{j}
+	W_i^{j} = R T_i^{j}
 \end{equation}
 The dissipated co-energy is $E_d = \frac{1}{2}T^T R T$.
 
 \section{Control of port-Hamiltonian systems}
+
 \subsection{The Intrinsically Passive Controller (IPC)}
 The IPC is a control architecture based entirely on physical intuition. The structure can be seen in Fig. \ref{FIG:IPCsprings}, it is exclusively a geometric interconnection of springs, inertias and dampers. The manipulators are connected with spatial springs to the object. The object is modelled by a virtual inertia and its shape is represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. Note that these springs do not exist in reality, they are models to establish compliant behaviour in the controller. The simulated manipulator forces are then applied to the real object, in order to transfer the virtual complaint behaviour to the real world.\\
 \begin{figure}
@@ -757,7 +759,7 @@ Starting point for the controller design is the virtual object. It is already gi
 From a geometric point of view the object-environment spring directly connects to the virtual object frame $\Psi_b$. The other end is attached to the desired object position, denoted with frame $\Psi_v$. This desired object position is the main control objective, by means of this, the motion of the constrained robot-object system is directed. The representation in PHS form is:
 \begin{eqnarray}
 	\dot{H}_v^b = T_v^{b}H_v^b\\
-	W_v^{b,b} = \frac{\partial V_{v,b}}{\partial H_v^b}(H_v^b)^T
+	W_v^{b} = \frac{\partial V_{v,b}}{\partial H_v^b}(H_v^b)^T
 \end{eqnarray}
 Since we already have a spring relation between the virtual object and the inertial frame it is useful to split this spring into two springs: one between desired position and inertial frame and the other between inertial frame and object position: $H_v^b$ = $H_0^b H_v^0 $.\\
 Additionally the have a spring connecting object and each of the $n$-manipulators. As stated before these are variable rest-length springs, to allow for contraction and widening of the formation. Therefore the springs do not connect to the object frame but to a additional supporting frame denoted by $\Psi_v(i)$, which is rigidly attached to $\Psi_b$. Clearly the frames $\Psi_v(i),\; i=1...N$ define the sphere of the virtual object. The springs are situated between the manipulators and the virtual object sphere: $H_{v(i)}^i$ The rest-length is between the sphere and the virtual object frame: $H_b^{v(i)}$, the set-up is illustrated in Fig. \ref{FIG:IPCobject}.
@@ -781,25 +783,34 @@ Where $W = (W_{v(1)}^T,...,W_{v(N)}^T)^T$ and $T = (T_{v(1)}^T,...,T_{v(N)}^T)^T
 Since we have defined geometric structure of the springs, we can give the PHS representation (see also (\ref{EQ:variablerestlengthspring}))
 \begin{eqnarray}\label{EQ:variablerestlengthspring}
 	\dot{H}_{v(i)}^i = \left( \begin{pmatrix}1 & Ad_{H_b^i}\end{pmatrix} \begin{pmatrix}T_b^{i} \\ T_{v(i)}^{b}\end{pmatrix} \right) H_{v(i)}^i\\
-	\begin{pmatrix}W_b^{i,i} \\ W_{v(i)}^{b,b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^i}^T\end{pmatrix}  \frac{\partial V_{v(i),i}}{\partial H_{v(i)}^i} \right) (H_{v(i)}^i)^T 
+	\begin{pmatrix}W_b^{i} \\ W_{v(i)}^{b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^i}^T\end{pmatrix}  \frac{\partial V_{v(i),i}}{\partial H_{v(i)}^i} \right) (H_{v(i)}^i)^T 
 \end{eqnarray}
 \subsubsection{Geometric interconnection of springs}
 To combine all the presented equations to the full system as shown in Fig. \ref{FIG:IPCsprings}, we express the spring equations with respect to the inertial frame $\Psi_0$.
 This is done for the virtual object spring by splitting the twists
 \[T_b^v = (Ad_{H_0^v} \;\; -Ad_{H_0^v}) \begin{pmatrix} T_b^0 \\ T_v^0 \end{pmatrix}  \]
-and the wrenches which obey the principle of action and reaction. From now on we will express wrenches acting on bodies no more on springs, since this is more convenient when various springs act on a single body. Recall from subsection \ref{[SS:euclideanspacemotions]} that $W_v^b = -W_v^{b,b}$.
+and the wrenches which obey the principle of action and reaction. From now on we will express wrenches acting on bodies no more on springs, since this is more convenient when various springs act on a single body. .
 \[ \begin{pmatrix}W_b^{0} \\ W_v^{0}\end{pmatrix}  = 
-\begin{pmatrix}-Ad_{H_0^v}^T \\ Ad_{H_0^v}^T \end{pmatrix} W_b^{v} \]
-We can write the resulting PHS
+\begin{pmatrix}Ad_{H_0^v}^T \\ -Ad_{H_0^v}^T \end{pmatrix} W_b^{v} \]
+We can write the resulting PHS using the left translation (\ref{EQ:lefttranslation})
 \begin{eqnarray}
-	\dot{H}_b^v = (Ad_{H_0^v} \;\; -Ad_{H_0^v}) \begin{pmatrix} T_b^0 \\ T_v^0 \end{pmatrix} H_b^v \\
-	\begin{pmatrix}W_b^{0} \\ W_v^{0}\end{pmatrix}  = 
-	\begin{pmatrix}-Ad_{H_0^v}^T \\ Ad_{H_0^v}^T \end{pmatrix}
-	\frac{\partial V_{v,b}}{\partial H_b^v} (H_b^v)^T
+	\dot{H}_b^v = H_b^v \left( (Ad_{H_0^b} \;\; -Ad_{H_0^b}) \begin{pmatrix} T_b^0 \\ T_v^0 \end{pmatrix}\right)   \\
+	\begin{pmatrix}W_b^{0} \\ W_v^{0}\end{pmatrix}  = (H_b^v)^T \left(
+	\begin{pmatrix}Ad_{H_0^b}^T \\ -Ad_{H_0^b}^T \end{pmatrix}
+	\frac{\partial V_{v,b}}{\partial H_b^v} \right) 
 \end{eqnarray} 
 This is done with the manipulator springs in the same manner:
-$T_{v(i)}^i = Ad_{H_0^i} T_b^0 - Ad_{H_0^i} T_i^0 + Ad_{H_b^i} T_{v(i)}^b $ Note that the twists and wrenches due to rest-length changes are not brought to the inertial frame, since they represent a distinct power port. As a result we can combine springs in a PHS
+$T_{v(i)}^i = Ad_{H_0^i} T_b^0 - Ad_{H_0^i} T_i^0 + Ad_{H_b^i} T_{v(i)}^b $ Note that the twists and wrenches due to rest-length changes are not brought to the inertial frame, since they represent a distinct power port. The resulting PHS for the spring connecting the $i$-th manipulator to the virtual object using the left translation is
 \begin{eqnarray}
+	\dot{H}_{v(i)}^i = H_{v(i)}^i \left( (Ad_{H_0^{v(i)}} \;\; -Ad_{H_0^{v(i)}} \;\; Ad_{H_b^{v(i)}}) \begin{pmatrix} T_b^0 \\ T_i^0 \\ T_{v(i)}^b \end{pmatrix}\right)   \\
+	\begin{pmatrix}W_b^{0} \\ W_i^{0} \\ W_{v(i)}^b\end{pmatrix}  = (H_{v(i)}^i)^T \left(
+	\begin{pmatrix}Ad_{H_0^{v(i)}}^T \\ -Ad_{H_0^{v(i)}}^T \\ Ad_{H_b^{v(i)}}^T\end{pmatrix}
+	\frac{\partial V_{v(i),i}}{\partial H_{v(i)}^i} \right) 
+\end{eqnarray}
+
+
+As a result we can combine all springs in a PHS 
+\begin{eqnarray}\label{EQ:PHScombinedsprings}
 \underbrace{\begin{pmatrix}\dot{H}_{v(1)}^1 \\ \vdots \\ \dot{H}_{v(N)}^N \\ \dot{H}_b^v \end{pmatrix}}_{\dot{x}_s} =
 \begin{pmatrix}
 \phi_b & \phi_v & \phi_i & \phi_{rl}\end{pmatrix}
@@ -808,18 +819,23 @@ $T_{v(i)}^i = Ad_{H_0^i} T_b^0 - Ad_{H_0^i} T_i^0 + Ad_{H_b^i} T_{v(i)}^b $ Note
 \begin{pmatrix}W_b^0 \\ W_v^0 \\ W_1^0 \\ \vdots \\ W_N^0 \\ W_{v(1)}^b \\ \vdots \\ W_{v(N)}^b\end{pmatrix} = 
 \begin{pmatrix} \phi_b^T \\ \phi_v^T \\ \phi_i^T \\ \phi_{rl}^T\end{pmatrix} \frac{\partial V_s}{\partial x_s}
 \end{eqnarray}
-Where $V_s = V_{v,b} + \sum_{i=1}^N V_{v(i),i} $ is the sum of energy stored in the springs. The geometric interconnection of the springs is described with the matrices $\phi_b , \phi_v , \phi_i , \phi_{rl}$. The relation of the virtual object twist to the relative motion of the springs is 
-\[\psi_b = \begin{pmatrix}
-\end{pmatrix} \]
+Where $V_s = V_{v,b} + \sum_{i=1}^N V_{v(i),i} $ is the sum of energy stored in the springs. The geometric interconnection of the springs is described with the matrices $\phi_b , \phi_v , \phi_i , \phi_{rl}$, their structure can be easily derived from the previous equations where every spring is described. 
+
 \subsubsection{Interconnection of springs and virtual object}
-...
 
+In the virtual object simulation the external forces acting on the inertia exclusively originate from the springs, thus $W_{ext}^b = - Ad_{H_b^0}^T W_b^0 $. We can combine equations (\ref{EQ:PHSinertia}) and  (\ref{EQ:PHScombinedsprings})
+\begin{eqnarray}
+\begin{pmatrix}\dot{H}_b^0 \\ \dot{P_b^b}  \\ \dot{X}_s\end{pmatrix} =
+\begin{pmatrix} 0 & H_b^0 & 0 \\
+- (H_b^0)^T & C_b & -Ad_{H_b^0}^T \phi_b^T \\
+0 & \phi_b Ad_{H_b^0} & 0\end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{c}}{\partial H_b^0} \\ \frac{\partial V_{c}}{\partial P_b^b} \\ \frac{\partial V_{c}}{\partial X_s}\end{pmatrix} +
+\begin{pmatrix}0 & 0 & 0\\ 0 & 0 & 0\\ \phi_v & \phi_i & \phi_{rl}\end{pmatrix} \begin{pmatrix} T_v^0 \\ T_1^0 \\ \vdots \\ T_N^0 \\ T_{v(1)}^b \\ \vdots \\ T_{v(N)}^b\end{pmatrix}\\
+\begin{pmatrix}W_v^0 \\ W_1^0 \\ \vdots \\ W_N^0 \\ W_{v(1)}^b \\ \vdots \\ W_{v(N)}^b\end{pmatrix} = \begin{pmatrix}0 & 0 & \phi_v \\ 0 & 0 & \phi_i \\ 0 & 0 & \phi_{rl}\end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{c}}{\partial H_b^0} \\ \frac{\partial V_{c}}{\partial P_b^b} \\ \frac{\partial V_{c}}{\partial X_s}\end{pmatrix}
+\end{eqnarray}
+Where $V_c = V_{v,b} + \sum_{i=1}^N V_{v(i),i} + V_{kg}$ is the combined energy function. The system is lossless, since no damping terms have been added. 
 
-This ensures compliant behaviour between object and environment and manipulators and environment. Furthermore object movement is damped with respect to the inertial frame. Dynamic behaviour of the virtual object is simulated in real-time, so no tracking of the object is necessary. The only values that have to be measured are the end-effector positions, the object speed required for the damping term is computed in the simulation. Dampers parallel to the manipulator-object springs are applicable if manipulator speed is measurable.
-By varying the rest-length of the manipulator springs a the grasp can be opened or closed. Furthermore in a closed state grasping forces can be specified via the rest-length.
-
-
-The higher control part has the role of planning and scheduling. It controls the state of energy of the IPC and robot. Trajectory and formation of the manipulators are determined, e.g. moving the robots independently to open or close the grasp, directing the formation of robots to move the object. The grasping process can be controlled by changing the virtual object sphere size. Translation or rotation of the grasped object can be commanded by setting the desired virtual object pose. A human operator taking tasks of the Supervisor causes a delay which can be modelled as transmission line with delay between Supervisor and IPC. The control architecture is still valid in a tele-operation setting. Using scattering the passivity of the IPC can be preserved.
 \section{Performance Comparison of control strategies}
 
 To evaluate the presented controllers in an objective way, they are implemented in \emph{Simulink} an compared in terms of:
@@ -844,20 +860,174 @@ h^d = G^+ (M_o \ddot{x_o^d} + C_o \dot{x_o^d} + g_o)
 \end{equation}
 Note that this term is not an impedance relation and does not adjust if the environment hinders motion.
 The combined control law is $ h^\Sigma = h^x + h^d $.\\
-The set-up consists of four manipulators, distributed symmetrically around the object. In the first case translation in x-direction commanded. Results in Fig. \ref{FIG:abb1} show good tracking behaviour: no position errors in steady state and only small deviations from the desired values during transient phase. No internal stress is exerted on the object. Due to fast translation high manipulator forces occur. 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=1\textwidth]{Depascliposition.eps}
+The set-up consists of four manipulators, distributed symmetrically around the object. In the first case translation in x-direction commanded. Results in Fig. \ref{FIG:abb1} show good tracking behaviour: no position errors in steady state and only small deviations from the desired values during transient phase. No internal stress is exerted on the object. Due to fast translation high manipulator forces occur.
+
+\begin{figure}[t]
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$p_x$[m]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {position, desired position},
+		legend style = {at={(axis cs:2.5, 0.7)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransPosition.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosition.txt};
+%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%\node at (axis cs:15.5,9){\small{Placeholder}};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$v_x$[m/s]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {velocity, desired velocity},
+		legend style = {at={(axis cs:0.8, -1)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransVelocity.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DepatransdesiredVelocity.txt};
+%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%\node at (axis cs:15.5,9){\small{Placeholder}};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_x$},
+		legend style = {at={(axis cs:2.5, 400)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransManipWrench.txt};
+%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%\node at (axis cs:15.5,9){\small{Placeholder}};
+\end{axis}
+\end{tikzpicture}
 \caption[Internal force impedance control with feed-forward of the object dynamics: Translation]{Internal force impedance control with feed-forward of the object dynamics: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
 \label{FIG:abb1}
 \end{figure}
-In the second test case the object is rotated around the $ z $-axis. This is done at a significantly lower speed of at most 1 rad/s, thus the manipulator forces are smaller, desired and actual object trajectory cannot be distinguished in Fig. \ref{FIG:abb2}. However some small internal forces can be seen. Interestingly they are proportional to the simulation step size (running \emph{Simulink's ode3} solver), i.e. a ten-times smaller step size gives ten-times smaller internal forces. Internal forces are calculated based on the geometry of the last simulation step. The correlation between step size and values indicates that these forces are rather due to the discrete nature of the simulation than of the control law generating internal stress. Simulation of the constrained system dynamics as well as calculation of internal wrench is done as described in \cite{Erhart_15/2}.
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=1\textwidth]{Depascaliorientation.eps}
+
+
+In the second test case the object is rotated around the $ z $-axis. This is done at a significantly lower speed of at most 1 rad/s, thus the manipulator forces are smaller, desired and actual object trajectory cannot be distinguished in Fig. \ref{FIG:abb2}. However some small internal forces can be seen. Interestingly they are proportional to the simulation step size (running \emph{Simulink's ode3} solver), i.e. a ten-times smaller step size gives ten-times smaller internal forces. Internal forces are calculated based on the geometry in the last simulation step. The correlation between step size and values indicates that these forces are rather due to the discrete nature of the simulation than of the control law generating internal stress. Simulation of the constrained system dynamics as well as calculation of internal wrench is done as described in \cite{Erhart_15/2}.
+
+\begin{figure}[t]
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$\Phi_z$[rad]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {orientation, desired orientation},
+		legend style = {at={(axis cs:0.8, 1.2)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaOrientation.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePadesiredOrientation.txt};
+%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%\node at (axis cs:15.5,9){\small{Placeholder}};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$\omega_z$[rad/s]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {angular velocity, des. ang. velocity},
+		legend style = {at={(axis cs:0.5, 0.95)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaangVelocity.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePadesiredangVelocity.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N],m[Nm]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
+		legend style = {at={(axis cs:0.35, -1)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaManipWrenchtx.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaManipWrenchty.txt};
+	\addplot[green,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaManipWrenchrz.txt};\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N],m[Nm]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
+		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchtx.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchty.txt};
+	\addplot[green,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchrz.txt};\end{axis}
+\end{tikzpicture}
 	\caption[Internal force impedance control with feed-forward of the object dynamics: Rotation]{Internal force impedance control with feed-forward of the object dynamics: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
 	\label{FIG:abb2}
 \end{figure}
+
 
 
 \subsection{Internal and external impedance based reference trajectory generation}
@@ -876,35 +1046,321 @@ From the compliant object trajectory ($ \ddot{x}_o^r,\dot{x}_o^r,x_o^r $) the de
 M_i(\ddot{x}_i^d - \ddot{x}_i^r) + D_i (\dot{x}_i^d - \dot{x}_i^r) + K_i(x_i^d,x_i^r) = VV^\dagger h
 \end{equation}
 The control output is the reference acceleration of the i-th manipulator $ \ddot{x}_i^r $, $ \dot{x}_i^r,x_i^r $ are obtained from integration. These variables are the inputs the inner motion control loop (PD-type). The strategy of compliant trajectories allows for high gains in the motion controller. Knowledge of object dynamics and measurement of the contact wrenches is required.\\
-Results for translational motion (see Fig. \ref{FIG:abb3}) are very similar to that of the previous control scheme. When it comes to rotation, higher internal forces can be observed in Fig. \ref{FIG:abb4}. In this case they are not influenced by numerical parameters of the simulation.
-This architecture in contrast to the previous makes use of measured contact wrenches. Contact wrench as measured can be obtained from the constrained system simulation. As described in \cite{CoopManipHandbook} this wrench is than decomposed by kineostatic filters in internal and external components. In this simulation this not cancel out undesired internal stress but magnifies it: when the contact wrench is not fed back and set to zero in the internal force impedance controller, results are slightly better. Note that the simulation represents an ideal case, where all parameters are exactly known and no deviations in grasp positions occur. Behavior in a real experiment may be different and this observation does not mean that the kineostatic-filtered feed-back of contact wrench is unjustified in general.
-\begin{figure}[htb]
-\centering
-\includegraphics[width=1\textwidth]{Caccavaleposition.eps}
+Results for translational motion (see Fig. \ref{FIG:abb3}) are very similar to that of the previous control scheme.
+
+\begin{figure}[t]
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$p_x$[m]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {position, desired position},
+		legend style = {at={(axis cs:2.5, 0.7)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Position.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredPosition.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$v_x$[m/s]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {velocity, desired velocity},
+		legend style = {at={(axis cs:0.8, -1)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Velocity.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredVelocity.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_x$},
+		legend style = {at={(axis cs:2.5, 400)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_trans_ManipulatorWrench_tx.txt};
+\end{axis}
+\end{tikzpicture}
 \caption[Internal and external impedance based reference trajectory generation: Translation]{Internal and external impedance based reference trajectory generation: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
 \label{FIG:abb3}
 \end{figure}
-\begin{figure}[htb]
-\centering
-\includegraphics[width=1\textwidth]{Caccavaleorientation.eps}
+
+
+When it comes to rotation, higher internal forces can be observed in Fig. \ref{FIG:abb4}. In this case they are not influenced by numerical parameters of the simulation.
+
+\begin{figure}[t]
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$\Phi_z$[rad]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {orientation, desired orientation},
+		legend style = {at={(axis cs:0.8, 1.2)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Orientation.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desired Orientation.txt};
+%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%\node at (axis cs:15.5,9){\small{Placeholder}};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$\omega_z$[rad/s]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {angular velocity, des. ang. velocity},
+		legend style = {at={(axis cs:0.5, 0.95)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Angular Velocity.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desired ang velocity.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N],m[Nm]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
+		legend style = {at={(axis cs:0.35, -1)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator Wrench_tx.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator Wrench_ty.txt};
+	\addplot[green,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator Wrench_rz.txt};\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N],m[Nm]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
+		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_tx.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_ty.txt};
+	\addplot[green,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_rz.txt};\end{axis}
+\end{tikzpicture}
 \caption[Internal and external impedance based reference trajectory generation: Rotation]{Internal and external impedance based reference trajectory generation: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
 \label{FIG:abb4}
 \end{figure}
 
+
+This architecture in contrast to the previous makes use of measured contact wrenches. Contact wrench as measured can be obtained from the constrained system simulation. As described in \cite{CoopManipHandbook} this wrench is than decomposed by kineostatic filters in internal and external components. In this simulation this not cancel out undesired internal stress but magnifies it: when the contact wrench is not fed back and set to zero in the internal force impedance controller, results are slightly better. Note that the simulation represents an ideal case, where all parameters are exactly known and no deviations in grasp positions occur. Behavior in a real experiment may be different and this observation does not mean that the kineostatic-filtered feed-back of contact wrench is unjustified in general.
+
+
+
 \subsection{Intrinsically Passive Controller (IPC)}
-Introduced by Stramigioli \cite{Stramigioli_01} and implemented by Wimb\"ock et al. \cite{Wimboeck_08}, the architecture has been detailed throughout this work. In contrast to Stramigioli dampers are used in parallel with the manipulator springs and in contrast to Wimb\"ock all springs have 6-DoF. Again results for pure translation compare to the previous and no internal forces can be observed, see \ref{FIG:DIPCtrans}. For rotation (\ref{FIG:DIPCrot}) high internal forces are present.
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=1\textwidth]{DIPCtranslation.eps}
-	\caption[IPC: Translation]{Intrinsically Passive Controller: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+Introduced by Stramigioli \cite{Stramigioli_01} and implemented by Wimb\"ock et al. \cite{Wimboeck_08}, the architecture has been detailed throughout this work. In contrast to Stramigioli dampers are used in parallel with the manipulator springs and in contrast to Wimb\"ock all springs have 6-DoF. Simulation results for pure translation can be seen in Fig. \ref{FIG:DIPCtrans}. The object trajectory falls slightly behind the reference input, the dynamic behaviour is inferior to the previous approaches. Despite very stiff springs the magnitude of force seen in the previous approaches is not reached. No internal forces can be observed.
+
+\begin{figure}[t]
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$p_x$[m]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {position,desired position},
+		legend style = {at={(axis cs:2.6, 0.7)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredPosition.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$v_x$[m]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {velocity,desired velocity},
+		legend style = {at={(axis cs:2.6, -2.7)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredVelocity.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_x$},
+		legend style = {at={(axis cs:2.6, 500)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransManipulatorWrenchtx.txt};
+\end{axis}
+\end{tikzpicture}
+\vspace{-10pt}
+	\caption[IPC: Translation]{Intrinsically Passive Controller: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator}
 	\label{FIG:DIPCtrans}
 \end{figure}
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=1\textwidth]{DIPCrotation.eps}
-	\caption[IPC: Rotation]{Intrinsically Passive Controller: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+
+When it comes to rotation (see Fig. \ref{FIG:DIPCrot}) again the dynamic behaviour falls short of the two other approaches, while the manipulator wrench is higher. Significant internal wrenches are present, they amount up to 50\% of the manipulator wrenches.
+
+
+\begin{figure}[t]
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$\Phi_z$[rad]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {orientation, desired orientation},
+		legend style = {at={(axis cs:0.8, 1.2)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCorientation.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCdesiredOrientation.txt};
+%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%\node at (axis cs:15.5,9){\small{Placeholder}};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$\omega_z$[rad/s]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {angular velocity, des. ang. velocity},
+		legend style = {at={(axis cs:0.5, 0.95)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCAngVelocity.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCdesiredAngVelocity.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N],m[Nm]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
+		legend style = {at={(axis cs:0.35, -1)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCManipulatorWrenchtx.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCManipulatorWrenchty.txt};
+	\addplot[green,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCManipulatorWrenchrz.txt};\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N],m[Nm]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
+		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchtx.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchty.txt};
+	\addplot[green,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchrz.txt};\end{axis}
+\end{tikzpicture}
+\vspace{-10pt}
+\caption[IPC: Rotation]{Intrinsically Passive Controller: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
 	\label{FIG:DIPCrot}
 \end{figure}
+
+
 %\section{Implementation}
 %
 %

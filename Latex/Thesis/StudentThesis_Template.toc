@@ -21,10 +21,10 @@
 \contentsline {subsection}{\numberline {2.3.1}The Intrinsically Passive Controller (IPC)}{21}{subsection.2.3.1}
 \contentsline {subsubsection}{Geometric interconnection of springs}{23}{section*.11}
 \contentsline {subsubsection}{Interconnection of springs and virtual object}{25}{section*.12}
-\contentsline {section}{\numberline {2.4}Performance Comparison of control strategies}{25}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Internal impedance control with feed-forward of the object dynamics}{25}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.4}Performance Comparison of control strategies}{26}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Internal impedance control with feed-forward of the object dynamics}{26}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Internal and external impedance based reference trajectory generation}{27}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Intrinsically Passive Controller (IPC)}{28}{subsection.2.4.3}
-\contentsline {chapter}{\numberline {3}Conclusion}{33}{chapter.3}
-\contentsline {chapter}{List of Figures}{35}{chapter.3}
-\contentsline {chapter}{Bibliography}{37}{chapter*.13}
+\contentsline {chapter}{\numberline {3}Conclusion}{35}{chapter.3}
+\contentsline {chapter}{List of Figures}{37}{chapter.3}
+\contentsline {chapter}{Bibliography}{39}{chapter*.13}
