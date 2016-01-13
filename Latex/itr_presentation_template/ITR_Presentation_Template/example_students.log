@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  13 JAN 2016 16:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  13 JAN 2016 21:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1266,7 +1266,109 @@ File: tikzlibraryfadings.code.tex 2009/11/15 v3.0.0 (rcs-revision 1.2)
 
 (/usr/local/share/texmf/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
 File: pgflibraryfadings.code.tex 2008/02/07 v3.0.0 (rcs-revision 1.3)
-))))
+)))) (/usr/local/share/texmf/tex/latex/pgfplots/pgfplots.sty
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2015/01/31 v1.12 Data Visualization (1.12)
+
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks50
+\t@pgfplots@tokb=\toks51
+\t@pgfplots@tokc=\toks52
+\pgfplots@tmpa=\dimen208
+\c@pgfplots@coordindex=\count333
+\c@pgfplots@scanlineindex=\count334
+
+(/usr/local/share/texmf/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex))
+(/usr/local/share/texmf/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_
+loader.code.tex
+(/usr/local/share/texmf/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary arithmetics for your pgf version...
+
+(/usr/local/share/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_
+pgflibraryfpu.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_
+pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count335
+)
+(/usr/local/share/texmf/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_
+trig_format.code.tex))
+(/usr/local/share/texmf/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/local/share/texmf/tex/generic/pgfplots/liststructure/pgfplotsliststructur
+e.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/liststructure/pgfplotsliststructur
+eext.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/liststructure/pgfplotsarray.code.t
+ex
+\c@pgfplotsarray@tmp=\count336
+)
+(/usr/local/share/texmf/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.
+tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/numtable/pgfplotstableshared.code.
+tex
+\c@pgfplotstable@counta=\count337
+\t@pgfplotstable@a=\toks53
+)
+(/usr/local/share/texmf/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.t
+ex) (/usr/local/share/texmf/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
+(/usr/local/share/texmf/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)
+) (/usr/local/share/texmf/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex)
+
+(/usr/local/share/texmf/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshadin
+g.code.tex
+\c@pgfplotslibrarysurf@no=\count338
+
+(/usr/local/share/texmf/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading
+.pgfsys-pdftex.def)))
+(/usr/local/share/texmf/tex/generic/pgfplots/util/pgfplotscolormap.code.tex
+(/usr/local/share/texmf/tex/generic/pgfplots/util/pgfplotscolor.code.tex))
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplotsstackedplots.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplotsplothandlers.code.tex
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex))
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplots.errorbars.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplots.markers.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/local/share/texmf/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/local/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrar
+ydecorations.code.tex
+(/usr/local/share/texmf/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen209
+\pgfdecoratedremainingdistance=\dimen210
+\pgfdecoratedinputsegmentcompleteddistance=\dimen211
+\pgfdecoratedinputsegmentremainingdistance=\dimen212
+\pgf@decorate@distancetomove=\dimen213
+\pgf@decorate@repeatstate=\count339
+\pgfdecorationsegmentamplitude=\dimen214
+\pgfdecorationsegmentlength=\dimen215
+)
+\tikz@lib@dec@box=\box94
+)
+(/usr/local/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrar
+ydecorations.pathmorphing.code.tex
+(/usr/local/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorat
+ions.pathmorphing.code.tex))
+(/usr/local/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrar
+ydecorations.pathreplacing.code.tex
+(/usr/local/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorat
+ions.pathreplacing.code.tex))
+\pgfplots@numplots=\count340
+\pgfplots@xmin@reg=\dimen216
+\pgfplots@xmax@reg=\dimen217
+\pgfplots@ymin@reg=\dimen218
+\pgfplots@ymax@reg=\dimen219
+\pgfplots@zmin@reg=\dimen220
+\pgfplots@zmax@reg=\dimen221
+)
+(/usr/local/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrar
+yplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/local/share/texmf/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2013/07/20 v3.0.0 (rcs-revision 1.13)
+)))
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1276,8 +1378,8 @@ File: english.lbx 2013/11/25 v2.8a biblatex localization (PK/JW/AB)
 Package biblatex Warning: Patching footnotes failed.
 (biblatex)                Footnote detection will not work.
 
-\@quotelevel=\count333
-\@quotereset=\count334
+\@quotelevel=\count341
+\@quotereset=\count342
 (./example_students.aux)
 \openout1 = `example_students.aux'.
 
@@ -1332,17 +1434,17 @@ LaTeX Font Info:    ... okay on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
-\scratchdimen=\dimen208
-\scratchbox=\box94
-\nofMPsegments=\count336
-\nofMParguments=\count337
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count338
-\MPscratchDim=\dimen209
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
-\everyMPtoPDFconversion=\toks51
+\scratchcounter=\count343
+\scratchdimen=\dimen222
+\scratchbox=\box95
+\nofMPsegments=\count344
+\nofMParguments=\count345
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count346
+\MPscratchDim=\dimen223
+\MPnumerator=\count347
+\makeMPintoPDFobject=\count348
+\everyMPtoPDFconversion=\toks55
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1359,7 +1461,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box95
+\AtBeginShipoutBox=\box96
 Package hyperref Info: Link coloring OFF on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1368,7 +1470,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count341
+\c@section@level=\count349
 )
 LaTeX Info: Redefining \ref on input line 16.
 LaTeX Info: Redefining \pageref on input line 16.
@@ -1445,7 +1547,14 @@ Package biblatex Warning: BibTeX reported the following issues
 )
 Package biblatex Info: Reference section=0 on input line 16.
 Package biblatex Info: Reference segment=0 on input line 16.
- (./example_students.nav)
+
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.12} into 
+your preamble.
+ on input line 16.
+
+(./example_students.nav)
 <logos/itr_logo_foot_full_small.pdf, id=53, 364.1943pt x 17.46936pt>
 File: logos/itr_logo_foot_full_small.pdf Graphic file (type pdf)
 
@@ -1492,7 +1601,7 @@ e 57.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 71.
+e 70.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
 
 [3
@@ -1501,7 +1610,7 @@ e 71.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 98.
+e 97.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [4
 
@@ -1510,7 +1619,7 @@ File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
 
 <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 122.
+e 121.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [5
 
@@ -1519,7 +1628,7 @@ File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
 
 <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 143.
+e 150.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [6
 
@@ -1528,245 +1637,226 @@ File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
 
 <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 169.
+e 181.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [7
 
 ]
-<pics/IPCsprings.png, id=273, 890.5772pt x 624.83438pt>
+<pics/IPCsprings.png, id=265, 890.5772pt x 624.83438pt>
 File: pics/IPCsprings.png Graphic file (type png)
 
 <use pics/IPCsprings.png>
-Package pdftex.def Info: pics/IPCsprings.png used on input line 222.
+Package pdftex.def Info: pics/IPCsprings.png used on input line 234.
 (pdftex.def)             Requested size: 150.57137pt x 105.63885pt.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 222.
+e 234.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [8
 
  <./pics/IPCsprings.png (PNG copy)>]
-<pics/IPCobjects.png, id=296, 773.13844pt x 543.53062pt>
-File: pics/IPCobjects.png Graphic file (type png)
-
-<use pics/IPCobjects.png>
-Package pdftex.def Info: pics/IPCobjects.png used on input line 247.
-(pdftex.def)             Requested size: 186.70703pt x 131.25449pt.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 247.
+e 269.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [9
 
- <./pics/IPCobjects.png (PNG copy)>]
-Package epstopdf Info: Source file: <pics/Hanposforce.eps>
-(epstopdf)                    date: 2016-01-05 12:41:05
-(epstopdf)                    size: 451477 bytes
-(epstopdf)             Output file: <pics/Hanposforce-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-01-05 12:44:15
-(epstopdf)                    size: 182534 bytes
-(epstopdf)             Command: <repstopdf --outfile=pics/Hanposforce-eps-conve
-rted-to.pdf pics/Hanposforce.eps>
-(epstopdf)             \includegraphics on input line 285.
-Package epstopdf Info: Output file is already uptodate.
+[9
 
-<pics/Hanposforce-eps-converted-to.pdf, id=319, 641.39626pt x 706.64pt>
-File: pics/Hanposforce-eps-converted-to.pdf Graphic file (type pdf)
+]
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransPosition.txt
+}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosit
+ion.txt}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt
+}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredPosit
+ion.txt}
 
-<use pics/Hanposforce-eps-converted-to.pdf>
-Package pdftex.def Info: pics/Hanposforce-eps-converted-to.pdf used on input li
-ne 285.
-(pdftex.def)             Requested size: 138.2795pt x 152.34515pt.
-File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
-
-<use logos/itr_logo_foot_full_small_3.pdf>
-Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 285.
-(pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [10
-
- <./pics/Hanposforce-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <pics/Caccavaleorientation.eps>
-(epstopdf)                    date: 2015-12-21 11:22:41
-(epstopdf)                    size: 780367 bytes
-(epstopdf)             Output file: <pics/Caccavaleorientation-eps-converted-to
-.pdf>
-(epstopdf)                    date: 2016-01-05 10:57:15
-(epstopdf)                    size: 366669 bytes
-(epstopdf)             Command: <repstopdf --outfile=pics/Caccavaleorientation-
-eps-converted-to.pdf pics/Caccavaleorientation.eps>
-(epstopdf)             \includegraphics on input line 294.
-Package epstopdf Info: Output file is already uptodate.
-
-<pics/Caccavaleorientation-eps-converted-to.pdf, id=351, 1257.69875pt x 685.561
-25pt>
-File: pics/Caccavaleorientation-eps-converted-to.pdf Graphic file (type pdf)
- <use pics/Caccavaleorientation-eps-converted-to.pdf>
-Package pdftex.def Info: pics/Caccavaleorientation-eps-converted-to.pdf used on
- input line 294.
-(pdftex.def)             Requested size: 276.559pt x 150.7507pt.
-File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
-
-<use logos/itr_logo_foot_full_small_3.pdf>
-Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 294.
-(pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [11
-
- <./pics/Caccavaleorientation-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <pics/Depascaliorientation.eps>
-(epstopdf)                    date: 2015-12-21 09:56:56
-(epstopdf)                    size: 798029 bytes
-(epstopdf)             Output file: <pics/Depascaliorientation-eps-converted-to
-.pdf>
-(epstopdf)                    date: 2016-01-05 10:51:32
-(epstopdf)                    size: 131601 bytes
-(epstopdf)             Command: <repstopdf --outfile=pics/Depascaliorientation-
-eps-converted-to.pdf pics/Depascaliorientation.eps>
-(epstopdf)             \includegraphics on input line 304.
-Package epstopdf Info: Output file is already uptodate.
-
-<pics/Depascaliorientation-eps-converted-to.pdf, id=382, 1399.2275pt x 827.09pt
->
-File: pics/Depascaliorientation-eps-converted-to.pdf Graphic file (type pdf)
- <use pics/Depascaliorientation-eps-converted-to.pdf>
-Package pdftex.def Info: pics/Depascaliorientation-eps-converted-to.pdf used on
- input line 304.
-(pdftex.def)             Requested size: 276.559pt x 163.47153pt.
-
-Overfull \vbox (10.17169pt too high) detected at line 304
+Overfull \hbox (8.36281pt too wide) in paragraph at lines 343--343
+ [] 
  []
 
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
 <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 304.
+e 343.
+(pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
+ [10
+
+]
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Velocity.txt}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredVelocity.
+txt}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt
+}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredVeloc
+ity.txt}
+
+Overfull \vbox (7.34552pt too high) detected at line 390
+ []
+
+File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
+<use logos/itr_logo_foot_full_small_3.pdf>
+Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
+e 390.
+(pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
+ [11
+
+]
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchtx.txt}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchty.txt}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchrz.txt}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchtx.
+txt}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchty.
+txt}
+PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchrz.
+txt}
+
+Overfull \hbox (3.05305pt too wide) in paragraph at lines 440--440
+ [] 
+ []
+
+
+Overfull \hbox (3.05305pt too wide) in paragraph at lines 440--440
+ [] 
+ []
+
+
+Overfull \vbox (11.16325pt too high) detected at line 440
+ []
+
+File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
+<use logos/itr_logo_foot_full_small_3.pdf>
+Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
+e 440.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [12
 
- <./pics/Depascaliorientation-eps-converted-to.pdf>]
+]
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
- <use logos/itr_logo_foot_full_small_3.pdf>
+
+<use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 311.
+e 446.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [13
 
 ]
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
-<logos/pdf_logo.pdf, id=434, 175.48561pt x 184.46918pt>
+<logos/pdf_logo.pdf, id=394, 175.48561pt x 184.46918pt>
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 File: logos/pdf_logo.pdf Graphic file (type pdf)
  <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <6> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 321.
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 456.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 321.
+Package hyperref Warning: Suppressing link with empty target on input line 456.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 321.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 456.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 321.
+e 456.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [14
 
@@ -1774,7 +1864,7 @@ e 321.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 321.
+e 456.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [15
 
@@ -1789,46 +1879,44 @@ e 321.
 \tf@snm=\write10
 \openout10 = `example_students.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 324.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 324.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 459.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 459.
 
 (./example_students.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 324.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 324.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 459.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 459.
 Package rerunfilecheck Info: File `example_students.out' has not changed.
 (rerunfilecheck)             Checksum: 6FB7DEA76F6AF00C0B09832FE48ED772;177.
 Package logreq Info: Writing requests to 'example_students.run.xml'.
 \openout1 = `example_students.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 324.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 459.
  ) 
 Here is how much of TeX's memory you used:
- 26430 strings out of 493304
- 512271 string characters out of 6139871
- 718073 words of memory out of 5000000
- 29280 multiletter control sequences out of 15000+600000
- 13771 words of font info for 51 fonts, out of 8000000 for 9000
+ 35866 strings out of 493304
+ 824358 string characters out of 6139871
+ 2696269 words of memory out of 5000000
+ 38557 multiletter control sequences out of 15000+600000
+ 13708 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 54i,18n,80p,944b,1191s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,19n,102p,970b,2190s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-si8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on example_students.pdf (15 pages, 1560694 bytes).
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on example_students.pdf (15 pages, 995682 bytes).
 PDF statistics:
- 547 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
- 216 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 52 named destinations out of 1000 (max. 500000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 
