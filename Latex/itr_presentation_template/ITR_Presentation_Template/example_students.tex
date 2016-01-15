@@ -30,7 +30,7 @@
 \begin{frame}
 	\frametitle{Why use cooperative manipulation with human guidance?}
 		\begin{columns}[t]
-		\column{0.55\linewidth}
+		\column{0.5\linewidth}
 	
 			\begin{figure}
 			\centering
@@ -39,7 +39,7 @@
 			\caption{Coordinated handling of tools by a tele-operated robot \cite{MHI-MEISTeR}}
 			\end{figure}
 		
-		\column{0.55\linewidth}
+		\column{0.6\linewidth}
 			
 		Human reasoning
 		\begin{itemize}
@@ -63,36 +63,38 @@
 		\item Precise and stable control during free-motion/contact transition
 		\item Enhance versatility by performing friction grasps
 		\item (Intuitive) high-level human supervisory control
-		\item Local formation constraints controlled by robots
+		\item Local control of formation, independent of the operator
 		\item Assistance of the operator with suitable feedback
 	\end{itemize}
+	
+	\begin{block}{Goal}
+		Enable a human to \textbf{intuitively} control a robot team executing \textbf{versatile} tasks
+	\end{block}	
 
 \end{frame}
 
 \begin{frame}
 	\frametitle{Related Work: Robot-team control}
 	\begin{itemize}
-		\item Formation control of robot team \cite{Sieber_15,Wimboeck_06}
-		\begin{itemize}
-			\item object not part of control loop
-			%\item no knowledge of object required
-		\end{itemize}
-		\item Intrinsically Passive Control \cite{Stramigioli_01, Wimboeck_08}
-		\begin{itemize}
-			\item virtual object simulation
-			%\item knowledge of object shape and dynamics required
-		\end{itemize}
-		\item Internal impedance control + object dynamics' feed-forward \cite{DePascali_15}
-				\begin{itemize}
-			\item object tracking required
-			%\item knowledge of object shape and dynamics required
-		\end{itemize}
-		\item Internal and external impedance control \cite{Caccavale_01,Caccavale_08}
+		\item Virtual object based impedance control \cite{Schneider_92}
+				\item Internal and external impedance control \cite{Caccavale_01,Caccavale_08}
 			\begin{itemize}
 			%\item object tracking required
 			%\item knowledge of object shape and dynamics required
 			\item Force/Torque sensors at the manipulators required
 			\end{itemize}
+	
+		\item Intrinsically Passive Control \cite{Stramigioli_01, Wimboeck_08}
+		\begin{itemize}
+			\item no object tracking, virtual object simulation
+			%\item knowledge of object shape and dynamics required
+		\end{itemize}
+		\item Internal impedance control + object dynamics' feed-forward \cite{Erhart_15}
+	\item Formation control of a robot team \cite{Sieber_15,Wimboeck_06}
+		\begin{itemize}
+			\item no object dynamics considered
+			%\item no knowledge of object required
+		\end{itemize}
 	\end{itemize}
 \end{frame}
 
@@ -101,26 +103,54 @@
 	\begin{itemize}
 		\item Bilateral tele-manipulation  \cite{Lee_05}
 		\begin{itemize}
-			\item Single master, constrained system as slave
+			\item Single master coupled to human, constrained system as slave
 			\item Local control of interaction dynamics
 			\item Force feedback
 		\end{itemize}
-		\item Formation-based shared control \cite{Sieber_15, Scheggi_14}
+		\item Formation-based control \cite{Sieber_15, Scheggi_14}
 		\begin{itemize}
 			\item Single leader, multiple followers
 			\item Robots preserve formation autonomously
 			\item Tactile feedback
 		\end{itemize}
-		\item Gesture Control \cite{Gioioso_2014}
+		\item Gesture-based Control \cite{Gioioso_2014}
 		\begin{itemize}
-			\item Hand motion controls constrained system
-			\item Hand pose controls grasping process
+			\item Free-hand motion controls constrained system
+			\item Visual feedback
 			%\item only visual feedback
 		\end{itemize}
 		\end{itemize}
 \end{frame}
 
 \section{Approach}
+\begin{frame}
+	\frametitle{System modelling}
+	\textit{How can we consistently model different forms of energy stored in a system?\\}
+	\textbf{Port-Hamiltonian systems\\}
+	\begin{itemize}
+	
+		\item Mechanical elements (spring, mass, damper)
+		\[\begin{pmatrix}\dot{x}_B \\ \dot{x}_S\end{pmatrix} = 
+		\begin{pmatrix}J_B & -Ad_{H_b^0}^T \phi_b^T \\ \phi_b Ad_{H_b^0} & 0\end{pmatrix}
+		\begin{pmatrix}\frac{\partial V}{\partial x_B} \\ \frac{\partial V}{\partial x_S}\end{pmatrix} + \begin{pmatrix}0 & 0 & 0 \\ \phi_v & \phi_i & \phi_{rl}\end{pmatrix}	
+		\begin{pmatrix}T_v^0 \\ T_i^0 \\ T_{rl}^b\end{pmatrix}			 \]
+		\[\begin{pmatrix}W_v^0 \\ W_i^0 \\ W_{rl}^b\end{pmatrix}=
+		\begin{pmatrix}0 & \phi_v^T\\0 & \phi_i^T\\0 & \phi_{rl}^T	
+		\end{pmatrix}
+		\begin{pmatrix}\frac{\partial V}{\partial x_B} \\ \frac{\partial V}{\partial x_S}\end{pmatrix}\]
+		\item Conservative elements (transformer, gyrator)
+			\item Interconnection through power ports
+		\[ \mathcal{P} = \mathcal{V} \times \mathcal{V}^* \]
+%		\item Example: variable rest-length spring
+%		\begin{eqnarray}\label{EQ:variablerestlengthspring}
+%	\dot{H}_i^j =\left( \begin{pmatrix}1 & Ad_{H_b^j}\end{pmatrix} \begin{pmatrix}T_b^{j} \\ T_i^{b}\end{pmatrix} \right) H_i^j\\
+%	\begin{pmatrix}W_b^{j,j} \\ W_i^{b,b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^j}^T\end{pmatrix} \frac{\partial V_{i,j}}{\partial H_i^j} \right) (H_i^j)^T
+%\end{eqnarray}
+
+\end{itemize}
+
+\end{frame}
+
 
 \begin{frame}
 	\frametitle{Energy consistent modelling and control}
@@ -132,10 +162,12 @@
 				\item Stores kinetic energy
 				\item Changes size to adjust formation
 			\end{itemize}
-		\item Controller represents energy content of the complete system
+		\item Model represents energy content of the complete system
 		\item Dampers dissipate energy: \textbf{passive system}
-		\item Operator controls system by energy  supply
-		\item Model errors never influence passivity nor stability
+		\item Operator controls system by energy supply
+			\begin{block}{Stability}
+Model errors never influence passivity nor stability \cite{Stramigioli_01}
+	\end{block}	
 		\end{itemize}
 %\begin{itemize}%[leftmargin=0em]
 %  \renewcommand{\labelitemi}{$\Rightarrow$}
@@ -148,37 +180,7 @@
 
 
 \end{frame}
-\begin{frame}
-	\frametitle{System modelling}
-	\textit{How can we consistently model different forms of energy stored in a system?\\}
-	\textbf{Port-Hamiltonian systems\\}
-	\begin{itemize}
-	
-		\item Mechanical elements
-			\begin{itemize}
-			\item \tikzmark{L}{Spring \;\;\;}
-			\item Mass
-			\item \tikzmark{I}{Damper}
-			\end{itemize}
-			\begin{tikzpicture}[remember picture,overlay]
-    \draw[decorate,decoration={brace}] (L.north east) -- node[right] {Impedance control components} (L.north east |- I.south east);
-\end{tikzpicture}
-		\item Conservative elements
-			\begin{itemize}
-			\item Transformer
-			\item Gyrator
-			\end{itemize}
-			\item Interconnection through power ports
-		\[ \mathcal{P} = \mathcal{V} \times \mathcal{V}^* \]
-%		\item Example: variable rest-length spring
-%		\begin{eqnarray}\label{EQ:variablerestlengthspring}
-%	\dot{H}_i^j =\left( \begin{pmatrix}1 & Ad_{H_b^j}\end{pmatrix} \begin{pmatrix}T_b^{j} \\ T_i^{b}\end{pmatrix} \right) H_i^j\\
-%	\begin{pmatrix}W_b^{j,j} \\ W_i^{b,b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^j}^T\end{pmatrix} \frac{\partial V_{i,j}}{\partial H_i^j} \right) (H_i^j)^T
-%\end{eqnarray}
 
-\end{itemize}
-
-\end{frame}
 
 %\begin{frame}
 %	\frametitle{Intrinsically Passive Control (IPC)}
@@ -299,46 +301,44 @@
 		xlabel = {t[s]},
 		minor y tick num = 1,
 		axis lines = left,
-		legend entries = {position, desired position},
-		legend style = {at={(axis cs:2.5, 0.7)}, anchor = north},
+		legend entries = {desired position, object force feed-forward, impedance-based trajectory gen., virtual object},
+		legend style = {at={(axis cs:1.2, 0.07)}, anchor = north},
 		legend cell align=left,
 		grid = major,
-		height=3.5cm,
+		height=7.5cm,
 		width=0.98\linewidth
 	]
-\addplot[red,]
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosition.txt};\addplot[red,]
 	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransPosition.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosition.txt};
-%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
-%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
-%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
-%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
-%\node at (axis cs:15.5,9){\small{Placeholder}};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$p_x$[m]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {position,desired position},
-		legend style = {at={(axis cs:2.6, 0.7)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=3.5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
+\addplot[yellow,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Position.txt};
+\addplot[green,]
 	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredPosition.txt};
 \end{axis}
 \end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$p_x$[m]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {position,desired position},
+%		legend style = {at={(axis cs:2.6, 0.7)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=3.5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredPosition.txt};
+%\end{axis}
+%\end{tikzpicture}
 \vspace{-20pt}
-\caption{Top: Object force feed-forward;
-Bottom: Virtual Object}
+%\caption{Top: Object force feed-forward;
+%Bottom: Virtual Object}
 \end{figure}
 \end{frame}
 
@@ -352,40 +352,44 @@ Bottom: Virtual Object}
 		xlabel = {t[s]},
 		minor y tick num = 1,
 		axis lines = left,
-		legend entries = {velocity, desired velocity},
-		legend style = {at={(axis cs:0.8, -0.5)}, anchor = north},
+		legend entries = {desired velocity, object force feed-forward, impedance-based trajectory gen., virtual object},
+		legend style = {at={(axis cs:0.8, -2)}, anchor = north},
 		legend cell align=left,
 		grid = major,
-		height=3.5cm,
+		height=7.5cm,
 		width=0.98\linewidth
 	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Velocity.txt};
 \addplot[blue,]
 	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredVelocity.txt};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$v_x$[m]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {velocity,desired velocity},
-		legend style = {at={(axis cs:0.8, -0.5)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=3.5cm,
-		width=0.98\linewidth
-	]
 \addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransVelocity.txt};
+\addplot[yellow,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Velocity.txt};
+\addplot[green,]
 	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredVelocity.txt};
 \end{axis}
 \end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$v_x$[m]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {velocity,desired velocity},
+%		legend style = {at={(axis cs:0.8, -0.5)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=3.5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredVelocity.txt};
+%\end{axis}
+%\end{tikzpicture}
 \vspace{-20pt}
-\caption{Top: External impedance based reference trajectory generation; Bottom: Virtual object}
+%\caption{Top: External impedance based reference trajectory generation; Bottom: Virtual object}
 \end{figure}
 \end{frame}
 
@@ -399,9 +403,9 @@ Bottom: Virtual Object}
 		xlabel = {t[s]},
 		minor y tick num = 1,
 		axis lines = left,
-		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
-		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
-		legend cell align=left,
+		%legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
+		%legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
+		%legend cell align=left,
 		grid = major,
 		height=3.3cm,
 		width=0.98\linewidth
@@ -420,7 +424,7 @@ Bottom: Virtual Object}
 		minor y tick num = 1,
 		axis lines = left,
 		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
-		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
+		legend style = {at={(axis cs:2.6, 0.1)}, anchor = north},
 		legend cell align=left,
 		grid = major,
 		height=3.3cm,
@@ -433,7 +437,7 @@ Bottom: Virtual Object}
 	\addplot[green,]
 	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchrz.txt};\end{axis}
 \end{tikzpicture}
-\vspace{-25pt}
+\vspace{-28pt}
 \caption{Top: Object force feed-forward;
 Bottom: Virtual Object}
 \end{figure}
@@ -441,8 +445,17 @@ Bottom: Virtual Object}
 \section{Conclusion}
 
 \begin{frame}
-	\frametitle{Conclusion}
-	...
+	\frametitle{Overview \& open issues}
+	\begin{itemize}
+		\item ...
+	\end{itemize}
+		\begin{block}{Open issues}
+\begin{itemize}
+\item Experimental evaluation
+\item Evaluation of different human-in-the-loop set-ups
+\item Suitable control design
+\end{itemize}
+	\end{block}	
 \end{frame}
 \appendix
 %\nocite{buss11}

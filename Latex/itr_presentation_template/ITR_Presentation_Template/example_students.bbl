@@ -76,26 +76,11 @@
   \field{year}{2001}
 \endentry
 
-\entry{DePascali_15}{article}{}
-  \name{author}{5}{}{%
-    {{}%
-     {De~Pascali}{D.~P.}%
-     {L.}{L.}%
-     {}{}%
-     {}{}}%
+\entry{Erhart_15}{article}{}
+  \name{author}{2}{}{%
     {{}%
      {Erhart}{E.}%
      {S.}{S.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Zaccarian}{Z.}%
-     {L.}{L.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Biral}{B.}%
-     {F.}{F.}%
      {}{}%
      {}{}}%
     {{}%
@@ -104,13 +89,16 @@
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{DPL+1}
-  \strng{fullhash}{DPLESZLBFHS1}
+  \strng{namehash}{ESHS1}
+  \strng{fullhash}{ESHS1}
   \field{labelyear}{2015}
-  \field{sortinit}{D}
-  \field{title}{A Decoupling Scheme for Force Control in Cooperative
-  Multi-Robot Manipulation Tasks}
-  \field{journaltitle}{Manuscript submitted for publication}
+  \field{sortinit}{E}
+  \field{number}{5}
+  \field{pages}{1238\bibrangedash 1243}
+  \field{title}{Internal Force Analysis and Load Distribution for Cooperative
+  Multi-Robot Manipulation}
+  \field{volume}{31}
+  \field{journaltitle}{Robotics, IEEE Transactions on}
   \field{year}{2015}
 \endentry
 
@@ -184,13 +172,13 @@
 \entry{MHI-MEISTeR}{online}{}
   \name{author}{1}{}{%
     {{}%
-     {Mitsubishi Heavy~Industries}{M.~H.~I.}%
-     {LTD}{L.}%
+     {MHI}{M.}%
+     {Ltd.}{L.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{MHIL1}
-  \strng{fullhash}{MHIL1}
+  \strng{namehash}{ML1}
+  \strng{fullhash}{ML1}
   \field{labelyear}{2014}
   \field{sortinit}{M}
   \field{note}{Press Information 1775, February 20, 2014; Online, accessed
@@ -235,6 +223,32 @@
   \warn{\item Invalid format of field 'month'}
 \endentry
 
+\entry{Schneider_92}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Schneider}{S.}%
+     {S.A.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cannon}{C.}%
+     {R.H.}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SSCR1}
+  \strng{fullhash}{SSCR1}
+  \field{labelyear}{1992}
+  \field{sortinit}{S}
+  \field{number}{3}
+  \field{pages}{383\bibrangedash 394}
+  \field{title}{Object impedance control for cooperative manipulation: theory
+  and experimental results}
+  \field{volume}{8}
+  \field{journaltitle}{Robotics and Automation, IEEE Transactions on}
+  \field{year}{1992}
+\endentry
+
 \entry{Sieber_15}{article}{}
   \name{author}{3}{}{%
     {{}%
@@ -264,51 +278,6 @@
   and Systems (IROS)}
   \field{year}{2015}
   \warn{\item Invalid format of field 'month'}
-\endentry
-
-\entry{Stramigioli_15}{incollection}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Stramigioli}{S.}%
-     {Stefano}{S.}%
-     {}{}%
-     {}{}}%
-  }
-  \name{editor}{4}{}{%
-    {{}%
-     {Camlibel}{C.}%
-     {M.~K.}{M.~K.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Julius}{J.}%
-     {A.~A.}{A.~A.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Pasumarthy}{P.}%
-     {R.}{R.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Scherpen}{S.}%
-     {J.}{J.}%
-     {}{}%
-     {}{}}%
-  }
-  \list{publisher}{1}{%
-    {Springer London}%
-  }
-  \strng{namehash}{SS1}
-  \strng{fullhash}{SS1}
-  \field{labelyear}{2015}
-  \field{sortinit}{S}
-  \field{booktitle}{Mathematical Control Theory I}
-  \field{pages}{37\bibrangedash 50}
-  \field{series}{Lecture Notes in Control and Information Sciences}
-  \field{title}{Energy-Aware Robotics}
-  \field{volume}{461}
-  \field{year}{2015}
 \endentry
 
 \entry{Stramigioli_01}{book}{}
