@@ -228,7 +228,7 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 			\centering
 			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
 			\includegraphics[width=0.98\textwidth]{IPCsprings.png}
-			\caption{Mass-spring-damper structure of the IPC 						\cite{Stramigioli_01}}
+			\caption{Mass-spring-damper structure of the IPC \cite{Stramigioli_01}}
 			\end{figure}
 		
 			
@@ -261,15 +261,35 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 %\end{frame}
 
 \begin{frame}
-	\frametitle{Human supervisory control}
+	\frametitle{Human in the loop}
 	\begin{itemize}
-			\item Command value: velocity $\Leftrightarrow$ force :feedback value
+			\item Virtual object position is connected with a spring to the desired position
+			\item Delays and time-discrete reference changes possibly violate passivity
+			\item Passive Set Position Modulation \cite{Lee_10}
 			\item Suitable for bilateral tele-manipulation
-			\item Energy intuition: humans can estimate possible impacts of interaction
 			\item Spring rest-lengths: adjust to grasp/release objects
 		\end{itemize}
+		\begin{figure}
+					\centering
+					\includegraphics[width=0.8\textwidth]{PSPM.png}
+					\caption{Overview over the PSPM\cite{Lee_10}}
+		\end{figure}
 \end{frame}
 
+
+\begin{frame}
+	\frametitle{Friction grasps: Internal force control}
+	Friction constraint of a \emph{soft finger}
+	\[f_N \geq \frac{1}{\mu_f} \vert f_T \vert + \frac{1}{\mu_m} \vert m_N \vert
+	\]
+	\begin{itemize}
+		\item Autonomous control of grasping forces subject to dynamic manipulation requirements
+		\item Energy taken from virtual object spring
+		\item Operator sets constant grasping forces
+	\end{itemize}
+	
+	
+\end{frame}
 
 \section{Results}
 %\begin{frame}
@@ -309,12 +329,12 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 		width=0.98\linewidth
 	]
 \addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosition.txt};\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransPosition.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePatransdesiredPosition.txt};\addplot[red,]
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePatransPosition.txt};
 \addplot[yellow,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Position.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/CaVi_Position.txt};
 \addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransPosition.txt};
 \end{axis}
 \end{tikzpicture}
 %\begin{tikzpicture}
@@ -331,9 +351,9 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 %		width=0.98\linewidth
 %	]
 %\addplot[red,]
-%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
+%	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransPosition.txt};
 %\addplot[blue,]
-%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredPosition.txt};
+%	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransdesiredPosition.txt};
 %\end{axis}
 %\end{tikzpicture}
 \vspace{-20pt}
@@ -360,13 +380,13 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 		width=0.98\linewidth
 	]
 \addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredVelocity.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/CaVi_desiredVelocity.txt};
 \addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransVelocity.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePatransVelocity.txt};
 \addplot[yellow,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Velocity.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/CaVi_Velocity.txt};
 \addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransVelocity.txt};
 \end{axis}
 \end{tikzpicture}
 %\begin{tikzpicture}
@@ -383,9 +403,9 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 %		width=0.98\linewidth
 %	]
 %\addplot[red,]
-%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
+%	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransVelocity.txt};
 %\addplot[blue,]
-%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredVelocity.txt};
+%	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransdesiredVelocity.txt};
 %\end{axis}
 %\end{tikzpicture}
 \vspace{-20pt}
@@ -411,11 +431,11 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 		width=0.98\linewidth
 	]
 \addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchtx.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePaIntWrenchtx.txt};
 \addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchty.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePaIntWrenchty.txt};
 	\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchrz.txt};\end{axis}
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePaIntWrenchrz.txt};\end{axis}
 \end{tikzpicture}
 \begin{tikzpicture}
 	\begin{axis} [
@@ -431,11 +451,11 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 		width=0.98\linewidth
 	]
 \addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchtx.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCInternalWrenchtx.txt};
 \addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchty.txt};
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCInternalWrenchty.txt};
 	\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchrz.txt};\end{axis}
+	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCInternalWrenchrz.txt};\end{axis}
 \end{tikzpicture}
 \vspace{-28pt}
 \caption{Top: Object force feed-forward;
