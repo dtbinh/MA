@@ -143,6 +143,33 @@
   \warn{\item Invalid format of field 'month'}
 \endentry
 
+\entry{Lee_10}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Lee}{L.}%
+     {Dongjun}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Huang}{H.}%
+     {Ke}{K.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LDHK1}
+  \strng{fullhash}{LDHK1}
+  \field{labelyear}{2010}
+  \field{sortinit}{L}
+  \field{number}{2}
+  \field{pages}{354\bibrangedash 369}
+  \field{title}{Passive-Set-Position-Modulation Framework for Interactive
+  Robotic Systems}
+  \field{volume}{26}
+  \field{journaltitle}{Robotics, IEEE Transactions on}
+  \field{year}{2010}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
 \entry{Lee_05}{article}{}
   \name{author}{2}{}{%
     {{}%

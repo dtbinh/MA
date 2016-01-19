@@ -124,62 +124,74 @@
 
 \section{Approach}
 \begin{frame}
-	\frametitle{System modelling}
-	\textit{How can we consistently model different forms of energy stored in a system?\\}
-	\textbf{Port-Hamiltonian systems\\}
+	\frametitle{port-Hamiltonian system modelling}
+
+	\textbf{Network representation of non-linear physical systems\\}
 	\begin{itemize}
 	
-		\item Mechanical elements (spring, mass, damper)
-		\[\begin{pmatrix}\dot{x}_B \\ \dot{x}_S\end{pmatrix} = 
-		\begin{pmatrix}J_B & -Ad_{H_b^0}^T \phi_b^T \\ \phi_b Ad_{H_b^0} & 0\end{pmatrix}
-		\begin{pmatrix}\frac{\partial V}{\partial x_B} \\ \frac{\partial V}{\partial x_S}\end{pmatrix} + \begin{pmatrix}0 & 0 & 0 \\ \phi_v & \phi_i & \phi_{rl}\end{pmatrix}	
-		\begin{pmatrix}T_v^0 \\ T_i^0 \\ T_{rl}^b\end{pmatrix}			 \]
-		\[\begin{pmatrix}W_v^0 \\ W_i^0 \\ W_{rl}^b\end{pmatrix}=
-		\begin{pmatrix}0 & \phi_v^T\\0 & \phi_i^T\\0 & \phi_{rl}^T	
-		\end{pmatrix}
-		\begin{pmatrix}\frac{\partial V}{\partial x_B} \\ \frac{\partial V}{\partial x_S}\end{pmatrix}\]
+		\item Mechanical energy storing elements (spring, mass)
+		\item Dissipation element (Damper)
 		\item Conservative elements (transformer, gyrator)
-			\item Interconnection through power ports
-		\[ \mathcal{P} = \mathcal{V} \times \mathcal{V}^* \]
+		\item Interconnection: power port $ \mathcal{P} = \mathcal{V} \times \mathcal{V}^* $ \\ $\mathcal{V}$: space of efforts; $\mathcal{V}*$: (dual) space of flows
+		\end{itemize}
+		\textit{Example:} Inertia
+\[
+	\dot{P^b} = C_b \frac{\partial H(P^b)}{\partial P^b} +  W^b \]
+	\[T_b^{b,0} = \frac{\partial H(P^b)}{\partial P^b}
+\]
+$H = \frac{1}{2} (P^b)^T M_b^{-1} P^b$: Hamiltonian energy function;\\ $P^b$: momentum (state); $T_b^{b,0}$: twist (effort); $W^b$: wrench (flow)
+		
+		
+%		\[\begin{pmatrix}\dot{x}_B \\ \dot{x}_S\end{pmatrix} = 
+%		\begin{pmatrix}J_B & -Ad_{H_b^0}^T \phi_b^T \\ \phi_b Ad_{H_b^0} & 0\end{pmatrix}
+%		\begin{pmatrix}\frac{\partial V}{\partial x_B} \\ \frac{\partial V}{\partial x_S}\end{pmatrix} + \begin{pmatrix}0 & 0 & 0 \\ \phi_v & \phi_i & \phi_{rl}\end{pmatrix}	
+%		\begin{pmatrix}T_v^0 \\ T_i^0 \\ T_{rl}^b\end{pmatrix}			 \]
+%		\[\begin{pmatrix}W_v^0 \\ W_i^0 \\ W_{rl}^b\end{pmatrix}=
+%		\begin{pmatrix}0 & \phi_v^T\\0 & \phi_i^T\\0 & \phi_{rl}^T	
+%		\end{pmatrix}
+%		\begin{pmatrix}\frac{\partial V}{\partial x_B} \\ \frac{\partial V}{\partial x_S}\end{pmatrix}\]
+%		\item Conservative elements (transformer, gyrator)
+%			\item Interconnection through power ports
+%		\[ \mathcal{P} = \mathcal{V} \times \mathcal{V}^* \]
 %		\item Example: variable rest-length spring
 %		\begin{eqnarray}\label{EQ:variablerestlengthspring}
 %	\dot{H}_i^j =\left( \begin{pmatrix}1 & Ad_{H_b^j}\end{pmatrix} \begin{pmatrix}T_b^{j} \\ T_i^{b}\end{pmatrix} \right) H_i^j\\
 %	\begin{pmatrix}W_b^{j,j} \\ W_i^{b,b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^j}^T\end{pmatrix} \frac{\partial V_{i,j}}{\partial H_i^j} \right) (H_i^j)^T
 %\end{eqnarray}
 
-\end{itemize}
+%\end{itemize}
 
 \end{frame}
 
 
-\begin{frame}
-	\frametitle{Energy consistent modelling and control}
-	\begin{itemize}
-		\item \emph{Virtual object} concept
-			\begin{itemize}%[leftmargin=0em]
-  				\renewcommand{\labelitemi}{$\Rightarrow$}
-				\item Maps object forces to manipulators
-				\item Stores kinetic energy
-				\item Changes size to adjust formation
-			\end{itemize}
-		\item Model represents energy content of the complete system
-		\item Dampers dissipate energy: \textbf{passive system}
-		\item Operator controls system by energy supply
-			\begin{block}{Stability}
-Model errors never influence passivity nor stability \cite{Stramigioli_01}
-	\end{block}	
-		\end{itemize}
-%\begin{itemize}%[leftmargin=0em]
-%  \renewcommand{\labelitemi}{$\Rightarrow$}
-%\item enhanced human perception through control of a meaningful quantity and appropriate feedback
-%\item stability over a wide class of environments
+%\begin{frame}
+%	\frametitle{Energy consistent modelling and control}
+%	\begin{itemize}
+%		\item \emph{Virtual object} concept
+%			\begin{itemize}%[leftmargin=0em]
+%  				\renewcommand{\labelitemi}{$\Rightarrow$}
+%				\item Maps object forces to manipulators
+%				\item Stores kinetic energy
+%				\item Changes size to adjust formation
 %			\end{itemize}
-%		\begin{quote}
-%		If a controlled robot is not passive there is always a passive environment that destabilizes the interconnected system \cite{Stramigioli_15}
-%		\end{quote}
-
-
-\end{frame}
+%		\item Model represents energy content of the complete system
+%		\item Dampers dissipate energy: \textbf{passive system}
+%		\item Operator controls system by energy supply
+%			\begin{block}{Stability}
+%Model errors never influence passivity nor stability \cite{Stramigioli_01}
+%	\end{block}	
+%		\end{itemize}
+%%\begin{itemize}%[leftmargin=0em]
+%%  \renewcommand{\labelitemi}{$\Rightarrow$}
+%%\item enhanced human perception through control of a meaningful quantity and appropriate feedback
+%%\item stability over a wide class of environments
+%%			\end{itemize}
+%%		\begin{quote}
+%%		If a controlled robot is not passive there is always a passive environment that destabilizes the interconnected system \cite{Stramigioli_15}
+%%		\end{quote}
+%
+%
+%\end{frame}
 
 
 %\begin{frame}
@@ -210,6 +222,7 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 
 \begin{frame}
 	\frametitle{Intrinsically Passive Control}
+	\textbf{Virtual system model as a controller for the real system}
 \begin{columns}[t]
 		\column{0.5\linewidth}
 			
@@ -217,22 +230,54 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 		\begin{itemize}
 			\item Geometric interconnection of springs, masses and dampers
 			\item Internal and external \emph{impedance} relations
-			\item No manipulator inertia re-shaping
+			\item No manipulator inertia re-shaping + dampers: \textbf{passivity}
 			\item Energy supplied by operator/environment
-			\item Grasping with variable rest-length springs
+			\item Formation changes through variable virtual object shape
 		\end{itemize}
 
 		
-		\column{0.5\linewidth}
+		\column{0.53\linewidth}
              \begin{figure}[htb]
 			\centering
 			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-			\includegraphics[width=0.98\textwidth]{IPCsprings.png}
+			\includegraphics[width=0.9\textwidth]{IPCsprings.png}
 			\caption{Mass-spring-damper structure of the IPC \cite{Stramigioli_01}}
 			\end{figure}
 		
 			
 		\end{columns}
+					\begin{block}{Stability}
+Model errors never influence passivity nor stability \cite{Stramigioli_01}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Controller Model} \[
+	\begin{pmatrix}	\dot{x}_M \\ \dot{x}_S\end{pmatrix} = 
+	\begin{pmatrix}J_M & -(\phi_M)^T\\ \phi_M & 0 \end{pmatrix} 
+	\begin{pmatrix}\frac{\partial H}{\partial x_M} \\ \frac{\partial H}{\partial x_S}\end{pmatrix}
+	+ \begin{pmatrix} 0 & 0 \\ \phi_h & \phi_{rl} \end{pmatrix}
+	\begin{pmatrix}
+	T_h \\ T_{rl}
+	\end{pmatrix}\]
+	\[\begin{pmatrix} W_h \\ W_{rl} \end{pmatrix} = 
+	\begin{pmatrix}0 & (\phi_h)^T & 0 \\ 0 & (\phi_{rl})^T & 0
+\end{pmatrix}\begin{pmatrix}\frac{\partial H}{\partial x_M}\\\frac{\partial H}{\partial x_S}\end{pmatrix} \]
+\begin{itemize}
+
+
+\item $ x_M,x_S $: state vectors of the inertias and springs
+\item $H = H_V + H_S + H_M$: sum of energies
+\item $J_V,\phi_V,\phi_M,J_M,\phi_h,\phi_{rl}$: geometric description matrices
+\item $T_h,T_{rl}$: desired object and rest-length twists
+ \item $W_h,W_{rl}$: corresponding wrenches
+\end{itemize}
+\vspace{10pt}
+Reference inputs: $T_h,T_{rl}$\\
+Control output: end-effector wrenches $W_E = (\phi_E)^T \frac{\partial H}{\partial x_S} $
+	
+
+
 \end{frame}
 
 %\begin{frame}
@@ -329,12 +374,12 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 		width=0.98\linewidth
 	]
 \addplot[blue,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePatransdesiredPosition.txt};\addplot[red,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePatransPosition.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosition.txt};\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransPosition.txt};
 \addplot[yellow,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/CaVi_Position.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Position.txt};
 \addplot[green,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransPosition.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
 \end{axis}
 \end{tikzpicture}
 %\begin{tikzpicture}
@@ -351,9 +396,9 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 %		width=0.98\linewidth
 %	]
 %\addplot[red,]
-%	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransPosition.txt};
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
 %\addplot[blue,]
-%	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransdesiredPosition.txt};
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredPosition.txt};
 %\end{axis}
 %\end{tikzpicture}
 \vspace{-20pt}
@@ -380,13 +425,13 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 		width=0.98\linewidth
 	]
 \addplot[blue,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/CaVi_desiredVelocity.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredVelocity.txt};
 \addplot[red,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePatransVelocity.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransVelocity.txt};
 \addplot[yellow,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/CaVi_Velocity.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Velocity.txt};
 \addplot[green,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransVelocity.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
 \end{axis}
 \end{tikzpicture}
 %\begin{tikzpicture}
@@ -403,9 +448,9 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 %		width=0.98\linewidth
 %	]
 %\addplot[red,]
-%	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransVelocity.txt};
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
 %\addplot[blue,]
-%	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCtransdesiredVelocity.txt};
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredVelocity.txt};
 %\end{axis}
 %\end{tikzpicture}
 \vspace{-20pt}
@@ -431,11 +476,11 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 		width=0.98\linewidth
 	]
 \addplot[red,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePaIntWrenchtx.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchtx.txt};
 \addplot[blue,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePaIntWrenchty.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchty.txt};
 	\addplot[green,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DePaIntWrenchrz.txt};\end{axis}
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchrz.txt};\end{axis}
 \end{tikzpicture}
 \begin{tikzpicture}
 	\begin{axis} [
@@ -451,11 +496,11 @@ Model errors never influence passivity nor stability \cite{Stramigioli_01}
 		width=0.98\linewidth
 	]
 \addplot[red,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCInternalWrenchtx.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchtx.txt};
 \addplot[blue,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCInternalWrenchty.txt};
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchty.txt};
 	\addplot[green,]
-	table {C:/Users/Martin/Documents/Git/Latex/plotdata/DIPCInternalWrenchrz.txt};\end{axis}
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchrz.txt};\end{axis}
 \end{tikzpicture}
 \vspace{-28pt}
 \caption{Top: Object force feed-forward;
@@ -467,13 +512,16 @@ Bottom: Virtual Object}
 \begin{frame}
 	\frametitle{Overview \& open issues}
 	\begin{itemize}
-		\item ...
+		\item Passive control architecture $\Rightarrow$ stability with passive humans and environments
+		\item Flexibility through changeable formation
+		\item Automatic and passive friction grasp stabilization 
 	\end{itemize}
 		\begin{block}{Open issues}
 \begin{itemize}
+\item Formulation of the PSPM in the Hamiltonian framework
+\item Energy conservative design of the grasp force assignment
 \item Experimental evaluation
 \item Evaluation of different human-in-the-loop set-ups
-\item Suitable control design
 \end{itemize}
 	\end{block}	
 \end{frame}
