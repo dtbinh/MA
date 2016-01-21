@@ -4,8 +4,8 @@
 \defcounter {refsection}{0}\relax 
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {2}{Approach}{6}{0}{2}
+\beamer@sectionintoc {2}{Approach}{5}{0}{2}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {3}{Results}{11}{0}{3}
+\beamer@sectionintoc {3}{Results}{9}{0}{3}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {4}{Conclusion}{14}{0}{4}
+\beamer@sectionintoc {4}{Conclusion}{11}{0}{4}

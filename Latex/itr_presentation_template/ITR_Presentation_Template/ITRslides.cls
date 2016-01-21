@@ -50,6 +50,7 @@
 \else
 	\RequirePackage[utf8]{inputenc}
 \fi
+%\RequirePackage[url=false,citestyle=authoryear,block=ragged,backend=bibtexu]{biblatex}
 \RequirePackage[url=false,citestyle=authoryear,block=ragged,backend=bibtexu]{biblatex}
 
 %% for right spacing after itemize
@@ -683,13 +684,13 @@
 \setbeamercolor{bibliography entry location}{fg=gray,bg=white}
 \setbeamercolor{bibliography entry note}{fg=gray,bg=white}
 
-%% different cite commands
+%%% different cite commands
 \let\ORIGcite=\cite
 \newcommand{\bcite}[1]{[\ORIGcite{#1}]}
 \renewcommand{\cite}[1]{{\footnotesize[\ORIGcite{#1}]}}
 \newcommand{\scite}[1]{{\small[\ORIGcite{#1}]}}
-
-%% cite command for variable number of names
+%
+%%%% cite command for variable number of names
 \newrobustcmd{\varcite}[2]{%
   \AtNextCite{\defcounter{maxnames}{#2}\defcounter{minnames}{#2}}\cite{#1}}
 
