@@ -269,21 +269,23 @@ Hier die deutschsprachige Zusammenfassung
 %
 %\textit{Make sure you clearly state the vision/aims of your work, what problem you are trying to solve, and why it is important. While the introduction is the part that is read first (ignoring title and abstract) it is usually best written last (when you actually know what you have really achieved). Remember, it's the first thing that is being read, and will have a major influence on the how the reader approaches your work. If you bore them now, you've most likely lost them already. If you make outrageous claims pretend to solve the world's problems, etc, you're likely fighting an uphill battle later on. Also, make sure you pick up any threads spun in the introduction later on, to ensure that the reader thinks they get what they have been promised. Don't create an expectation that you'll deliver more than you actually do. Remember, the reader may be your marker (of a thesis) or referee (of a paper), and you don't want to annoy them.} \\
 %\\
-Cooperative manipulation involves two or more robot arms collectively moving or manipulating a common object \cite{CoopManipHandbook}. Such a set-up overcomes many limitations seen by single robots. The prime example is the transportation of a large or heavy object, where a single manipulator would exert large local torques on the object. Back in the 1940s two remote manipulators were used to handle radioactive goods \cite{Goertz_52}. Around 1990 the \emph{NASA} researched cooperative manipulation in space construction applications \cite{Schneider_92}. Specifically in \cite{Lee_05} a cooperative manipulation strategy for the repair of the Hubble Space Telescope is proposed. Other tasks are for example:
+Cooperative manipulation involves two or more robot arms cooperatively moving or manipulating a common object \cite{CoopManipHandbook}. Such a set-up overcomes many limitations seen by single robots. The prime example is the transportation of a large or heavy object, where a single manipulator would exert large local wrenches on the object. Back in the 1940s two remote manipulators were used to handle radioactive goods \cite{Goertz_52}. Around 1990 the \emph{NASA} researched cooperative manipulation in space construction applications \cite{Schneider_92}. Specifically in \cite{Lee_05} a cooperative manipulation strategy for the repair of the Hubble Space Telescope is proposed. Other tasks of cooperative manipulation are for example:
 \begin{itemize}
+\itemsep0em
 	\item assembly of multiple parts without using special fixtures
 	\item grasping an object without rigid fixture but by exerting a suitable squeezing force
 	\item deforming a flexible object
 	\item coordinated use of tools
 \end{itemize}
-For the last point a recent application has been presented at the Fukushima Daiichi Nuclear Power Station. By equipping a two-armed robot with different tools it is capable of grasping an item (e.g. piping) and cutting it with the other, see Fig. \ref{FIG:MEISTeR}. For sensitive tools like an angle grinder it is favourable that movement and contact forces of both arms are coordinated.\\
+A recent application has been presented at the Fukushima Daiichi Nuclear Power Station. By equipping a two-armed robot with different tools the robot is capable of grasping an item (e.g. piping) and cutting it with the other, see Fig. \ref{FIG:MEISTeR}. For sensitive tools like an angle grinder it is favourable that movement and contact forces of both arms are coordinated.\\
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{mhi-meister.jpg}
 	\caption[Demonstration of MHI MEISTeR at Fukushima Daiichi NPS]{Demonstration of the tele-operated MHI MEISTeR robot at Fukushima Daiichi Nuclear Power Station \cite{MHI-MEISTeR}}
 	\label{FIG:MEISTeR}
+	\vspace{-10pt}
 \end{figure}
-Space and hazardous environments are fruitful environments for cooperative manipulators, often they are directly controlled by a human operator. Combining human reasoning and the enhanced flexibility of a cooperative set-up is a powerful combination in an unstructured environment. A human in the control loop comes with superior foresight and planning capabilities. To fully exploit this additional flexibility we require control architectures able to perform all the fore-mentioned tasks and operable in a comfortable and efficient manner.\\\\
+Space and hazardous environments are fruitful environments for cooperative manipulators. Often they are controlled by a human operator from a safe location. Combining human reasoning and the enhanced flexibility of a cooperative set-up is a powerful combination in an unstructured environment. A human in the control loop comes with superior foresight and planning capabilities. To fully exploit this additional flexibility we require control architectures able to perform all the afore-mentioned tasks and operable in a comfortable and efficient manner.\\\\
 
 To address the first requirement the controller realizes changes of formation and relocates the constrained system. A change of formation first of all means the opening and closing of a grasp a around a common object. A virtual object and variable rest-length springs are introduced, the springs couple the virtual and the actual object. The size of virtual object specifies the rest-lengths, by choosing it smaller than the actual a grasping force is exerted. By choosing it bigger the grasp is opened and the actual object is released. Changing of rest-lengths means to change the potential energy stored in the springs. Since the controller itself is passive, the energy is exchanged with a distinct power port. In order to relocate the formation a spring is connected from the virtual object center to the desired new position/orientation. This ensures compliant behavior between (virtual) object and environment. Note that this concept is called \emph{Intrinsically Passive Controller} (IPC) and was introduced by Stramigioli \cite{Stramigioli_01}, the control architecture described in the main part will closely stick to this concept. \\
 The controller provides a reasonable layer of abstraction and takes responsibilities from the operator, in order to not overstrain her/his attention and let him focus on important elements of the task. To ensure a secure and stable grasp, the formation of robots is locally controlled without the help of the human. For dynamic manipulation tasks grasp force optimization can be utilized to limit internal to the absolute minimum. The control system provides appropriate feedback to provide better perception on the work environment and to make the job more intuitive. The user specifies system motion and is provided with information about the necessary forces to accomplish the commanded motion. Thereby s/he gets a natural intuition of how much work has been done by the robots. To this end the controller shall never be a source of additional energy, the only way energy is fed into the system is by request of the operator, i.e. the controlled robots are passive. The maximum extractable energy is always bounded, the operator can estimate the stored energy and possible effects when interacting with the environment. Passive robotic systems are always stable when interconnected passive environments/humans and can be stable with some active systems. On the contrary, if the controlled robot is not passive, there is always a passive environment that destabilizes the interconnected system \cite{Stramigioli_15}.
@@ -464,46 +466,54 @@ The assumption of rigid fixtures between manipulators and object is very common 
 
 
 %_____Kapitel 2_________________________________
-\chapter{Main Part}
+\chapter{port-Hamiltonian system modelling}
 %The controller is divided into two parts, the local one does the real-time interaction of the manipulators with the object. This part is passive, i.e. the robot along with its local controller has a certain amount of energy, the energy can not increase as long as no power is provided by the environment or the higher-level control part. Therefore the two parts will be called Intrinsically Passive Controller and Supervisor, this scheme was introduced by Stramigioli \cite{Stramigioli_01} as a general framework with application to robotic hands.
-\section{port-Hamiltonian systems}
-Port-Hamiltonian systems(PHS) provide a framework to for the geometric description of complex physical systems. The goal is divide the system in simple Hamiltonian subsystems and interconnect them using methods of network theory.\\
-The Hamiltonian equations of motion are related to the better known Euler-Lagrange equations with the Legendre transformation. Both are formulations on energy level thus they are useful for a continuous description of mixed-energy systems, e.g. a pendulum alternating between kinetic and potential energy periodically.
+In this chapter a modelling approach of interactive mechanical systems based on the port-Hamiltonian framework is introduced. Port based modelling aims at providing a consistent system description over different physical domains. In the presented case we stick to the mechanical domain, with two energies types of interest: kinetic and potential energy. 
+Modelling is done by dividing the system in simple Hamiltonian subsystems and interconnecting them using methods of network theory.\\
+Kinematic constraints limit the possible motion of the system's sub-members and impose a set of differential-algebraic equations (DAE). The DAE description is re-formulated into an input-output representation, which is beneficial when it comes to control.   
 
-\subsection{Hamiltonian description of mechanical systems}\label{SS:HSdescription}
+
+\section{Hamiltonian description of mechanical systems}\label{SS:HSdescription}
+The Hamiltonian equations of motion are related to the better known Euler-Lagrange equations with the Legendre transformation. Both are formulations on energy level thus they are useful for a continuous description of mixed-energy systems, e.g. a pendulum alternating between kinetic and potential energy periodically.
 The classical Hamiltonian equations for a mechanical system are:
-\begin{eqnarray}
-	\dot{q} = \frac{\partial H}{\partial p}(q,p)\\
-	\dot{p} = -\frac{\partial H}{\partial q}(q,p) + F
+\begin{eqnarray}\label{EQ:generalPHS}
+	\begin{aligned}
+	& \dot{q} = \frac{\partial H}{\partial p}(q,p)\\
+	& \dot{p} = -\frac{\partial H}{\partial q}(q,p) + F
+	\end{aligned}
 \end{eqnarray}
 Where Hamiltonian $ H(q,p) $ is the total energy of the system, $ q = (q_1,...,q_k)^T $ denotes the generalized coordinates of the system with $ k $-degrees of freedom and $ p = (p_1,...,p_k)^T $ is the vector of the generalized momenta. $ F $ is the input of generalized forces.\\
-An important aspect of PHS is conservation of energy, i.e. supplied work is either stored in the system \cite{vanderSchaft_06}. The energy balance of the system is:
+An important aspect of PHS is conservation of energy, i.e. supplied work is stored in the system \cite{vanderSchaft_06}. The energy balance of the system is:
 \begin{equation}
 	\frac{d}{dt}H = \frac{\partial^T H}{\partial q}(q,p)\dot{q} + \frac{\partial^T H}{\partial p}(q,p)\dot{p} = \frac{\partial^T H}{\partial p}(q,p)F = \dot{q}^T F
 \end{equation}
-While the generalized force $ F $ is the input of the system, the output can be defined as $ e = \dot{q} $, for a mechanical system $ \dot{q} $ is the generalized velocity. Note that the product of Force and velocity is mechanical power.\\
+While the generalized force $ F $ is the input of the system, the output can be defined as $ e = \dot{q} $, $ \dot{q} $ being the generalized velocity. Note that the product of force and velocity is mechanical power.\\
 PHS can be described in local coordinates $ x $ on the $ n $-dimensional state space manifold $ \mathcal{X} $, $ x \in \mathcal{X} $:
-\begin{eqnarray}
-	\dot{x} = J(x) \frac{\partial H}{\partial x}(x) + g(x)f \\
-	e = g^T(x) \frac{\partial H}{\partial x}(x)
+\begin{eqnarray}\label{EQ:normPHS}
+\begin{aligned}
+	& \dot{x} = J(x) \frac{\partial H}{\partial x}(x) + g(x)f \\
+	& e = g^T(x) \frac{\partial H}{\partial x}(x)
+\end{aligned}
 \end{eqnarray}
-Where $ J(x) $ is the $ n \times n $ structure matrix, $ J(x) $ is skew-symmetric, i.e. $ J^T(x) = - J(x) $. Furthermore $g(x) $ is the $ n \times m $ input matrix and $ f \in \mathbb{R}^m $ is a general input vector. With the skew-symmetry of $J(x)$ the energy balance of the local coordinate system is $ \frac{dH}{dt}(x) = e^Tf $. \\
+Where $ J(x) $ is a skew-symmetric $ n \times n $ structure matrix, $g(x) $ is the $ n \times m $ input matrix. The input $ f \in \mathbb{R}^m $ is called the \emph{flow}, while the output $ e \in \mathbb{R}^m $ is called the \emph{effort}. With the skew-symmetry of $J(x)$ the energy balance of the local coordinate system is $ \frac{dH}{dt}(x) = e^Tf $. \\
 Any energy conservative physical element can be described in this formulation. To account for dissipative elements the previous can be extended by a positive semi-definite matrix $R(x)$.
 \begin{eqnarray}
-	\dot{x} = (J(x)-R(x)) \frac{\partial H}{\partial x}(x) + g(x)f \\
-	e = g^T(x) \frac{\partial H}{\partial x}(x)
+\begin{aligned}
+	& \dot{x} = (J(x)-R(x)) \frac{\partial H}{\partial x}(x) + g(x)f \\
+	& e = g^T(x) \frac{\partial H}{\partial x}(x)
+\end{aligned}
 \end{eqnarray}
 The energy balance changes since the supplied power is not only stored but dissipated:
 \begin{equation}
-	\frac{dH}{dt}(x) = e^Tf - \left( \frac{\partial H}{\partial x}(x) \right)^T R(x) \frac{\partial H}{\partial x}(x)
+\frac{dH}{dt}(x) = e^Tf - \left( \frac{\partial H}{\partial x}(x) \right)^T R(x) \frac{\partial H}{\partial x}(x)
 \end{equation}\\
 Consider the example of a simple one-dimensional spring-mass-damper system described by $ M\ddot{x} = -kx -Dx +F $. Where $ M,k,D,F $ denote the mass, stiffness, damping and external force acting on the mass respectively.
 In the usual state space formulation this is:
 \begin{equation}
 	\begin{bmatrix}\dot{x} \\ \ddot{x}\end{bmatrix} =
-	\begin{bmatrix}0 & 1 \\ -\frac{k}{M} & -D\end{bmatrix}
+	\begin{bmatrix}0 & 1 \\ -\frac{k}{M} & -\frac{D}{M}\end{bmatrix}
 	\begin{bmatrix}x \\ \dot{x}\end{bmatrix} + 
-	\begin{bmatrix}0 \\ 1\end{bmatrix}F
+	\begin{bmatrix}0 \\ 1\end{bmatrix}\frac{F}{M}
 \end{equation}
 One obtains an alternative representation by choosing energy variables as state variables, i.e. the energy stored in the spring is described by the displacement $ x $ and the energy of the moving mass by the momentum $ p = M\dot{x} $:
 \begin{equation}
@@ -512,25 +522,26 @@ One obtains an alternative representation by choosing energy variables as state 
 	\underbrace{\begin{bmatrix}kx \\ \dot{x}\end{bmatrix}}_{\partial_{\chi}H(\chi)} + 
 	\underbrace{\begin{bmatrix}0 \\ 1\end{bmatrix}}_{g(\chi)}\underbrace{F}_f
 \end{equation}
-This corresponds to the first equation of a PHS of the form.
+This corresponds to the first equation of a PHS of the form (\ref{EQ:normPHS}).
 This simple example can be divided into a set of basic mechanical elements:
 \begin{itemize}
+\itemsep0em
 	\item a moving inertia
 	\item a spring
 	\item a damper
 \end{itemize}
-Each element is described by a effort and a flow variable, the energy state variable is the time integration of the flow variable. Table \ref{TAB:PHSvar_mechanic} summarizes the description variables of mechanical elements. \\
+Each element is described by an effort and a flow variable, the energy state variable is the time integration of the flow variable. Table \ref{TAB:PHSvar_mechanic} summarizes the description variables of mechanical elements. \\
 \begin{table}
 	\centering
 	\caption[PHS variables of mechanical elements]{PHS variables of mechanical elements}
 	\label{TAB:PHSvar_mechanic}
 	
 	\begin{tabular}{ l | l | l | l }
-		& Spring & Mass & Damper \\ \hline
-		Effort variable & Force $F$ & Velocity $\dot{x}$ & Force $ F $ \\ \hline
-		Flow variable & Velocity $ \dot{x} $ & Force $ F = \dot{p} $ & Velocity $ \dot{x} $ \\ \hline
-		State variable & Position $x$ & Momentum $ p $ & - \\ \hline
-		Energy function & $ E(x) = \frac{1}{2}kx^2 $ & $ E(p) = \frac{p^2}{2m} $ & $E(\dot{x}) = D\dot{x}^2  $ (diss. co-energy) \\ 
+		& \textbf{Spring} & \textbf{Mass} & \textbf{Damper} \\ \hline
+		\textbf{Effort variable} & Force $F$ & Velocity $\dot{x}$ & Force $ F $ \\ \hline
+		\textbf{Flow variable} & Velocity $ \dot{x} $ & Force $ F = \dot{p} $ & Velocity $ \dot{x} $ \\ \hline
+		\textbf{State variable} & Position $x$ & Momentum $ p $ & - \\ \hline
+		\textbf{Energy function} & $ E(x) = \frac{1}{2}kx^2 $ & $ E(p) = \frac{p^2}{2m} $ & $E(\dot{x}) = D\dot{x}^2  $ (diss. co-energy) \\ 
 	\end{tabular}
 \end{table}
 
@@ -733,7 +744,7 @@ T_b^0 = \begin{pmatrix}0 & Ad_{H_b^0}\end{pmatrix}
 \end{eqnarray}
 
 
-\subsubsection{Dampers}
+\subsubsection{Dampers}\label{SSS:Dampers}
 Dampers do not have a state since they do not store energy, they only dissipate it. For sake of completeness note that energy is not "destroyed" in the dampers but transformed in to thermal energy. This can be modelled with a thermal port connected to the environment, since we are only interested in free energy this port is omitted. The easiest way to achieve damping is a linear resistive element $R$, such that the wrench is directly proportional to twist. Consider for example a body's motion with respect to the inertial frame
 \begin{equation}
 	W_b^b = R T_b^{b,0}
@@ -744,9 +755,48 @@ Or a damper in parallel with spring
 \end{equation}
 The dissipated co-energy is $E_d = \frac{1}{2}T^T R T$.
 
-\section{Control of port-Hamiltonian systems}
+\section{Imposing constraints}
+Many mechanical systems cannot be modelled by a interconnection of springs and masses, already the rigid coupling of two masses restricts their possible motion and has to be treated with constraints.
+Let us consider this simple example of two masses $m_1,m_2$ rigidly connected with distance $c$.
+The configuration coordinates are thus $q_1 = q_2 + c$.
+The unconstrained pHs is given according to equation (\ref{EQ:generalPHS})
+\[\begin{pmatrix}\dot{q_1} \\ \dot{q_2}\end{pmatrix} = \begin{pmatrix}
+\frac{\partial V}{\partial p_1} \\ \frac{\partial V}{\partial p_2}
+\end{pmatrix} \]
+\[\begin{pmatrix}\dot{p_1} \\ \dot{p_2}\end{pmatrix} = -\begin{pmatrix}
+\frac{\partial V}{\partial q_1} \\ \frac{\partial V}{\partial q_2}
+\end{pmatrix}  + \begin{pmatrix}g_1(q) & 0 \\ 0 & g_2(q)\end{pmatrix} \begin{pmatrix}f_1 \\ f_2\end{pmatrix}
+\]
+%\[e = g(q)^T \frac{\partial H}{\partial p}\]
+The configuration coordinates are thus $q_1 = q_2 + c$, time derivation gives $\dot{q_1}=\dot{q_2}$.
+This \emph{kinematic} constraint can be written with respect to the pHs-formulation
+\[ 0 =  \frac{\partial V}{\partial p_1} - \frac{\partial V}{\partial p_2} = \underbrace{(1 \; -1)}_{A(q)^T} \begin{pmatrix}
+\frac{\partial V}{\partial p_1} \\ \frac{\partial V}{\partial p_2}
+\end{pmatrix} \]
+The interaction forces that arise due to the constraints can be described using the \emph{Lagrange} multiplier $\lambda$ (see \cite{Schaft_13} for details). The general representation of constrained pHs is thus given by
+\begin{eqnarray}\label{PHSpconstrained}
+\begin{aligned}
+& \dot{q} = \frac{\partial V}{\partial p} \\
+& \dot{p} = -\frac{\partial V}{\partial q} + A(q)\lambda + g(q)f  \\
+& e = g(q)^T \frac{\partial V}{\partial p} \\
+& 0 = A^T(q) \frac{\partial V}{\partial p} 
+\end{aligned}
+\end{eqnarray}
+This description is a mixed set of differential and algebraic equations (DAE). The algebraic constraints can be solved and the Lagrange multiplier be eliminated by multiplying equation (\ref{EQ:PHSpconstrained}) with a suitable matrix $S(q)$ subject to $S(q)A(q) = 0$. Therefore $S(q)$ can be chosen to be the \emph{kernel} of $A(q)$: $S(q) = ker \, A$.
+The resulting equation is
+\[S(q)\dot{p} = -S(q)\frac{\partial V}{\partial q} +S(q)g(q)f \]
+Following \cite{Schaft_13} we can introduce a a coordinate transformation 
+\[p \mapsto \bar{p}: \bar{p} = S(q)p \]
+The transformed equation is obtained as
+\[\dot{\bar{p}} = -S(q)\frac{\partial \bar{V}}{\partial q} -p^T [S_i,S_j]_{i,j} \frac{\partial \bar{V}}{\partial \bar{p}} + \bar{g}(q)f \]
+Where the Hamiltonian $\bar{V} = \frac{1}{2}\bar{p}^T\bar{M}^{-1}(q)\bar{p}$ is also expressed in transformed coordinates, the same is done with the input matrix $\bar{g}(q)$. $ [S_i,S_j] $ is the \emph{Lie bracket} of the $i$ and $j$-th column of $S$:
+\[[S_i,S_j] = \frac{\partial S_j}{\partial q}S_i - \frac{\partial S_i}{\partial q}S_j\] The output equation finally becomes 
+\[ \bar{e} = \bar{g}^T(q) \frac{\partial \bar{V}}{\partial \bar{p}} \]
 
-\subsection{The Intrinsically Passive Controller (IPC)}
+
+\chapter{Control of port-Hamiltonian systems}
+
+\section{The Intrinsically Passive Controller (IPC)}
 The IPC is a control architecture based entirely on physical intuition. The structure can be seen in Fig. \ref{FIG:IPCsprings}, it is exclusively a geometric interconnection of springs, inertias and dampers. The manipulators are connected with spatial springs to the object. The object is modelled by a virtual inertia and its shape is represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. Note that these springs do not exist in reality, they are models to establish compliant behaviour in the controller domain. The simulated manipulator forces are then applied to the real object, in order to transfer the virtual complaint behaviour to the real world.\\
 \begin{figure}
 	\centering
@@ -835,25 +885,45 @@ Where $V_s = V_{v,b} + \sum_{i=1}^N V_{v(i),i} $ is the sum of energy stored in 
 
 Having obtained a complete geometric description of the springs we can now add the inertias. The virtual object is attached to both, the environment spring and the manipulator springs. 
 In the simulation the external forces acting on the inertia exclusively originate from these springs, thus $W_{ext}^b = - Ad_{H_b^0}^T W_b^0 $.
-The wrench acting on the $i$-th manipulator stems from the $i$-th manipulator spring: $ W_{ext}^i = -Ad_{H_i^0}^T W_i^0 $. We can also derive from equation (\ref{EQ:PHSinertia}) that $T_b^0 = Ab_{H_b^0}\frac{\partial V_{kg}}{\partial P_b^b}$. Equivalently the $i$-th manipulator wrench can be expressed as $T_i^0 = Ad_{H_i^0}\frac{\partial V_{k,i}}{\partial P_i^i} $. With this knowledge we can write the PHS representation of the complete control model. In order to keep the formulation compact we us the stacked state vector of the object inertia $x_b = ((H_b^0)^T \; (P_b^b)^T)^T$, the stacked vector of the spring states $x_S$ (defined in eq. (\ref{EQ:PHScombinedsprings})) and the vector of the manipulator inertia states $x_M = ((P_1^1)^T \; \cdots \; (P_N^N)^T)^T$\begin{eqnarray}
+The wrench acting on the $i$-th manipulator stems from the $i$-th manipulator spring but also from the real manipulators: $ W_{ext}^i = -Ad_{H_i^0}^T W_i^0 + Ad_{H_i^0}^T W_{m(i)}^0$. Along with its dual twist we obtain the port that connects to the real robotic system, i.e. the robot control port. Concerning the twists we derive from equation (\ref{EQ:PHSinertia}) that $T_b^0 = Ad_{H_b^0}\frac{\partial V_{kg}}{\partial P_b^b}$. Equivalently the $i$-th manipulator wrench can be expressed as $T_i^0 = Ad_{H_i^0}\frac{\partial V_{k,i}}{\partial P_i^i} $. With this knowledge we can write the PHS representation of the complete control model. In order to keep the formulation compact we us the stacked state vector of the object inertia $x_b = ((H_b^0)^T \; (P_b^b)^T)^T$, the stacked vector of the spring states $x_S$ (defined in eq. (\ref{EQ:PHScombinedsprings})) and the vector of the manipulator inertia states $x_M = ((P_1^1)^T \; \cdots \; (P_N^N)^T)^T$. Analogously to the previous we write compactly for the manipulator wrenches $W_m = ((W_{m(1)}^0)^T \cdots (W_{m(N)}^0)^T)^T$. 
+\begin{eqnarray}
 \begin{pmatrix}\dot{x}_b \\ \dot{x}_S  \\ \dot{x}_M \end{pmatrix} =
 \begin{pmatrix} J_B & -\phi_B^T & 0 \\ \phi_B & 0 & Ad_{H_i^0} \phi_i \\ 0 & -\phi_i^T Ad_{H_i^0}^T & C_M
  \end{pmatrix}
 \begin{pmatrix}\frac{\partial V_{c}}{\partial x_b} \\ \frac{\partial V_{c}}{\partial x_S} \\ \frac{\partial V_{c}}{\partial x_M}\end{pmatrix} +
-\begin{pmatrix}0 & 0 \\ \phi_v & \phi_{rl} \\ 0 & 0\end{pmatrix} \begin{pmatrix} T_v^0 \\ T_{rl}\end{pmatrix}
+\begin{pmatrix}0 & 0 & 0\\ \phi_v & \phi_{rl} & 0\\ 0 & 0 & Ad_{H_n^0}^T\end{pmatrix} \begin{pmatrix} T_v^0 \\ T_{rl} \\ W_m\end{pmatrix}
 \\
-\begin{pmatrix}W_v^0 \\ W_{rl}\end{pmatrix} = \begin{pmatrix}0 & \phi_v^T & 0 \\ 0 & \phi_{rl}^T & 0\end{pmatrix}
+\begin{pmatrix}W_v^0 \\ W_{rl} \\ T_i\end{pmatrix} = \begin{pmatrix}0 & \phi_v^T & 0 \\ 0 & \phi_{rl}^T & 0 \\ 0 & 0 & Ad_{H_n^0}\end{pmatrix}
 \begin{pmatrix}\frac{\partial V_{c}}{\partial x_b} \\ \frac{\partial V_{c}}{\partial x_S} \\ \frac{\partial V_{c}}{\partial x_M}\end{pmatrix}
 \end{eqnarray}
 Where $V_c = V_{v,b} + \sum_{i=1}^N [V_{v(i),i} + V_{k,i}] + V_{kg}$ is the combined energy function. $J_B$ is given in equation (\ref{EQ:PHSinertia}) and $C_M$ combines the Coriolis terms of all manipulators. The geometric interconnection matrix $\phi_B$ is composed by
 \[ \phi_B = \begin{pmatrix} 0 \\ Ad_{H_b^0} \phi_b 
 \end{pmatrix} \]
-The system is lossless, since no damping terms have been added.
-The reference inputs are $T_v$ and $T_{rl}$ the control output is $-\phi_i \frac{\partial V_c}{\partial x_s}$.
+
+The reference inputs are $T_v$ and $T_{rl}$, allowing a high level control to specify twist trajectories for the object and the spring rest-lengths. Force-feedback is provided by their dual quantities. The robot system is connected with the port $(W_m,T_i)$, $W_m$ being the input and $T_i$ the output. Usually a robotic system expects the wrench to be the reference input and provides the resulting twist information. The concept of port-Hamiltonian systems allows for a simple inversion of causality by using a \emph{gyrator}. The power conserving relation is \[ \bar{W}_m = -T_i\]
+\[ \bar{T_i} = W_m \]
+The system is lossless, since no damping terms have been added so far.
+\subsubsection{Adding damping}
+The motion of the virtual object is damped with respect to the inertial frame $\Psi_0$. The object twist is already given in equation (\ref{EQ:PHSinertia}) and  the generates the damping wrench in object as defined in Subsection \ref{SSS:Dampers}. The resulting PHS representation of the virtual damped object is 
+\[
+\begin{pmatrix}\dot{H}_b^0 \\ \dot{P_b^b}\end{pmatrix} =
+\underbrace{\begin{pmatrix} 0 & H_b^0  \\
+- (H_b^0)^T & C_b-R_b\end{pmatrix}}_{J_B-R_B}
+\begin{pmatrix}\frac{\partial V_{kg}}{\partial H_b^0} \\ \frac{\partial V_{kg}}{\partial P_b^b}\end{pmatrix}+
+\begin{pmatrix}0 \\ W_{ext}^b\end{pmatrix} \]
+\[T_b^0 = \begin{pmatrix}0 & Ad_{H_b^0}\end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{kg}}{\partial H_b^0} \\ \frac{\partial V_{kg}}{\partial P_b^b}\end{pmatrix}
+\]
+Damping for the manipulators shall be performed along the springs connecting the manipulator to the object. Recall that the twist of the $i$-th spring is 
+\[ T_{v(i)}^i = Ad_{H_0^i} T_b^0 - Ad_{H_0^i} T_i^0 + Ad_{H_b^i} T_{v(i)}^b \]
+The first component $T_b^0$ is already covered by the damping of the virtual object. The last component $T_{v(i)}^b$ is commanded by the operator and is executed unchanged. The remaining component $T_i^0$ relates to the motion of the manipulator inertia. Rewriting equation (\ref{EQ:PHSsimpleinertia}) we can give the damped manipulator inertia in PHS form
+\[ 	\dot{P}_{i}^{i} = (C_{m(i)}-R_i) \frac{\partial V_{k,i}(P_{i}^{i})}{\partial P_{i}^{i}} + I_6 W_{ext}^{i} \]
+\[	T_i^{i,0} = I_6 \frac{\partial V_{k,i}(P_i^i)}{\partial P_i^i} \]
+It is easy to seen how the damping integrates into the complete system representation, therefore it will not be given here again.
 
 \section{Performance Comparison of control strategies}
 
-To evaluate the presented controllers in an objective way, they are implemented in \emph{Simulink} an compared in terms of:
+To evaluate the presented controllers in an objective way, they are implemented in \emph{Simulink} and compared in terms of:
 \begin{itemize}
 	\item Trajectory tracking
 	\item Dynamic behaviour

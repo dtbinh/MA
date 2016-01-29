@@ -1,30 +1,31 @@
 \contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
 \contentsline {section}{\numberline {1.1}Problem Statement}{7}{section.1.1}
 \contentsline {section}{\numberline {1.2}Related Work}{7}{section.1.2}
-\contentsline {chapter}{\numberline {2}Main Part}{11}{chapter.2}
-\contentsline {section}{\numberline {2.1}port-Hamiltonian systems}{11}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Hamiltonian description of mechanical systems}{11}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Interconnection of port-Hamiltonian systems}{13}{subsection.2.1.2}
+\contentsline {chapter}{\numberline {2}port-Hamiltonian system modelling}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Hamiltonian description of mechanical systems}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Interconnection of port-Hamiltonian systems}{13}{subsection.2.1.1}
 \contentsline {subsubsection}{Energy storage port}{14}{section*.2}
 \contentsline {subsubsection}{Energy dissipation port}{14}{section*.3}
-\contentsline {subsubsection}{External ports}{14}{section*.4}
-\contentsline {section}{\numberline {2.2}3D-space modelling of mechanical systems}{15}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Euclidean space and motions}{15}{subsection.2.2.1}
-\contentsline {subsubsection}{Coordinate frames}{15}{section*.5}
-\contentsline {subsubsection}{Twists and wrenches}{16}{section*.6}
+\contentsline {subsubsection}{External ports}{15}{section*.4}
+\contentsline {section}{\numberline {2.2}3D-space modelling of mechanical systems}{16}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Euclidean space and motions}{16}{subsection.2.2.1}
+\contentsline {subsubsection}{Coordinate frames}{16}{section*.5}
+\contentsline {subsubsection}{Twists and wrenches}{17}{section*.6}
 \contentsline {subsection}{\numberline {2.2.2}Dynamics of physical components}{18}{subsection.2.2.2}
 \contentsline {subsubsection}{Springs}{18}{section*.7}
 \contentsline {subsubsection}{Variable rest-length springs}{19}{section*.8}
 \contentsline {subsubsection}{Inertias}{20}{section*.9}
 \contentsline {subsubsection}{Dampers}{21}{section*.10}
-\contentsline {section}{\numberline {2.3}Control of port-Hamiltonian systems}{21}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}The Intrinsically Passive Controller (IPC)}{21}{subsection.2.3.1}
-\contentsline {subsubsection}{Geometric interconnection of springs}{23}{section*.11}
-\contentsline {subsubsection}{Interconnection of springs and inertias}{25}{section*.12}
-\contentsline {section}{\numberline {2.4}Performance Comparison of control strategies}{25}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Internal impedance control with feed-forward of the object dynamics}{26}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Internal and external impedance based reference trajectory generation}{27}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Intrinsically Passive Controller (IPC)}{28}{subsection.2.4.3}
-\contentsline {chapter}{\numberline {3}Conclusion}{35}{chapter.3}
-\contentsline {chapter}{List of Figures}{37}{chapter.3}
-\contentsline {chapter}{Bibliography}{39}{chapter*.13}
+\contentsline {section}{\numberline {2.3}Imposing constraints}{21}{section.2.3}
+\contentsline {chapter}{\numberline {3}Control of port-Hamiltonian systems}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}The Intrinsically Passive Controller (IPC)}{23}{section.3.1}
+\contentsline {subsubsection}{Geometric interconnection of springs}{24}{section*.11}
+\contentsline {subsubsection}{Interconnection of springs and inertias}{27}{section*.12}
+\contentsline {subsubsection}{Adding damping}{28}{section*.13}
+\contentsline {section}{\numberline {3.2}Performance Comparison of control strategies}{29}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Internal impedance control with feed-forward of the object dynamics}{29}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Internal and external impedance based reference trajectory generation}{30}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Intrinsically Passive Controller (IPC)}{31}{subsection.3.2.3}
+\contentsline {chapter}{\numberline {4}Conclusion}{39}{chapter.4}
+\contentsline {chapter}{List of Figures}{41}{chapter.4}
+\contentsline {chapter}{Bibliography}{43}{chapter*.14}

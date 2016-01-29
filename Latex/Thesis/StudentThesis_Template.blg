@@ -12,47 +12,45 @@ Warning--entry type for "MHI-MEISTeR" isn't style-file defined
 Warning--I didn't find a database entry for "Loncaric_87"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty journal in Lee_05
-Warning--empty journal in Stramigioli_01c
-Warning--empty journal in Stramigioli_99
-You've used 31 entries,
+You've used 32 entries,
             3274 wiz_defined-function locations,
-            891 strings with 10950 characters,
-and the built_in function-call counts, 17507 in all, are:
-= -- 1805
-> -- 703
-< -- 25
-+ -- 221
-- -- 215
-* -- 1035
-:= -- 2528
-add.period$ -- 101
-call.type$ -- 31
-change.case$ -- 193
-chr.to.int$ -- 29
-cite$ -- 34
-duplicate$ -- 580
-empty$ -- 1464
-format.name$ -- 252
-if$ -- 4347
+            901 strings with 11174 characters,
+and the built_in function-call counts, 18169 in all, are:
+= -- 1881
+> -- 720
+< -- 27
++ -- 225
+- -- 219
+* -- 1066
+:= -- 2618
+add.period$ -- 105
+call.type$ -- 32
+change.case$ -- 198
+chr.to.int$ -- 30
+cite$ -- 33
+duplicate$ -- 608
+empty$ -- 1527
+format.name$ -- 257
+if$ -- 4525
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 32
-newline$ -- 162
-num.names$ -- 103
-pop$ -- 295
+missing$ -- 33
+newline$ -- 167
+num.names$ -- 108
+pop$ -- 300
 preamble$ -- 1
-purify$ -- 226
+purify$ -- 232
 quote$ -- 0
-skip$ -- 1226
+skip$ -- 1280
 stack$ -- 0
-substring$ -- 893
-swap$ -- 150
-text.length$ -- 25
+substring$ -- 928
+swap$ -- 162
+text.length$ -- 27
 text.prefix$ -- 8
 top$ -- 0
-type$ -- 240
-warning$ -- 3
-while$ -- 128
-width$ -- 35
-write$ -- 414
-(There were 5 warnings)
+type$ -- 248
+warning$ -- 1
+while$ -- 133
+width$ -- 36
+write$ -- 431
+(There were 3 warnings)

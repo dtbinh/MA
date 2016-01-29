@@ -48,7 +48,7 @@ S.~Erhart and S.~Hirche.
 S.~Erhart and S.~Hirche.
 \newblock Model and analysis of the interaction dynamics in cooperative
   manipulation tasks.
-\newblock {\em Manuscript submitted for publication}, 2015.
+\newblock {\em accepted}, 2015.
 
 \bibitem[GFS{\etalchar{+}}14]{Gioioso_2014}
 G.~Gioioso, A.~Franchi, G.~Salvietti, S.~Scheggi, and D.~Prattichizzo.
@@ -122,7 +122,8 @@ S.A. Schneider and R.H. Cannon.
 \bibitem[SD01]{Stramigioli_01c}
 S.~Stramigioli and V.~Duindam.
 \newblock Variable spatial springs for robot control applications.
-\newblock 4:1906--1911, 2001.
+\newblock {\em Intelligent Robots and Systems, 2001. Proceedings. 2001 IEEE/RSJ
+  International Conference on}, 4:1906--1911, 2001.
 
 \bibitem[She92]{Sheridian_92}
 T.B. Sheridian.
@@ -133,7 +134,8 @@ T.B. Sheridian.
 S.~Stramigioli, Claudio Melchiorri, and S.~Andreotti.
 \newblock A passivity-based control scheme for robotic grasping and
   manipulation.
-\newblock 3:2951--2956, 1999.
+\newblock {\em Decision and Control, 1999. Proceedings of the 38th IEEE
+  Conference on}, 3:2951--2956, 1999.
 
 \bibitem[SMH15]{Sieber_15}
 D.~Sieber, S.~Music, and S.~Hirche.
@@ -176,6 +178,13 @@ Arjan van~der {Schaft}.
   editors, {\em Proceedings of the International Congress of Mathematicians
   Vol. III: Invited Lectures}, pages 1339--1365, Madrid, Spain, 2006. European
   Mathematical Society Publishing House (EMS Ph).
+
+\bibitem[vdS13]{Schaft_13}
+Arjan van~der Schaft.
+\newblock Port-hamiltonian differential-algebraic systems.
+\newblock In A.~Ilchmann and T.~Reis, editors, {\em Surveys in
+  Differential-Algebraic Equations I}, Differential-Algebraic Equations Forum,
+  pages 173--226. Springer Berlin, 2013.
 
 \bibitem[WKD92]{Wen_92}
 J.~Wen and K.~Kreutz-Delgado.

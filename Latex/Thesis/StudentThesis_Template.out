@@ -1,19 +1,19 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Problem Statement}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{Related Work}{chapter.1}% 3
-\BOOKMARK [0][-]{chapter.2}{Main Part}{}% 4
-\BOOKMARK [1][-]{section.2.1}{port-Hamiltonian systems}{chapter.2}% 5
-\BOOKMARK [2][-]{subsection.2.1.1}{Hamiltonian description of mechanical systems}{section.2.1}% 6
-\BOOKMARK [2][-]{subsection.2.1.2}{Interconnection of port-Hamiltonian systems}{section.2.1}% 7
-\BOOKMARK [1][-]{section.2.2}{3D-space modelling of mechanical systems}{chapter.2}% 8
-\BOOKMARK [2][-]{subsection.2.2.1}{Euclidean space and motions}{section.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.2}{Dynamics of physical components}{section.2.2}% 10
-\BOOKMARK [1][-]{section.2.3}{Control of port-Hamiltonian systems}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.3.1}{The Intrinsically Passive Controller \(IPC\)}{section.2.3}% 12
-\BOOKMARK [1][-]{section.2.4}{Performance Comparison of control strategies}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.4.1}{Internal impedance control with feed-forward of the object dynamics}{section.2.4}% 14
-\BOOKMARK [2][-]{subsection.2.4.2}{Internal and external impedance based reference trajectory generation}{section.2.4}% 15
-\BOOKMARK [2][-]{subsection.2.4.3}{Intrinsically Passive Controller \(IPC\)}{section.2.4}% 16
-\BOOKMARK [0][-]{chapter.3}{Conclusion}{}% 17
-\BOOKMARK [0][-]{chapter.3}{List of Figures}{}% 18
-\BOOKMARK [0][-]{chapter*.13}{Bibliography}{}% 19
+\BOOKMARK [0][-]{chapter.2}{port-Hamiltonian system modelling}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Hamiltonian description of mechanical systems}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.1.1}{Interconnection of port-Hamiltonian systems}{section.2.1}% 6
+\BOOKMARK [1][-]{section.2.2}{3D-space modelling of mechanical systems}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.2.1}{Euclidean space and motions}{section.2.2}% 8
+\BOOKMARK [2][-]{subsection.2.2.2}{Dynamics of physical components}{section.2.2}% 9
+\BOOKMARK [1][-]{section.2.3}{Imposing constraints}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Control of port-Hamiltonian systems}{}% 11
+\BOOKMARK [1][-]{section.3.1}{The Intrinsically Passive Controller \(IPC\)}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.2}{Performance Comparison of control strategies}{chapter.3}% 13
+\BOOKMARK [2][-]{subsection.3.2.1}{Internal impedance control with feed-forward of the object dynamics}{section.3.2}% 14
+\BOOKMARK [2][-]{subsection.3.2.2}{Internal and external impedance based reference trajectory generation}{section.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.2.3}{Intrinsically Passive Controller \(IPC\)}{section.3.2}% 16
+\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 17
+\BOOKMARK [0][-]{chapter.4}{List of Figures}{}% 18
+\BOOKMARK [0][-]{chapter*.14}{Bibliography}{}% 19
