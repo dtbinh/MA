@@ -9,48 +9,49 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: mybib.bib
 Warning--entry type for "MHI-MEISTeR" isn't style-file defined
 --line 284 of file mybib.bib
+Warning--I didn't find a database entry for "Schaft14"
 Warning--I didn't find a database entry for "Loncaric_87"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty journal in Lee_05
-You've used 32 entries,
+You've used 31 entries,
             3274 wiz_defined-function locations,
-            901 strings with 11174 characters,
-and the built_in function-call counts, 18169 in all, are:
-= -- 1881
-> -- 720
+            898 strings with 11047 characters,
+and the built_in function-call counts, 17641 in all, are:
+= -- 1826
+> -- 699
 < -- 27
-+ -- 225
-- -- 219
-* -- 1066
-:= -- 2618
-add.period$ -- 105
-call.type$ -- 32
-change.case$ -- 198
++ -- 218
+- -- 213
+* -- 1032
+:= -- 2541
+add.period$ -- 102
+call.type$ -- 31
+change.case$ -- 192
 chr.to.int$ -- 30
-cite$ -- 33
-duplicate$ -- 608
-empty$ -- 1527
-format.name$ -- 257
-if$ -- 4525
-int.to.chr$ -- 3
+cite$ -- 32
+duplicate$ -- 594
+empty$ -- 1481
+format.name$ -- 250
+if$ -- 4395
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 33
-newline$ -- 167
-num.names$ -- 108
-pop$ -- 300
+missing$ -- 32
+newline$ -- 162
+num.names$ -- 105
+pop$ -- 293
 preamble$ -- 1
-purify$ -- 232
+purify$ -- 225
 quote$ -- 0
-skip$ -- 1280
+skip$ -- 1245
 stack$ -- 0
-substring$ -- 928
-swap$ -- 162
+substring$ -- 894
+swap$ -- 161
 text.length$ -- 27
 text.prefix$ -- 8
 top$ -- 0
-type$ -- 248
+type$ -- 240
 warning$ -- 1
-while$ -- 133
-width$ -- 36
-write$ -- 431
-(There were 3 warnings)
+while$ -- 129
+width$ -- 35
+write$ -- 418
+(There were 4 warnings)

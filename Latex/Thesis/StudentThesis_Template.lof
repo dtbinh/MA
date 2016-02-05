@@ -1,14 +1,15 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Demonstration of MHI MEISTeR at Fukushima Daiichi NPS}}{6}{figure.1.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Variable rest-length spring}}{19}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces port-Hamiltonian system structure}}{13}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Variable rest-length spring}}{19}{figure.2.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Structure of the IPC}}{24}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Virtual object and springs}}{25}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Internal force impedance control with feed-forward of the object dynamics: Translation}}{32}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Internal force impedance control with feed-forward of the object dynamics: Rotation}}{33}{figure.3.4}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Internal and external impedance based reference trajectory generation: Translation}}{34}{figure.3.5}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Internal and external impedance based reference trajectory generation: Rotation}}{35}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces IPC: Translation}}{36}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces IPC: Rotation}}{37}{figure.3.8}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Structure of the IPC}}{26}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Virtual object and springs}}{27}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Internal force impedance control with feed-forward of the object dynamics: Translation}}{34}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Internal force impedance control with feed-forward of the object dynamics: Rotation}}{35}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Internal and external impedance based reference trajectory generation: Translation}}{36}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Internal and external impedance based reference trajectory generation: Rotation}}{37}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces IPC: Translation}}{38}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces IPC: Rotation}}{39}{figure.3.8}
 \addvspace {10\p@ }

@@ -38,13 +38,7 @@ L.~De~Pascali, S.~Erhart, L.~Zaccarian, F.~Biral, and S.~Hirche.
   manipulation tasks.
 \newblock {\em Manuscript submitted for publication}, 2015.
 
-\bibitem[EH15a]{Erhart_15}
-S.~Erhart and S.~Hirche.
-\newblock Internal force analysis and load distribution for cooperative
-  multi-robot manipulation.
-\newblock {\em Robotics, IEEE Transactions on}, 31(5):1238--1243, 2015.
-
-\bibitem[EH15b]{Erhart_15/2}
+\bibitem[EH15]{Erhart_15/2}
 S.~Erhart and S.~Hirche.
 \newblock Model and analysis of the interaction dynamics in cooperative
   manipulation tasks.
