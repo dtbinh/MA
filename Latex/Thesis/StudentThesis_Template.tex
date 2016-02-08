@@ -1,6 +1,6 @@
 \documentclass[a4paper,twoside, openright,12pt]{report}
 \usepackage{psfrag,pstricks,amsbsy,graphics,float,amsmath,amssymb,epstopdf}
-\usepackage{graphicx, color, mathtools,amsfonts,tikz,pgfplots} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
+\usepackage{graphicx, color, mathtools,amsfonts,tikz,pgfplots,lscape} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
 \usepackage[latin1]{inputenc}
 \usepackage{verbatim} 
 %\usepackage{epsfig}
@@ -602,7 +602,7 @@ The power balance of the whole system then is
 	e_S^Tf_S + e_R^T f_R +e_I^Tf_I + e_C^T f_C = 0
 \end{equation} 
 or by using (\ref{EQ:storageport})
-\begin{equation}
+\begin{equation}\label{EQ:energybalance}
 	\frac{dH}{dt} = e_R^T f_R +e_I^Tf_I + e_C^T f_C 
 \end{equation}
 
@@ -783,7 +783,7 @@ Or a damper in parallel with spring
 \end{equation}
 The dissipated co-energy is $E_d = \frac{1}{2}T^T R T$.
 
-\section{Spring-mass-damper systems}
+\section{Spring-mass-damper systems}\label{S:springmassdampers}
 Recall the motivating example from Section \ref{SS:HSdescription} of a simple spring-mass system. We can add a damper $d$ to the pHs representation and rewrite eq. (\ref{EQ:HSexample})
 \begin{equation}
 	\begin{pmatrix}\dot{q} \\ \dot{p}\end{pmatrix} =
@@ -800,17 +800,79 @@ Clearly $\dot{p} = -\frac{\partial V}{\partial q}(q,p)-d\frac{\partial V}{\parti
 \end{eqnarray}
 The spring's deformation twist is decomposed by $T_b^{b,v} = T_b^{b,0} - T_v^{b,0}$.
 The damping along this spring is $W_b^b = D_b T_b^{b,v} $. Body, spring and damper move uniformly with the twist $T_b^{b,0}$ and the wrenches add up. Combing all components we arrive at
-\begin{eqnarray} \label{EQ:PHSinertia}
+\begin{eqnarray} \label{EQ:externalimpedance}
 \begin{aligned}
 &\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P_b^b}\end{pmatrix} =
 \begin{pmatrix} 0 & 0 & H_b^0  \\ 0 & 0 & H_b^v \\
 - (H_b^0)^T & -(H_b^v)^T & C_b-D_b\end{pmatrix}
-\begin{pmatrix}\frac{\partial V_{kg}}{\partial H_b^0}\\ \frac{\partial V_{kg}}{\partial H_b^v} \\ \frac{\partial V_{kg}}{\partial P_b^b}\end{pmatrix}+
-\begin{pmatrix}0 & 0 & 0\\ 0 & -H_b^v Ad_{H_0^b} & 0 \\ 0 & D_b Ad_{H_0^b} & I_6 \end{pmatrix}\begin{pmatrix} 0 \\ T_v^0 \\ W_{b}^b\end{pmatrix} \\
-%&\begin{pmatrix}T_b^0 = \begin{pmatrix}0 & Ad_{H_b^0}\end{pmatrix}
-%\begin{pmatrix}\frac{\partial V_{kg}}{\partial H_b^0} \\ \frac{\partial V_{kg}}{\partial P_b^b}\end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{kgs}}{\partial H_b^0}\\ \frac{\partial V_{kgs}}{\partial H_b^v} \\ \frac{\partial V_{kgs}}{\partial P_b^b}\end{pmatrix}+
+\begin{pmatrix} 0 & 0\\ -H_b^v Ad_{H_0^b} & 0 \\ D_b Ad_{H_0^b} & I_6 \end{pmatrix}\begin{pmatrix} T_v^0 \\ W_{b}^b\end{pmatrix} \\
+&\begin{pmatrix}W_v^{0,0} \\ T_b^{b,0}\end{pmatrix} = \begin{pmatrix}0 & -Ad_{H_0^b}^T (H_b^v)^T & Ad_{H_0^b}^T D_b\\ 0 & 0 & I_6 \end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{kgs}}{\partial H_b^0}\\ \frac{\partial V_{kgs}}{\partial H_b^v} \\ \frac{\partial V_{kgs}}{\partial P_b^b}\end{pmatrix}
 \end{aligned}
 \end{eqnarray}
+This clearly accounts for an \emph{external} impedance relation, used to establish compliant behaviour between (virtual) object and environment. Analogously we can define impedance relations between manipulators and virtual object. Here we consider the manipulator masses to be gravity pre-compensated and omit the spring connecting to the ground. Rest-length springs are used to allow for formation changes. The $i$-th manipulator inertia is given by
+\begin{eqnarray}
+\begin{aligned}
+	&\dot{P_i^i} = C_i \frac{\partial V_{k(i)}(P_i^i)}{\partial P_i^i} + I_6 W_{i}^i \\
+	&T_i^{i,0} = I_6 \frac{\partial V_{k(i)}(P_i^i)}{\partial P_i^i}
+\end{aligned}
+\end{eqnarray}  
+A variable rest-length spring as defined in eq. \ref{EQ:variablerestlengthspring}) connects to the body associated with $\Psi_i$. The rest-length is $H_{b(i)}^b$. The spring's twist decomposes as follows
+\begin{equation}
+T_{b(i)}^i = T_b^i + T_{b(i)}^{i,b} = Ad_{H_b^i}T_b^{b,0} - T_i^{i,0} + Ad_{H_b^i} T_{b(i)}^{b}
+\end{equation}
+Thus the variable rest-length spring is given by
+\begin{eqnarray}
+\begin{aligned}
+&\dot{H}_{b(i)}^i = H_{b(i)}^i \begin{pmatrix}
+Ad_{H_b^{b(i)}} & - Ad_{H_i^{b(i)}} & Ad_{H_b^{b(i)}}\end{pmatrix} \begin{pmatrix} 
+T_b^{b,0} \\ T_i^{i,0} \\ T_{b(i)}^b \end{pmatrix}\\
+&\begin{pmatrix} 
+W_b^{b,0} \\ W_i^{i,0} \\ W_{b(i)}^{b,b} \end{pmatrix} = \begin{pmatrix}
+Ad_{H_b^{b(i)}}^T \\ - Ad_{H_i^{b(i)}}^T \\ Ad_{H_b^{b(i)}}^T\end{pmatrix}
+(H_{b(i)}^i)^T
+\frac{\partial V_{s(i)}}{\partial H_{b(i)}^i}
+\end{aligned}
+\end{eqnarray}
+Considering damping there are two options, the relative twist of the spring tips $T_{b(i)}^i$ or the whole rest-length spring twist $T_b^i$ can be subject to damping. In order to obtain a simpler representation we choose the latter being
+\begin{equation}
+W_i^i = D_i T_i^{i,b} = D_i T_i^{i,0} - D_i Ad_{H_b^i} T_b^{b,0}
+\end{equation}
+This means that changes of rest-length are also subject to damping.
+We can combine spring, inertia and damper, the twist $T_i^{i,0}$ is the common quantity.
+\begin{eqnarray}\label{EQ:internalimpedance}
+\begin{aligned}
+\begin{pmatrix}\dot{H}_{b(i)}^i \\ 
+\dot{P_i^i} \end{pmatrix} &= \begin{pmatrix}
+0 & H_{b(i)}^i Ad_{H_i^{b(i)}} \\
+-Ad_{H_i^{b(i)}}^T (H_{b(i)}^i)^T & C_i - D_i
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial V_{ks(i)}}{\partial H_{b(i)}^i} \\ 
+\frac{\partial V_{ks(i)}}{\partial P_{i}^i}
+\end{pmatrix} + \\ &+
+\begin{pmatrix}
+H_{b(i)}^i Ad_{H_b^{b(i)}} & H_{b(i)}^i Ad_{H_b^{b(i)}} & 0 \\
+D_i Ad_{H_b^i} & 0 & I_6
+\end{pmatrix}
+\begin{pmatrix}
+T_b^{b,0} \\ T_{b(i)}^b \\ W_i^i
+\end{pmatrix} \\
+\begin{pmatrix}
+W_b^{b,0} \\ W_{b(i)}^{b,b} \\ T_i^{i,0}
+\end{pmatrix} &= 
+\begin{pmatrix}
+Ad_{H_b^{b(i)}}^T (H_{b(i)}^i)^T &  Ad_{H_b^i}^T D_i \\  Ad_{H_b^{b(i)}}^T (H_{b(i)}^i)^T & 0 \\
+ 0 & I_6
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial V_{ks(i)}}{\partial H_{b(i)}^i} \\ 
+\frac{\partial V_{ks(i)}}{\partial P_{i}^i}
+\end{pmatrix}
+\end{aligned}
+\end{eqnarray} 
+
 
 
 \section{Imposing constraints}
@@ -896,8 +958,83 @@ I_3 & 0_3 & I_3 & \tilde{p}_1^v & \cdots & I_3 & \tilde{p}_N^v \\0_3 & I_3 & 0_3
 Towards the port-Hamiltonian representation of the constrained system we seek to replace the term $ \frac{\partial \bar{V}}{\partial q} $ by $ \frac{\partial \bar{V}}{\partial \bar{p}} $. The kinetic co-energy of the system is $\bar{V}^* =\frac{1}{2} \dot{q}^T \bar{M} \dot{q}$.
 
 
-\chapter{Control of port-Hamiltonian systems}
+\chapter{port-Hamiltonian based control}
+Recall the power balance already given by eq. (\ref{EQ:energybalance}), in integrated form we obtain the energy balance of a pHs
+\begin{equation}
+\underbrace{H(x(t))-H(x(0))}_{stored\, energy} = \underbrace{\int_0^t e_P^Tf_P dt}_{ext.\, supplied} + \underbrace{\int_0^te_R^Tf_R dt}_{dissipated} 
+\end{equation}
+The dissipated co-energy is negative since $e_R^tf_R \leq 0$. Clearly the given energy balance corresponds to a \emph{passive} system. The Hamiltonian energy functions of the systems presented in Chapter 2 are \emph{candidate Lyapunov} functions. The interconnection of pH/passive systems is still a pH/passive system. By interconnection of pH-controller and passive plant we obtain a passive controlled-robotic system. This type of systems has an important advantage when it comes to interaction with humans and/or unknown environments. Usually whose dynamics are either uncertain or too complicated to be modelled. Passive systems are stable with any system, regardless its structure or complexity, that can provide only a bounded amount of energy (see \cite{Stramigioli_15} for details). In this chapter we propose a passive model-based controller for a robot-team manipulating a common object. We employ \emph{collocated control}, i.e. for the controller we use only the information contained in the effort-flow pair connecting the controller to the robotic system. There are no additional observers (e.g. tracking of the manipulated object).
 
+\section{Control architecture}
+Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the real system's common object and is thus called \emph{virtual} object (cf. \cite{Stramigioli_01b}). Spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the virtual object. It is important to notice that no external object tracking is employed. Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the rest-length springs establishing this connection. One hinge-point is connected to the center of the virtual object and the rest-length accounts for the extents of the object. The other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance,EQ:internalimpedance}) forms the controller.
+\begin{landscape}
+\begin{eqnarray}
+\resizebox{0.98\hsize}{!}{$ 
+\begin{aligned}
+\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P}_b^b \\ \dot{H}_{b(1)}^1 \\ 
+\dot{P}_1^1 \\ \vdots \\ \dot{H}_{b(N)}^N \\ 
+\dot{P}_N^N\end{pmatrix}
+ &= 
+\begin{pmatrix} 0 & 0 & H_b^0 & 0 & 0 & \cdots & 0 & 0  \\ 0 & 0 & H_b^v & 0 & 0 & \cdots & 0 & 0 \\
+- (H_b^0)^T & -(H_b^v)^T & C_b-D_b & Ad_{H_b^{b(1)}}^T (H_{b(1)}^1)^T & Ad_{H_b^1}^T D_1 & \cdots & Ad_{H_b^{b(N)}}^T (H_{b(N)}^N)^T & Ad_{H_b^N}^T D_N \\
+0 & 0 & H_{b(1)}^1 Ad_{H_b^{b(1)}} & 0 & H_{b(1)}^1 Ad_{H_1^{b(1)}} &  & 0 & 0 \\
+0 & 0 & D_1 Ad_{H_b^1} & -Ad_{H_1^{b(1)}}^T H_{b(1)}^1 & C_1-D_1 &  & 0 & 0 \\
+\vdots & \vdots & \vdots &  &  & \ddots &  & \\ 
+0 & 0 & H_{b(N)}^N Ad_{H_b^{b(N)}} & 0 & 0 &  & 0 & H_{b(N)}^N Ad_{H_N^{b(N)}}\\
+0 & 0 & D_N Ad_{H_b^N} & 0 & 0 &  &  -Ad_{H_N^{b(N)}}^T H_{b(N)}^N & C_N-D_N
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial V}{\partial H_b^0}\\
+\frac{\partial V}{\partial H_b^v}\\
+\frac{\partial V}{\partial P_b^b}\\
+\frac{\partial V}{\partial H_{b(1)}^1} \\ 
+\frac{\partial V}{\partial P_{1}^1}\\
+\vdots
+\frac{\partial V}{\partial H_{b(N)}^N} \\ 
+\frac{\partial V}{\partial P_{N}^N}
+\end{pmatrix}
++ \\
+&+ 
+\begin{pmatrix}
+0 & 0 & 0 & \cdots & 0 & 0 \\
+-H_b^v Ad_{H_b^0} & 0 & 0 & \cdots & 0 & 0 \\
+D_b Ad_{H_0^b} & 0 & 0 & \cdots & 0 & 0 \\
+0 & H_{b(1)}^1 Ad_{H_b^b(1)} & 0 &  & 0 & 0 \\
+0 & 0 & I_6 &  & 0 & 0 \\
+\vdots &  &  & \ddots &  & \\
+0 & 0 & 0 &  & H_{b(N)}^N Ad_{H_b^b(N)} & 0 \\
+0 & 0 & 0 &  & 0 & I_6
+\end{pmatrix}
+\begin{pmatrix}
+T_v^0 \\ T_{b(1)}^b \\ W_1^1 \\ \vdots \\ T_{b(N)}^b \\ W_N^N
+\end{pmatrix}
+\\
+\begin{pmatrix}
+W_v^{v,0} \\ W_{b(1)}^{b,b} \\ T_1^{1,0} \\ \vdots \\ W_{b(N)}^{b,b} \\ T_N^{N,0}
+\end{pmatrix}
+&= 
+\begin{pmatrix}
+0 & -Ad_{H_b^0}^T (H_b^v)^T  &  Ad_{H_0^b}^T D_b & 0 & 0 \cdots & 0 & 0 \\
+0 & 0 & 0 &  Ad_{H_b^b(1)}^T (H_{b(1)}^1)^T & 0 &  & 0 & 0 \\
+0 & 0 & 0 & 0 & I_6 &  & 0 & 0 \\
+\vdots & \vdots & \vdots &  &  & \ddots &  & \\ 
+0 & 0 & 0 & 0 & 0 &  & Ad_{H_b^b(N)}^T (H_{b(N)}^N)^T  \\
+0 & 0 & 0 & 0 & 0 & & 0 & I_6\\
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial V}{\partial H_b^0}\\
+\frac{\partial V}{\partial H_b^v}\\
+\frac{\partial V}{\partial P_b^b}\\
+\frac{\partial V}{\partial H_{b(1)}^1} \\ 
+\frac{\partial V}{\partial P_{1}^1}\\
+\vdots
+\frac{\partial V}{\partial H_{b(N)}^N} \\ 
+\frac{\partial V}{\partial P_{N}^N}
+\end{pmatrix}
+\end{aligned}
+$}
+\end{eqnarray}
+\end{landscape}      
 \section{The Intrinsically Passive Controller (IPC)}
 The IPC is a control architecture based entirely on physical intuition. The structure can be seen in Fig. \ref{FIG:IPCsprings}, it is exclusively a geometric interconnection of springs, inertias and dampers. The manipulators are connected with spatial springs to the object. The object is modelled by a virtual inertia and its shape is represented by a sphere that does no necessarily coincide with the actual shape. The resulting virtual object is subjected to forces exerted by the manipulator springs and is connected to the environment with another spatial spring. Note that these springs do not exist in reality, they are models to establish compliant behaviour in the controller domain. The simulated manipulator forces are then applied to the real object, in order to transfer the virtual complaint behaviour to the real world.\\
 \begin{figure}
