@@ -16,20 +16,17 @@
 \contentsline {subsubsection}{Springs}{18}{section*.8}
 \contentsline {subsubsection}{Variable rest-length springs}{19}{section*.9}
 \contentsline {subsubsection}{Inertias}{20}{section*.10}
-\contentsline {subsubsection}{Dampers}{21}{section*.11}
-\contentsline {section}{\numberline {2.3}Spring-mass-damper systems}{21}{section.2.3}
-\contentsline {section}{\numberline {2.4}Imposing constraints}{23}{section.2.4}
-\contentsline {subsubsection}{Constraints on rigid bodies}{25}{section*.12}
-\contentsline {chapter}{\numberline {3}port-Hamiltonian based control}{27}{chapter.3}
-\contentsline {section}{\numberline {3.1}Control architecture}{27}{section.3.1}
-\contentsline {section}{\numberline {3.2}The Intrinsically Passive Controller (IPC)}{30}{section.3.2}
-\contentsline {subsubsection}{Geometric interconnection of springs}{32}{section*.13}
-\contentsline {subsubsection}{Interconnection of springs and inertias}{33}{section*.14}
-\contentsline {subsubsection}{Adding damping}{34}{section*.15}
-\contentsline {section}{\numberline {3.3}Performance Comparison of control strategies}{35}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Internal impedance control with feed-forward of the object dynamics}{35}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Internal and external impedance based reference trajectory generation}{36}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Intrinsically Passive Controller (IPC)}{37}{subsection.3.3.3}
-\contentsline {chapter}{\numberline {4}Conclusion}{45}{chapter.4}
-\contentsline {chapter}{List of Figures}{47}{chapter.4}
-\contentsline {chapter}{Bibliography}{49}{chapter*.16}
+\contentsline {subsubsection}{Dampers}{22}{section*.11}
+\contentsline {section}{\numberline {2.3}Imposing constraints}{22}{section.2.3}
+\contentsline {subsubsection}{Constraints on rigid bodies}{24}{section*.12}
+\contentsline {section}{\numberline {2.4}Spring-mass-damper systems}{25}{section.2.4}
+\contentsline {chapter}{\numberline {3}port-Hamiltonian based control}{29}{chapter.3}
+\contentsline {section}{\numberline {3.1}Control architecture}{29}{section.3.1}
+\contentsline {section}{\numberline {3.2}Human guidance}{32}{section.3.2}
+\contentsline {section}{\numberline {3.3}Performance Comparison of control strategies}{33}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Internal impedance control with feed-forward of the object dynamics}{33}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Internal and external impedance based reference trajectory generation}{34}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Intrinsically Passive Controller (IPC)}{35}{subsection.3.3.3}
+\contentsline {chapter}{\numberline {4}Conclusion}{43}{chapter.4}
+\contentsline {chapter}{List of Figures}{45}{chapter.4}
+\contentsline {chapter}{Bibliography}{47}{chapter*.13}

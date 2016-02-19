@@ -7,15 +7,15 @@
 \BOOKMARK [1][-]{section.2.2}{3D-space modelling of mechanical systems}{chapter.2}% 7
 \BOOKMARK [2][-]{subsection.2.2.1}{Euclidean space and motions}{section.2.2}% 8
 \BOOKMARK [2][-]{subsection.2.2.2}{Dynamics of physical components}{section.2.2}% 9
-\BOOKMARK [1][-]{section.2.3}{Spring-mass-damper systems}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.4}{Imposing constraints}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{Imposing constraints}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.4}{Spring-mass-damper systems}{chapter.2}% 11
 \BOOKMARK [0][-]{chapter.3}{port-Hamiltonian based control}{}% 12
 \BOOKMARK [1][-]{section.3.1}{Control architecture}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.2}{The Intrinsically Passive Controller \(IPC\)}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.2}{Human guidance}{chapter.3}% 14
 \BOOKMARK [1][-]{section.3.3}{Performance Comparison of control strategies}{chapter.3}% 15
 \BOOKMARK [2][-]{subsection.3.3.1}{Internal impedance control with feed-forward of the object dynamics}{section.3.3}% 16
 \BOOKMARK [2][-]{subsection.3.3.2}{Internal and external impedance based reference trajectory generation}{section.3.3}% 17
 \BOOKMARK [2][-]{subsection.3.3.3}{Intrinsically Passive Controller \(IPC\)}{section.3.3}% 18
 \BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 19
 \BOOKMARK [0][-]{chapter.4}{List of Figures}{}% 20
-\BOOKMARK [0][-]{chapter*.16}{Bibliography}{}% 21
+\BOOKMARK [0][-]{chapter*.13}{Bibliography}{}% 21

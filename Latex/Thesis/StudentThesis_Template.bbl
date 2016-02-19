@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{DPEZ{\etalchar{+}}15}
+\begin{thebibliography}{SSVdSF05}
 
 \bibitem[BH96]{Bonitz_96}
 R.G. Bonitz and T.C. Hsia.
@@ -37,6 +37,12 @@ L.~De~Pascali, S.~Erhart, L.~Zaccarian, F.~Biral, and S.~Hirche.
 \newblock A decoupling scheme for force control in cooperative multi-robot
   manipulation tasks.
 \newblock {\em Manuscript submitted for publication}, 2015.
+
+\bibitem[DS09]{Duindam_09}
+V.~Duindam and S.~Stramigioli.
+\newblock {\em Modeling and Control for Efficient Bipedal Walking Robots}.
+\newblock Springer Tracts in Advanced Robotics. Springer-Verlag, Berlin
+  Heidelberg, 2009.
 
 \bibitem[EH15]{Erhart_15/2}
 S.~Erhart and S.~Hirche.
@@ -83,7 +89,8 @@ L.~Han, J.C. Trinkle, and Z.X. Li.
 Dongjun Lee and M.W. Spong.
 \newblock Bilateral teleoperation of multiple cooperative robots over delayed
   communication networks: Theory.
-\newblock pages 360--365, April 2005.
+\newblock {\em Robotics and Automation (ICRA), International Conference on},
+  pages 360--365, April 2005.
 
 \bibitem[LTD14]{MHI-MEISTeR}
 Mitsubishi Heavy~Industries LTD.
@@ -105,6 +112,12 @@ G.~Niemeyer, C.~Preusche, and G.~Hirzinger.
   Handbook of Robotics}, chapter~31, pages 741--757. Springer Berlin
   Heidelberg, May 2008.
 \newblock ISBN 978-3-540-23957-4.
+
+\bibitem[NS04]{Niemeyer_04}
+G.~Niemeyer and J.J.E. Slotine.
+\newblock Telemanipulation with time delays.
+\newblock {\em International Journal on Robotics Research}, 23(9):873--890, Sep
+  2004.
 
 \bibitem[SC92]{Schneider_92}
 S.A. Schneider and R.H. Cannon.
@@ -143,6 +156,11 @@ S.~Scheggi, F.~Morbidi, and D.~Prattichizzo.
   feedback.
 \newblock {\em Haptics, IEEE Transactions on}, 7(4):499--511, Oct 2014.
 
+\bibitem[SSVdSF05]{Stramigioli_05}
+S.~Stramigioli, C.~Secchi, A.J. Van~der Schaft, and C.~Fantuzzi.
+\newblock Sampled data systems passivity and discrete port-hamiltonian systems.
+\newblock {\em IEEE Transactions on Robotics}, 21(4):574--587, Aug 2005.
+
 \bibitem[Str01a]{Stramigioli_01b}
 Stefano Stramigioli.
 \newblock Geometric modeling of mechanical systems for interactive control.
@@ -179,6 +197,12 @@ Arjan van~der Schaft.
 \newblock In A.~Ilchmann and T.~Reis, editors, {\em Surveys in
   Differential-Algebraic Equations I}, Differential-Algebraic Equations Forum,
   pages 173--226. Springer Berlin, 2013.
+
+\bibitem[vdSJ14]{Schaft_14}
+Arjan van~der Schaft and Dimitri Jeltsema.
+\newblock {\em Port.Hamiltonian Systems Theory: An Introductory Overview}.
+\newblock Foundations and Trends in Systems and Control. NOW Publishing Inc.,
+  Hanover, MA, 2014.
 
 \bibitem[WKD92]{Wen_92}
 J.~Wen and K.~Kreutz-Delgado.

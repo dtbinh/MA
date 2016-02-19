@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  8 FEB 2016 20:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  19 FEB 2016 14:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -685,20 +685,20 @@ File: pgflibraryplotmarks.code.tex 2013/07/20 v3.0.0 (rcs-revision 1.13)
 ))) (/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks45
+\verbatim@line=\toks46
+\verbatim@in@stream=\read2
+)
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
-\inpenc@prehook=\toks45
-\inpenc@posthook=\toks46
+\inpenc@prehook=\toks47
+\inpenc@posthook=\toks48
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks47
-\verbatim@line=\toks48
-\verbatim@in@stream=\read2
-)
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip50
 \f@ncyO@elh=\skip51
@@ -1072,18 +1072,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [13 <./diracstructure.png (PNG copy)>]
 
-LaTeX Warning: Citation `Schaft14' on page 14 undefined on input line 560.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [14]
-
-LaTeX Warning: Citation `Schaft_14' on page 15 undefined on input line 610.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1119,7 +1113,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18] <variablespring.jpg, id=335, 770.12718pt x 289.08pt>
+[18] <variablespring.jpg, id=338, 770.12718pt x 289.08pt>
 File: variablespring.jpg Graphic file (type jpg)
 
 <use variablespring.jpg>
@@ -1147,14 +1141,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [21]
-Overfull \hbox (3.81902pt too wide) in alignment at lines 803--813
- [][][] []
- []
-
-
-Underfull \vbox (badness 2772) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1183,35 +1169,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [25]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[26]
-Chapter 3.
-
-LaTeX Warning: Reference `EQ:externalimpedance,EQ:internalimpedance' on page 27
- undefined on input line 969.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[27
-
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[28]
-Overfull \hbox (7.48381pt too wide) in alignment at lines 971--1036
+Overfull \hbox (3.81902pt too wide) in alignment at lines 957--967
  [][][] []
  []
 
@@ -1221,51 +1179,60 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29
+[26]
 
-] <IPCsprings.png, id=436, 890.5772pt x 624.83438pt>
-File: IPCsprings.png Graphic file (type png)
- <use IPCsprings.png>
-Package pdftex.def Info: IPCsprings.png used on input line 1042.
-(pdftex.def)             Requested size: 341.43436pt x 239.54659pt.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1039--1047
+[27]
 
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28
+
+]
+Chapter 3.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[29]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30]
+Overfull \hbox (7.5253pt too wide) in alignment at lines 1040--1105
+ [][][] []
  []
 
 
-Underfull \vbox (badness 1331) has occurred while \output is active []
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
+[31
 
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30
+[32
 
- <./IPCsprings.png (PNG copy)>]
-<IPCobjects.png, id=447, 773.13844pt x 543.53062pt>
-File: IPCobjects.png Graphic file (type png)
- <use IPCobjects.png>
-Package pdftex.def Info: IPCobjects.png used on input line 1057.
-(pdftex.def)             Requested size: 341.43436pt x 240.03333pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[31 <./IPCobjects.png (PNG copy)>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[32]
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1273,20 +1240,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [33]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[34]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[35]
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransPosition.txt
 }
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosit
@@ -1298,12 +1251,12 @@ ity.txt}
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransManipWrench.
 txt}
 
-Underfull \hbox (badness 10000) in paragraph at lines 1213--1260
+Underfull \hbox (badness 10000) in paragraph at lines 1317--1364
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1213--1260
+Underfull \hbox (badness 10000) in paragraph at lines 1317--1364
 []
  []
 
@@ -1323,23 +1276,23 @@ PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchtx.txt}
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchty.txt}
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchrz.txt}
 
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1351
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1455
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1351
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1455
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1351
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1455
 []
  []
 
 
-LaTeX Warning: Reference `EQ:ObjectDynamics' on page 36 undefined on input line
- 1363.
+LaTeX Warning: Reference `EQ:ObjectDynamics' on page 34 undefined on input line
+ 1467.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1347,7 +1300,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36]
+[34]
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Position.txt}
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredPosition.
 txt}
@@ -1357,12 +1310,12 @@ txt}
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_trans_Manipulato
 rWrench_tx.txt}
 
-Underfull \hbox (badness 10000) in paragraph at lines 1394--1431
+Underfull \hbox (badness 10000) in paragraph at lines 1498--1535
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1394--1431
+Underfull \hbox (badness 10000) in paragraph at lines 1498--1535
 []
  []
 
@@ -1387,22 +1340,22 @@ nch_ty.txt"}
 PGFPlots: reading {"/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wre
 nch_rz.txt"}
 
-Underfull \hbox (badness 10000) in paragraph at lines 1462--1522
+Underfull \hbox (badness 10000) in paragraph at lines 1566--1626
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1462--1522
+Underfull \hbox (badness 10000) in paragraph at lines 1566--1626
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1462--1522
+Underfull \hbox (badness 10000) in paragraph at lines 1566--1626
 []
  []
 
 
-Overfull \hbox (1.88338pt too wide) in paragraph at lines 1527--1528
+Overfull \hbox (1.88338pt too wide) in paragraph at lines 1631--1632
 []\OT1/cmr/m/n/12 This ar-chi-tec-ture in con-trast to the pre-vi-ous makes use
  of mea-sured con-tact wrenches.
  []
@@ -1418,17 +1371,17 @@ ity.txt}
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransManipulatorW
 renchtx.txt}
 
-Underfull \hbox (badness 10000) in paragraph at lines 1553--1591
+Underfull \hbox (badness 10000) in paragraph at lines 1657--1695
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1553--1591
+Underfull \hbox (badness 10000) in paragraph at lines 1657--1695
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1553--1591
+Underfull \hbox (badness 10000) in paragraph at lines 1657--1695
 []
  []
 
@@ -1451,25 +1404,39 @@ txt}
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchrz.
 txt}
 
-Underfull \hbox (badness 10000) in paragraph at lines 1622--1683
+Underfull \hbox (badness 10000) in paragraph at lines 1726--1787
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1622--1683
+Underfull \hbox (badness 10000) in paragraph at lines 1726--1787
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1622--1683
+Underfull \hbox (badness 10000) in paragraph at lines 1726--1787
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1622--1683
+Underfull \hbox (badness 10000) in paragraph at lines 1726--1787
 []
  []
 
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[35]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[36]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1511,7 +1478,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[42]
+[42
+
+]
+Chapter 4.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1527,15 +1497,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [44
 
-]
-Chapter 4.
+] (./StudentThesis_Template.lof)
+\tf@lof=\write7
+\openout7 = `StudentThesis_Template.lof'.
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[45]
+[45
+
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1544,11 +1519,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [46
 
-] (./StudentThesis_Template.lof)
-\tf@lof=\write7
-\openout7 = `StudentThesis_Template.lof'.
-
-
+] (./StudentThesis_Template.bbl
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1564,18 +1535,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[48
-
-] (./StudentThesis_Template.bbl
+[48]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[49
-
-]
+[49])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1589,33 +1556,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[51])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[52]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[53
+[51
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1763.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1763.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1867.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1867.
  (./StudentThesis_Template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1763.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1763.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1867.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1867.
 
 Package rerunfilecheck Info: File `StudentThesis_Template.out' has not changed.
 
-(rerunfilecheck)             Checksum: 597EA451B3FCF2A14BFC29DB3D8444F7;1612.
+(rerunfilecheck)             Checksum: 83BA4D2D86F8E6094EA8D4FC42B587CC;1582.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1623,13 +1576,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1763.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1867.
  ) 
 Here is how much of TeX's memory you used:
- 28285 strings out of 493304
- 655863 string characters out of 6139871
- 3432472 words of memory out of 5000000
- 30945 multiletter control sequences out of 15000+600000
+ 28280 strings out of 493304
+ 655763 string characters out of 6139871
+ 3432315 words of memory out of 5000000
+ 30935 multiletter control sequences out of 15000+600000
  13694 words of font info for 47 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  69i,22n,100p,1717b,2172s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1649,10 +1602,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on StudentThesis_Template.pdf (57 pages, 1432826 bytes).
+Output written on StudentThesis_Template.pdf (55 pages, 1193722 bytes).
 PDF statistics:
- 705 PDF objects out of 1000 (max. 8388607)
- 617 compressed objects within 7 object streams
- 190 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 699 PDF objects out of 1000 (max. 8388607)
+ 615 compressed objects within 7 object streams
+ 197 named destinations out of 1000 (max. 500000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -32,12 +32,12 @@ M2bar = (S2'*M2^-1*S2)^-1
 
 %checking if b(x)dH/dx = 0 fulfills b(x)dH/dxb'(x) has full rank cf.
 %Ilchmann p. 201
-syms HgR HgT HvR HvT PvR PvT H1R H1T P1R P1T H2R H2T P2R P2T Sr1 Sr2
+syms
 
-b = [0 0 0 0 -1 0 0 0 1 0 0 0 0 0 ;
-     0 0 0 0 Sr1 -1 0 0 0 1 0 0 0 0 ;
-     0 0 0 0 -1 0 0 0 0 0 0 0 1 0 ;
-     0 0 0 0 Sr2 -1 0 0 0 0 0 0 0 1];
+b = [0 0 0 0 -1 0 0 0 1 0 0 0 0 0 0 0;
+     0 0 0 0 Sr1 -1 0 0 0 1 0 0 0 0 0 0;
+     0 0 0 0 -1 0 0 0 0 0 0 0 1 0 0 0;
+     0 0 0 0 Sr2 -1 0 0 0 0 0 0 0 1 0 0];
  
- dHdx2 = [HgR; HgT; HvR; HvT; PvR; PvT; H1R; H1T; P1R; P1T; H2R; H2T; P2R; P2T]; 
+ dHdx2 = [HgR; HgT; HvR; HvT; PvR; PvT; H1R; H1T; P1R; P1T; H2R; H2T;  
      
