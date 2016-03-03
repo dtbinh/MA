@@ -18,15 +18,16 @@
 \contentsline {subsubsection}{Inertias}{20}{section*.10}
 \contentsline {subsubsection}{Dampers}{22}{section*.11}
 \contentsline {section}{\numberline {2.3}Imposing constraints}{22}{section.2.3}
-\contentsline {subsubsection}{Constraints on rigid bodies}{24}{section*.12}
-\contentsline {section}{\numberline {2.4}Spring-mass-damper systems}{25}{section.2.4}
-\contentsline {chapter}{\numberline {3}port-Hamiltonian based control}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}Control architecture}{29}{section.3.1}
-\contentsline {section}{\numberline {3.2}Human guidance}{32}{section.3.2}
-\contentsline {section}{\numberline {3.3}Performance Comparison of control strategies}{33}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Internal impedance control with feed-forward of the object dynamics}{33}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Internal and external impedance based reference trajectory generation}{34}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Intrinsically Passive Controller (IPC)}{35}{subsection.3.3.3}
-\contentsline {chapter}{\numberline {4}Conclusion}{43}{chapter.4}
-\contentsline {chapter}{List of Figures}{45}{chapter.4}
-\contentsline {chapter}{Bibliography}{47}{chapter*.13}
+\contentsline {subsubsection}{Constraints for 6D-motion}{24}{section*.12}
+\contentsline {subsubsection}{Constraints on rigid bodies}{26}{section*.13}
+\contentsline {section}{\numberline {2.4}Spring-mass-damper systems}{28}{section.2.4}
+\contentsline {chapter}{\numberline {3}port-Hamiltonian based control}{31}{chapter.3}
+\contentsline {section}{\numberline {3.1}Control architecture}{31}{section.3.1}
+\contentsline {section}{\numberline {3.2}Human guidance}{34}{section.3.2}
+\contentsline {section}{\numberline {3.3}Performance Comparison of control strategies}{35}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Internal impedance control with feed-forward of the object dynamics}{35}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Internal and external impedance based reference trajectory generation}{36}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Intrinsically Passive Controller (IPC)}{37}{subsection.3.3.3}
+\contentsline {chapter}{\numberline {4}Conclusion}{39}{chapter.4}
+\contentsline {chapter}{List of Figures}{41}{chapter.4}
+\contentsline {chapter}{Bibliography}{43}{chapter*.14}

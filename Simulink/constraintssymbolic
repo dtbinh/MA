@@ -1,0 +1,13 @@
+syms jb mb ji mi pbi real
+
+S = [1 0;
+    0 1;
+    ji*jb^-1 0;
+    mi*pbi*jb^-1 mi*mb^-1];
+
+M = [jb^-1 0 0 0;
+    0 mb^-1 0 0;
+    0 0 ji^-1 0;
+    0 0 0 mi^-1];
+
+M*S

@@ -757,7 +757,7 @@ Ad_{H_0^b}^T \dot{P}_b^b -Ad_{H_0^b}^T ad_{T_b^{b,0}}^T P_b^b &= Ad_{H_0^b}^T W_
 \end{aligned} 
 \end{eqnarray}
 This formulation is split into its rotational and translational components, then we can exchange twist and momentum by the following operation
-\begin{equation}
+\begin{equation}\label{EQ:centripetaldetail}
 \begin{pmatrix}
 \dot{P}_{b,\omega}^b \\ \dot{P}_{b,v}^b \end{pmatrix} = \begin{pmatrix}
 -\tilde{\omega}_b^{b,0} & -\tilde{v}_b^{b,0} \\ 0 & -\tilde{\omega}_b^{b,0}\end{pmatrix} \begin{pmatrix}
@@ -832,7 +832,7 @@ The interconnection of a spring and an inertia is the the ideal pair in terms of
 \begin{equation}
 A^T(q)\dot{q}=0
 \end{equation}
-We call $A(q)$ the \emph{constraint} matrix. The associated internal forces are given by $A(q)\lambda$, the \emph{Lagrange} multipliers are uniquely defined if the constraints are satisfied. In this case the constraint forces do not influence the energy of the system since $\lambda^T (A^T(q)\dot{q}) = 0$. Consequently the port-Hamiltonian system becomes a mixed set of differential and algebraic equations (DAE).
+We call $A(q)$ the \emph{constraint} matrix. The associated internal forces are given by $A(q)\lambda$, the \emph{Lagrange} multipliers $\Lambda$ are uniquely defined if the constraints are satisfied. In this case the constraint forces do not influence the energy of the system since $\lambda^T (A^T(q)\dot{q}) = 0$. Consequently the port-Hamiltonian system becomes a mixed set of differential and algebraic equations (DAE).
 \begin{eqnarray}\label{EQ:PHSpconstrained}
 \begin{aligned}
 \begin{pmatrix}
@@ -851,46 +851,257 @@ We call $A(q)$ the \emph{constraint} matrix. The associated internal forces are 
 \end{eqnarray}
 The system is no longer described in the input-output form, but in an implicit form. Several approaches to solve the algebraic equations and restore the desired input-output form exist. We introduce two methods leading to different results, first in a simple symbolic representation and then apply them two the 6-DoF space.\\
 The first method (described e.g. in \cite{Duindam_09}) uses the time-derivation of the constraints.
-\begin{equation}
+\begin{equation}\label{EQ:constraintderivative}
 0 = \frac{d}{dt}\left(A^T(q)\frac{\partial V}{\partial p}\right)
 \end{equation}
-Using the property $\frac{\partial V}{\partial p}=M^{-1}p$ for an energy function of the form $V = \frac{1}{2}p^TM^{-1}p$ and computing $\dot{A}^T(q)=\frac{\partial A^T(q)}{\partial q}\dot{q}$ for a time-dependent $q(t)$, we get
-\begin{equation}
-0 = \dot{A}^TM^{-1}p + A^TM^{-1}\dot{p} = \frac{\partial A^T}{\partial q}\frac{\partial V}{\partial p}M^{-1}p + A^TM^{-1}\left(-\frac{\partial V}{\partial q}+A(q)\lambda +g(q)f\right)
-\end{equation}
+We use the property $\frac{\partial V}{\partial p}=M^{-1}p$ for an energy function of the form $V = \frac{1}{2}p^TM^{-1}p + V_q$. Since $q(t)$ is time-dependent \emph{indirect dependencies} arise in $A(q),p(q)$ when calculating the total time-derivative
+\begin{eqnarray}
+\begin{aligned}
+0 &= \frac{d}{dt}(A^TM^{-1}p) = \frac{\partial (A^TM^{-1}p)}{\partial q}\dot{q} + A^TM^{-1}\dot{p} = \\ &= \frac{\partial (A^TM^{-1}p)}{\partial q}M^{-1}p + A^TM^{-1}\left(-\frac{\partial V}{\partial q}+A(q)\lambda +g(q)f\right)
+\end{aligned}
+\end{eqnarray}
 Solving this equation for $\lambda$ gives
-Consider the simple example of two masses $m_1,m_2$ rigidly connected with distance $c$.
-The configuration coordinates are thus $q_1 = q_2 + c$, time-derivation gives the constraint equation
-
 \begin{equation}
- 0 = \dot{q}_1 - \dot{q}_2 = \frac{\partial V}{\partial p_1} - \frac{\partial V}{\partial p_2} = \underbrace{(1 \; -1)}_{A(q)^T} \begin{pmatrix}
-\frac{\partial V}{\partial p_1} \\ \frac{\partial V}{\partial p_2}
-\end{pmatrix} \end{equation}
+\lambda = (A^T M^{-1} A)^{-1} \left(-\frac{\partial (A^TM^{-1}p)}{\partial q}M^{-1}p + \frac{\partial V}{\partial q} - gf\right)
+\end{equation}
+This is an analytic expression for the constrained forces, $\lambda$ is re-inserted into eq. (\ref{EQ:PHSpconstrained}) and we obtain a set of ODEs in input-output form. Note that the forces $\lambda$ keep the velocities $A(q)\dot{q}$, i.e. if the constraint $A(q)\dot{q}=0$ was satisfied in the beginning it will remain satisfied.\\
+Another approach is to find new coordinates for the momentum that limit the \emph{phase space} $(q,p)$ to motions fulfilling the constraints. Therefore we introduce the transformation
+\begin{equation}
+p = S(q)\bar{p}
+\end{equation}
+The definition of $S(q)$ is directly given by the constraint 
+\begin{equation}
+0 = A^T(q) M^{-1} p = A^T(q) M^{-1} S(q) \bar{p}
+\end{equation}
+S(q) is thus the \emph{kernel} of $A^T(q) M^{-1}$. The transformation is energy-conservative i.e.
+\begin{equation}
+\bar{V}(q,\bar{p}) := \frac{1}{2}\bar{p}^T\bar{M}^{-1}\bar{p} + V_q = \frac{1}{2}p^TM^{-1}p + V_q = V(q,p)
+\end{equation}
+Thus the constrained inertia matrix is $\bar{M} = (S^TM^{-1}S)^{-1}$.   
+We start re-writing eq. (\ref{EQ:PHSpconstrained}) using $p = S(q)\bar{p}$ and obtain
+\begin{eqnarray}
+\begin{aligned}
+\dot{q} &= \frac{\partial V}{\partial p} = M^{-1}p = M^{-1}S\bar{p} = M^{-1}S\bar{M}\bar{M}^{-1}\bar{p} = M^{-1}S\bar{M}\frac{\partial \bar{V}}{\partial \bar{p}}\\
+\dot{p} &= \frac{d}{dt}(S(q)\bar{p}) = \frac{\partial(S\bar{p})}{\partial q} \dot{q} +S\dot{\bar{p}} = -\frac{\partial V}{\partial q} + A\lambda + gf
+\end{aligned}
+\end{eqnarray}
+Towards a standard port-Hamiltonian representation we are seeking to express the last equation in the form $\dot{\bar{p}} = ...$. Therefore the equation is pre-multiplied with $\bar{M}S^TM^{-1}$
+\begin{eqnarray}\label{EQ:PHSconstrainedpremult}
+\begin{aligned}
+\bar{M}S^TM^{-1}\frac{\partial(S\bar{p})}{\partial q} \dot{q} + \bar{M}\underbrace{S^TM^{-1}S}_{\bar{M}^{-1}}\dot{\bar{p}} = \bar{M}S^TM^{-1}\left(-\frac{\partial V}{\partial q} + A\lambda + gf\right)
+\end{aligned}
+\end{eqnarray}
+For a symmetric $M$ we have $(S^TM^{-1}A)^T = A^T(q) M^{-1} S(q) = 0$. Since $S(q)$ is dependent on $q$ we need to consider indirect dependencies when differentiating 
+\begin{equation}
+\frac{\partial \bar{V}}{\partial q} = \frac{\partial V}{\partial q} + \frac{\partial^T (S(q) \bar{p})}{\partial q}\dot{q} = \frac{\partial V}{\partial q} + \frac{\partial^T (S(q) \bar{p})}{\partial q}M^{-1}S\bar{M}\frac{\partial \bar{V}}{\partial \bar{p}}
+\end{equation}
+Inserting this into eq. (\ref{EQ:PHSconstrainedpremult}) and re-arranging we desired port-Hamiltonian representation
+\begin{eqnarray}
+\begin{aligned}
+\begin{pmatrix}
+\dot{q} \\ \dot{\bar{p}}
+\end{pmatrix} &= 
+\begin{pmatrix}
+0 & M^{-1}S\bar{M} \\
+\bar{M}S^TM^{-1} & \bar{M}S^TM^{-1}\left(\frac{\partial^T (S(q) \bar{p})}{\partial q} - \frac{\partial (S(q) \bar{p})}{\partial q}\right)M^{-1}S\bar{M}
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial \bar{V}}{\partial q} \\
+\frac{\partial \bar{V}}{\partial \bar{p}}
+\end{pmatrix} + \\
+&+ 
+\begin{pmatrix}
+0 \\ \bar{M}S^TM^{-1}
+\end{pmatrix}f
+\end{aligned}
+\end{eqnarray}
+Conclusively we have obtained two different representations of constrained systems in input-output form. The first one allows explicitly to calculate the constraint forces necessary to comply with the constraints. The second one restricts the possible motion and results in a system of reduced \emph{degrees of freedom}. We see in the remainder that the first can be exploited for control issues. The latter gives a system model, useful when describing the response to an external wrench acting on the common object.
 
-The unconstrained pHs is given according to equation (\ref{EQ:generalPHS})
-\[\begin{pmatrix}\dot{q_1} \\ \dot{q_2}\end{pmatrix} = \begin{pmatrix}
-\frac{\partial V}{\partial p_1} \\ \frac{\partial V}{\partial p_2}
-\end{pmatrix} \]
-\[\begin{pmatrix}\dot{p_1} \\ \dot{p_2}\end{pmatrix} = -\begin{pmatrix}
-\frac{\partial V}{\partial q_1} \\ \frac{\partial V}{\partial q_2}
-\end{pmatrix}  + \begin{pmatrix}g_1(q) & 0 \\ 0 & g_2(q)\end{pmatrix} \begin{pmatrix}f_1 \\ f_2\end{pmatrix}
-\]
-%\[e = g(q)^T \frac{\partial H}{\partial p}\]
-The configuration coordinates are thus $q_1 = q_2 + c$, time derivation gives $\dot{q_1}=\dot{q_2}$.
-This \emph{kinematic} constraint can be written with respect to the pHs-formulation
 
-The interaction forces that arise due to the constraints can be described using the \emph{Lagrange} multiplier $\lambda$ (see \cite{Schaft_13} for details). The general representation of constrained pHs is thus given by
+\subsubsection{Constraints for 6D-motion}  
 
-This description is a mixed set of differential and algebraic equations (DAE). The algebraic constraints can be solved and the Lagrange multiplier be eliminated by multiplying equation (\ref{EQ:PHSpconstrained}) with a suitable matrix $S(q)$ subject to $A^T(q)S(q) = 0$. Therefore $S(q)$ can be chosen to be the \emph{kernel} of $A^T(q)$: $S(q) = ker \, A^T$.
-The resulting equation is
-\[S^T(q)\dot{p} = -S^T(q)\frac{\partial V}{\partial q} +S^T(q)g(q)f \]
-Following \cite{Schaft_13} we can introduce a a coordinate transformation 
-\begin{equation}\label{EQ:cooordtransmom}p \mapsto \bar{p}: \bar{p} = S^T(q)p \end{equation}
-The transformed equation is obtained as
-\[\dot{\bar{p}} = -S^T(q)\frac{\partial \bar{V}}{\partial q} -p^T [S_i,S_j]_{i,j} \frac{\partial \bar{V}}{\partial \bar{p}} + \bar{g}(q)f \]
-Where the Hamiltonian $\bar{V} = \frac{1}{2}\bar{p}^T\bar{M}^{-1}(q)\bar{p}$ is also expressed in transformed coordinates, the same is done with the input matrix $\bar{g}(q)$. $ [S_i,S_j] $ is the \emph{Lie bracket} of the $i$ and $j$-th column of $S$:
-\[[S_i,S_j] = \frac{\partial S_j}{\partial q}S_i - \frac{\partial S_i}{\partial q}S_j\] The output equation finally becomes 
-\[ \bar{e} = \bar{g}^T(q) \frac{\partial \bar{V}}{\partial \bar{p}} \]
+When it comes to constraints in six dimensions of freedom it is necessary to revisit the concept of twists used throughout this thesis. Recall the definition of a twist from eq. (\ref{EQ:righttranslation}) being
+\begin{eqnarray}
+\begin{aligned}
+T_i^j &= \dot{H}_i^j H_j^i =
+\begin{pmatrix}
+\dot{R}_i^j & \dot{p}_i^j \\ 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+R_j^i & p_j^i \\ 0 & 1
+\end{pmatrix} = 
+\begin{pmatrix}
+\dot{R}_i^j & \dot{p}_i^j \\ 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+(R_i^j)^T & -(R_i^j)^Tp_i^j \\ 0 & 1
+\end{pmatrix} = \\ &= 
+\begin{pmatrix}
+\dot{R}_i^j(R_i^j)^T & -\dot{R}_i^j(R_i^j)^Tp_i^j + \dot{p}_i^j \\ 0 & 0
+\end{pmatrix} =: 
+\begin{pmatrix}
+\tilde{\omega}_i^j & v_i^j \\ 0 & 0
+\end{pmatrix}
+\end{aligned}
+\end{eqnarray}
+It is clear from this equation that the linear velocity part $v_i^j$ is not the velocity of the frame $\Psi_i$ with respect to $\Psi_j$, identified by $\dot{p}_i^j$. This twist representation is described by the \emph{screw theory} (see e.g. \cite{KinematicsHandbook}). It can be visualized by the angular velocity around an axis and the linear velocity along this axis.
+Consider rigidly connected two bodies, associated with the frames $\Psi_b$ and $\Psi_i$ and a distance between them $p_i^b = p_i^0 - p_b^0$. Clearly, in the setting of cooperative manipulation, one can think of an object $b$ and the $i$-th manipulator attached to it. Now let the body $b$ rotate with the angular velocity $\omega_b^0$. Being rigidly attached the body $i$ rotates in the same manner, $\omega_i^0 = \omega_b^0$. The translation of body $i$ is expressed dependent on body $b$ by 
+\begin{eqnarray}
+\begin{aligned}
+\dot{p}_i^0 &= \dot{p}_b^0 + \omega_b^0 \times p_i^b = \dot{p}_b^0 + \omega_b^0 \times (p_i^0-p_b^0) \\
+\dot{p}_i^0 - \omega_b^0 \times p_i^0 &= \dot{p}_b^0 - \omega_b^0 \times p_b^0 \\
+v_i^0 &= v_b^0
+\end{aligned}
+\end{eqnarray}
+This immediately leads to $T_i^0 = T_b^0$. For a system if $i=1...N$ manipulators we can thus write the constraining condition
+\begin{equation}
+0 = A^T T = \begin{pmatrix}
+-I_3 & 0_3 & I_3 & 0_3 & & & \\
+0_3 & -I_3 & 0_3 & I_3 & & & \\
+\vdots & \vdots & & & \ddots & & & \\
+- I_3 & 0_3 & & & & I_3 & 0_3 \\
+0_3 & -I_3 & & & & 0_3 & I_3 
+\end{pmatrix}
+\begin{pmatrix}
+T_b^0 \\ T_1^0 \\ \vdots \\ T_N^0
+\end{pmatrix}
+\end{equation}
+We start applying the first method presented int the previous subsection by differentiating the constraints.
+The constraint matrix $A$ is not time dependent, eq. (\ref{EQ:constraintderivative}) simplifies to
+\begin{equation}
+0 = \frac{d}{dt}A^TT = A^T\dot{T} = A^TM^{-1}\dot{P}
+\end{equation}
+First of all we look at the twist's time-derivative and obtain an equivalent formulation of constraint dynamics as for a classic approach e.g. \cite{Erhart_16}.
+Consider the time-derivative of the constraint for the rigidly connected bodies $b$ and $i$.
+\begin{eqnarray}
+\begin{aligned}
+0 &= \dot{T}_i^0 - \dot{T}_b^0 = \begin{pmatrix}
+\dot{\omega}_i^0 - \dot{\omega}_b^0 \\ \dot{v}_i^0 - \dot{v}_b^0
+\end{pmatrix} =
+\begin{pmatrix}
+\dot{\omega}_i^0 - \dot{\omega}_b^0 \\ \frac{d}{dt}(\dot{p}_i^0 - \omega_b^0 \times p_i^0) - \frac{d}{dt}(\dot{p}_b^0 - \omega_b^0 \times p_b^0)
+\end{pmatrix}= 
+%\\ &=
+%\begin{pmatrix}
+%\dot{\omega}_i^0 - \dot{\omega}_b^0 \\
+%\ddot{p_i^0} - \dot{\omega}_b^0 \times p_i^0 - \omega_b^0 \times (\omega_b^0 \times p_i^0) - \ddot{p_b^0} + \dot{\omega}_b^0 \times p_b^0 - \omega_b^0 \times (\omega_b^0 \times p_b^0) 
+%\end{pmatrix} =
+\\ &=
+\begin{pmatrix}
+\dot{\omega}_i^0 - \dot{\omega}_b^0 \\
+\ddot{p}_i^0 - \ddot{p}_b^0 - \dot{\omega}_b^0 \times p_i^b - \omega_b^0 \times (\omega_b^0 \times p_i^b)
+\end{pmatrix}
+\end{aligned}
+\end{eqnarray}
+The chosen twist representation fulfils the second-order dynamic requirements including centripetal terms.\\
+Towards solving the set of DAEs, we insert the port-Hamiltonian representations into the constraint equation
+\begin{eqnarray}
+\begin{aligned}
+0 = A^T M^{-1} \dot{P} = A^T M^{-1}(W+CT+A\lambda)
+\end{aligned}
+\end{eqnarray}
+and solve for $\lambda$
+\begin{equation}
+\lambda = -(A^TM^{-1}A)^{-1}A^TM^{-1}(W+CT)
+\end{equation}
+Consider again the example of two rigidly connected bodies $b$ and $i$. Let us first examine the part $A^TM^{-1}CT$, using eq. (\ref{EQ:centripetaldetail}) and assuming that the bodies share the orientation $R_0^b = R_0^i$, we obtain
+\begin{eqnarray}
+\begin{aligned}
+A^TM^{-1}\begin{pmatrix}
+C_b T_b^{b,0} \\ C_i T_i^{i,0}
+\end{pmatrix} &= \begin{pmatrix}
+0 \\ \tilde{\omega}_b^{b,0} v_b^{b,0} - \tilde{\omega}_i^{i,0} v_i^{i,0} 
+\end{pmatrix} = \\ &=
+\begin{pmatrix}0 \\
+\tilde{\omega}_b^{b,0} \tilde{p}_b^0 R_0^b \omega_b^0 + \tilde{\omega}_b^{b,0} R_0^b v_b^0 - \tilde{\omega}_b^{b,0} \tilde{p}_i^0 R_0^b \omega_b^0 - \tilde{\omega}_b^{b,0} R_0^b v_i^0
+\end{pmatrix} = \\ &=
+\begin{pmatrix}0 \\
+\tilde{\omega}_b^{b,0} (\tilde{p}_b^0-\tilde{p}_i^0) \omega_b^{b,0} \end{pmatrix} = \begin{pmatrix}0 \\
+\tilde{\omega}_b^{b,0} \tilde{p}_b^i \omega_b^{b,0}
+\end{pmatrix}
+\end{aligned}
+\end{eqnarray}
+Once again we have obtained a term for the centripetal acceleration, the resulting $\lambda$ is
+\begin{equation}
+\lambda = \left[A^TM^{-1}A)^{-1}(M_b^{-1}W_b^b -M_i^{-1}W_i^i  + \begin{pmatrix}0 \\
+\omega_b^{b,0} \times (\omega_b^{b,0} \times {p}_b^i)
+\end{pmatrix}\right]
+\end{equation}
+This example shows how kinematic constraints can be solved by calculating the constraint forces. The results are equivalent to approaches based on the \emph{Gauss' principle of least constraint} (\cite{Erhart_16}) or \emph{Euler-Lagrange} representations (\cite{Liu_02}).\\
+The other fore-mentioned approach of restricting the possible motion starts with finding a matrix $S$ fulfilling $0 = A^TM^{-1}S \bar{P}$ for every $\bar{P}$. Thus we require $0 = A^TM^{-1}S$. Consider the example of two rigidly connected bodies $b$ and $i$, we can write the constraint equation
+\begin{equation}
+0 = A^T\begin{pmatrix}
+T_b^0 \\ T_i^0\end{pmatrix} = A^T \begin{pmatrix}
+Ad_{H_b^0} & 0 \\ 0 & Ad_{H_i^0}\end{pmatrix}
+\begin{pmatrix}
+M_b^{-1} & 0 \\ 0 & M_i^{-1} 
+\end{pmatrix}
+\begin{pmatrix}
+P_b^{b} \\ P_i^{i}
+\end{pmatrix}
+\end{equation}
+Now we introduce the transformation $P = S\bar{P}$
+In an object-centred cooperative manipualtion case $\bar{P}$ clearly corresponds to the twist of the common object. Starting from $T_i^0 = T_b^0$ towards $T_i^{i,0} = Ad_{H_b^i} T_b^{b,0}$ we find 
+\begin{equation}
+S = \begin{pmatrix}
+I_3 & 0 \\
+0 & I_3 \\
+j_ij_b^{-1} & 0\\
+m_i\tilde{p}_b^i j_b^{-1}& m_im_b^{-1} 
+\end{pmatrix}
+\end{equation}
+
+
+ 
+
+
+%Note that the wrench representation is based on a torque $\tau$ taking effect around a screw axis and a linear force $f$ acting along this axis. (citation would be good)
+%\begin{equation}
+%W = \begin{pmatrix}
+%m \\ f \end{pmatrix} =  \begin{pmatrix}r \times f + \tau \\ f\end{pmatrix}
+%\end{equation}
+%Consider the example of two constrained bodies $b$ and $i$, we examine the first part of the constraint $A^TM^{-1}W$. Furthermore assume that the applied forces satisfy the constraints $M_b^{-1}W_b^0 = M_i^{-1}W_i^0$. Taking the screw representation into account one obtains
+%\begin{equation}
+%0 = \begin{pmatrix}
+%j_i^{-1} & 0 \\ 0 & m_i^{-1}
+%\end{pmatrix}\begin{pmatrix}r_i^0 \times f_i^0 + \tau_i^0 \\ f_i^0\end{pmatrix}  - \begin{pmatrix}
+%j_b^{-1} & 0 \\ 0 & m_b^{-1}
+%\end{pmatrix} \begin{pmatrix}r_b^0 \times f_b^0 + \tau_b^0 \\ f_b^0\end{pmatrix} 
+%\end{equation}
+ 
+
+%Consider the simple example of two masses $m_1,m_2$ rigidly connected with distance $c$.
+%The configuration coordinates are thus $q_1 = q_2 + c$, time-derivation gives the constraint equation
+%
+%\begin{equation}
+% 0 = \dot{q}_1 - \dot{q}_2 = \frac{\partial V}{\partial p_1} - \frac{\partial V}{\partial p_2} = \underbrace{(1 \; -1)}_{A(q)^T} \begin{pmatrix}
+%\frac{\partial V}{\partial p_1} \\ \frac{\partial V}{\partial p_2}
+%\end{pmatrix} \end{equation}
+%
+%The unconstrained pHs is given according to equation (\ref{EQ:generalPHS})
+%\[\begin{pmatrix}\dot{q_1} \\ \dot{q_2}\end{pmatrix} = \begin{pmatrix}
+%\frac{\partial V}{\partial p_1} \\ \frac{\partial V}{\partial p_2}
+%\end{pmatrix} \]
+%\[\begin{pmatrix}\dot{p_1} \\ \dot{p_2}\end{pmatrix} = -\begin{pmatrix}
+%\frac{\partial V}{\partial q_1} \\ \frac{\partial V}{\partial q_2}
+%\end{pmatrix}  + \begin{pmatrix}g_1(q) & 0 \\ 0 & g_2(q)\end{pmatrix} \begin{pmatrix}f_1 \\ f_2\end{pmatrix}
+%\]
+%%\[e = g(q)^T \frac{\partial H}{\partial p}\]
+%The configuration coordinates are thus $q_1 = q_2 + c$, time derivation gives $\dot{q_1}=\dot{q_2}$.
+%This \emph{kinematic} constraint can be written with respect to the pHs-formulation
+%
+%The interaction forces that arise due to the constraints can be described using the \emph{Lagrange} multiplier $\lambda$ (see \cite{Schaft_13} for details). The general representation of constrained pHs is thus given by
+%
+%This description is a mixed set of differential and algebraic equations (DAE). The algebraic constraints can be solved and the Lagrange multiplier be eliminated by multiplying equation (\ref{EQ:PHSpconstrained}) with a suitable matrix $S(q)$ subject to $A^T(q)S(q) = 0$. Therefore $S(q)$ can be chosen to be the \emph{kernel} of $A^T(q)$: $S(q) = ker \, A^T$.
+%The resulting equation is
+%\[S^T(q)\dot{p} = -S^T(q)\frac{\partial V}{\partial q} +S^T(q)g(q)f \]
+%Following \cite{Schaft_13} we can introduce a a coordinate transformation 
+%\begin{equation}\label{EQ:cooordtransmom}p \mapsto \bar{p}: \bar{p} = S^T(q)p \end{equation}
+%The transformed equation is obtained as
+%\[\dot{\bar{p}} = -S^T(q)\frac{\partial \bar{V}}{\partial q} -p^T [S_i,S_j]_{i,j} \frac{\partial \bar{V}}{\partial \bar{p}} + \bar{g}(q)f \]
+%Where the Hamiltonian $\bar{V} = \frac{1}{2}\bar{p}^T\bar{M}^{-1}(q)\bar{p}$ is also expressed in transformed coordinates, the same is done with the input matrix $\bar{g}(q)$. $ [S_i,S_j] $ is the \emph{Lie bracket} of the $i$ and $j$-th column of $S$:
+%\[[S_i,S_j] = \frac{\partial S_j}{\partial q}S_i - \frac{\partial S_i}{\partial q}S_j\] The output equation finally becomes 
+%\[ \bar{e} = \bar{g}^T(q) \frac{\partial \bar{V}}{\partial \bar{p}} \]
 
 
 \subsubsection{Constraints on rigid bodies}
@@ -1290,171 +1501,171 @@ Note that this term is not an impedance relation and does not adjust if the envi
 The combined control law is $ h^\Sigma = h^x + h^d $.\\
 The set-up consists of four manipulators, distributed symmetrically around the object. In the first case translation in x-direction commanded. Results in Fig. \ref{FIG:abb1} show good tracking behaviour: no position errors in steady state and only small deviations from the desired values during transient phase. No internal stress is exerted on the object. Due to fast translation high manipulator forces occur.
 
-\begin{figure}[t]
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$p_x$[m]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {position, desired position},
-		legend style = {at={(axis cs:2.5, 0.7)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransPosition.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosition.txt};
-%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
-%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
-%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
-%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
-%\node at (axis cs:15.5,9){\small{Placeholder}};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$v_x$[m/s]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {velocity, desired velocity},
-		legend style = {at={(axis cs:0.8, -1)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransVelocity.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DepatransdesiredVelocity.txt};
-%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
-%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
-%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
-%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
-%\node at (axis cs:15.5,9){\small{Placeholder}};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {f[N]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {force $f_x$},
-		legend style = {at={(axis cs:2.5, 400)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransManipWrench.txt};
-%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
-%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
-%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
-%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
-%\node at (axis cs:15.5,9){\small{Placeholder}};
-\end{axis}
-\end{tikzpicture}
-\caption[Internal force impedance control with feed-forward of the object dynamics: Translation]{Internal force impedance control with feed-forward of the object dynamics: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
-\label{FIG:abb1}
-\end{figure}
+%\begin{figure}[t]
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$p_x$[m]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {position, desired position},
+%		legend style = {at={(axis cs:2.5, 0.7)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransPosition.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosition.txt};
+%%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%%\node at (axis cs:15.5,9){\small{Placeholder}};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$v_x$[m/s]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {velocity, desired velocity},
+%		legend style = {at={(axis cs:0.8, -1)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransVelocity.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DepatransdesiredVelocity.txt};
+%%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%%\node at (axis cs:15.5,9){\small{Placeholder}};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {f[N]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {force $f_x$},
+%		legend style = {at={(axis cs:2.5, 400)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransManipWrench.txt};
+%%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%%\node at (axis cs:15.5,9){\small{Placeholder}};
+%\end{axis}
+%\end{tikzpicture}
+%\caption[Internal force impedance control with feed-forward of the object dynamics: Translation]{Internal force impedance control with feed-forward of the object dynamics: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+%\label{FIG:abb1}
+%\end{figure}
 
 
 In the second test case the object is rotated around the $ z $-axis. This is done at a significantly lower speed of at most 1 rad/s, thus the manipulator forces are smaller, desired and actual object trajectory cannot be distinguished in Fig. \ref{FIG:abb2}. However some small internal forces can be seen. Interestingly they are proportional to the simulation step size (running \emph{Simulink's ode3} solver), i.e. a ten-times smaller step size gives ten-times smaller internal forces. Internal forces are calculated based on the geometry in the last simulation step. The correlation between step size and values indicates that these forces are rather due to the discrete nature of the simulation than of the control law generating internal stress. Simulation of the constrained system dynamics as well as calculation of internal wrench is done as described in \cite{Erhart_15/2}.
 
-\begin{figure}[t]
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$\Phi_z$[rad]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {orientation, desired orientation},
-		legend style = {at={(axis cs:0.8, 1.2)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaOrientation.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePadesiredOrientation.txt};
-%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
-%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
-%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
-%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
-%\node at (axis cs:15.5,9){\small{Placeholder}};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$\omega_z$[rad/s]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {angular velocity, des. ang. velocity},
-		legend style = {at={(axis cs:0.5, 0.95)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaangVelocity.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePadesiredangVelocity.txt};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {f[N],m[Nm]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
-		legend style = {at={(axis cs:0.35, -1)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaManipWrenchtx.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaManipWrenchty.txt};
-	\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaManipWrenchrz.txt};\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {f[N],m[Nm]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
-		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchtx.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchty.txt};
-	\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchrz.txt};\end{axis}
-\end{tikzpicture}
-	\caption[Internal force impedance control with feed-forward of the object dynamics: Rotation]{Internal force impedance control with feed-forward of the object dynamics: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
-	\label{FIG:abb2}
-\end{figure}
+%\begin{figure}[t]
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$\Phi_z$[rad]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {orientation, desired orientation},
+%		legend style = {at={(axis cs:0.8, 1.2)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaOrientation.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePadesiredOrientation.txt};
+%%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%%\node at (axis cs:15.5,9){\small{Placeholder}};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$\omega_z$[rad/s]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {angular velocity, des. ang. velocity},
+%		legend style = {at={(axis cs:0.5, 0.95)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaangVelocity.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePadesiredangVelocity.txt};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {f[N],m[Nm]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
+%		legend style = {at={(axis cs:0.35, -1)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaManipWrenchtx.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaManipWrenchty.txt};
+%	\addplot[green,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaManipWrenchrz.txt};\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {f[N],m[Nm]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
+%		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchtx.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchty.txt};
+%	\addplot[green,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePaIntWrenchrz.txt};\end{axis}
+%\end{tikzpicture}
+%	\caption[Internal force impedance control with feed-forward of the object dynamics: Rotation]{Internal force impedance control with feed-forward of the object dynamics: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+%	\label{FIG:abb2}
+%\end{figure}
 
 
 
@@ -1476,156 +1687,156 @@ M_i(\ddot{x}_i^d - \ddot{x}_i^r) + D_i (\dot{x}_i^d - \dot{x}_i^r) + K_i(x_i^d,x
 The control output is the reference acceleration of the i-th manipulator $ \ddot{x}_i^r $, $ \dot{x}_i^r,x_i^r $ are obtained from integration. These variables are the inputs the inner motion control loop (PD-type). The strategy of compliant trajectories allows for high gains in the motion controller. Knowledge of object dynamics and measurement of the contact wrenches is required.\\
 Results for translational motion (see Fig. \ref{FIG:abb3}) are very similar to that of the previous control scheme.
 
-\begin{figure}[t]
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$p_x$[m]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {position, desired position},
-		legend style = {at={(axis cs:2.5, 0.7)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Position.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredPosition.txt};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$v_x$[m/s]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {velocity, desired velocity},
-		legend style = {at={(axis cs:0.8, -1)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Velocity.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredVelocity.txt};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {f[N]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {force $f_x$},
-		legend style = {at={(axis cs:2.5, 400)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_trans_ManipulatorWrench_tx.txt};
-\end{axis}
-\end{tikzpicture}
-\caption[Internal and external impedance based reference trajectory generation: Translation]{Internal and external impedance based reference trajectory generation: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
-\label{FIG:abb3}
-\end{figure}
+%\begin{figure}[t]
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$p_x$[m]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {position, desired position},
+%		legend style = {at={(axis cs:2.5, 0.7)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Position.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredPosition.txt};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$v_x$[m/s]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {velocity, desired velocity},
+%		legend style = {at={(axis cs:0.8, -1)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Velocity.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredVelocity.txt};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {f[N]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {force $f_x$},
+%		legend style = {at={(axis cs:2.5, 400)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_trans_ManipulatorWrench_tx.txt};
+%\end{axis}
+%\end{tikzpicture}
+%\caption[Internal and external impedance based reference trajectory generation: Translation]{Internal and external impedance based reference trajectory generation: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+%\label{FIG:abb3}
+%\end{figure}
 
 
 When it comes to rotation, higher internal forces can be observed in Fig. \ref{FIG:abb4}. In this case they are not influenced by numerical parameters of the simulation.
 
-\begin{figure}[t]
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$\Phi_z$[rad]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {orientation, desired orientation},
-		legend style = {at={(axis cs:0.8, 1.2)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Orientation.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desired Orientation.txt};
-%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
-%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
-%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
-%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
-%\node at (axis cs:15.5,9){\small{Placeholder}};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$\omega_z$[rad/s]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {angular velocity, des. ang. velocity},
-		legend style = {at={(axis cs:0.5, 0.95)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Angular Velocity.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desired ang velocity.txt};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {f[N],m[Nm]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
-		legend style = {at={(axis cs:0.35, -1)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator Wrench_tx.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator Wrench_ty.txt};
-	\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator Wrench_rz.txt};\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {f[N],m[Nm]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
-		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_tx.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_ty.txt};
-	\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_rz.txt};\end{axis}
-\end{tikzpicture}
-\caption[Internal and external impedance based reference trajectory generation: Rotation]{Internal and external impedance based reference trajectory generation: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
-\label{FIG:abb4}
-\end{figure}
+%\begin{figure}[t]
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$\Phi_z$[rad]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {orientation, desired orientation},
+%		legend style = {at={(axis cs:0.8, 1.2)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Orientation.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desired Orientation.txt};
+%%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%%\node at (axis cs:15.5,9){\small{Placeholder}};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$\omega_z$[rad/s]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {angular velocity, des. ang. velocity},
+%		legend style = {at={(axis cs:0.5, 0.95)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Angular Velocity.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desired ang velocity.txt};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {f[N],m[Nm]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
+%		legend style = {at={(axis cs:0.35, -1)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator Wrench_tx.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator Wrench_ty.txt};
+%	\addplot[green,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator Wrench_rz.txt};\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {f[N],m[Nm]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
+%		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_tx.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_ty.txt};
+%	\addplot[green,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_rz.txt};\end{axis}
+%\end{tikzpicture}
+%\caption[Internal and external impedance based reference trajectory generation: Rotation]{Internal and external impedance based reference trajectory generation: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+%\label{FIG:abb4}
+%\end{figure}
 
 
 This architecture in contrast to the previous makes use of measured contact wrenches. Contact wrench as measured can be obtained from the constrained system simulation. As described in \cite{CoopManipHandbook} this wrench is than decomposed by kineostatic filters in internal and external components. In this simulation this not cancel out undesired internal stress but magnifies it: when the contact wrench is not fed back and set to zero in the internal force impedance controller, results are slightly better. Note that the simulation represents an ideal case, where all parameters are exactly known and no deviations in grasp positions occur. Behavior in a real experiment may be different and this observation does not mean that the kineostatic-filtered feed-back of contact wrench is unjustified in general.
@@ -1635,158 +1846,158 @@ This architecture in contrast to the previous makes use of measured contact wren
 \subsection{Intrinsically Passive Controller (IPC)}
 Introduced by Stramigioli \cite{Stramigioli_01} and implemented by Wimb\"ock et al. \cite{Wimboeck_08}, the architecture has been detailed throughout this work. In contrast to Stramigioli dampers are used in parallel with the manipulator springs and in contrast to Wimb\"ock all springs have 6-DoF. Simulation results for pure translation can be seen in Fig. \ref{FIG:DIPCtrans}. The object trajectory falls slightly behind the reference input, the dynamic behaviour is inferior to the previous approaches. Despite very stiff springs the magnitude of force seen in the previous approaches is not reached. No internal forces can be observed.
 
-\begin{figure}[t]
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$p_x$[m]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {position,desired position},
-		legend style = {at={(axis cs:2.6, 0.7)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredPosition.txt};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$v_x$[m]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {velocity,desired velocity},
-		legend style = {at={(axis cs:2.6, -2.7)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredVelocity.txt};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {f[N]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {force $f_x$},
-		legend style = {at={(axis cs:2.6, 500)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransManipulatorWrenchtx.txt};
-\end{axis}
-\end{tikzpicture}
-\vspace{-10pt}
-	\caption[IPC: Translation]{Intrinsically Passive Controller: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator}
-	\label{FIG:DIPCtrans}
-\end{figure}
+%\begin{figure}[t]
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$p_x$[m]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {position,desired position},
+%		legend style = {at={(axis cs:2.6, 0.7)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredPosition.txt};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$v_x$[m]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {velocity,desired velocity},
+%		legend style = {at={(axis cs:2.6, -2.7)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredVelocity.txt};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {f[N]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {force $f_x$},
+%		legend style = {at={(axis cs:2.6, 500)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransManipulatorWrenchtx.txt};
+%\end{axis}
+%\end{tikzpicture}
+%\vspace{-10pt}
+%	\caption[IPC: Translation]{Intrinsically Passive Controller: Translation; Graphs from top: Position (desired/actual), Velocity (desired/actual), Force exerted by one manipulator}
+%	\label{FIG:DIPCtrans}
+%\end{figure}
 
 When it comes to rotation (see Fig. \ref{FIG:DIPCrot}) again the dynamic behaviour falls short of the two other approaches, while the manipulator wrench is higher. Significant internal wrenches are present, they amount up to 50\% of the manipulator wrenches.
 
 
-\begin{figure}[t]
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$\Phi_z$[rad]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {orientation, desired orientation},
-		legend style = {at={(axis cs:0.8, 1.2)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCorientation.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCdesiredOrientation.txt};
-%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
-%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
-%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
-%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
-%\node at (axis cs:15.5,9){\small{Placeholder}};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$\omega_z$[rad/s]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {angular velocity, des. ang. velocity},
-		legend style = {at={(axis cs:0.5, 0.95)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCAngVelocity.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCdesiredAngVelocity.txt};
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {f[N],m[Nm]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
-		legend style = {at={(axis cs:0.35, -1)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCManipulatorWrenchtx.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCManipulatorWrenchty.txt};
-	\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCManipulatorWrenchrz.txt};\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {f[N],m[Nm]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
-		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=5cm,
-		width=0.98\linewidth
-	]
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchtx.txt};
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchty.txt};
-	\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchrz.txt};\end{axis}
-\end{tikzpicture}
-\vspace{-10pt}
-\caption[IPC: Rotation]{Intrinsically Passive Controller: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
-	\label{FIG:DIPCrot}
-\end{figure}
+%\begin{figure}[t]
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$\Phi_z$[rad]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {orientation, desired orientation},
+%		legend style = {at={(axis cs:0.8, 1.2)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCorientation.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCdesiredOrientation.txt};
+%%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%%\node at (axis cs:15.5,9){\small{Placeholder}};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {$\omega_z$[rad/s]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {angular velocity, des. ang. velocity},
+%		legend style = {at={(axis cs:0.5, 0.95)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCAngVelocity.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCdesiredAngVelocity.txt};
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {f[N],m[Nm]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
+%		legend style = {at={(axis cs:0.35, -1)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCManipulatorWrenchtx.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCManipulatorWrenchty.txt};
+%	\addplot[green,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCManipulatorWrenchrz.txt};\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}
+%	\begin{axis} [
+%		ylabel = {f[N],m[Nm]},
+%		xlabel = {t[s]},
+%		minor y tick num = 1,
+%		axis lines = left,
+%		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
+%		legend style = {at={(axis cs:2.6, 0.04)}, anchor = north},
+%		legend cell align=left,
+%		grid = major,
+%		height=5cm,
+%		width=0.98\linewidth
+%	]
+%\addplot[red,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchtx.txt};
+%\addplot[blue,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchty.txt};
+%	\addplot[green,]
+%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCInternalWrenchrz.txt};\end{axis}
+%\end{tikzpicture}
+%\vspace{-10pt}
+%\caption[IPC: Rotation]{Intrinsically Passive Controller: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+%	\label{FIG:DIPCrot}
+%\end{figure}
 
 
 %\section{Implementation}

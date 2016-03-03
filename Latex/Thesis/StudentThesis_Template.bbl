@@ -44,11 +44,11 @@ V.~Duindam and S.~Stramigioli.
 \newblock Springer Tracts in Advanced Robotics. Springer-Verlag, Berlin
   Heidelberg, 2009.
 
-\bibitem[EH15]{Erhart_15/2}
+\bibitem[EH16]{Erhart_16}
 S.~Erhart and S.~Hirche.
 \newblock Model and analysis of the interaction dynamics in cooperative
   manipulation tasks.
-\newblock {\em accepted}, 2015.
+\newblock {\em Robotics, IEEE Transactions on}, 2016.
 
 \bibitem[GFS{\etalchar{+}}14]{Gioioso_2014}
 G.~Gioioso, A.~Franchi, G.~Salvietti, S.~Scheggi, and D.~Prattichizzo.
@@ -191,13 +191,6 @@ Arjan van~der {Schaft}.
   Vol. III: Invited Lectures}, pages 1339--1365, Madrid, Spain, 2006. European
   Mathematical Society Publishing House (EMS Ph).
 
-\bibitem[vdS13]{Schaft_13}
-Arjan van~der Schaft.
-\newblock Port-hamiltonian differential-algebraic systems.
-\newblock In A.~Ilchmann and T.~Reis, editors, {\em Surveys in
-  Differential-Algebraic Equations I}, Differential-Algebraic Equations Forum,
-  pages 173--226. Springer Berlin, 2013.
-
 \bibitem[vdSJ14]{Schaft_14}
 Arjan van~der Schaft and Dimitri Jeltsema.
 \newblock {\em Port.Hamiltonian Systems Theory: An Introductory Overview}.
@@ -222,5 +215,13 @@ T.~Wimboeck, C.~Ott, and G.~Hirzinger.
   controller (ipc) for multifingered hands.
 \newblock {\em Robotics and Automation, IEEE International Conference on},
   pages 278--284, May 2008.
+
+\bibitem[WS08]{KinematicsHandbook}
+K.~Waldron and J.~Schmiedeler.
+\newblock {Kinematics}.
+\newblock In Bruno Siciliano and Oussama Khatib, editors, {\em Springer
+  Handbook of Robotics}, chapter~1, pages 9--33. Springer Berlin Heidelberg,
+  May 2008.
+\newblock ISBN 978-3-540-23957-4.
 
 \end{thebibliography}

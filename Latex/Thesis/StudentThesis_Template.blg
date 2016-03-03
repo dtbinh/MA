@@ -8,47 +8,48 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: mybib.bib
 Warning--entry type for "MHI-MEISTeR" isn't style-file defined
---line 284 of file mybib.bib
+--line 297 of file mybib.bib
+Warning--I didn't find a database entry for "Erhart_15/2"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 35 entries,
             3274 wiz_defined-function locations,
-            925 strings with 11733 characters,
-and the built_in function-call counts, 19657 in all, are:
-= -- 2037
-> -- 793
+            924 strings with 11644 characters,
+and the built_in function-call counts, 19672 in all, are:
+= -- 2035
+> -- 804
 < -- 27
-+ -- 248
-- -- 243
-* -- 1153
-:= -- 2847
-add.period$ -- 116
++ -- 252
+- -- 247
+* -- 1161
+:= -- 2857
+add.period$ -- 117
 call.type$ -- 35
-change.case$ -- 216
+change.case$ -- 217
 chr.to.int$ -- 34
 cite$ -- 35
-duplicate$ -- 652
-empty$ -- 1650
-format.name$ -- 284
-if$ -- 4893
+duplicate$ -- 648
+empty$ -- 1647
+format.name$ -- 288
+if$ -- 4890
 int.to.chr$ -- 2
 int.to.str$ -- 0
 missing$ -- 38
-newline$ -- 182
+newline$ -- 183
 num.names$ -- 117
-pop$ -- 327
+pop$ -- 329
 preamble$ -- 1
-purify$ -- 255
+purify$ -- 256
 quote$ -- 0
-skip$ -- 1389
+skip$ -- 1382
 stack$ -- 0
-substring$ -- 964
-swap$ -- 166
+substring$ -- 951
+swap$ -- 163
 text.length$ -- 27
 text.prefix$ -- 8
 top$ -- 0
 type$ -- 264
 warning$ -- 0
-while$ -- 143
-width$ -- 38
-write$ -- 473
-(There was 1 warning)
+while$ -- 144
+width$ -- 39
+write$ -- 474
+(There were 2 warnings)

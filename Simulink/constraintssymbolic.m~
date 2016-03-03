@@ -1,0 +1,19 @@
+syms jbx mbx jby mby jbz mbz jix mix jiy miy jiz miz pbix pbiy pbiz real
+
+jb = [jbx 0 0; 0 jby 0; 0 0 jbz];
+mb = [mbx 0 0; 0 mby 0; 0 0 mbz];
+
+
+S = [1 0;
+    0 1;
+    ji*jb^-1 0;
+    mi*pbi*jb^-1 mi*mb^-1];
+
+M = [jb 0 0 0;
+    0 mb 0 0;
+    0 0 ji 0;
+    0 0 0 mi];
+
+M*S
+S'*M*S
+
