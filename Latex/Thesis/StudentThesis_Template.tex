@@ -745,7 +745,7 @@ The momentum of the inertia $b$ and the wrench acting on it are both expressed i
 \frac{d}{dt}(Ad_{H_0^b}^T P_b^b) = Ad_{H_0^b}^T W_b^b
 \end{equation}
 The evolution of the accelerated body frame $\Psi_b$ w.r.t to the inertial frame is time dependent. The time derivative of the transformation is $\frac{d}{dt}Ad_{H_0^b}^T = -Ad_{H_0^b}^T ad_{T_b^{b,0}}^T $. With the \emph{adjoint} representation (see for example \cite{Stramigioli_01b})
-\begin{equation}
+\begin{equation}\label{EQ:adjointmapping}
 ad_{T_b^{b,0}}^T = \begin{pmatrix}
 -\tilde{\omega}_b^{b,0} & -\tilde{v}_b^{b,0} \\ 0 & -\tilde{\omega}_b^{b,0}\end{pmatrix}
 \end{equation}
@@ -832,7 +832,7 @@ The interconnection of a spring and an inertia is the the ideal pair in terms of
 \begin{equation}
 A^T(q)\dot{q}=0
 \end{equation}
-We call $A(q)$ the \emph{constraint} matrix. The associated internal forces are given by $A(q)\lambda$, the \emph{Lagrange} multipliers $\Lambda$ are uniquely defined if the constraints are satisfied. In this case the constraint forces do not influence the energy of the system since $\lambda^T (A^T(q)\dot{q}) = 0$. Consequently the port-Hamiltonian system becomes a mixed set of differential and algebraic equations (DAE).
+We call $A(q)$ the \emph{constraint} matrix. The associated constraint forces are given by $A(q)\lambda$, the \emph{Lagrange} multipliers $\lambda$ are uniquely defined if the constraints are satisfied. In this case the constraint forces do not influence the energy of the system since $\lambda^T (A^T(q)\dot{q}) = 0$. Consequently the port-Hamiltonian system becomes a mixed set of differential and algebraic equations (DAE).
 \begin{eqnarray}\label{EQ:PHSpconstrained}
 \begin{aligned}
 \begin{pmatrix}
@@ -849,8 +849,8 @@ We call $A(q)$ the \emph{constraint} matrix. The associated internal forces are 
 \frac{\partial V}{\partial p} \\ \frac{\partial V}{\partial p}\end{pmatrix}
 \end{aligned}
 \end{eqnarray}
-The system is no longer described in the input-output form, but in an implicit form. Several approaches to solve the algebraic equations and restore the desired input-output form exist. We introduce two methods leading to different results, first in a simple symbolic representation and then apply them two the 6-DoF space.\\
-The first method (described e.g. in \cite{Duindam_09}) uses the time-derivation of the constraints.
+The system is no longer described in the input-output form, but in an implicit form. Several approaches to solve the algebraic equations and restore the desired input-output form exist. Most of them are designed for generalized configuration $q$ and momentum $p$ coordinates, see e.g. \cite{Schaft_13},\cite{Duindam_09}. Due to non-linearity of $\dot{q}=\frac{\partial V}{\partial p}$ in mechanical systems not all are feasible for six dimensional systems. \\
+The following method (described e.g. in \cite{Duindam_09}) uses the time-derivative of the constraints
 \begin{equation}\label{EQ:constraintderivative}
 0 = \frac{d}{dt}\left(A^T(q)\frac{\partial V}{\partial p}\right)
 \end{equation}
@@ -864,58 +864,58 @@ Solving this equation for $\lambda$ gives
 \begin{equation}
 \lambda = (A^T M^{-1} A)^{-1} \left(-\frac{\partial (A^TM^{-1}p)}{\partial q}M^{-1}p + \frac{\partial V}{\partial q} - gf\right)
 \end{equation}
-This is an analytic expression for the constrained forces, $\lambda$ is re-inserted into eq. (\ref{EQ:PHSpconstrained}) and we obtain a set of ODEs in input-output form. Note that the forces $\lambda$ keep the velocities $A(q)\dot{q}$, i.e. if the constraint $A(q)\dot{q}=0$ was satisfied in the beginning it will remain satisfied.\\
-Another approach is to find new coordinates for the momentum that limit the \emph{phase space} $(q,p)$ to motions fulfilling the constraints. Therefore we introduce the transformation
-\begin{equation}
-p = S(q)\bar{p}
-\end{equation}
-The definition of $S(q)$ is directly given by the constraint 
-\begin{equation}
-0 = A^T(q) M^{-1} p = A^T(q) M^{-1} S(q) \bar{p}
-\end{equation}
-S(q) is thus the \emph{kernel} of $A^T(q) M^{-1}$. The transformation is energy-conservative i.e.
-\begin{equation}
-\bar{V}(q,\bar{p}) := \frac{1}{2}\bar{p}^T\bar{M}^{-1}\bar{p} + V_q = \frac{1}{2}p^TM^{-1}p + V_q = V(q,p)
-\end{equation}
-Thus the constrained inertia matrix is $\bar{M} = (S^TM^{-1}S)^{-1}$.   
-We start re-writing eq. (\ref{EQ:PHSpconstrained}) using $p = S(q)\bar{p}$ and obtain
-\begin{eqnarray}
-\begin{aligned}
-\dot{q} &= \frac{\partial V}{\partial p} = M^{-1}p = M^{-1}S\bar{p} = M^{-1}S\bar{M}\bar{M}^{-1}\bar{p} = M^{-1}S\bar{M}\frac{\partial \bar{V}}{\partial \bar{p}}\\
-\dot{p} &= \frac{d}{dt}(S(q)\bar{p}) = \frac{\partial(S\bar{p})}{\partial q} \dot{q} +S\dot{\bar{p}} = -\frac{\partial V}{\partial q} + A\lambda + gf
-\end{aligned}
-\end{eqnarray}
-Towards a standard port-Hamiltonian representation we are seeking to express the last equation in the form $\dot{\bar{p}} = ...$. Therefore the equation is pre-multiplied with $\bar{M}S^TM^{-1}$
-\begin{eqnarray}\label{EQ:PHSconstrainedpremult}
-\begin{aligned}
-\bar{M}S^TM^{-1}\frac{\partial(S\bar{p})}{\partial q} \dot{q} + \bar{M}\underbrace{S^TM^{-1}S}_{\bar{M}^{-1}}\dot{\bar{p}} = \bar{M}S^TM^{-1}\left(-\frac{\partial V}{\partial q} + A\lambda + gf\right)
-\end{aligned}
-\end{eqnarray}
-For a symmetric $M$ we have $(S^TM^{-1}A)^T = A^T(q) M^{-1} S(q) = 0$. Since $S(q)$ is dependent on $q$ we need to consider indirect dependencies when differentiating 
-\begin{equation}
-\frac{\partial \bar{V}}{\partial q} = \frac{\partial V}{\partial q} + \frac{\partial^T (S(q) \bar{p})}{\partial q}\dot{q} = \frac{\partial V}{\partial q} + \frac{\partial^T (S(q) \bar{p})}{\partial q}M^{-1}S\bar{M}\frac{\partial \bar{V}}{\partial \bar{p}}
-\end{equation}
-Inserting this into eq. (\ref{EQ:PHSconstrainedpremult}) and re-arranging we desired port-Hamiltonian representation
-\begin{eqnarray}
-\begin{aligned}
-\begin{pmatrix}
-\dot{q} \\ \dot{\bar{p}}
-\end{pmatrix} &= 
-\begin{pmatrix}
-0 & M^{-1}S\bar{M} \\
-\bar{M}S^TM^{-1} & \bar{M}S^TM^{-1}\left(\frac{\partial^T (S(q) \bar{p})}{\partial q} - \frac{\partial (S(q) \bar{p})}{\partial q}\right)M^{-1}S\bar{M}
-\end{pmatrix}
-\begin{pmatrix}
-\frac{\partial \bar{V}}{\partial q} \\
-\frac{\partial \bar{V}}{\partial \bar{p}}
-\end{pmatrix} + \\
-&+ 
-\begin{pmatrix}
-0 \\ \bar{M}S^TM^{-1}
-\end{pmatrix}f
-\end{aligned}
-\end{eqnarray}
-Conclusively we have obtained two different representations of constrained systems in input-output form. The first one allows explicitly to calculate the constraint forces necessary to comply with the constraints. The second one restricts the possible motion and results in a system of reduced \emph{degrees of freedom}. We see in the remainder that the first can be exploited for control issues. The latter gives a system model, useful when describing the response to an external wrench acting on the common object.
+This is an analytic expression for the constrained forces, $\lambda$ is re-inserted into eq. (\ref{EQ:PHSpconstrained}) and we obtain a set of ODEs in input-output form. Note that the forces $\lambda$ keep the velocities $A(q)\dot{q}$ constant. I.e. if the constraint $A(q)\dot{q}=0$ was satisfied in the beginning it will remain satisfied.\\
+%Another approach is to find new coordinates for the momentum that limit the \emph{phase space} $(q,p)$ to motions fulfilling the constraints. Therefore we introduce the transformation
+%\begin{equation}
+%p = S(q)\bar{p}
+%\end{equation}
+%The definition of $S(q)$ is directly given by the constraint 
+%\begin{equation}
+%0 = A^T(q) M^{-1} p = A^T(q) M^{-1} S(q) \bar{p}
+%\end{equation}
+%S(q) is thus the \emph{kernel} of $A^T(q) M^{-1}$. The transformation is energy-conservative i.e.
+%\begin{equation}
+%\bar{V}(q,\bar{p}) := \frac{1}{2}\bar{p}^T\bar{M}^{-1}\bar{p} + V_q = \frac{1}{2}p^TM^{-1}p + V_q = V(q,p)
+%\end{equation}
+%Thus the constrained inertia matrix is $\bar{M} = (S^TM^{-1}S)^{-1}$.   
+%We start re-writing eq. (\ref{EQ:PHSpconstrained}) using $p = S(q)\bar{p}$ and obtain
+%\begin{eqnarray}
+%\begin{aligned}
+%\dot{q} &= \frac{\partial V}{\partial p} = M^{-1}p = M^{-1}S\bar{p} = M^{-1}S\bar{M}\bar{M}^{-1}\bar{p} = M^{-1}S\bar{M}\frac{\partial \bar{V}}{\partial \bar{p}}\\
+%\dot{p} &= \frac{d}{dt}(S(q)\bar{p}) = \frac{\partial(S\bar{p})}{\partial q} \dot{q} +S\dot{\bar{p}} = -\frac{\partial V}{\partial q} + A\lambda + gf
+%\end{aligned}
+%\end{eqnarray}
+%Towards a standard port-Hamiltonian representation we are seeking to express the last equation in the form $\dot{\bar{p}} = ...$. Therefore the equation is pre-multiplied with $\bar{M}S^TM^{-1}$
+%\begin{eqnarray}\label{EQ:PHSconstrainedpremult}
+%\begin{aligned}
+%\bar{M}S^TM^{-1}\frac{\partial(S\bar{p})}{\partial q} \dot{q} + \bar{M}\underbrace{S^TM^{-1}S}_{\bar{M}^{-1}}\dot{\bar{p}} = \bar{M}S^TM^{-1}\left(-\frac{\partial V}{\partial q} + A\lambda + gf\right)
+%\end{aligned}
+%\end{eqnarray}
+%For a symmetric $M$ we have $(S^TM^{-1}A)^T = A^T(q) M^{-1} S(q) = 0$. Since $S(q)$ is dependent on $q$ we need to consider indirect dependencies when differentiating 
+%\begin{equation}
+%\frac{\partial \bar{V}}{\partial q} = \frac{\partial V}{\partial q} + \frac{\partial^T (S(q) \bar{p})}{\partial q}\dot{q} = \frac{\partial V}{\partial q} + \frac{\partial^T (S(q) \bar{p})}{\partial q}M^{-1}S\bar{M}\frac{\partial \bar{V}}{\partial \bar{p}}
+%\end{equation}
+%Inserting this into eq. (\ref{EQ:PHSconstrainedpremult}) and re-arranging we desired port-Hamiltonian representation
+%\begin{eqnarray}
+%\begin{aligned}
+%\begin{pmatrix}
+%\dot{q} \\ \dot{\bar{p}}
+%\end{pmatrix} &= 
+%\begin{pmatrix}
+%0 & M^{-1}S\bar{M} \\
+%\bar{M}S^TM^{-1} & \bar{M}S^TM^{-1}\left(\frac{\partial^T (S(q) \bar{p})}{\partial q} - \frac{\partial (S(q) \bar{p})}{\partial q}\right)M^{-1}S\bar{M}
+%\end{pmatrix}
+%\begin{pmatrix}
+%\frac{\partial \bar{V}}{\partial q} \\
+%\frac{\partial \bar{V}}{\partial \bar{p}}
+%\end{pmatrix} + \\
+%&+ 
+%\begin{pmatrix}
+%0 \\ \bar{M}S^TM^{-1}
+%\end{pmatrix}f
+%\end{aligned}
+%\end{eqnarray}
+%Conclusively we have obtained two different representations of constrained systems in input-output form. The first one allows explicitly to calculate the constraint forces necessary to comply with the constraints. The second one restricts the possible motion and results in a system of reduced \emph{degrees of freedom}. We see in the remainder that the first can be exploited for control issues. 
 
 
 \subsubsection{Constraints for 6D-motion}  
@@ -966,13 +966,7 @@ This immediately leads to $T_i^0 = T_b^0$. For a system if $i=1...N$ manipulator
 T_b^0 \\ T_1^0 \\ \vdots \\ T_N^0
 \end{pmatrix}
 \end{equation}
-We start applying the first method presented int the previous subsection by differentiating the constraints.
-The constraint matrix $A$ is not time dependent, eq. (\ref{EQ:constraintderivative}) simplifies to
-\begin{equation}
-0 = \frac{d}{dt}A^TT = A^T\dot{T} = A^TM^{-1}\dot{P}
-\end{equation}
-First of all we look at the twist's time-derivative and obtain an equivalent formulation of constraint dynamics as for a classic approach e.g. \cite{Erhart_16}.
-Consider the time-derivative of the constraint for the rigidly connected bodies $b$ and $i$.
+We start by differentiating the constraints, here $A$ is not time or configuration dependent, thus $0=A^T\dot{T}$. Consider the simple example of two rigidly connected bodies $b$ and $i$, the constraint equation is
 \begin{eqnarray}
 \begin{aligned}
 0 &= \dot{T}_i^0 - \dot{T}_b^0 = \begin{pmatrix}
@@ -993,63 +987,92 @@ Consider the time-derivative of the constraint for the rigidly connected bodies 
 \end{pmatrix}
 \end{aligned}
 \end{eqnarray}
-The chosen twist representation fulfils the second-order dynamic requirements including centripetal terms.\\
-Towards solving the set of DAEs, we insert the port-Hamiltonian representations into the constraint equation
+The twist representation allows to describe kinematic constraints in a convenient manner. Second-order dynamics including \emph{centripetal} terms are inherent and equivalent to classic representations (see e.g.\cite{Erhart_16}).\\
+
+Towards solving the set of port-Hamiltonian DAEs, recall from eq. (\ref{EQ:PHSpconstrained}) that $0=A^T\frac{\partial V}{\partial p}$. At this point it is necessary to distinguish different twist representations, e.g. $\frac{\partial V}{\partial P_b^b} = T_b^{b,0} = Ad_{H_0^b}T_b^0 $. Continuing the two mass example we re-write the constraints
+\begin{equation}
+0 = A^T \begin{pmatrix}T_b^0 \\ T_i^0 \end{pmatrix}
+ = \underbrace{A^T \begin{pmatrix}
+Ad_{H_b^0} & 0 \\ 0 & Ad_{H_i^0}\end{pmatrix}}_{\bar{A}^T}
+\begin{pmatrix}
+T_b^{b,0} \\ T_i^{i,0}\end{pmatrix} = A^T \begin{pmatrix}
+Ad_{H_b^0} & 0 \\ 0 & Ad_{H_i^0}\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial V}{\partial P_b^b} \\
+\frac{\partial V}{\partial P_i^i}
+\end{pmatrix}
+\end{equation}
+Replacing the twists with momenta $T = M^{-1}P$ and differentiating w.r.t to time leads to
+\begin{equation}
+0 = \bar{A}^T\begin{pmatrix}M_b^{-1} & 0 \\ 0 & M_i^{-1}\end{pmatrix} \begin{pmatrix}\dot{P_b^b} \\ \dot{P_i^i}\end{pmatrix}
+ +
+\bar{A}^T \begin{pmatrix}ad_{T_b^{b,0}} & 0 \\
+0 & ad_{T_i^{i,0}}\end{pmatrix}\begin{pmatrix}M_b^{-1} & 0 \\ 0 & M_i^{-1}\end{pmatrix} \begin{pmatrix}P_b^b \\ P_i^i\end{pmatrix}
+\end{equation}
+Consider now the last part of this equation and recall the adjoint representation $ad_T$ from eq. (\ref{EQ:adjointmapping}). We obtain for body $b$
+\begin{equation}
+ad_{T_b^{b,0}}M_b^{-1}P_b^b = \begin{pmatrix}
+\tilde{\omega}_b^{b,0} & 0 \\ \tilde{v}_b^{b,0} & \tilde{\omega}_b^{b,0}\end{pmatrix} \begin{pmatrix}\omega_b^{b,0} \\ v_b^{b,0}\end{pmatrix} = 0
+\end{equation}
+Here we assume that the inertias are not configuration dependent, i.e. not time-dependent. Now we insert the port-Hamiltonian system equation for $\dot{P}$ and obtain
 \begin{eqnarray}
 \begin{aligned}
-0 = A^T M^{-1} \dot{P} = A^T M^{-1}(W+CT+A\lambda)
+0 = \bar{A}^T M^{-1} \dot{P} = \bar{A}^T M^{-1}(W+CT+\bar{A}\lambda)
 \end{aligned}
 \end{eqnarray}
 and solve for $\lambda$
 \begin{equation}
-\lambda = -(A^TM^{-1}A)^{-1}A^TM^{-1}(W+CT)
+\lambda = -(\bar{A}^TM^{-1}\bar{A})^{-1}\bar{A}^TM^{-1}(W+CT)
 \end{equation}
-Consider again the example of two rigidly connected bodies $b$ and $i$. Let us first examine the part $A^TM^{-1}CT$, using eq. (\ref{EQ:centripetaldetail}) and assuming that the bodies share the orientation $R_0^b = R_0^i$, we obtain
+Consider again the example of two rigidly connected bodies $b$ and $i$. Let us first examine the part $\bar{A}^TM^{-1}CT$. Using eq. (\ref{EQ:centripetaldetail}) and assuming that the bodies share the orientation $R_0^b = R_0^i$, we obtain
 \begin{eqnarray}
 \begin{aligned}
-A^TM^{-1}\begin{pmatrix}
+\bar{A}^TM^{-1}\begin{pmatrix}
 C_b T_b^{b,0} \\ C_i T_i^{i,0}
-\end{pmatrix} &= \begin{pmatrix}
-0 \\ \tilde{\omega}_b^{b,0} v_b^{b,0} - \tilde{\omega}_i^{i,0} v_i^{i,0} 
-\end{pmatrix} = \\ &=
-\begin{pmatrix}0 \\
-\tilde{\omega}_b^{b,0} \tilde{p}_b^0 R_0^b \omega_b^0 + \tilde{\omega}_b^{b,0} R_0^b v_b^0 - \tilde{\omega}_b^{b,0} \tilde{p}_i^0 R_0^b \omega_b^0 - \tilde{\omega}_b^{b,0} R_0^b v_i^0
-\end{pmatrix} = \\ &=
-\begin{pmatrix}0 \\
-\tilde{\omega}_b^{b,0} (\tilde{p}_b^0-\tilde{p}_i^0) \omega_b^{b,0} \end{pmatrix} = \begin{pmatrix}0 \\
-\tilde{\omega}_b^{b,0} \tilde{p}_b^i \omega_b^{b,0}
+\end{pmatrix} 
+&=
+\bar{A}^T M^{-1} \begin{pmatrix} 0 \\ m_b \tilde{v}_b^{b,0}\omega_b^{b,0} \\ 0 \\ m_i \tilde{v}_i^{i,0}\omega_b^{b,0}
 \end{pmatrix}
+=
+\begin{pmatrix}-I_6 & I_6\end{pmatrix} \begin{pmatrix}
+0 \\ R_b^0 \tilde{v}_b^{b,0} \omega_b^{b,0} \\ 0 \\
+R_b^0 \tilde{v}_i^{i,0} \omega_b^{b,0}
+\end{pmatrix} = \\ 
+=&
+\begin{pmatrix}
+0 \\ R_b^0\tilde{\omega}_b^{b,0}
+(\tilde{p}_0^b R_b^0 \omega_b^0 + R_0^b v_b^0 - \tilde{p}_0^i R_0^b \omega_b^0 - R_0^b v_i^0)
+\end{pmatrix} 
+=
+\begin{pmatrix}0 \\
+R_b^0\tilde{\omega}_b^{b,0}
+\tilde{p}_i^b \omega_b^{b,0}
+\end{pmatrix} 
 \end{aligned}
 \end{eqnarray}
-Once again we have obtained a term for the centripetal acceleration, the resulting $\lambda$ is
-\begin{equation}
-\lambda = \left[A^TM^{-1}A)^{-1}(M_b^{-1}W_b^b -M_i^{-1}W_i^i  + \begin{pmatrix}0 \\
-\omega_b^{b,0} \times (\omega_b^{b,0} \times {p}_b^i)
-\end{pmatrix}\right]
-\end{equation}
 This example shows how kinematic constraints can be solved by calculating the constraint forces. The results are equivalent to approaches based on the \emph{Gauss' principle of least constraint} (\cite{Erhart_16}) or \emph{Euler-Lagrange} representations (\cite{Liu_02}).\\
-The other fore-mentioned approach of restricting the possible motion starts with finding a matrix $S$ fulfilling $0 = A^TM^{-1}S \bar{P}$ for every $\bar{P}$. Thus we require $0 = A^TM^{-1}S$. Consider the example of two rigidly connected bodies $b$ and $i$, we can write the constraint equation
-\begin{equation}
-0 = A^T\begin{pmatrix}
-T_b^0 \\ T_i^0\end{pmatrix} = A^T \begin{pmatrix}
-Ad_{H_b^0} & 0 \\ 0 & Ad_{H_i^0}\end{pmatrix}
-\begin{pmatrix}
-M_b^{-1} & 0 \\ 0 & M_i^{-1} 
-\end{pmatrix}
-\begin{pmatrix}
-P_b^{b} \\ P_i^{i}
-\end{pmatrix}
-\end{equation}
-Now we introduce the transformation $P = S\bar{P}$
-In an object-centred cooperative manipualtion case $\bar{P}$ clearly corresponds to the twist of the common object. Starting from $T_i^0 = T_b^0$ towards $T_i^{i,0} = Ad_{H_b^i} T_b^{b,0}$ we find 
-\begin{equation}
-S = \begin{pmatrix}
-I_3 & 0 \\
-0 & I_3 \\
-j_ij_b^{-1} & 0\\
-m_i\tilde{p}_b^i j_b^{-1}& m_im_b^{-1} 
-\end{pmatrix}
-\end{equation}
+%The other fore-mentioned approach of restricting the possible motion starts with finding a matrix $S$ fulfilling $0 = A^TM^{-1}S \bar{P}$ for every $\bar{P}$. Thus we require $0 = A^TM^{-1}S$. Consider the example of two rigidly connected bodies $b$ and $i$, we can write the constraint equation
+%\begin{equation}
+%0 = A^T\begin{pmatrix}
+%T_b^0 \\ T_i^0\end{pmatrix} = A^T \begin{pmatrix}
+%Ad_{H_b^0} & 0 \\ 0 & Ad_{H_i^0}\end{pmatrix}
+%\begin{pmatrix}
+%M_b^{-1} & 0 \\ 0 & M_i^{-1} 
+%\end{pmatrix}
+%\begin{pmatrix}
+%P_b^{b} \\ P_i^{i}
+%\end{pmatrix}
+%\end{equation}
+%Now we introduce the transformation $P = S\bar{P}$.
+%In an object-centred cooperative manipualtion case $\bar{P}$ clearly corresponds to the twist of the common object. Starting from $T_i^0 = T_b^0$ towards $T_i^{i,0} = Ad_{H_b^i} T_b^{b,0}$ we find 
+%\begin{equation}
+%S = \begin{pmatrix}
+%I_3 & 0 \\
+%0 & I_3 \\
+%j_ij_b^{-1} & 0\\
+%m_i\tilde{p}_b^i j_b^{-1}& m_im_b^{-1} 
+%\end{pmatrix}
+%\end{equation}
 
 
  
@@ -1104,48 +1127,48 @@ m_i\tilde{p}_b^i j_b^{-1}& m_im_b^{-1}
 %\[ \bar{e} = \bar{g}^T(q) \frac{\partial \bar{V}}{\partial \bar{p}} \]
 
 
-\subsubsection{Constraints on rigid bodies}
-Consider a group of rigidly connected bodies, in the center of the group the \emph{virtual object} associated with the coordinate frame $\Psi_v$. The bodies surrounding it share the same orientation and the position of the $i$-th body is 
-\[p_i^0 = p_v^0 + R_v^0 p_i^v\]
-By differentiating the \emph{geometric} constraints we obtain the \emph{kinematic} constraints
-\[\dot{p}_i^0 = \dot{p}_v^0 + \omega_v \times p_i^v\]
-\[\omega_i = \omega_v\]
-We can reformulate these equations in matrix vector notation and $i=1...N$
-\begin{equation}
-\underbrace{\begin{pmatrix}
--I_3 & 0_3 & I_3 & 0_3 &  &  &  \\
-\tilde{p_1^v} & -I_3 & 0_3 & I_3 & \cdots & 0_3 & 0_3 \\ \vdots & \vdots \ & & & \ddots &  &  \\
--I_3 & 0_3 & & & & I_3 & I_3 \\
-\tilde{p_N^v} & -I_3 & & & & 0_3 & I_3
-\end{pmatrix}}_{A^T(q)}
-\underbrace{\begin{pmatrix}
-\omega_v \\ \dot{p}_v^0 \\ \omega_1 \\ \dot{p}_1^0 \\ \vdots \\ \omega_N \\ \dot{p}_N^0
-\end{pmatrix}}_{\dot{q}} = 0
-\end{equation}
-In order to eliminate the constraint forces from equation (\ref{EQ:PHSpconstrained}) we require the \emph{kernel} of $A^T(q)$, given by
-\[S(q) = ker \, A^T = \begin{pmatrix}
-I_3 & 0_3 \\
-0_3 & I_3 \\
-I_3 & 0_3 \\
--\tilde{p}_1^v & I_3 \\
-\vdots & \vdots \\
-I_3 & 0_3 \\
--\tilde{p}_N^v& I_3 \\
-\end{pmatrix}\]
-This allows to employ the coordinate transformation (\ref{EQ:cooordtransmom}) and obtain the constrained momentum. Choosing a representation of the form $\bar{p} = \bar{M}\dot{q} $ is advantageous when deriving the transformed \emph{Hamiltonian}
-\[\bar{p} = \begin{pmatrix}
-j_v+\sum_{i=1}^N [j_i - m_i(\tilde{p}_i^v)^2] & -\sum_{i=1}^N m_i\tilde{p}_i^v \\ \sum_{i=1}^N m_i\tilde{p}_i^v & m_v + \sum_{i=1}^N m_i
-\end{pmatrix}  \begin{pmatrix}
-\omega_v \\ \dot{p}_v^0
-\end{pmatrix} \]
-Note that $\bar{M}$ is symmetric, this is due to the skew-symmetry of $ \tilde{p}_i^v $.
-Thus the \emph{Hamiltonian} is obtained as usual by $\bar{V} =  \frac{1}{2}\bar{p}^T\bar{M}^{-1}\bar{p}$.
-One can compute that $\frac{\partial S_i}{\partial q} = 0 \; \forall i=1...N$, thus the \emph{Lie bracket} $[S_i,S_j]$ equals zero.\\
-The external wrenches acting on the free bodies sum up for the constrained system, respecting the geometric requirements we obtain
-\[ \bar{g} = \begin{pmatrix}
-I_3 & 0_3 & I_3 & \tilde{p}_1^v & \cdots & I_3 & \tilde{p}_N^v \\0_3 & I_3 & 0_3 & I_3 & \cdots & 0_3 & I_3
-\end{pmatrix} \]
-Towards the port-Hamiltonian representation of the constrained system we seek to replace the term $ \frac{\partial \bar{V}}{\partial q} $ by $ \frac{\partial \bar{V}}{\partial \bar{p}} $. The kinetic co-energy of the system is $\bar{V}^* =\frac{1}{2} \dot{q}^T \bar{M} \dot{q}$.
+%\subsubsection{Constraints on rigid bodies}
+%Consider a group of rigidly connected bodies, in the center of the group the \emph{virtual object} associated with the coordinate frame $\Psi_v$. The bodies surrounding it share the same orientation and the position of the $i$-th body is 
+%\[p_i^0 = p_v^0 + R_v^0 p_i^v\]
+%By differentiating the \emph{geometric} constraints we obtain the \emph{kinematic} constraints
+%\[\dot{p}_i^0 = \dot{p}_v^0 + \omega_v \times p_i^v\]
+%\[\omega_i = \omega_v\]
+%We can reformulate these equations in matrix vector notation and $i=1...N$
+%\begin{equation}
+%\underbrace{\begin{pmatrix}
+%-I_3 & 0_3 & I_3 & 0_3 &  &  &  \\
+%\tilde{p_1^v} & -I_3 & 0_3 & I_3 & \cdots & 0_3 & 0_3 \\ \vdots & \vdots \ & & & \ddots &  &  \\
+%-I_3 & 0_3 & & & & I_3 & I_3 \\
+%\tilde{p_N^v} & -I_3 & & & & 0_3 & I_3
+%\end{pmatrix}}_{A^T(q)}
+%\underbrace{\begin{pmatrix}
+%\omega_v \\ \dot{p}_v^0 \\ \omega_1 \\ \dot{p}_1^0 \\ \vdots \\ \omega_N \\ \dot{p}_N^0
+%\end{pmatrix}}_{\dot{q}} = 0
+%\end{equation}
+%In order to eliminate the constraint forces from equation (\ref{EQ:PHSpconstrained}) we require the \emph{kernel} of $A^T(q)$, given by
+%\[S(q) = ker \, A^T = \begin{pmatrix}
+%I_3 & 0_3 \\
+%0_3 & I_3 \\
+%I_3 & 0_3 \\
+%-\tilde{p}_1^v & I_3 \\
+%\vdots & \vdots \\
+%I_3 & 0_3 \\
+%-\tilde{p}_N^v& I_3 \\
+%\end{pmatrix}\]
+%This allows to employ the coordinate transformation (\ref{EQ:cooordtransmom}) and obtain the constrained momentum. Choosing a representation of the form $\bar{p} = \bar{M}\dot{q} $ is advantageous when deriving the transformed \emph{Hamiltonian}
+%\[\bar{p} = \begin{pmatrix}
+%j_v+\sum_{i=1}^N [j_i - m_i(\tilde{p}_i^v)^2] & -\sum_{i=1}^N m_i\tilde{p}_i^v \\ \sum_{i=1}^N m_i\tilde{p}_i^v & m_v + \sum_{i=1}^N m_i
+%\end{pmatrix}  \begin{pmatrix}
+%\omega_v \\ \dot{p}_v^0
+%\end{pmatrix} \]
+%Note that $\bar{M}$ is symmetric, this is due to the skew-symmetry of $ \tilde{p}_i^v $.
+%Thus the \emph{Hamiltonian} is obtained as usual by $\bar{V} =  \frac{1}{2}\bar{p}^T\bar{M}^{-1}\bar{p}$.
+%One can compute that $\frac{\partial S_i}{\partial q} = 0 \; \forall i=1...N$, thus the \emph{Lie bracket} $[S_i,S_j]$ equals zero.\\
+%The external wrenches acting on the free bodies sum up for the constrained system, respecting the geometric requirements we obtain
+%\[ \bar{g} = \begin{pmatrix}
+%I_3 & 0_3 & I_3 & \tilde{p}_1^v & \cdots & I_3 & \tilde{p}_N^v \\0_3 & I_3 & 0_3 & I_3 & \cdots & 0_3 & I_3
+%\end{pmatrix} \]
+%Towards the port-Hamiltonian representation of the constrained system we seek to replace the term $ \frac{\partial \bar{V}}{\partial q} $ by $ \frac{\partial \bar{V}}{\partial \bar{p}} $. The kinetic co-energy of the system is $\bar{V}^* =\frac{1}{2} \dot{q}^T \bar{M} \dot{q}$.
 
 
 \section{Spring-mass-damper systems}\label{S:springmassdampers}
@@ -1346,7 +1369,82 @@ In contrast to there are time-discrete pHs, described in \cite{Stramigioli_05}. 
 Using time-discrete input functions with a continuous pHs does not affect passivity. Thus they can be used as a minimum solution for connecting a human directly to the controller presented in the previous section.
 
 
-% The power responsible for this step is supplied through the external port. The property of a continuous pHs that externally supplied energy is either stored or dissipated, is not violated by discontinuous inputs, nor is passivity. Consider the time-discrete external flow $f_P (k+1) =: f_P(t)$ which is assigned to the time-continuous flow and updated every $T_s$. The energy balance described for continuous pHs in eq. (\ref{EQ:energybalance}) holds for any input $f_P(t)$ (cf. \cite{Stramigioli_05}). The problem of extracting more energy energy than stored in the system throughout a sampling interval is prevalent in discrete pHs. These systems compute the energy-state of the next time-step based on the current time-step, due to the discrete nature this energy-state can be below the energetic minimum of the system. To make this more clear consider the example of a moving system, which is slowed down very quickly: $(T_v^0(k+1) \ll T_v^0(k)$. But still $(T_v^0(k+1) > 0$, otherwise energy would be supplied. Consider a elongated spring which is commanded to shorten/compress very quickly, the twist is so high that in the next time-step the twist is elongated already in the over direction. Thus the spring has passed through its energetic minimum and more energy than stored would have been extracted. This clearly violates passivity. It is also obvious that this case cannot occur in a continuous system. Thus the presented simple version of connecting a human with a spring to the controller, does not violate passivity.  
+% The power responsible for this step is supplied through the external port. The property of a continuous pHs that externally supplied energy is either stored or dissipated, is not violated by discontinuous inputs, nor is passivity. Consider the time-discrete external flow $f_P (k+1) =: f_P(t)$ which is assigned to the time-continuous flow and updated every $T_s$. The energy balance described for continuous pHs in eq. (\ref{EQ:energybalance}) holds for any input $f_P(t)$ (cf. \cite{Stramigioli_05}). The problem of extracting more energy energy than stored in the system throughout a sampling interval is prevalent in discrete pHs. These systems compute the energy-state of the next time-step based on the current time-step, due to the discrete nature this energy-state can be below the energetic minimum of the system. To make this more clear consider the example of a moving system, which is slowed down very quickly: $(T_v^0(k+1) \ll T_v^0(k)$. But still $(T_v^0(k+1) > 0$, otherwise energy would be supplied. Consider a elongated spring which is commanded to shorten/compress very quickly, the twist is so high that in the next time-step the twist is elongated already in the over direction. Thus the spring has passed through its energetic minimum and more energy than stored would have been extracted. This clearly violates passivity. It is also obvious that this case cannot occur in a continuous system. Thus the presented simple version of connecting a human with a spring to the controller, does not violate passivity.
+
+\section{Energy control}
+By incorporating a human in the control loop, who commands the system by hand motion, we introduce a source of energy. Unlike in many master-slave systems where the human motion is hindered by a reactive force-feedback, in our case the human's motion is free. Thus we cannot assume her/him to be passive any more, since the energy supply can be unbounded. One solution ensuring stability is assigning the operator with a certain \emph{energy budget} s/he can use to change the energetic state of the system. The idea is that the combined total energy either used in the system or stored in a \emph{energy tank} is always constant. Next to the naturally present types (kinetic, potential energy) we add the virtually stored energy. Being energetically conservative means that the energy is transformed between these three types. Clearly this demands that \emph{dissipated} energy is regained into the virtual storage. From a purely physical point of view this not meaningful since every energy conversion increases a system's entropy. In control theory however this poses no problem, the lossless case leads to stable, passive results \cite{Stramigioli_15}.
+
+\subsection{Energy tanks}   
+The \emph{energy tank} is a virtual storage element defined with a Hamiltonian energy function. Let $x_t$ denote the (scalar) energy state and we have a simple, positive definite function $T(x_t) = \frac{1}{2}x_t^2$. The dynamic equations of the tank are
+\begin{eqnarray}
+\begin{aligned}
+\dot{x_t} &= u_t \\
+y_t &= \frac{\partial T(x_t)}{\partial x_t} (=x_t)
+\end{aligned}
+\end{eqnarray}
+Here $u_t,y_t$ denote the input and output respectively. Towards the application of the energy tank it is useful to consider a standard port-Hamiltonian system of the form
+\begin{eqnarray}
+\begin{aligned}
+\dot{x} &= [J(x) - R(x)] \frac{\partial V}{\partial x} + g(x)u \\
+y &= g^T(x) \frac{\partial V}{\partial x}
+\end{aligned}
+\end{eqnarray}
+Now we seek to re-route the dissipated energy into the energy tank, this can be accomplished by choosing the tank input as $u_t = \frac{1}{x_t}\frac{\partial V^T}{\partial x}R(x)\frac{\partial V}{\partial x} + \tilde{u}_t$. With a new input $\tilde{u}_t$ we have a the tank's energy balance
+\begin{equation}
+\dot{T}(x_t)=y_tu_t = \frac{\partial V^T}{\partial x}R(x)\frac{\partial V}{\partial x} + x_t\tilde{u}_t
+\end{equation}
+This corresponds to the systems dissipated energy plus some external supply. Next we use this external supply to interconnect tank and pHs. A power-preserving interconnection is established, here we use a combination of gyrator and transformer with ratio $n$
+\begin{eqnarray}
+\begin{aligned}
+u &= ny_t \\
+\tilde{u}_t &= -n^Ty
+\end{aligned}
+\end{eqnarray}
+By construction and independent of a particular choice of $n$ this relation is power-continuous
+\begin{equation}
+u^Ty = y_t^Tn^Ty = -y_t^T\tilde{u}_t
+\end{equation}
+The combined energy function of the interconnected system is $\mathcal{V}(x,x_t)=V(x)+T(x_t)$. The choice of $n$ is not fixed but can be adjusted dynamically to shape the energy flow. In particular it is appealing to use $n$ to replicate the original control signal by choosing $n = \frac{w}{x_t}$. The new control input $w$ can effectively take the role of $u$, i.e. the pHs becomes
+\begin{equation}
+\dot{x} = [J(x) - R(x)] \frac{\partial V}{\partial x} + g(x)\frac{w}{x_t}y_t = [J(x) - R(x)] \frac{\partial V}{\partial x} + g(x)w
+\end{equation}
+For a $x_t\rightarrow0$, i.e. an empty energy tank, there is a singularity. Thus an complete depletion of the tank must be avoided. Introducing a switching parameter $\alpha$, we set $n=\frac{\alpha w}{x_t}$ with 
+\begin{equation}
+\alpha = \begin{cases}
+1 & \text{if } \, T(x_t)\geq\epsilon>0 \\
+0 & \text{if } \, T(x_t) < \epsilon
+\end{cases}
+\end{equation}
+This means that a control input is executed unchanged as long as certain amount $\epsilon$ of energy is in the tank. Once the energy budget is exceeded and command execution possibly violates passivity the input is set to $0$, effectively suspending energy exchange. This happens in both ways, neither is it possibly to re-transfer into the tank through the interconnection. At this point the tank can only be refilled by dissipation. Dissipation is associated with kinetic energy, as long as the system is moving it can recover from the input-suspended state. If the system is driven to a state of exclusively potential energy, there is no dissipation and a deadlock is reached.\\
+Reaching a state of exclusively potential energy takes infinite time, this is because a state of higher potential energy can only be reached by motion. I.e. kinetic energy is a predecessor of potential energy. A fragment of the kinetic energy is dissipated and is available in the energy budget again. The available energy approaches $\epsilon$ asymptotically.\\
+Consequently we can give a combined port-Hamiltonian representation of system and tank
+\begin{eqnarray}
+\begin{aligned}
+\begin{pmatrix}
+\dot{x} \\ \dot{x}_t
+\end{pmatrix} =
+\left[
+\begin{pmatrix}
+J(x) & \frac{\alpha w}{x_t} \\ -\frac{\alpha w^T}{x_t} & 0
+\end{pmatrix} - 
+\begin{pmatrix}
+R(x) & 0 \\ -\frac{1}{x_t}\frac{\partial \mathcal{V}^T}{\partial x}R(x) & 0
+\end{pmatrix}
+\right]
+\begin{pmatrix}
+\frac{\partial \mathcal{V}}{\partial x} \\
+\frac{\partial \mathcal{V}}{\partial x_t}
+\end{pmatrix}
+\end{aligned}
+\end{eqnarray}
+Note that there is no more an input-output port, this is because ports are defined by energy exchange.\\
+However when a robotic system interacts with the environment energy is exchanged, this clearly interferes with the concept of a constant energy budget. On the other hand the possible impact on the environment is limited. This is beneficial when interacting with humans and requiring to ensure their safety. If we do not assume a model or certain properties for the environment, a basic strategy for coping with undefined energy exchange is to allow the operator to supply and withdraw energy from the tank. Practically of the tank reaches a maximum energy level, further supplies are discarded (or transferred to the operator). On the other hand if the budget is used up and no more actions on the environment are allowed the human can supply more energy to the tank. 
+
+
+
+
+
+
 
 \begin{comment}      
 \section{The Intrinsically Passive Controller (IPC)}

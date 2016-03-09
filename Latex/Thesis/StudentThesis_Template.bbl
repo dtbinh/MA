@@ -85,6 +85,13 @@ L.~Han, J.C. Trinkle, and Z.X. Li.
 \newblock {\em Robotics and Automation, IEEE Transactions on}, 16(6):663--674,
   2000.
 
+\bibitem[LL02]{Liu_02}
+Guanfeng Liu and Zexiang Li.
+\newblock A unified geometric approach to modeling and control of constrained
+  mechanical systems.
+\newblock {\em IEEE Transactions on Robotics and Automation}, 18(4):574--587,
+  Aug 2002.
+
 \bibitem[LS05]{Lee_05}
 Dongjun Lee and M.W. Spong.
 \newblock Bilateral teleoperation of multiple cooperative robots over delayed
@@ -190,6 +197,13 @@ Arjan van~der {Schaft}.
   editors, {\em Proceedings of the International Congress of Mathematicians
   Vol. III: Invited Lectures}, pages 1339--1365, Madrid, Spain, 2006. European
   Mathematical Society Publishing House (EMS Ph).
+
+\bibitem[vdS13]{Schaft_13}
+Arjan van~der Schaft.
+\newblock Port-hamiltonian differential-algebraic systems.
+\newblock In A.~Ilchmann and T.~Reis, editors, {\em Surveys in
+  Differential-Algebraic Equations I}, Differential-Algebraic Equations Forum,
+  pages 173--226. Springer Berlin, 2013.
 
 \bibitem[vdSJ14]{Schaft_14}
 Arjan van~der Schaft and Dimitri Jeltsema.
