@@ -471,54 +471,60 @@ The assumption of rigid fixtures between manipulators and object is very common 
 %_____Kapitel 2_________________________________
 \chapter{port-Hamiltonian system modelling}
 %The controller is divided into two parts, the local one does the real-time interaction of the manipulators with the object. This part is passive, i.e. the robot along with its local controller has a certain amount of energy, the energy can not increase as long as no power is provided by the environment or the higher-level control part. Therefore the two parts will be called Intrinsically Passive Controller and Supervisor, this scheme was introduced by Stramigioli \cite{Stramigioli_01} as a general framework with application to robotic hands.
-In this chapter a modelling approach of interactive mechanical systems based on the port-Hamiltonian framework is introduced. Port based modelling aims at providing a consistent system description over different physical domains. In the presented case we stick to the mechanical domain, with two energies types of interest: kinetic and potential energy. 
-Modelling is done by dividing the system in simple Hamiltonian subsystems and interconnecting them using methods of network theory.\\
-Kinematic constraints limit the possible motion of the system's sub-members and impose a set of differential-algebraic equations (DAE). The DAE description is re-formulated into an input-output representation, which is beneficial when it comes to control.   
+In this chapter a modelling approach of the cooperative   system based on the port-Hamiltonian framework is introduced. This aims for a consistent system description over different energetic domains, present in mechanical systems in the form of kinetic and potential energy. The general theory of port-Hamiltonian systems is presented in Section \ref{S:HSdescription}. The generalization for six-dimensional mechanical system leading to systems defined on manifolds is introduced in Section \ref{S:3Dspace-modelling}. In cooperative manipulation set-ups, manipulators and object are rigidly connected, the arising constraints are treated in Section \ref{SS:ImposingConstraints}. 
+System modelling is performed by interconnecting standardized mechanical elements using network theory. The composition of a mechanical impedance, suitable for model-based control (see Chapter 3) is shown in Section \ref{S:springmassdampers}.
+  
 
 
-\section{Hamiltonian description of mechanical systems}\label{SS:HSdescription}
-The Hamiltonian equations of motion are related to the better known Euler-Lagrange equations with the Legendre transformation. Both are formulations on energy level thus they are useful for a continuous description of mixed-energy systems, e.g. a pendulum alternating between kinetic and potential energy periodically.
-The classical Hamiltonian equations for a mechanical system are:
-\begin{eqnarray}\label{EQ:generalPHS}
+\section{port-Hamiltonian description of mechanical systems}\label{S:HSdescription}
+For the derivation of the port-Hamiltonian description of a mechanical system we start from the classical \emph{Euler-Lagrange} equations of motion
+\begin{equation}
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}}\right) - \frac{\partial \mathcal{L}}{\partial q} = g(q)f,
+\end{equation}
+where $q$ is the vector of generalized configuration coordinates of the system. The \emph{Lagrangian} $\mathcal{L} = V_k - V_p$ equals the difference between the kinetic co-energy $V_k$ and the potential energy $V_p$. The kinetic co-energy is explicitly given as $V_k = \frac{1}{2} \dot{q}^T M(q) \dot{q}$, with a symmetric, positive definite inertia matrix $M(q)$. The generalized forces $f$ act on the system with an input matrix $g(q)$. We define the generalized \emph{momenta} for every Lagrangian $p := \frac{\partial \mathcal{L}}{\partial \dot{q}}$ and obtain $p = M(q)\dot{q}$.
+Introducing the \emph{Hamiltonian} (energy) function $H(q,p) = p^T\dot{q} - \mathcal{L}(q,\dot{q})$ we can rewrite the Euler-Lagrange equation in form of the classical Hamiltonian equations of a mechanical system \begin{eqnarray}\label{EQ:generalPHS}
 	\begin{aligned}
 	& \dot{q} = \frac{\partial H}{\partial p}(q,p)\\
-	& \dot{p} = -\frac{\partial H}{\partial q}(q,p) + F
+	& \dot{p} = -\frac{\partial H}{\partial q}(q,p) + g(q)f
 	\end{aligned}
 \end{eqnarray}
-Where Hamiltonian $ H(q,p) $ is the total energy of the system, $ q = (q_1,...,q_k)^T $ denotes the generalized coordinates of the system with $ k $-degrees of freedom and $ p = (p_1,...,p_k)^T $ is the vector of the generalized momenta. $ F $ is the input of generalized forces.\\
-An important aspect of PHS is conservation of energy, i.e. supplied work is stored in the system \cite{vanderSchaft_06}. The energy balance of the system is:
+The Hamiltonian describes the total energy stored in the system \cite{vanderSchaft_06}, thus the energy balance is
 \begin{equation}
-	\frac{d}{dt}H = \frac{\partial^T H}{\partial q}(q,p)\dot{q} + \frac{\partial^T H}{\partial p}(q,p)\dot{p} = \frac{\partial^T H}{\partial p}(q,p)F = \dot{q}^T F
+	\frac{d}{dt}H = \frac{\partial^T H}{\partial q}(q,p)\dot{q} + \frac{\partial^T H}{\partial p}(q,p)\dot{p} = f^Tg^T(q)\dot{q} = f^Te
 \end{equation}
-Note that the product of generalized force and velocity is mechanical power. Depending on the energy type of the mechanical system (kinetic or potential), the input is either or force or velocity and the output being  velocity or force respectively. This motivates the more general concept of flows $f$ and efforts $e$, being the input and output of a pHs.
+Hamiltonian systems are energy conservative, i.e. the energy supplied through the port is stored in the system. In the upper equation a new output $e=g^T(q)\dot{q}$ is introduced. Clearly the product $e^Tf$ is the exchanged power and we call the pair $(f,e)$ a \emph{power port}.
+The general equations of a port-Hamiltonian system are
 \begin{eqnarray}
 \begin{aligned}
 	& \dot{q} = \frac{\partial H}{\partial p}(q,p)\\
 	& \dot{p} = -\frac{\partial H}{\partial q}(q,p)+g(q)f \\   &e = g^T(q)\frac{\partial H}{\partial p}(q,p)
 \end{aligned}	
 \end{eqnarray}
-\textbf{Example:} Consider a simple one-dimensional spring-mass system described by $ m\ddot{x} = -kx +F_e $. Where $ m,k,F $ denote the mass, stiffness and external force acting on the mass. We can give a state space formulation for the system
+Port-Hamiltonian systems are suitable to describe a variety of physical systems including mechanical, electrical, thermal and hydraulic elements, see \cite{duindam2009geoplexbook} for an overview. This motivates the more general input-output concept of flows $f$ and efforts $e$ forming the port variables $(f,e)$.\\
+\textbf{Example 2.1:}\\
+Consider a simple one-dimensional spring-mass system described by $ m\ddot{x} = -kx +F $, where $ m,k,F $ denote the mass, stiffness and external force acting on the mass respectively. We can give a state space formulation of the system
 \begin{equation}
 	\begin{pmatrix}\dot{x} \\ \ddot{x}\end{pmatrix} =
 	\begin{pmatrix}0 & 1 \\ -\frac{k}{m} & 0\end{pmatrix}
 	\begin{pmatrix}x \\ \dot{x}\end{pmatrix} + 
-	\begin{pmatrix}0 \\ 1\end{pmatrix}\frac{F_e}{m}
+	\begin{pmatrix}0 \\ 1\end{pmatrix}\frac{F}{m}
 \end{equation}
-In the Hamiltonian approach the system is described based on the Hamiltonian energy functions, being $ V_s = \frac{1}{2}kq^2 $ for the spring and $ V_m = \frac{1}{2m}p^2 $ for the mass. The state variables are thus replaced by the energy states, the \emph{configuration} $q=x$ accounting for the spring and the \emph{momentum} $p=m\dot{x}$ accounting for the mass.  
+In the Hamiltonian approach the system is described based on the Hamiltonian energy functions, being $ H_s(q) = \frac{1}{2}kq^2 $ for the spring and $ H_m(p) = \frac{1}{2m}p^2 $ for the mass. The total energy is thus $H(q,p) = H_s + H_m$ The state variables are thus replaced by the energy states, the \emph{configuration} $q=x$ accounting for the spring and the \emph{momentum} $p=m\dot{x}$ accounting for the mass.  
 \begin{eqnarray}\label{EQ:HSexample}
 \begin{aligned}
-	&\begin{pmatrix}\dot{q} \\ \dot{p}\end{pmatrix} =
+	\begin{pmatrix}\dot{q} \\ \dot{p}\end{pmatrix} &=
 	\begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}
-	\begin{pmatrix}\frac{\partial V}{\partial q}(q,p) \\ \frac{\partial V}{\partial p}(q,p)\end{pmatrix} + 
-	\begin{pmatrix}0 \\ 1\end{pmatrix} F_e\\
-	&e = \begin{pmatrix}	0 & 1\end{pmatrix}\begin{pmatrix}\frac{\partial V}{\partial q}(q,p) \\ \frac{\partial V}{\partial p}(q,p)\end{pmatrix}, \; V=V_s+V_m
+	\begin{pmatrix}\frac{\partial H}{\partial q}(q,p) \\ \frac{\partial H}{\partial p}(q,p)\end{pmatrix} + 
+	\begin{pmatrix}0 \\ 1\end{pmatrix} F\\
+	e &= \begin{pmatrix}	0 & 1\end{pmatrix}\begin{pmatrix}\frac{\partial H}{\partial q}(q,p) \\ \frac{\partial H}{\partial p}(q,p)\end{pmatrix}
 	\end{aligned}
 \end{eqnarray}
-Key aspect of pHs is the division into atomic energy storing elements (spring,mass) and their proper interconnection. In the example we have implicitly done this by defining energy functions and states for both elements. The rules of interconnection are explicitly given by: : 
+\newline
+Key aspect of port-Hamiltonian system is the division into atomic energy storing elements (spring, mass) and their proper interconnection. In the example we have implicitly done this by defining energy functions and states for both elements. The rules of interconnection are explicitly given by: 
 \begin{itemize}
 \itemsep0em
 	\item equal velocity of spring tip and mass $\dot{x}=\frac{\partial V}{\partial p}$(rigid connection)
-	\item opposite forces at spring tip and mass $\dot{p}=-\frac{\partial V}{\partial q}+F_e$ (principle of action-reaction) 
+	\item opposite forces at spring tip and mass $\dot{p}=-\frac{\partial V}{\partial q}+F$ (principle of action-reaction) 
 \end{itemize}
 Due to the \emph{second law of thermodynamics} real mechanical systems are never energy conservative. Thus we require energy dissipating elements (since thermal energy is "lost" w.r.t. the mechanical domain). A mechanical system is thus described by its basic elements: springs, masses and dampers. Table \ref{TAB:PHSvar_mechanic} gives an overview of the elements and their characterizing quantities. Note that dissipation elements do not have a state because they are static. It is worth pointing out that the \emph{flows} are the time derivatives of the \emph{states}.    
 
@@ -526,7 +532,7 @@ Due to the \emph{second law of thermodynamics} real mechanical systems are never
 
 \begin{table}
 	\centering
-	\caption[PHS variables of mechanical elements]{PHS variables of mechanical elements}
+	\caption[port-Hamiltonian system variables of mechanical elements]{port-Hamiltonian system variables of mechanical elements}\vspace{10pt}
 	\label{TAB:PHSvar_mechanic}
 	
 	\begin{tabular}{ l | l | l | l }
@@ -538,7 +544,7 @@ Due to the \emph{second law of thermodynamics} real mechanical systems are never
 	\end{tabular}
 \end{table}
 
-Next to \emph{energy-storing} and \emph{-dissipating} there is a third class of elements, namely \emph{energy-conservative} structures. Elements within this group are transformers, gyrators and ideal constraints, they are used to redirect the power flow in the system. It is possible to merge all \emph{energy-storing} elements into a single object representation (see Fig. \ref{FIG:pHsstructure}). Analogously this can be done for the dissipation elements. The interconnecting structure (denoted by $\mathcal{D}$ in Fig. \ref{FIG:pHsstructure}), consisting of the \emph{energy-conservative} elements, formalizes the energy routing and geometric dependencies of the system. A detailed explanation is given in the next subsection.
+Next to \emph{energy-storing} and \emph{-dissipating} there is a third class of elements, namely \emph{energy-conservative} structures. Elements within this group are transformers, gyrators and ideal constraints. They are used to redirect the power flow in the system. It is possible to merge all \emph{energy-storing} elements into a single object representation (see Fig. \ref{FIG:pHsstructure}). Analogously this can be done for the dissipation elements. The interconnecting structure (denoted by $\mathcal{D}$ in Fig. \ref{FIG:pHsstructure}), consisting of the \emph{energy-conservative} elements, formalizes the energy routing and geometric dependencies of the system. A detailed explanation is given in the next subsection.
 
 
 \begin{figure}[htb]
@@ -549,10 +555,10 @@ Next to \emph{energy-storing} and \emph{-dissipating} there is a third class of 
 \end{figure}
 
 Complex physical systems can be modelled as a network of energy storing and dissipating elements, similar to representation of electrical networks consisting of resistors, inductors and capacitors. The rules of interconnection are Newton's third law (action-reaction), Kirchhoff's laws and power-conserving elements like transformers or gyrators. The aim of PHS-modelling is to describe the power-conserving elements with the interconnection laws as a geometric structure and to define the Hamiltonian function as the total energy of the system. \\
-The power flowing between the system's portions is described by the flow-effort product $e^Tf$. A pair $(f,e)$ is called a \emph{port}. The external port $(f_P,e_P)$ describes the energy flow to/from environment or a controller. 
+The power flowing between the system's portions is described by the flow-effort product $e^Tf$. The external port $(f_P,e_P)$ describes the energy flow to/from environment or a controller. 
 
 \subsection{Dirac structures and interconnection ports} \label{SS:PHSinterconnection}
-The energy-routing structure forms the basis of every pHs. It can be compared to the printed circuit board in electronics, while capacitors, inductors and resistors being the energy-storing and damping elements. Mathematically it has the form of a \emph{Dirac} structure. The main property of a Dirac structure is power conservation, i.e. the power flowing into and out of it always sums to zero. We can define the set of ports $(f,e)$ connecting to the Dirac structure $\mathcal{D}$, thus 
+The energy-routing structure forms the basis of every pHs. It can be compared to the printed circuit board in electronics, where capacitors, inductors and resistors are the energy-storing and damping elements. Mathematically it has the form of a \emph{Dirac} structure \cite{vanderSchaft_06}. The main property of a Dirac structure is power conservation, i.e. the power flowing into and out of it always sums to zero. We can define the set of ports $(f,e)$ connecting to the Dirac structure $\mathcal{D}$, thus 
 \begin{equation}
 e^Tf = 0 \;  \; \forall (f,e)\in\mathcal{D}
 \end{equation}
@@ -571,13 +577,13 @@ D :=  \begin{pmatrix}
 D_P & G_1 & G_2 \\ -G_1^T & D_S & G_3 \\ -G_2^T & -G_3^T & D_R 
 \end{pmatrix}
 \end{equation}
-and $D_P,D_S,D_R$ are skew-symmetric. Thus $D = -D^T$ is skew-symmetric, this is necessary for $e^Tf=0$.
+and $D_P,D_S,D_R$ are skew-symmetric, $G_*$ are arbitrary matrices. Thus $D = -D^T$ is skew-symmetric, which is necessary for $e^Tf=0$.
 The power exchanged through a port is given by $ e_*^Tf_*$. In Fig. \ref{FIG:pHsstructure} the port variables entering the Dirac structure have already been split. 
 
 \subsubsection{Energy storage port}
-The port accounts for the internal storage of the system, its port variables are $ (f_S,e_S) $. The power supplied through this port is stored in the Hamiltonian energy function $V(x)$ of the system. Here $x$ denotes a general energy state variable. The resulting energy balance is:
+The port accounts for the internal storage of the system, its port variables are $ (f_S,e_S) $. The power supplied through this port is stored in the Hamiltonian energy function $H(x)$ of the system. Here $x$ denotes a general energy state variable. The resulting energy balance is:
 \begin{equation}\label{EQ:storageport}
-	\frac{d}{dt}H = \frac{\partial^T V}{\partial x}(x) \dot{x}
+	\frac{d}{dt}H = \frac{\partial^T H}{\partial x}(x) \dot{x}
 \end{equation}
 The flow variable is the energy rate $ f_S = -\dot{x} $ and the effort variable is $ e_S = \frac{\partial H}{\partial x}(x) $.
 
@@ -609,35 +615,39 @@ or by using (\ref{EQ:storageport})
 \subsubsection{Interconnection of port-Hamiltonian systems}
 It is important to notice that the interconnection of two pHs is again a pHs \cite{Schaft_14}. Consider two general pHs $(i=1,2)$ with open control and environment interaction ports:
 \begin{eqnarray}
-	\dot{x}_i = (J_i - R_i)\frac{\partial H_i}{\partial x_i}+ (g_i^C & g_i^I)\begin{pmatrix}f_i^C \\ f_i^I\end{pmatrix}\\
-	\begin{pmatrix}e_i^C \\ e_i^I\end{pmatrix} = \begin{pmatrix}(g_i^C)^T \\ (g_i^I)^T\end{pmatrix}\frac{\partial H_i}{\partial x_i}
+\begin{aligned}
+	\dot{x}_i &= (J_i - R_i)\frac{\partial H_i}{\partial x_i}+ (g_i^C & g_i^I)\begin{pmatrix}f_i^C \\ f_i^I\end{pmatrix}\\
+	\begin{pmatrix}e_i^C \\ e_i^I\end{pmatrix} &= \begin{pmatrix}(g_i^C)^T \\ (g_i^I)^T\end{pmatrix}\frac{\partial H_i}{\partial x_i}
+\end{aligned}
 \end{eqnarray}
-Where $J_i,R_i$ are a skew-symmetric structure matrix and a positive-semi-definite symmetric dissipation matrix. $(g_i^C g_i^I)$ is a general input matrix.
+where $J_i,R_i$ are a skew-symmetric structure matrix and a positive semi-definite symmetric dissipation matrix. $(g_i^C g_i^I)$ is a general input matrix respectively.
 For notational convenience the usual dependencies on the states have been omitted. The control inputs and outputs are now connected by setting $f_1^C = e_2^C $ and $ f_2^C = -e_1^C $. Note that the minus sign is necessary for power conservation. The power exchanged by the $i$-th system is $P_i = (e_i^C)^Tf_i^C$, therefore the total exchanged energy fulfils $ P_1 + P_2 = 0 $. The resulting interconnected system has still the environment interaction ports open:
 \begin{eqnarray}
-	\dot{x} = (J - R)\frac{\partial H}{\partial x}+ (g_1^I & g_2^I)\begin{pmatrix}f_1^C \\ f_2^I\end{pmatrix}\\
-	\begin{pmatrix}e_1^I \\ e_2^I\end{pmatrix} = \begin{pmatrix}(g_1^I)^T \\ (g_2^I)^T\end{pmatrix}\frac{\partial H}{\partial x}
+\begin{aligned}
+	\dot{x} &= (J - R)\frac{\partial H}{\partial x}+ (g_1^I & g_2^I)\begin{pmatrix}f_1^C \\ f_2^I\end{pmatrix}\\
+	\begin{pmatrix}e_1^I \\ e_2^I\end{pmatrix} &= \begin{pmatrix}(g_1^I)^T \\ (g_2^I)^T\end{pmatrix}\frac{\partial H}{\partial x}
+\end{aligned}
 \end{eqnarray}
-Where $ x = (x_1, x_2)^T $ and $ H = H_1 + H_2 $ is the sum of the two energies. The structure and dissipation matrix become:
+where $ x = (x_1, x_2)^T $ and $ H = H_1 + H_2 $ is the sum of the two energies. The structure and dissipation matrix become:
 \[J = \begin{pmatrix} J_1 & g_1^C(g_2^C)^T \\ 
--g_1^C(g_2^C)^T & J_2\end{pmatrix} \],
-\[R = \begin{pmatrix}
+-g_2^C(g_1^C)^T & J_2\end{pmatrix} \, , \; 
+R = \begin{pmatrix}
 R_1 & 0 \\ 0 & R_2\end{pmatrix}\]
 
 
 
-\section{3D-space modelling of mechanical systems}
+\section{3D-space modelling of mechanical systems}\label{S:3Dspace-modelling}
 
 
 \subsection{Euclidean space and motions}\label{[SS:euclideanspacemotions]}
 \subsubsection{Coordinate frames}
-A coordinate frame of the three-dimensional Euclidean space is a 4-tuple of the form $ \Psi = (o,\hat{x},\hat{y},\hat{z})$. Where $ o $ is the three-dimensional vector of the origin and $ \hat{x},\hat{y},\hat{z} $ are the linear independent, orthonormal coordinate vectors. Consider two coordinate frames $ \Psi_1,\Psi_2 $ which share the same origin but differ in orientation due to different choices of $ \hat{x}_i,\hat{y}_i,\hat{z}_i, \; i=1,2 $. The change of orientation from $ \Psi_i $ to $ \Psi_i $ is described by the rotation matrix $ R_i^j $. The set of rotation matrices is called \emph{special orthonormal} group ($SO(3)$) \cite{Stramigioli_01b} and is defined as:
+A coordinate frame of the three-dimensional Euclidean space is a 4-tuple of the form $ \Psi = (o,\hat{x},\hat{y},\hat{z})$. Where $ o $ is the three-dimensional vector of the origin and $ \hat{x},\hat{y},\hat{z} $ are the linear independent, orthonormal coordinate vectors. Consider two coordinate frames $ \Psi_1,\Psi_2 $ which share the same origin but differ in orientation due to different choices of $ \hat{x}_i,\hat{y}_i,\hat{z}_i, \; i=1,2 $. The change of orientation from $ \Psi_i $ to $ \Psi_j $ is described by the rotation matrix $ R_i^j $. The set of rotation matrices is called \emph{special orthonormal} group ($SO(3)$) \cite{Stramigioli_01b} and is defined as:
 \begin{equation}
 	SO(3) = \{R \in \mathbb{R}^{3 \times 3} \; | \; R^{-1} = R^T, det R = 1\}
 \end{equation}
 Usually coordinate frames are defined with respect to an inertial frame, and the coordinate vectors $ \hat{x},\hat{y},\hat{z} $ are chosen equal for all frames, deviations of orientation are represented by a rotation matrix relative to the inertial frame. In general a change of coordinate frames from $ \Psi_i $ to $ \Psi_j $ can be expressed with the homogeneous matrix
 \[ H_i^j := \begin{pmatrix}R_i^j & p_i^j \\ 0_{1\times3} & 1\end{pmatrix} \]
-Where $p_i^j = o_j - o_i$ denotes the changes of origins. A point $ p^1 \in \mathbb{R}^3 $ expressed in $ \Psi_i $ is cast into $\Psi_j$ by
+where $p_i^j = o_j - o_i$ denotes the distance between the origins. A point $ p^i \in \mathbb{R}^3 $ expressed in $ \Psi_i $ is cast into $\Psi_j$ by
 \begin{equation}\label{EQ:coordchange}
 	\begin{pmatrix}p^j \\ 1\end{pmatrix} = H_i^j \begin{pmatrix}
 		p^i \\ 1\end{pmatrix}
@@ -647,9 +657,9 @@ The inverse transformation $ H_j^i $ is given by
 and is still a homogeneous matrix.
 The set of homogeneous matrices is called the \emph{special Euclidean} group:
 \begin{equation}
-	SE(3) := \{\begin{pmatrix}R & p\\0 & 1\end{pmatrix} \; | \; R \in SO((3), p \in \mathbb{R}^3\} 
+	SE(3) := \{\begin{pmatrix}R & p\\0 & 1\end{pmatrix} \; | \; R \in SO(3), p \in \mathbb{R}^3\} 
 \end{equation}
-The $SE(3)$ is a matrix lie group, composed of the set of homogeneous matrices $H_i^j$ and the matrix multiplication being the group operation. For more information on Lie groups see e.g. \cite{Stramigioli_01}.
+The $SE(3)$ is a matrix Lie group, composed of the set of homogeneous matrices $H_i^j$ and the matrix multiplication being the group operation. For more information on Lie groups see e.g. \cite{Stramigioli_01}.
 \subsubsection{Twists and wrenches}
 Consider any point $ p $ not moving in coordinate frame $\Psi_i $, i.e. $ \dot{p}^i = 0 $. If $ p $ is moving in another coordinate frame $ \Psi_j $, the two frame move with respect to each other. The trajectory can be described as a function of time: $H_i^j(t) \in SE(3)$. By differentiating (\ref{EQ:coordchange}) one obtains
 \[\begin{pmatrix}\dot{p}^j(t) \\ 1\end{pmatrix} = \dot{H}_i^j(t) \begin{pmatrix}p^i \\ 1\end{pmatrix} \]
@@ -657,8 +667,7 @@ $ \dot{H}_i^j $ describes both motion and a change of the reference frame. A sep
 \begin{equation}\label{EQ:twistrighttranslation}
 	\begin{pmatrix}\dot{p}^j(t) \\ 1\end{pmatrix} = \tilde{T}_i^{j,j}\left(H_i^{j}\begin{pmatrix}p^i \\ 1\end{pmatrix}\right)
 \end{equation}
-
-More formally speaking $ \dot{H}_i^j$ is a tangential vector along the trajectory $H_i^j(t)$ and thus in the tangent space of the $SE(3)$: $ \dot{H}_i^j \in T_{H_i^j}SE(3)$. The tangent space $T_{H_i^j}SE(3)$ depends on the relation of $\Psi_i$ and $\Psi_j$. To obtain a representation of motion which is referenced to a coordinate frame, we can map $\dot{H}_i^j$ to the identity of the $SE(3)$. At the identity $ e $ of the $SE(3)$ the tangent space $ T_e SE(3) $ has the structure of a Lie algebra. The Lie algebra of the $SE(3)$ is denoted by $\mathfrak{se}(3)$. This is done either by left or right translation, for a definition see \cite{Stramigioli_01}. The right translation is used in (\ref{EQ:twistrighttranslation}) and is written compact
+$ \dot{H}_i^j$ is a tangential vector along the trajectory $H_i^j(t)$ and thus in the tangent space of the $SE(3)$: $ \dot{H}_i^j \in T_{H_i^j}SE(3)$. To obtain a representation of motion which is referenced to a coordinate frame, we can map $\dot{H}_i^j$ to the identity of the $SE(3)$. At the identity $ e $ of the $SE(3)$ the tangent space $ T_e SE(3) $ has the structure of a Lie algebra. The Lie algebra of the $SE(3)$ is denoted by $\mathfrak{se}(3)$. This is done either by left or right translation, for a definition see \cite{Stramigioli_01}. The right translation is used in (\ref{EQ:twistrighttranslation}) and is written compactly
 \begin{equation}\label{EQ:righttranslation}
 \dot{H}_i^j = \tilde{T}_i^{j,j} H_i^j
 \end{equation}\label{EQ:lefttranslation}
@@ -666,54 +675,107 @@ The left translation leads to
 \begin{equation}
 \dot{H}_i^j = H_i^j \tilde{T}_i^{i,j} 
 \end{equation}
-We call $\tilde{T} \in T_e SE(3)$ a twist and the $\mathfrak{se}(3)$ the space of twists. It can already be seen from the upper equations that different representations exist:
+We call $\tilde{T} \in T_e SE(3)$ a twist and the $\mathfrak{se}(3)$ the space of twists.
+Let us look more closely at this representation by calculating the twist from the elements of the homogeneous matrix
+
+\begin{eqnarray}\label{EQ:twistdecomposition}
+\begin{aligned}
+T_i^j &= \dot{H}_i^j H_j^i =
+\begin{pmatrix}
+\dot{R}_i^j & \dot{p}_i^j \\ 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+R_j^i & p_j^i \\ 0 & 1
+\end{pmatrix} = 
+\begin{pmatrix}
+\dot{R}_i^j & \dot{p}_i^j \\ 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+(R_i^j)^T & -(R_i^j)^Tp_i^j \\ 0 & 1
+\end{pmatrix} = \\ &= 
+\begin{pmatrix}
+\dot{R}_i^j(R_i^j)^T & -\dot{R}_i^j(R_i^j)^Tp_i^j + \dot{p}_i^j \\ 0 & 0
+\end{pmatrix} =: 
+\begin{pmatrix}
+\tilde{\omega}_i^j & v_i^j \\ 0 & 0
+\end{pmatrix}
+\end{aligned}
+\end{eqnarray}
+It is clear from this equation that the linear velocity part $v_i^j$ is not the velocity of the frame $\Psi_i$ with respect to $\Psi_j$, identified by $\dot{p}_i^j$. This twist representation is described by the \emph{screw theory} (see e.g. \cite{KinematicsHandbook}). It can be visualized by the angular velocity around an axis and the linear velocity along this axis.
+
+
+
+Next to the $4  \times 4$ matrix $\tilde{T} $ there exists also a vector representation $T\in \mathbb{R}^6$
+\begin{equation}
+ \tilde{T} = \begin{pmatrix}\tilde{\omega} & v \\ 0 & 0\end{pmatrix} \; , \; T = \begin{pmatrix}\omega \\ v\end{pmatrix} \end{equation}
+wherein $v$ is the velocity and $\omega$ is the angular velocity. $\tilde{\omega}$ is the skew-symmetric representation of the vector $\omega$
+\begin{equation}\label{EQ:skewsymmetricop}
+\omega = \begin{pmatrix}
+\omega_1 \\ \omega_2 \\ \omega_3\end{pmatrix} \; \Rightarrow \; \tilde{\omega} = \begin{pmatrix}0 & -\omega_3 & \omega_2 \\ \omega_3 & 0 & \omega_1 \\ -\omega_2 & \omega_1 & 0\end{pmatrix} \end{equation} \\
+
+Left and right translations lead to different representations of a twist:
 \begin{itemize}
 \item $T_i^{k,j}$ is the twist of $\Psi_i$ with respect to $\Psi_j$ expressed in the frame $\Psi_k$
 \item $T_i^j = T_i^{j,j}$ is the twist of $\Psi_i$ with respect to $\Psi_j$ expressed naturally in $\Psi_j$ 
 \end{itemize}
 
-The $4  \times 4$ matrix $\tilde{T} $ can be decomposed and there exists also a vector representation $T\in \mathbb{R}^6$
-\[ \tilde{T} = \begin{pmatrix}\tilde{\omega} & v \\ 0 & 0\end{pmatrix} \; , \; T = \begin{pmatrix}\omega \\ v\end{pmatrix} \]
-Wherein $v$ is the velocity and $\omega$ is the angular velocity. $\tilde{\omega}$ is the skew-symmetric representation of the vector $\omega$
-\begin{equation}\label{EQ:skewsymmetricop}
-\omega = \begin{pmatrix}
-\omega_1 \\ \omega_2 \\ \omega_3\end{pmatrix} \; \Rightarrow \; \tilde{\omega} = \begin{pmatrix}0 & -\omega_3 & \omega_2 \\ \omega_3 & 0 & \omega_1 \\ -\omega_2 & \omega_1 & 0\end{pmatrix} \end{equation} \\
 Changes of coordinates for twists are of the form 
-\[\tilde{T}_i^{j,j} = \tilde{T}_i^{j} = H_i^j \tilde{T}_i^{i,j} H_j^i\]
+\begin{equation}
+\tilde{T}_i^{j,j} = \tilde{T}_i^{j} = H_i^j \tilde{T}_i^{i,j} H_j^i\end{equation}
 or for the vector representation
-\[T_i^{j} = Ad_{H_i^j} T_i^{i,j} \; , \;
-Ad_{H_i^j} = \begin{pmatrix}R_i^j & 0 \\ \tilde{p}_i^j R_i^j & R_i^j\end{pmatrix} \]
+\begin{equation}
+ T_i^{j} = Ad_{H_i^j} T_i^{i,j} \; , \;
+Ad_{H_i^j} = \begin{pmatrix}R_i^j & 0 \\ \tilde{p}_i^j R_i^j & R_i^j\end{pmatrix} \end{equation}
 
-The  dual vector space of $\mathfrak{se}(3)$ is the space of linear operations from $\mathfrak{se}(3)$ to $\mathbb{R} $. It is denoted by $\mathfrak{se}^*(3)$ and represents the space of wrenches $W$.\\ Wrenches decompose to moments $ m $ and forces $ f $.
-\[ W = ( m \;\; f) \; , \; \tilde{W} = \begin{pmatrix}
-\tilde{f} & m \\ 0 & 0\end{pmatrix} \]
-Again $\tilde{W} \in \mathbb{R}^{4\times 4}$ is a matrix while $W \in \mathbb{R}^6$ is the  row vector representation.\\ 
+The  dual vector space of $\mathfrak{se}(3)$ is the space of linear operations from $\mathfrak{se}(3)$ to $\mathbb{R} $. It is denoted by $\mathfrak{se}^*(3)$ and represents the space of wrenches $W$. Wrenches decompose to moments $ m $ and forces $ f $.
+\begin{equation}
+ W = ( m \;\; f) \; , \; \tilde{W} = \begin{pmatrix}
+\tilde{m} & f \\ 0 & 0\end{pmatrix} \end{equation}
+Again $\tilde{W} \in \mathbb{R}^{4\times 4}$ is a matrix while $W \in \mathbb{R}^6$ is the  row vector representation.
 The change of coordinates for twists is similar to the case of twists:
-\[(W^i)^T = Ad_{H_i^j}^T (W^j)^T \]
+\begin{equation}
+(W_i^{k,i})^T = Ad_{H_k^i}^T (W_i^i)^T \end{equation} 
 Here the mapping is in the opposite direction, from $\Psi_j$ to $\Psi_i$, what is a consequence of the fact that wrenches are duals to twists. Again there are different representations of wrenches: \begin{itemize}
 \item $W_i^{k,j}$ is the wrench applied to a spring connecting $\Psi_i$ to $\Psi_j$ on the side of $\Psi_i$ expressed in the coordinate frame $\Psi_k$.
 \item $W_i^k $ is the wrench applied to a body attached to $\Psi_i$ expressed in the coordinate frame $\Psi_k$.
 \end{itemize}
+These definitions lead to the following rules of interconnection:
 Connecting a body and spring in the point $\Psi_i$ and applying the principle of action and reaction we get $W_i^{k,j} = -W_i^k$. Due to the nodicity of a spring we have $ W_i^{k,j} = -W_j^{k,i} $\\
 
-Recalling Subsection \ref{SS:PHSinterconnection} the power flowing through a port is defined by the dual product of an effort and flow pair, which are from a vector space and its dual respectively. On a vector space level the power port $\mathcal{P}$ is defined by the Cartesian product of the Lie algebra $\mathfrak{se}(3)$ and its dual $\mathfrak{se}^*(3)$: $\mathcal{P} = \mathfrak{se}(3) \times \mathfrak{se}^*(3)$. The mechanical power exchanged at the port is simply $P = WT$.
+We define power flowing through a port by the duality product of flow and effort, in the mechanical domain this twist and wrench. On a vector space level the power port $\mathcal{P}$ is defined by the Cartesian product of the Lie algebra $\mathfrak{se}(3)$ and its dual $\mathfrak{se}^*(3)$: $\mathcal{P} = \mathfrak{se}(3) \times \mathfrak{se}^*(3)$.
+
+\subsubsection{General input-state-output port-Hamiltonian systems}
+The simple relation $\dot{q}=\frac{\partial H}{\partial p}$ does not hold for a 3D-mechanical system. With reference to the next section we find $\frac{\partial V}{\partial P_i^i} = T_i^{i,0} = H_0^i \dot{H_i^0}$, with the $H_0^i$ being the configuration variable and $P_i^i$ the momentum. For reasons of notational clarity the Hamiltonian is denoted with $V$. The interconnecting Dirac structure in 3D-mechanical system  is dependent on the configuration and we call it a \emph{modulated} Dirac structure. This motivates the more general concept of port-Hamiltonian systems on \emph{manifolds}. By introducing local coordinates $x$ on the state manifold $\mathcal{X}$, we can associate the flows towards the energy storage with $f_s = -\dot{x}$ and the efforts with $e_s = \frac{\partial V}{\partial x}$. The flows are elements of the tangent space of the state manifold $T_x\mathcal{X}$ and the efforts are elements of the co-tangent space $T_x^*\mathcal{X}$. A general port-Hamiltonian system defined on $\mathcal{X}$ is of the form
+\begin{eqnarray}
+\begin{aligned}
+\dot{x} &= [J(x)-R(x)]\frac{\partial V}{\partial x}(x) + g(x) u \\
+y &= g^T(x)\frac{\partial V}{\partial x}
+\end{aligned}
+\end{eqnarray}
+with a skew-symmetric matrix $J(x)$ and a resistive structure matrix $R(x)$ which is symmetric and positive semi-definite. Clearly $u$ and $y$ denote the input and output respectively and we call this representation \emph{input-state-output} form \cite{Schaft_14}. In the following section we introduce the corresponding representations of atomic mechanical elements.
+
+
 
 
 \subsection{Dynamics of physical components}
 \subsubsection{Springs}
-A \emph{spring} is the ideal, lossless element storing potential energy. It is connected to two bodies and is defined by an energy function. The energy is a function of the relative displacement of the attached bodies. Consider a spring between the two bodies $ B_i $ and $ B_j $,  with coordinate frames $ \Psi_i $ and $ \Psi_j $ fixed to the respective body. The stored potential energy is positive definite function of the form \cite{Stramigioli_99}
+A \emph{spring} is the ideal, lossless element storing potential energy. It is connected to two bodies and is defined by a potential energy function. The energy is a function of the relative displacement of the attached bodies. Consider a spring between the two bodies $ B_i $ and $ B_j $,  with coordinate frames $ \Psi_i $ and $ \Psi_j $ fixed to the respective body. The stored potential energy is positive definite function $V_{i,j}$ of the form 
 \begin{equation}
 	V_{i,j} : SE(3) \rightarrow \mathbb{R}; \; H_i^j \mapsto V_{i,j}(H_i^j)
 \end{equation}
-Recalling the general equations of a pHs and the assignment of the variables from Subsection \ref{SS:HSdescription} we already have the structure of the pHs equations for a spring. The state variable is the relative displacement $H_i^j$, the effort variable is the wrench $ W_i^{j,j} $ and the flow variable is the twist $T_i^j$
+For explicit energy functions for different types of springs see \cite{Stramigioli_01b}.
+The input-state-output form is defined by the relative displacement $H_i^j$ (state variable), the wrench $W_i^{j,j}$ (effort) and the twist $T_i^j$ (flow).
 \begin{eqnarray}
 \begin{aligned}
 	&\dot{H}_i^j = T_i^{j}H_i^j\\
 	&W_i^{j,j} = \frac{\partial V_{i,j}}{\partial H_i^j}(H_i^j)^T
 \end{aligned}
 \end{eqnarray}
-Note that $ V_{i,j} $ is an energetic minimum when $ H_i^j $ is the identity matrix $I_4$. An energetic minimum is physically necessary, otherwise infinite energy would be extractable. With $ H_i^j = I_4 $ the frames $ \Psi_i $ and $\Psi_j$ coincide.
+Note that $ V_{i,j} $ is an energetic minimum when $ H_i^j $ is the identity matrix $I_4$. An energetic minimum is physically necessary, otherwise infinite energy would be extractable from the spring. With $ H_i^j = I_4 $ the frames $ \Psi_i $ and $\Psi_j$ coincide.
 It is possible to define springs with non-zero rest-length by introducing coordinate frames $ \Psi_{ic} $ and $\Psi_{jc}$ rigidly attached to $ \Psi_i $ and $\Psi_j$ respectively. The spring is now between the new frames, thus the energetic minimum is $H_{ic}^{jc} = I_4$. The displacements $ H_i^{ic}, H_j^{jc} $ are the resulting rest-lengths. Frames $ \Psi_{ic} $ and $\Psi_{jc}$ can be chosen to represent the \emph{center of stiffness}, where translation and rotation are maximally decoupled \cite{Stramigioli_99}.
+
+
+\begin{comment}
 \subsubsection{Variable rest-length springs}
 Varying the rest-lengths of springs in manipulator-object interaction allows to perform a grasp and specify grasping forces. The rest-length influences the energy configuration, to allow for controlled changes of rest-length an additional power port is introduced. The chosen hinge points $ \Psi_b,\Psi_j $ of the spring define an axis, known as the principal axes of stiffness. Changes of the rest-length leave this axis unaffected, i.e. the displacement is in-line. With reference to Fig. \ref{FIG:variablespring}, the change of rest-length is a change of relative displacement of $ \Psi_b $ and $\Psi_i$: $H_i^b$.
 \begin{figure}[htb]
@@ -733,6 +795,7 @@ Since no additional energy storages were introduced, the Hamiltonian function is
 	&\begin{pmatrix}W_b^{j,j} \\ W_i^{b,b}\end{pmatrix}  = \left( \begin{pmatrix}1 \\ Ad_{H_b^j}^T\end{pmatrix} \frac{\partial V_{i,j}}{\partial H_i^j} \right) (H_i^j)^T
 \end{aligned}
 \end{eqnarray}
+\end{comment}
 
 \subsubsection{Inertias}
 Inertias are special since they in general store two types of energy: kinetic and potential energy due to gravitation. At first we exclude the gravitational terms and focus on motion. Kinetic energy is a function of the relative motion w.r.t. an inertial reference. When expressing motion in non-inertial or accelerated reference frames, fictitious forces such as the \emph{Coriolis} or the \emph{centrifugal} force need to be considered.\\
@@ -744,7 +807,7 @@ The momentum of the inertia $b$ and the wrench acting on it are both expressed i
 \begin{equation}
 \frac{d}{dt}(Ad_{H_0^b}^T P_b^b) = Ad_{H_0^b}^T W_b^b
 \end{equation}
-The evolution of the accelerated body frame $\Psi_b$ w.r.t to the inertial frame is time dependent. The time derivative of the transformation is $\frac{d}{dt}Ad_{H_0^b}^T = -Ad_{H_0^b}^T ad_{T_b^{b,0}}^T $. With the \emph{adjoint} representation (see for example \cite{Stramigioli_01b})
+The evolution of the accelerated body frame $\Psi_b$ w.r.t to the inertial frame is time dependent. The time derivative of the transformation is $\frac{d}{dt}Ad_{H_0^b}^T = -Ad_{H_0^b}^T ad_{T_b^{b,0}}^T $, with the \emph{adjoint} representation (see for example \cite{Stramigioli_01b}):
 \begin{equation}\label{EQ:adjointmapping}
 ad_{T_b^{b,0}}^T = \begin{pmatrix}
 -\tilde{\omega}_b^{b,0} & -\tilde{v}_b^{b,0} \\ 0 & -\tilde{\omega}_b^{b,0}\end{pmatrix}
@@ -781,7 +844,7 @@ By differentiating the kinetic energy w.r.t to the state variable $P_b^b$ we obt
 \begin{equation}
 \frac{\partial V_k(P_b^b)}{\partial P_b^b} = M_b^{-1} P_b^b = T_b^{b,0}
 \end{equation}
-Recall from Table \ref{TAB:PHSvar_mechanic} that the twist is the effort variable in the port-Hamiltonian representation of an inertia. The flow is the externally supplied wrench$W_b^b$, thus we obtain the port-Hamiltonian representation of a rigid body, neglecting gravity
+Recall from Table \ref{TAB:PHSvar_mechanic} that the twist is the effort variable in the port-Hamiltonian representation of an inertia. The flow is the externally supplied wrench $W_b^b$, thus we obtain the port-Hamiltonian representation of a rigid body, neglecting gravity
 \begin{eqnarray}\label{EQ:PHSsimpleinertia}
 \begin{aligned}
 	&\dot{P_b^b} = C_b \frac{\partial V_k(P_b^b)}{\partial P_b^b} + I_6 W_{b}^b \\
@@ -813,7 +876,7 @@ With this knowledge we can write the combined PHS representation
 
 
 \subsubsection{Dampers}\label{SSS:Dampers}
-Dampers do not have a state since they do not store energy, they only dissipate it. Note that energy is not "destroyed" in the dampers but transformed into thermal energy. This can be modelled with a thermal port connected to the environment, since we are only interested in free mechanical energy this port is omitted. The easiest way to achieve damping is a linear resistive element $R$, such that the wrench is directly proportional to twist. Consider for example a body's motion with respect to the inertial frame
+Dampers do not have a state since they do not store energy, they only dissipate it. Note that energy is not "destroyed" in the dampers but transformed into thermal energy. This can be modelled with a thermal port connected to the environment, for reasons of simplicity we discard the generated thermal energy. The easiest way to achieve damping is a linear resistive element $R$, such that the wrench is directly proportional to twist. Consider for example a body's motion with respect to the inertial frame
 \begin{equation}
 	W_b^b = R T_b^{b,0}
 \end{equation}
@@ -824,15 +887,111 @@ Or a damper in parallel with spring
 The dissipated co-energy is $E_d = \frac{1}{2}T^T R T$.
 
 
+\section{Spring-mass-damper systems}\label{S:springmassdampers}
+Recall the motivating example from Section \ref{S:HSdescription} of a simple spring-mass system. We can add a damper $d$ to the port-Hamiltonian representation and rewrite eq. (\ref{EQ:HSexample})
+\begin{equation}
+	\begin{pmatrix}\dot{q} \\ \dot{p}\end{pmatrix} =
+	\begin{pmatrix}0 & 1 \\ -1 & -d\end{pmatrix}
+	\begin{pmatrix}\frac{\partial V}{\partial q}(q,p) \\ \frac{\partial V}{\partial p}(q,p)\end{pmatrix} + 
+	\begin{pmatrix}0 \\ 1\end{pmatrix} F_e\\  
+\end{equation}
+Clearly $\dot{p} = -\frac{\partial V}{\partial q}(q,p)-d\frac{\partial V}{\partial p}(q,p)+F_e$ equals the mechanical impedance relation $m\ddot{x} + d\dot{x} +kx = F_e$. Thus we have a port-Hamiltonian representation of the impedance control scheme. This is the basis for the control architecture presented below. Therefore the mass-spring-damper system, given as a one-dimensional example, is formulated in the $SE(3)$. We start from eqs. (\ref{EQ:PHSsimpleinertia},\ref{EQ:gravityspring}) and add another spring to the body associated with $\Psi_b$. This spring connects to a desired object position assigned to $\Psi_v$. Its port-Hamiltonian representation is given by
+\begin{eqnarray}
+\begin{aligned}
+	&\dot{H}_b^v = H_b^v T_b^{b,v}\\
+	&W_b^{b,v} = (H_b^v)^T\frac{\partial V_{s}}{\partial H_b^v}
+\end{aligned}
+\end{eqnarray}
+The spring's deformation twist is decomposed by $T_b^{b,v} = T_b^{b,0} - T_v^{b,0}$.
+The damping along this spring is $W_b^b = D_b T_b^{b,v} $. Body, spring and damper move uniformly with the twist $T_b^{b,0}$ and the wrenches add up. Combing all components we arrive at
+\begin{eqnarray} \label{EQ:externalimpedance}
+\begin{aligned}
+&\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P_b^b}\end{pmatrix} =
+\begin{pmatrix} 0 & 0 & H_b^0  \\ 0 & 0 & H_b^v \\
+- (H_b^0)^T & -(H_b^v)^T & C_b-D_b\end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{kgs}}{\partial H_b^0}\\ \frac{\partial V_{kgs}}{\partial H_b^v} \\ \frac{\partial V_{kgs}}{\partial P_b^b}\end{pmatrix}+
+\begin{pmatrix} 0 & 0\\ -H_b^v Ad_{H_0^b} & 0 \\ D_b Ad_{H_0^b} & I_6 \end{pmatrix}\begin{pmatrix} T_v^0 \\ W_{b}^b\end{pmatrix} \\
+&\begin{pmatrix}W_v^{0,0} \\ T_b^{b,0}\end{pmatrix} = \begin{pmatrix}0 & -Ad_{H_0^b}^T (H_b^v)^T & Ad_{H_0^b}^T D_b\\ 0 & 0 & I_6 \end{pmatrix}
+\begin{pmatrix}\frac{\partial V_{kgs}}{\partial H_b^0}\\ \frac{\partial V_{kgs}}{\partial H_b^v} \\ \frac{\partial V_{kgs}}{\partial P_b^b}\end{pmatrix}
+\end{aligned}
+\end{eqnarray}
+In a cooperative manipulation set-up this clearly accounts for an \emph{external} impedance relation, used to establish compliant behaviour between (virtual) object and environment. Analogously we can define impedance relations between manipulators and virtual object. To this purpose we define a manipulator inertia and connect to the object with a spring and a damper. Here we consider the manipulator masses to be gravity pre-compensated and omit the spring connecting to the ground. The $i$-th manipulator inertia is given by
+\begin{eqnarray}
+\begin{aligned}
+	&\dot{P_i^i} = C_i \frac{\partial V_{k(i)}(P_i^i)}{\partial P_i^i} + I_6 W_{i}^i \\
+	&T_i^{i,0} = I_6 \frac{\partial V_{k(i)}(P_i^i)}{\partial P_i^i}
+\end{aligned}
+\end{eqnarray}
+It is important that the spring connecting $b$ and $i$ does not connect to the center of the object $b$ but to a point $b(i)$ on the surface of $b$. Clearly the distance $p_{b(i)}^b$ corresponds to the extent of the object. The spring's twist decomposes as follows
+\begin{equation}
+T_{b(i)}^i = T_b^i + T_{b(i)}^{i,b} = Ad_{H_b^i} T_b^{b,0} - T_i^{i,0} + Ad_{H_b^i}\underbrace{T_{b(i)}^b}_{=0}
+\end{equation}
+The spring is given by    
+\begin{eqnarray}
+\begin{aligned}
+&\dot{H}_{b(i)}^i = H_{b(i)}^i \begin{pmatrix}
+Ad_{H_b^{b(i)}} & - Ad_{H_i^{b(i)}} \end{pmatrix} \begin{pmatrix} 
+T_b^{b,0} \\ T_i^{i,0}\end{pmatrix}\\
+&\begin{pmatrix} 
+W_b^{b,0} \\ W_i^{i,0} \end{pmatrix} = \begin{pmatrix}
+Ad_{H_b^{b(i)}}^T \\ - Ad_{H_i^{b(i)}}^T\end{pmatrix}
+(H_{b(i)}^i)^T
+\frac{\partial V_{s(i)}}{\partial H_{b(i)}^i}
+\end{aligned}
+\end{eqnarray}
+and the damper along the spring exerts a wrench on the body $i$
+\begin{equation}
+W_i^i = D_i T_i^{i,b} = D_i T_i^{i,0} - D_i Ad_{H_b^i} T_b^{b,0}.
+\end{equation}
+We can combine spring, inertia and damper, the twist $T_i^{i,0}$ is the common quantity.
+\begin{eqnarray}\label{EQ:internalimpedance}
+\begin{aligned}
+\begin{pmatrix}\dot{H}_{b(i)}^i \\ 
+\dot{P_i^i} \end{pmatrix} &= \begin{pmatrix}
+0 & -H_{b(i)}^i Ad_{H_i^{b(i)}} \\
+Ad_{H_i^{b(i)}}^T (H_{b(i)}^i)^T & C_i - D_i
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial V_{ks(i)}}{\partial H_{b(i)}^i} \\ 
+\frac{\partial V_{ks(i)}}{\partial P_{i}^i}
+\end{pmatrix} + \\ &+
+\begin{pmatrix}
+H_{b(i)}^i Ad_{H_b^{b(i)}} & 0 \\
+D_i Ad_{H_b^i} & I_6
+\end{pmatrix}
+\begin{pmatrix}
+T_b^{b,0} \\ W_i^i
+\end{pmatrix}
+ \\
+\begin{pmatrix}
+W_b^{b,0} \\ T_i^{i,0}
+\end{pmatrix} &= 
+\begin{pmatrix}
+Ad_{H_b^{b(i)}}^T (H_{b(i)}^i)^T &  Ad_{H_b^i}^T D_i^T \\
+ 0 & I_6
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial V_{ks(i)}}{\partial H_{b(i)}^i} \\ 
+\frac{\partial V_{ks(i)}}{\partial P_{i}^i}
+\end{pmatrix}
+\end{aligned}
+\end{eqnarray}
 
 
-
-\section{Imposing constraints}
-The interconnection of a spring and an inertia is the the ideal pair in terms of input-output causality. The spring expects a twist-input and outputs a wrench. The inertia has a wrench-input and outputs a twist. It can be seen from eq. (\ref{EQ:PHSinertia}) that the interconnection of inertia and spring gives a set of ordinary differential equations (ODE). Many mechanical systems cannot be modelled by an interconnection of springs and masses. For example the rigid coupling of two masses already restricts their possible motion to the degrees of freedom of a single body. The attempt to  move the bodies individually results in \emph{internal} forces. The motion-limiting conditions are called kinematic \emph{constraints} and are expressed in the form
+\section{Imposing constraints}\label{SS:ImposingConstraints}
+The interconnection of a spring and an inertia is the the ideal pair in terms of input-output causality. The spring expects a twist-input and outputs a wrench. The inertia has a wrench-input and outputs a twist. It can be seen from eq. (\ref{EQ:PHSinertia}) that the interconnection of inertia and spring gives a set of ordinary differential equations (ODE). Many mechanical systems cannot be modelled by an interconnection of springs and masses. The prime example is the contact of two rigid objects, rigid means there is no elastic deformation which could be modelled by a spring (for an extensive treatment of hard and soft contact see \cite{Duindam_09}). Rigidly connected objects cannot move with respect to each other, i.e. they move with the same velocity. In cooperative manipulation we often assume the manipulators rigidly connected to the common object. The attempt to  move the bodies individually results in \emph{internal} forces. We call a force internal if it produces no \emph{virtual work} with the system's velocity (see \cite{Erhart_16} for a formal definition). The motion-limiting conditions are called kinematic \emph{constraints} and are expressed in the form
 \begin{equation}
 A^T(q)\dot{q}=0
 \end{equation}
-We call $A(q)$ the \emph{constraint} matrix. The associated constraint forces are given by $A(q)\lambda$, the \emph{Lagrange} multipliers $\lambda$ are uniquely defined if the constraints are satisfied. In this case the constraint forces do not influence the energy of the system since $\lambda^T (A^T(q)\dot{q}) = 0$. Consequently the port-Hamiltonian system becomes a mixed set of differential and algebraic equations (DAE).
+We call $A(q)$ the \emph{constraint} matrix and start from the Euler-Lagrange equations of constrained motion \cite{duindam2009geoplexbook}
+\begin{eqnarray}
+\begin{aligned}
+\frac{d}{dt}\left(\dfrac{\partial \mathcal{L}}{\dot{q}}\right) - \frac{\partial \mathcal{L}}{\partial q} &= g(q)f + A(q)\lambda
+\\
+A^T(q)\dot{q} &= 0
+\end{aligned}
+\end{eqnarray}
+The associated constraint forces are given by $A(q)\lambda$, where we call $\lambda$ the \emph{Lagrange} multipliers. They are uniquely determined if the constraints are satisfied, i.e. are given by the requirement $A^T(q)\dot{q}=0$. In this case the constraint forces do not influence the energy of the system since $\lambda^T (A^T(q)\dot{q}) = 0$, this corresponds to the requirement of a zero virtual work for internal forces. Similarly to Section \ref{S:HSdescription}, the Euler-Lagrange equations can be transformed to a port-Hamiltonian equivalent, which is a mixed set of differential and algebraic equations (DAE).
 \begin{eqnarray}\label{EQ:PHSpconstrained}
 \begin{aligned}
 \begin{pmatrix}
@@ -849,7 +1008,7 @@ We call $A(q)$ the \emph{constraint} matrix. The associated constraint forces ar
 \frac{\partial V}{\partial p} \\ \frac{\partial V}{\partial p}\end{pmatrix}
 \end{aligned}
 \end{eqnarray}
-The system is no longer described in the input-output form, but in an implicit form. Several approaches to solve the algebraic equations and restore the desired input-output form exist. Most of them are designed for generalized configuration $q$ and momentum $p$ coordinates, see e.g. \cite{Schaft_13},\cite{Duindam_09}. Due to non-linearity of $\dot{q}=\frac{\partial V}{\partial p}$ in mechanical systems not all are feasible for six dimensional systems. \\
+The system is no longer described in the input-state-output form, but in an implicit form. Several approaches to solve the algebraic equations and restore the desired input-state-output form exist. Most of them are designed for generalized configuration $q$ and momentum $p$ coordinates, see e.g. \cite{Schaft_13},\cite{Duindam_09}. Due to non-linearity of $\dot{q}=\frac{\partial V}{\partial p}$ in mechanical systems not all are feasible for six dimensional systems. \\
 The following method (described e.g. in \cite{Duindam_09}) uses the time-derivative of the constraints
 \begin{equation}\label{EQ:constraintderivative}
 0 = \frac{d}{dt}\left(A^T(q)\frac{\partial V}{\partial p}\right)
@@ -860,11 +1019,11 @@ We use the property $\frac{\partial V}{\partial p}=M^{-1}p$ for an energy functi
 0 &= \frac{d}{dt}(A^TM^{-1}p) = \frac{\partial (A^TM^{-1}p)}{\partial q}\dot{q} + A^TM^{-1}\dot{p} = \\ &= \frac{\partial (A^TM^{-1}p)}{\partial q}M^{-1}p + A^TM^{-1}\left(-\frac{\partial V}{\partial q}+A(q)\lambda +g(q)f\right)
 \end{aligned}
 \end{eqnarray}
-Solving this equation for $\lambda$ gives
+Solving this equation for $\lambda$ gives an analytic expression for the constrained forces
 \begin{equation}
 \lambda = (A^T M^{-1} A)^{-1} \left(-\frac{\partial (A^TM^{-1}p)}{\partial q}M^{-1}p + \frac{\partial V}{\partial q} - gf\right)
 \end{equation}
-This is an analytic expression for the constrained forces, $\lambda$ is re-inserted into eq. (\ref{EQ:PHSpconstrained}) and we obtain a set of ODEs in input-output form. Note that the forces $\lambda$ keep the velocities $A(q)\dot{q}$ constant. I.e. if the constraint $A(q)\dot{q}=0$ was satisfied in the beginning it will remain satisfied.\\
+Then $\lambda$ is re-inserted into eq. (\ref{EQ:PHSpconstrained}) and we obtain a set of ODEs in input-output form. Clearly the term $A(q)\lambda$ generates compensation forces that oppose relative motions of the bodies and keep the constraints $A^T(q)\dot{q}$ fulfilled. Since we computed the constraint forces starting from the time-derivative of the constraint, $A^T(q)\dot{q}$ stays constant. To guarantee $A^T(q)\dot{q}=0$, this must be already fulfilled in the beginning.
 %Another approach is to find new coordinates for the momentum that limit the \emph{phase space} $(q,p)$ to motions fulfilling the constraints. Therefore we introduce the transformation
 %\begin{equation}
 %p = S(q)\bar{p}
@@ -920,40 +1079,15 @@ This is an analytic expression for the constrained forces, $\lambda$ is re-inser
 
 \subsubsection{Constraints for 6D-motion}  
 
-When it comes to constraints in six dimensions of freedom it is necessary to revisit the concept of twists used throughout this thesis. Recall the definition of a twist from eq. (\ref{EQ:righttranslation}) being
+
+Consider two rigidly connected bodies, associated with the frames $\Psi_b$ and $\Psi_i$ and a distance between them $p_i^b = p_i^0 - p_b^0$. Clearly, in the setting of cooperative manipulation, one can think of an object $b$ and the $i$-th manipulator attached to it. Now let the body $b$ rotate with the angular velocity $\omega_b^0$. Being rigidly attached the body $i$ rotates in the same manner, $\omega_i^0 = \omega_b^0$. The translational velocity of body $i$ is expressed dependent on body $b$ by 
 \begin{eqnarray}
 \begin{aligned}
-T_i^j &= \dot{H}_i^j H_j^i =
-\begin{pmatrix}
-\dot{R}_i^j & \dot{p}_i^j \\ 0 & 0
-\end{pmatrix}
-\begin{pmatrix}
-R_j^i & p_j^i \\ 0 & 1
-\end{pmatrix} = 
-\begin{pmatrix}
-\dot{R}_i^j & \dot{p}_i^j \\ 0 & 0
-\end{pmatrix}
-\begin{pmatrix}
-(R_i^j)^T & -(R_i^j)^Tp_i^j \\ 0 & 1
-\end{pmatrix} = \\ &= 
-\begin{pmatrix}
-\dot{R}_i^j(R_i^j)^T & -\dot{R}_i^j(R_i^j)^Tp_i^j + \dot{p}_i^j \\ 0 & 0
-\end{pmatrix} =: 
-\begin{pmatrix}
-\tilde{\omega}_i^j & v_i^j \\ 0 & 0
-\end{pmatrix}
+&\dot{p}_i^0 = \dot{p}_b^0 + \omega_b^0 \times p_i^b = \dot{p}_b^0 + \omega_b^0 \times (p_i^0-p_b^0) \\
+&\dot{p}_i^0 - \omega_b^0 \times p_i^0 = \dot{p}_b^0 - \omega_b^0 \times p_b^0 \\
 \end{aligned}
 \end{eqnarray}
-It is clear from this equation that the linear velocity part $v_i^j$ is not the velocity of the frame $\Psi_i$ with respect to $\Psi_j$, identified by $\dot{p}_i^j$. This twist representation is described by the \emph{screw theory} (see e.g. \cite{KinematicsHandbook}). It can be visualized by the angular velocity around an axis and the linear velocity along this axis.
-Consider rigidly connected two bodies, associated with the frames $\Psi_b$ and $\Psi_i$ and a distance between them $p_i^b = p_i^0 - p_b^0$. Clearly, in the setting of cooperative manipulation, one can think of an object $b$ and the $i$-th manipulator attached to it. Now let the body $b$ rotate with the angular velocity $\omega_b^0$. Being rigidly attached the body $i$ rotates in the same manner, $\omega_i^0 = \omega_b^0$. The translation of body $i$ is expressed dependent on body $b$ by 
-\begin{eqnarray}
-\begin{aligned}
-\dot{p}_i^0 &= \dot{p}_b^0 + \omega_b^0 \times p_i^b = \dot{p}_b^0 + \omega_b^0 \times (p_i^0-p_b^0) \\
-\dot{p}_i^0 - \omega_b^0 \times p_i^0 &= \dot{p}_b^0 - \omega_b^0 \times p_b^0 \\
-v_i^0 &= v_b^0
-\end{aligned}
-\end{eqnarray}
-This immediately leads to $T_i^0 = T_b^0$. For a system if $i=1...N$ manipulators we can thus write the constraining condition
+Recall the definition of the linear velocity component of a twist from eq. (\ref{EQ:twistdecomposition}) being $v_i^j= \dot{p}_i^j - \omega_i^j \times p_i^j$. Thus we have $v_i^0 = v_b^0$ and consequently $T_i^0 = T_b^0$. For a system of $i=1...N$ manipulators we write the constraints
 \begin{equation}
 0 = A^T T = \begin{pmatrix}
 -I_3 & 0_3 & I_3 & 0_3 & & & \\
@@ -987,7 +1121,7 @@ We start by differentiating the constraints, here $A$ is not time or configurati
 \end{pmatrix}
 \end{aligned}
 \end{eqnarray}
-The twist representation allows to describe kinematic constraints in a convenient manner. Second-order dynamics including \emph{centripetal} terms are inherent and equivalent to classic representations (see e.g.\cite{Erhart_16}).\\
+Kinematic constraints are expressed very compactly in the twist notation. Second-order dynamics including \emph{centripetal} terms are inherent and equivalent to classic representations (see e.g.\cite{Erhart_16}).\\
 
 Towards solving the set of port-Hamiltonian DAEs, recall from eq. (\ref{EQ:PHSpconstrained}) that $0=A^T\frac{\partial V}{\partial p}$. At this point it is necessary to distinguish different twist representations, e.g. $\frac{\partial V}{\partial P_b^b} = T_b^{b,0} = Ad_{H_0^b}T_b^0 $. Continuing the two mass example we re-write the constraints
 \begin{equation}
@@ -1078,7 +1212,6 @@ This example shows how kinematic constraints can be solved by calculating the co
  
 
 
-%Note that the wrench representation is based on a torque $\tau$ taking effect around a screw axis and a linear force $f$ acting along this axis. (citation would be good)
 %\begin{equation}
 %W = \begin{pmatrix}
 %m \\ f \end{pmatrix} =  \begin{pmatrix}r \times f + \tau \\ f\end{pmatrix}
@@ -1170,96 +1303,12 @@ This example shows how kinematic constraints can be solved by calculating the co
 %\end{pmatrix} \]
 %Towards the port-Hamiltonian representation of the constrained system we seek to replace the term $ \frac{\partial \bar{V}}{\partial q} $ by $ \frac{\partial \bar{V}}{\partial \bar{p}} $. The kinetic co-energy of the system is $\bar{V}^* =\frac{1}{2} \dot{q}^T \bar{M} \dot{q}$.
 
+\section{A model-based controller for cooperative manipulation}
+The idea of the presented controller is to model an impedance controlled cooperative manipulation set-up. This includes compliant relations between the object and the manipulators as well as an impedance relation between the object and a desired set-point trajectory. The concept was introduced by Stramigioli \cite{Stramigioli_01} and is called the \emph{Intrisically Passive Controller} (IPC). The controller is composed of geometric interconnection of mechanical elements and is thus passive. It features two energy ports, one to allow a high-level controller, e.g. a human operator, specify a reference trajectory. The other port connects to the robot side. Energy is exchanged only through these ports.
 
-\section{Spring-mass-damper systems}\label{S:springmassdampers}
-Recall the motivating example from Section \ref{SS:HSdescription} of a simple spring-mass system. We can add a damper $d$ to the pHs representation and rewrite eq. (\ref{EQ:HSexample})
-\begin{equation}
-	\begin{pmatrix}\dot{q} \\ \dot{p}\end{pmatrix} =
-	\begin{pmatrix}0 & 1 \\ -1 & -d\end{pmatrix}
-	\begin{pmatrix}\frac{\partial V}{\partial q}(q,p) \\ \frac{\partial V}{\partial p}(q,p)\end{pmatrix} + 
-	\begin{pmatrix}0 \\ 1\end{pmatrix} F_e\\  
-\end{equation}
-Clearly $\dot{p} = -\frac{\partial V}{\partial q}(q,p)-d\frac{\partial V}{\partial p}(q,p)+F_e$ equals the mechanical impedance relation $m\ddot{x} + d\dot{x} +kx = F_e$. Thus we have a port-Hamiltonian representation of the impedance control scheme. This is the basis for the control architecture presented in the next chapter. Therefore the mass-spring-damper system, given as a one-dimensional example, is formulated in the $SE(3)$. We start from eqs. (\ref{EQ:PHSsimpleinertia},\ref{EQ:gravityspring}) and add another spring to the body associated with $\Psi_b$. This spring connects to a desired object position assigned to $\Psi_v$. Its pHs representation is given by
-\begin{eqnarray}
-\begin{aligned}
-	&\dot{H}_b^v = H_b^v T_b^{b,v}\\
-	&W_b^{b,v} = (H_b^v)^T\frac{\partial V_{s}}{\partial H_b^v}
-\end{aligned}
-\end{eqnarray}
-The spring's deformation twist is decomposed by $T_b^{b,v} = T_b^{b,0} - T_v^{b,0}$.
-The damping along this spring is $W_b^b = D_b T_b^{b,v} $. Body, spring and damper move uniformly with the twist $T_b^{b,0}$ and the wrenches add up. Combing all components we arrive at
-\begin{eqnarray} \label{EQ:externalimpedance}
-\begin{aligned}
-&\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P_b^b}\end{pmatrix} =
-\begin{pmatrix} 0 & 0 & H_b^0  \\ 0 & 0 & H_b^v \\
-- (H_b^0)^T & -(H_b^v)^T & C_b-D_b\end{pmatrix}
-\begin{pmatrix}\frac{\partial V_{kgs}}{\partial H_b^0}\\ \frac{\partial V_{kgs}}{\partial H_b^v} \\ \frac{\partial V_{kgs}}{\partial P_b^b}\end{pmatrix}+
-\begin{pmatrix} 0 & 0\\ -H_b^v Ad_{H_0^b} & 0 \\ D_b Ad_{H_0^b} & I_6 \end{pmatrix}\begin{pmatrix} T_v^0 \\ W_{b}^b\end{pmatrix} \\
-&\begin{pmatrix}W_v^{0,0} \\ T_b^{b,0}\end{pmatrix} = \begin{pmatrix}0 & -Ad_{H_0^b}^T (H_b^v)^T & Ad_{H_0^b}^T D_b\\ 0 & 0 & I_6 \end{pmatrix}
-\begin{pmatrix}\frac{\partial V_{kgs}}{\partial H_b^0}\\ \frac{\partial V_{kgs}}{\partial H_b^v} \\ \frac{\partial V_{kgs}}{\partial P_b^b}\end{pmatrix}
-\end{aligned}
-\end{eqnarray}
-This clearly accounts for an \emph{external} impedance relation, used to establish compliant behaviour between (virtual) object and environment. Analogously we can define impedance relations between manipulators and virtual object. Here we consider the manipulator masses to be gravity pre-compensated and omit the spring connecting to the ground. Rest-length springs are used to allow for formation changes. The $i$-th manipulator inertia is given by
-\begin{eqnarray}
-\begin{aligned}
-	&\dot{P_i^i} = C_i \frac{\partial V_{k(i)}(P_i^i)}{\partial P_i^i} + I_6 W_{i}^i \\
-	&T_i^{i,0} = I_6 \frac{\partial V_{k(i)}(P_i^i)}{\partial P_i^i}
-\end{aligned}
-\end{eqnarray}  
-A variable rest-length spring as defined in eq. \ref{EQ:variablerestlengthspring}) connects to the body associated with $\Psi_i$. The rest-length is $H_{b(i)}^b$. The spring's twist decomposes as follows
-\begin{equation}
-T_{b(i)}^i = T_b^i + T_{b(i)}^{i,b} = Ad_{H_b^i}T_b^{b,0} - T_i^{i,0} + Ad_{H_b^i} T_{b(i)}^{b}
-\end{equation}
-Thus the variable rest-length spring is given by
-\begin{eqnarray}
-\begin{aligned}
-&\dot{H}_{b(i)}^i = H_{b(i)}^i \begin{pmatrix}
-Ad_{H_b^{b(i)}} & - Ad_{H_i^{b(i)}} & Ad_{H_b^{b(i)}}\end{pmatrix} \begin{pmatrix} 
-T_b^{b,0} \\ T_i^{i,0} \\ T_{b(i)}^b \end{pmatrix}\\
-&\begin{pmatrix} 
-W_b^{b,0} \\ W_i^{i,0} \\ W_{b(i)}^{b,b} \end{pmatrix} = \begin{pmatrix}
-Ad_{H_b^{b(i)}}^T \\ - Ad_{H_i^{b(i)}}^T \\ Ad_{H_b^{b(i)}}^T\end{pmatrix}
-(H_{b(i)}^i)^T
-\frac{\partial V_{s(i)}}{\partial H_{b(i)}^i}
-\end{aligned}
-\end{eqnarray}
-Considering damping there are two options, the relative twist of the spring tips $T_{b(i)}^i$ or the whole rest-length spring twist $T_b^i$ can be subject to damping. In order to obtain a simpler representation we choose the latter being
-\begin{equation}
-W_i^i = D_i T_i^{i,b} = D_i T_i^{i,0} - D_i Ad_{H_b^i} T_b^{b,0}
-\end{equation}
-This means that changes of rest-length are also subject to damping.
-We can combine spring, inertia and damper, the twist $T_i^{i,0}$ is the common quantity.
-\begin{eqnarray}\label{EQ:internalimpedance}
-\begin{aligned}
-\begin{pmatrix}\dot{H}_{b(i)}^i \\ 
-\dot{P_i^i} \end{pmatrix} &= \begin{pmatrix}
-0 & H_{b(i)}^i Ad_{H_i^{b(i)}} \\
--Ad_{H_i^{b(i)}}^T (H_{b(i)}^i)^T & C_i - D_i
-\end{pmatrix}
-\begin{pmatrix}
-\frac{\partial V_{ks(i)}}{\partial H_{b(i)}^i} \\ 
-\frac{\partial V_{ks(i)}}{\partial P_{i}^i}
-\end{pmatrix} + \\ &+
-\begin{pmatrix}
-H_{b(i)}^i Ad_{H_b^{b(i)}} & H_{b(i)}^i Ad_{H_b^{b(i)}} & 0 \\
-D_i Ad_{H_b^i} & 0 & I_6
-\end{pmatrix}
-\begin{pmatrix}
-T_b^{b,0} \\ T_{b(i)}^b \\ W_i^i
-\end{pmatrix} \\
-\begin{pmatrix}
-W_b^{b,0} \\ W_{b(i)}^{b,b} \\ T_i^{i,0}
-\end{pmatrix} &= 
-\begin{pmatrix}
-Ad_{H_b^{b(i)}}^T (H_{b(i)}^i)^T &  Ad_{H_b^i}^T D_i \\  Ad_{H_b^{b(i)}}^T (H_{b(i)}^i)^T & 0 \\
- 0 & I_6
-\end{pmatrix}
-\begin{pmatrix}
-\frac{\partial V_{ks(i)}}{\partial H_{b(i)}^i} \\ 
-\frac{\partial V_{ks(i)}}{\partial P_{i}^i}
-\end{pmatrix}
-\end{aligned}
-\end{eqnarray} 
+\subsection{Control architecture}
+Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the common object, spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the modelled object (no object tracking information from the real set-up is used). Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the springs, mass and dampers of the modelled manipulators. One spring hinge-point is connected to the surface of the object, he other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance},\ref{EQ:internalimpedance}) forms the controller.
+
 
 \chapter{port-Hamiltonian based control}
 Recall the power balance already given by eq. (\ref{EQ:energybalance}), in integrated form we obtain the energy balance of a pHs
@@ -1268,8 +1317,7 @@ Recall the power balance already given by eq. (\ref{EQ:energybalance}), in integ
 \end{equation}
 The dissipated co-energy is negative since $e_R^tf_R \leq 0$. Clearly the given energy balance corresponds to a \emph{passive} system. The Hamiltonian energy functions of the systems presented in Chapter 2 are \emph{candidate Lyapunov} functions. The interconnection of pH/passive systems is still a pH/passive system. By interconnection of pH-controller and passive plant we obtain a passive controlled-robotic system. This type of systems has an important advantage when it comes to interaction with humans and/or unknown environments. Usually whose dynamics are either uncertain or too complicated to be modelled. Passive systems are stable with any system, regardless its structure or complexity, that can provide only a bounded amount of energy (see \cite{Stramigioli_15} for details). In this chapter we propose a passive model-based controller for a robot-team manipulating a common object. We employ \emph{collocated control}, i.e. for the controller we use only the information contained in the effort-flow pair connecting the controller to the robotic system. There are no additional observers (e.g. tracking of the manipulated object).
 
-\section{Control architecture}
-Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the real system's common object and is thus called \emph{virtual} object (cf. \cite{Stramigioli_01b}). Spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the virtual object. It is important to notice that no external object tracking is employed. Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the rest-length springs establishing this connection. One hinge-point is connected to the center of the virtual object and the rest-length accounts for the extents of the object. The other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance},\ref{EQ:internalimpedance}) forms the controller.
+
 \begin{landscape}
 \begin{eqnarray}
 \resizebox{0.98\hsize}{!}{$ 

@@ -13,43 +13,43 @@ Warning--I didn't find a database entry for "Erhart_15/2"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 37 entries,
             3274 wiz_defined-function locations,
-            940 strings with 12037 characters,
-and the built_in function-call counts, 20828 in all, are:
-= -- 2158
-> -- 842
+            939 strings with 11976 characters,
+and the built_in function-call counts, 20816 in all, are:
+= -- 2151
+> -- 853
 < -- 29
-+ -- 263
-- -- 257
++ -- 269
+- -- 263
 * -- 1226
-:= -- 3018
+:= -- 3023
 add.period$ -- 124
 call.type$ -- 37
-change.case$ -- 228
+change.case$ -- 229
 chr.to.int$ -- 36
 cite$ -- 37
-duplicate$ -- 690
-empty$ -- 1752
-format.name$ -- 300
-if$ -- 5186
+duplicate$ -- 691
+empty$ -- 1746
+format.name$ -- 306
+if$ -- 5177
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 40
+missing$ -- 41
 newline$ -- 193
 num.names$ -- 125
-pop$ -- 345
+pop$ -- 352
 preamble$ -- 1
-purify$ -- 269
+purify$ -- 271
 quote$ -- 0
-skip$ -- 1468
+skip$ -- 1464
 stack$ -- 0
-substring$ -- 1015
+substring$ -- 988
 swap$ -- 174
 text.length$ -- 29
 text.prefix$ -- 8
 top$ -- 0
-type$ -- 280
+type$ -- 276
 warning$ -- 0
-while$ -- 153
+while$ -- 152
 width$ -- 41
 write$ -- 502
 (There were 2 warnings)

@@ -32,6 +32,11 @@ F.~Caccvale and L.~Villani.
 \newblock {\em Advanced Intelligent Mechatronics, IEEE/ASME International
   Conference on}, 1:343--348, 2001.
 
+\bibitem[DMSB09]{duindam2009geoplexbook}
+V.~Duindam, A.~Macchelli, S.~Stramigioli, and H.~Bruyninckx.
+\newblock {\em Modeling and Control of Complex Physical Systems}.
+\newblock Springer Verlag, Berlin Heidelberg, 2009.
+
 \bibitem[DPEZ{\etalchar{+}}15]{DePascali_15}
 L.~De~Pascali, S.~Erhart, L.~Zaccarian, F.~Biral, and S.~Hirche.
 \newblock A decoupling scheme for force control in cooperative multi-robot
@@ -132,12 +137,6 @@ S.A. Schneider and R.H. Cannon.
   experimental results.
 \newblock {\em Robotics and Automation, IEEE Transactions on}, 8(3):383--394,
   1992.
-
-\bibitem[SD01]{Stramigioli_01c}
-S.~Stramigioli and V.~Duindam.
-\newblock Variable spatial springs for robot control applications.
-\newblock {\em Intelligent Robots and Systems, 2001. Proceedings. 2001 IEEE/RSJ
-  International Conference on}, 4:1906--1911, 2001.
 
 \bibitem[She92]{Sheridian_92}
 T.B. Sheridian.
