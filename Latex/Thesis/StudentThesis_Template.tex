@@ -503,6 +503,15 @@ The general equations of a port-Hamiltonian system are
 Port-Hamiltonian systems are suitable to describe a variety of physical systems including mechanical, electrical, thermal and hydraulic elements, see \cite{duindam2009geoplexbook} for an overview. This motivates the more general input-output concept of flows $f$ and efforts $e$ forming the port variables $(f,e)$.\\
 \textbf{Example 2.1:}\\
 Consider a simple one-dimensional spring-mass system described by $ m\ddot{x} = -kx +F $, where $ m,k,F $ denote the mass, stiffness and external force acting on the mass respectively. We can give a state space formulation of the system
+\begin{figure}[b!]
+	\centering
+	\sf\small
+	\def\svgwidth{0.5\columnwidth}
+	\input{springmass.eps_tex}
+	\caption{Spring-mass example.}
+	%\vspace{-20pt}
+	\label{FIG:springmass}
+\end{figure}
 \begin{equation}
 	\begin{pmatrix}\dot{x} \\ \ddot{x}\end{pmatrix} =
 	\begin{pmatrix}0 & 1 \\ -\frac{k}{m} & 0\end{pmatrix}
@@ -547,10 +556,18 @@ Due to the \emph{second law of thermodynamics} real mechanical systems are never
 Next to \emph{energy-storing} and \emph{-dissipating} there is a third class of elements, namely \emph{energy-conservative} structures. Elements within this group are transformers, gyrators and ideal constraints. They are used to redirect the power flow in the system. It is possible to merge all \emph{energy-storing} elements into a single object representation (see Fig. \ref{FIG:pHsstructure}). Analogously this can be done for the dissipation elements. The interconnecting structure (denoted by $\mathcal{D}$ in Fig. \ref{FIG:pHsstructure}), consisting of the \emph{energy-conservative} elements, formalizes the energy routing and geometric dependencies of the system. A detailed explanation is given in the next subsection.
 
 
-\begin{figure}[htb]
+%\begin{figure}[htb]
+%	\centering
+%	\includegraphics[width=0.55\textwidth]{diracstructure.png}
+%	\caption[port-Hamiltonian system structure]{port-Hamiltonian system structure \cite{vanderSchaft_06}}
+%	\label{FIG:pHsstructure}
+%\end{figure}
+\begin{figure}[b!]
 	\centering
-	\includegraphics[width=0.55\textwidth]{diracstructure.png}
-	\caption[port-Hamiltonian system structure]{port-Hamiltonian system structure \cite{vanderSchaft_06}}
+	\sf\small
+	\def\svgwidth{0.6\columnwidth}
+	\input{diracstructure.eps_tex}
+	\caption{port-Hamiltonian system structure}
 	\label{FIG:pHsstructure}
 \end{figure}
 
@@ -978,7 +995,7 @@ Ad_{H_b^{b(i)}}^T (H_{b(i)}^i)^T &  Ad_{H_b^i}^T D_i^T \\
 \end{eqnarray}
 
 
-\section{Imposing constraints}\label{SS:ImposingConstraints}
+\section{Imposing constraints}\label{S:ImposingConstraints}
 The interconnection of a spring and an inertia is the the ideal pair in terms of input-output causality. The spring expects a twist-input and outputs a wrench. The inertia has a wrench-input and outputs a twist. It can be seen from eq. (\ref{EQ:PHSinertia}) that the interconnection of inertia and spring gives a set of ordinary differential equations (ODE). Many mechanical systems cannot be modelled by an interconnection of springs and masses. The prime example is the contact of two rigid objects, rigid means there is no elastic deformation which could be modelled by a spring (for an extensive treatment of hard and soft contact see \cite{Duindam_09}). Rigidly connected objects cannot move with respect to each other, i.e. they move with the same velocity. In cooperative manipulation we often assume the manipulators rigidly connected to the common object. The attempt to  move the bodies individually results in \emph{internal} forces. We call a force internal if it produces no \emph{virtual work} with the system's velocity (see \cite{Erhart_16} for a formal definition). The motion-limiting conditions are called kinematic \emph{constraints} and are expressed in the form
 \begin{equation}
 A^T(q)\dot{q}=0
@@ -1307,8 +1324,46 @@ This example shows how kinematic constraints can be solved by calculating the co
 The idea of the presented controller is to model an impedance controlled cooperative manipulation set-up. This includes compliant relations between the object and the manipulators as well as an impedance relation between the object and a desired set-point trajectory. The concept was introduced by Stramigioli \cite{Stramigioli_01} and is called the \emph{Intrisically Passive Controller} (IPC). The controller is composed of geometric interconnection of mechanical elements and is thus passive. It features two energy ports, one to allow a high-level controller, e.g. a human operator, specify a reference trajectory. The other port connects to the robot side. Energy is exchanged only through these ports.
 
 \subsection{Control architecture}
-Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the common object, spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the modelled object (no object tracking information from the real set-up is used). Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the springs, mass and dampers of the modelled manipulators. One spring hinge-point is connected to the surface of the object, he other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance},\ref{EQ:internalimpedance}) forms the controller.
+Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the common object, spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the modelled object (no object tracking information from the real set-up is used). Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the springs, mass and dampers of the modelled manipulators. One spring hinge-point is connected to the surface of the object, the other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance},\ref{EQ:internalimpedance}) forms the controller. In place of a full cooperative manipulation set-up with $n$ manipulators we derive the controller for a single manipulator $i$, the equations for $i=1...N$ manipulators can be found in the Appendix. 
+\begin{eqnarray}
+\resizebox{1\hsize}{!}{$
+\begin{aligned}
+\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P_b^b} \\ \dot{H}_{b(i)}^i \\ \dot{P}_i^i\end{pmatrix}
+ &=
+\begin{pmatrix} 0 & 0 & H_b^0 & 0 & 0\\ 0 & 0 & H_b^v & 0 & 0 \\
+- {H_b^0}^T & -{H_b^v}^T & C_b-D_b & -Ad_{H_b^{b(i)}}^T {H_{b(i)}^i}^T & -Ad_{H_b^i}^T D_i^T \\
+0 & 0 & H_{b(i)}^i Ad_{H_b^{b(i)}} & 0 & -H_{b(i)}^i Ad_{H_i^{b(i)}} \\ 0 & 0 & D_i Ad_{H_b^i} & Ad_{H_i^{b(i)}}^T {H_{b(i)}^i}^T & C_i - D_i\end{pmatrix}
+\begin{pmatrix}\frac{\partial V}{\partial H_b^0}\\ \frac{\partial V}{\partial H_b^v} \\ \frac{\partial V}{\partial P_b^b} \\ \frac{\partial V}{\partial H_{b(i)}^i} \\ 
+\frac{\partial V}{\partial P_{i}^i}\end{pmatrix} + \\
+&+
+\begin{pmatrix}
+0 & 0 \\
+-H_b^v Ad_{H_0^b} & 0 \\
+D_b Ad_{H_0^b} & 0 \\
+0 & 0 \\
+0 & I_6
+\end{pmatrix}
+\begin{pmatrix}
+T_v^0 \\ W_i^i
+\end{pmatrix}
+\\
+\begin{pmatrix}
+W_v^{0,0} \\ T_i^{i,0}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+0 & -Ad_{H_0^b}^T  {H_b^v}^T & Ad_{H_0^b}^T D_b^T & 0 & 0 \\
+0 & 0 & 0 & 0 & I_6
+\end{pmatrix}
+\begin{pmatrix}\frac{\partial V}{\partial H_b^0}\\ \frac{\partial V}{\partial H_b^v} \\ \frac{\partial V}{\partial P_b^b} \\ \frac{\partial V}{\partial H_{b(i)}^i} \\ 
+\frac{\partial V}{\partial P_{i}^i}\end{pmatrix}
+\end{aligned}
+$}
+\end{eqnarray}
+For simulation results see Chapter 4.
 
+\subsection{Virtually constrained control model}
+The controller presented above does not incorporate rigid couplings between manipulators and object. The controlled cooperative set-up however does. Therefore it is possible that the controller commands motions that do not comply with the constraints and thus constraint forces as calculated in section \ref{S:ImposingConstraints} arise. In the model we can calculate these forces and cancel them out by subtracting them from the 
 
 \chapter{port-Hamiltonian based control}
 Recall the power balance already given by eq. (\ref{EQ:energybalance}), in integrated form we obtain the energy balance of a pHs

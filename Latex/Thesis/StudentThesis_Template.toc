@@ -4,7 +4,7 @@
 \contentsline {chapter}{\numberline {2}port-Hamiltonian system modelling}{11}{chapter.2}
 \contentsline {section}{\numberline {2.1}port-Hamiltonian description of mechanical systems}{11}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Dirac structures and interconnection ports}{14}{subsection.2.1.1}
-\contentsline {subsubsection}{Energy storage port}{14}{section*.2}
+\contentsline {subsubsection}{Energy storage port}{15}{section*.2}
 \contentsline {subsubsection}{Energy dissipation port}{15}{section*.3}
 \contentsline {subsubsection}{External port}{15}{section*.4}
 \contentsline {subsubsection}{Interconnection of port-Hamiltonian systems}{15}{section*.5}
@@ -22,14 +22,15 @@
 \contentsline {subsubsection}{Constraints for 6D-motion}{26}{section*.12}
 \contentsline {section}{\numberline {2.5}A model-based controller for cooperative manipulation}{28}{section.2.5}
 \contentsline {subsection}{\numberline {2.5.1}Control architecture}{28}{subsection.2.5.1}
-\contentsline {chapter}{\numberline {3}port-Hamiltonian based control}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}Human guidance}{31}{section.3.1}
-\contentsline {section}{\numberline {3.2}Energy control}{32}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Energy tanks}{32}{subsection.3.2.1}
-\contentsline {section}{\numberline {3.3}Performance Comparison of control strategies}{34}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Internal impedance control with feed-forward of the object dynamics}{35}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Internal and external impedance based reference trajectory generation}{35}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Intrinsically Passive Controller (IPC)}{36}{subsection.3.3.3}
-\contentsline {chapter}{\numberline {4}Conclusion}{39}{chapter.4}
-\contentsline {chapter}{List of Figures}{41}{chapter.4}
-\contentsline {chapter}{Bibliography}{43}{chapter*.13}
+\contentsline {subsection}{\numberline {2.5.2}Virtually constrained control model}{29}{subsection.2.5.2}
+\contentsline {chapter}{\numberline {3}port-Hamiltonian based control}{31}{chapter.3}
+\contentsline {section}{\numberline {3.1}Human guidance}{33}{section.3.1}
+\contentsline {section}{\numberline {3.2}Energy control}{34}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Energy tanks}{34}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Performance Comparison of control strategies}{36}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Internal impedance control with feed-forward of the object dynamics}{37}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Internal and external impedance based reference trajectory generation}{37}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Intrinsically Passive Controller (IPC)}{38}{subsection.3.3.3}
+\contentsline {chapter}{\numberline {4}Conclusion}{41}{chapter.4}
+\contentsline {chapter}{List of Figures}{43}{chapter.4}
+\contentsline {chapter}{Bibliography}{45}{chapter*.13}
