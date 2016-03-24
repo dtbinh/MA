@@ -575,7 +575,7 @@ Complex physical systems can be modelled as a network of energy storing and diss
 The power flowing between the system's portions is described by the flow-effort product $e^Tf$. The external port $(f_P,e_P)$ describes the energy flow to/from environment or a controller. 
 
 \subsection{Dirac structures and interconnection ports} \label{SS:PHSinterconnection}
-The energy-routing structure forms the basis of every pHs. It can be compared to the printed circuit board in electronics, where capacitors, inductors and resistors are the energy-storing and damping elements. Mathematically it has the form of a \emph{Dirac} structure \cite{vanderSchaft_06}. The main property of a Dirac structure is power conservation, i.e. the power flowing into and out of it always sums to zero. We can define the set of ports $(f,e)$ connecting to the Dirac structure $\mathcal{D}$, thus 
+The energy-routing structure forms the basis of every port-Hamiltonian system. It can be compared to the printed circuit board in electronics, where capacitors, inductors and resistors are the energy-storing and damping elements. Mathematically it has the form of a \emph{Dirac} structure \cite{vanderSchaft_06}. The main property of a Dirac structure is power conservation, i.e. the power flowing into and out of it always sums to zero. We can define the set of ports $(f,e)$ connecting to the Dirac structure $\mathcal{D}$, thus 
 \begin{equation}
 e^Tf = 0 \;  \; \forall (f,e)\in\mathcal{D}
 \end{equation}
@@ -630,7 +630,7 @@ or by using (\ref{EQ:storageport})
 \end{equation}
 
 \subsubsection{Interconnection of port-Hamiltonian systems}
-It is important to notice that the interconnection of two pHs is again a pHs \cite{Schaft_14}. Consider two general pHs $(i=1,2)$ with open control and environment interaction ports:
+It is important to notice that the interconnection of two port-Hamiltonian systems is again a port-Hamiltonian system \cite{Schaft_14}. Consider two general systems $(i=1,2)$ with open control and environment interaction ports:
 \begin{eqnarray}
 \begin{aligned}
 	\dot{x}_i &= (J_i - R_i)\frac{\partial H_i}{\partial x_i}+ (g_i^C & g_i^I)\begin{pmatrix}f_i^C \\ f_i^I\end{pmatrix}\\
@@ -801,7 +801,7 @@ Varying the rest-lengths of springs in manipulator-object interaction allows to 
 	\caption[Variable rest-length spring]{Variable rest-length spring \cite{Stramigioli_99}}
 	\label{FIG:variablespring}
 \end{figure}
-Towards a PHS representation we need to identify the components contributing to the deformation twist of the spring $ T_i^{j} $: the displacement twist of the bodies attached to the spring $T_b^{j} $ and the twist resulting from a commanded change of the rest-length $T_i^{b}$ \cite{Stramigioli_01c}.
+Towards a port-Hamiltonian representation we need to identify the components contributing to the deformation twist of the spring $ T_i^{j} $: the displacement twist of the bodies attached to the spring $T_b^{j} $ and the twist resulting from a commanded change of the rest-length $T_i^{b}$ \cite{Stramigioli_01c}.
 \begin{equation}
 	T_i^{j} = T_b^{j} + Ad_{H_b^j} T_i^{b}
 \end{equation}
@@ -868,7 +868,7 @@ Recall from Table \ref{TAB:PHSvar_mechanic} that the twist is the effort variabl
 	&T_b^{b,0} = I_6 \frac{\partial V_k(P_b^b)}{\partial P_b^b}
 \end{aligned}
 \end{eqnarray}
-In cooperative manipulation we often deal with heavy objects, it is thus inevitable to include the potential energy resulting from the gravitational field. One can think of a spring connecting the body and an inertial frame associated with the ground. This spring can be formulated as a pHs using the left translation (\ref{EQ:lefttranslation})
+In cooperative manipulation we often deal with heavy objects, it is thus inevitable to include the potential energy resulting from the gravitational field. One can think of a spring connecting the body and an inertial frame associated with the ground. This spring can be formulated in port-Hamiltonian structure using the left translation (\ref{EQ:lefttranslation})
 \begin{eqnarray}\label{EQ:gravityspring}
 \begin{aligned}
 	&\dot{H}_b^0 = H_b^0 T_b^{b,0}\\
@@ -878,7 +878,7 @@ In cooperative manipulation we often deal with heavy objects, it is thus inevita
 Where $V_g$ is a suitable energy function. For a combined description the potential and kinetic energy add up: $V_{kg} = V_k + V_g$. Since there are two types of energy stored by \emph{one} body, the twists in both energy systems are equal. The wrenches on the body add up   
 \[W_{kg}^b = W_{b}^b + C_b \frac{\partial V_{kg}}{\partial P_b^b} - (H_b^0)^T \frac{\partial V_{kg}}{\partial H_b^0} \]
 Note that the negative sign in the upper equation comes from $W_b^b = - W_b^{b,0} $.\\
-With this knowledge we can write the combined PHS representation
+With this knowledge we can write the combined port-Hamiltonian representation
 \begin{eqnarray} \label{EQ:PHSinertia}
 \begin{aligned}
 &\begin{pmatrix}\dot{H}_b^0 \\ \dot{P_b^b}\end{pmatrix} =
@@ -1322,9 +1322,26 @@ This example shows how kinematic constraints can be solved by calculating the co
 
 \section{A model-based controller for cooperative manipulation}
 The idea of the presented controller is to model an impedance controlled cooperative manipulation set-up. This includes compliant relations between the object and the manipulators as well as an impedance relation between the object and a desired set-point trajectory. The concept was introduced by Stramigioli \cite{Stramigioli_01} and is called the \emph{Intrisically Passive Controller} (IPC). The controller is composed of geometric interconnection of mechanical elements and is thus passive. It features two energy ports, one to allow a high-level controller, e.g. a human operator, specify a reference trajectory. The other port connects to the robot side. Energy is exchanged only through these ports.
+\begin{figure}[b!]
+	\centering
+	\sf\small
+	\def\svgwidth{0.99\columnwidth}
+	\input{modellbasedcontrol.eps_tex}
+	\caption{Overall set-up}
+	\label{FIG:modelbasedcontrol}
+\end{figure}
 
-\subsection{Control architecture}
-Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the common object, spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the modelled object (no object tracking information from the real set-up is used). Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the springs, mass and dampers of the modelled manipulators. One spring hinge-point is connected to the surface of the object, the other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance},\ref{EQ:internalimpedance}) forms the controller. In place of a full cooperative manipulation set-up with $n$ manipulators we derive the controller for a single manipulator $i$, the equations for $i=1...N$ manipulators can be found in the Appendix. 
+
+\subsection{Compliant reference trajectory generation}
+Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the common object, spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the modelled object (no object tracking information from the real set-up is used). Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the springs, mass and dampers of the modelled manipulators. One spring hinge-point is connected to the surface of the object, the other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance},\ref{EQ:internalimpedance}) forms the controller, the structure can be seen from figure \ref{FIG:referencetrajectory}. In place of a full cooperative manipulation set-up with $n$ manipulators we derive the controller for a single manipulator $i$, the equations for $i=1...N$ manipulators can be found in the Appendix.
+\begin{figure}[b!]
+	\centering
+	\sf\small
+	\def\svgwidth{0.8\columnwidth}
+	\input{referencetrajectory.eps_tex}
+	\caption{Reference trajectory generating controller}
+	\label{FIG:referencetrajectory}
+\end{figure}
 \begin{eqnarray}
 \resizebox{1\hsize}{!}{$
 \begin{aligned}
@@ -1360,97 +1377,191 @@ W_v^{0,0} \\ T_i^{i,0}
 \end{aligned}
 $}
 \end{eqnarray}
-For simulation results see Chapter 4.
+Note that the output to the robot side is a twist, the control scheme thus generates a compliant reference trajectory for the robots to follow. Similar to \cite{Caccavale_08} we require a local a underlying force control layer to operate the robots.
 
-\subsection{Virtually constrained control model}
-The controller presented above does not incorporate rigid couplings between manipulators and object. The controlled cooperative set-up however does. Therefore it is possible that the controller commands motions that do not comply with the constraints and thus constraint forces as calculated in section \ref{S:ImposingConstraints} arise. In the model we can calculate these forces and cancel them out by subtracting them from the 
+\subsection{Admittance-type control}
+Admittance-type control means (in contrast to the previous) specifying a reference trajectory on the user side and obtaining wrenches for the robots from the controller. The idea behind this control scheme is to connect the manipulator inertias rigidly to the object and leave the spring open to the actual robot side (see Figure \ref{FIG:admittancecontrol}). Rigid coupling of a manipulator with the object is treated with the approach presented in section \ref{S:ImposingConstraints}. Once again we start from a single manipulator $i$ in place of a full cooperative manipulation set-up. Bodies $b$ and $b(i)$ are rigidly connected and their port-Hamiltonian equations are
+\begin{eqnarray}
+\begin{aligned}
+\begin{pmatrix}
+\dot{P}_b^b \\ \dot{P}_{b(i)}^{b(i)}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+C_b & 0 \\ 0 & C_{b(i)} 
+\end{pmatrix}
+\begin{pmatrix} \frac{\partial V}{\partial P_b^b} \\ 
+\frac{\partial V}{\partial P_{b(i)}^{b(i)}}
+\end{pmatrix}
++
+\begin{pmatrix}
+W_b^b \\ W_{b(i)}^{b(i)}
+\end{pmatrix}
++
+\bar{A}\lambda 
+\\
+0 
+&=
+\bar{A}^T 
+\begin{pmatrix} \frac{\partial V}{\partial P_b^b} \\ 
+\frac{\partial V}{\partial P_{b(i)}^{b(i)}}
+\end{pmatrix}
+\end{aligned}
+\end{eqnarray}
+\begin{figure}[b!]
+	\centering
+	\sf\small
+	\def\svgwidth{0.8\columnwidth}
+	\input{admittancecontrol.eps_tex}
+	\caption{Admittance-type controller}
+	\label{FIG:admittancecontrol}
+\end{figure}
+The Lagrange multipliers are eliminated as shown in section \ref{S:ImposingConstraints}. In order to write the full control scheme in a compact notation we introduce four abbreviations accounting for the constrained forces
+\begin{eqnarray}
+\begin{aligned}
+\mathcal{A}_{b,b} &= 
+1 - Ad_{H_b^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_b^0}M_b^{-1} \\
+\mathcal{A}_{i,b} &= Ad_{H_b^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_{b(i)}^0}M_{b(i)}^{-1} \\
+\mathcal{A}_{b,b} &= Ad_{H_{b(i)}^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_b^0}M_b^{-1} \\
+\mathcal{A}_{i,i} &= 
+1 - Ad_{H_{b(i)}^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_{b(i)}^0}M_{b(i)}^{-1}
+\end{aligned}
+\end{eqnarray}
 
-\chapter{port-Hamiltonian based control}
+
+
+
+
+\begin{eqnarray}
+\resizebox{1\hsize}{!}{$
+\begin{aligned}
+\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P_b^b} \\ \dot{H}_{b(i)}^i \\ \dot{P}_{b(i)}^{b(i)}\end{pmatrix}
+ &=
+\begin{pmatrix} 0 & 0 & H_b^0 & 0 & 0\\ 0 & 0 & H_b^v & 0 & 0 \\
+-\mathcal{A}_{b,b} {H_b^0}^T & -\mathcal{A}_{b,b}{H_b^v}^T & \mathcal{A}_{b,b}(C_b-D_b) & \mathcal{A}_{b,i} Ad_{H_b^{b(i)}}^T {H_{b(i)}^i}^T & \mathcal{A}_{b,i} (C_{b(i)} - D_{b(i)}) \\
+0 & 0 & 0 & 0 & H_{b(i)}^i \\
+ -\mathcal{A}_{i,b} {H_b^0}^T & -\mathcal{A}_{i,b}{H_b^v}^T & \mathcal{A}_{i,b}(C_b-D_b)  & \mathcal{A}_{i,i} Ad_{H_i^{b(i)}}^T {H_{b(i)}^i}^T & \mathcal{A}_{i,i} (C_{b(i)} - D_{b(i)})\end{pmatrix}
+\begin{pmatrix}\frac{\partial V}{\partial H_b^0}\\ \frac{\partial V}{\partial H_b^v} \\ \frac{\partial V}{\partial P_b^b} \\ \frac{\partial V}{\partial H_{b(i)}^i} \\ 
+\frac{\partial V}{\partial P_{b(i)}^{b(i)}}\end{pmatrix} + \\
+&+
+\begin{pmatrix}
+0 & 0 \\
+-H_b^v Ad_{H_0^b} & 0 \\
+\mathcal{A}_{b,b} D_b Ad_{H_0^b} & \mathcal{A}_{b,i} D_{b(i)} Ad_{H_0^{b(i)}} \\
+0 & -H_{b(i)}^i Ad_{H_0^{b(i)}} \\
+\mathcal{A}_{i,b} D_b Ad_{H_0^b} & \mathcal{A}_{i,i} D_{b(i)} Ad_{H_0^{b(i)}}
+\end{pmatrix}
+\begin{pmatrix}
+T_v^0 \\ T_i^0
+\end{pmatrix}
+\\
+\begin{pmatrix}
+W_v^{0,0} \\ W_i^{0,0}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+0 & -Ad_{H_0^b}^T  {H_b^v}^T & Ad_{H_0^b}^T D_b^T  \mathcal{A}_{b,b}^T & 0 & Ad_{H_0^b}^T  D_b^T \mathcal{A}_{i,b}^T \\
+0 & 0 & Ad_{H_0^{b(i)}}^T  D_{b(i)}^T \mathcal{A}_{b,i}^T & -Ad_{H_0^{b(i)}}^T {H_{b(i)}^i}^T  & Ad_{H_0^{b(i)}}^T  D_{b(i)}^T \mathcal{A}_{i,i}^T
+\end{pmatrix}
+\begin{pmatrix}\frac{\partial V}{\partial H_b^0}\\ \frac{\partial V}{\partial H_b^v} \\ \frac{\partial V}{\partial P_b^b} \\ \frac{\partial V}{\partial H_{b(i)}^i} \\ 
+\frac{\partial V}{\partial P_{b(i)}^{b(i)}}\end{pmatrix}
+\end{aligned}
+$}
+\end{eqnarray}
+
+%The controller presented above does not incorporate rigid couplings between manipulators and object. The controlled cooperative set-up however does. Therefore it is possible that the controller commands motions that do not comply with the constraints and thus constraint forces as calculated in section \ref{S:ImposingConstraints} arise. In the model we can calculate these forces and cancel them out by subtracting them from the 
+
+\chapter{Energy-aware control}
+Towards a conclusion on stability of the overall system, it is necessary to take the environmental conditions into consideration. Letting a human explicitly control a cooperative robot-team rises the question of her/his dynamic behaviour and the impact on the system. Furthermore the environment, the robotic system is interacting with, can change unexpectedly, stability considerations based on certain environment models may thus lose its basis. Preserving stability is especially crucial when the human operator is on-site to ensure her/his safety. The objective of this chapter is to introduce an energy tank with an energy controller to maintain a safe level of energy int the system, regardless of the dynamics of human and environment. The energy-based controller from chapter 2 integrates seamless with the tank concept.
+\section{Passivity-based control} 
+...
+\\   
 Recall the power balance already given by eq. (\ref{EQ:energybalance}), in integrated form we obtain the energy balance of a pHs
 \begin{equation}
 \underbrace{H(x(t))-H(x(0))}_{stored\, energy} = \underbrace{\int_0^t e_P^Tf_P dt}_{ext.\, supplied} + \underbrace{\int_0^te_R^Tf_R dt}_{dissipated} 
 \end{equation}
-The dissipated co-energy is negative since $e_R^tf_R \leq 0$. Clearly the given energy balance corresponds to a \emph{passive} system. The Hamiltonian energy functions of the systems presented in Chapter 2 are \emph{candidate Lyapunov} functions. The interconnection of pH/passive systems is still a pH/passive system. By interconnection of pH-controller and passive plant we obtain a passive controlled-robotic system. This type of systems has an important advantage when it comes to interaction with humans and/or unknown environments. Usually whose dynamics are either uncertain or too complicated to be modelled. Passive systems are stable with any system, regardless its structure or complexity, that can provide only a bounded amount of energy (see \cite{Stramigioli_15} for details). In this chapter we propose a passive model-based controller for a robot-team manipulating a common object. We employ \emph{collocated control}, i.e. for the controller we use only the information contained in the effort-flow pair connecting the controller to the robotic system. There are no additional observers (e.g. tracking of the manipulated object).
+The dissipated co-energy is negative since $e_R^tf_R \leq 0$. Clearly the given energy balance corresponds to a \emph{passive} system. The Hamiltonian energy functions of the systems presented in Chapter 2 are \emph{candidate Lyapunov} functions. The interconnection of pH/passive systems is still a pH/passive system. By interconnection of pH-controller and passive plant we obtain a passive controlled-robotic system. This type of systems has an important advantage when it comes to interaction with humans and/or unknown environments. Usually whose dynamics are either uncertain or too complicated to be modelled. Passive systems are stable with any system, regardless its structure or complexity, that can provide only a bounded amount of energy (see \cite{Stramigioli_15} for details). \\
+%In this chapter we propose a passive model-based controller for a robot-team manipulating a common object. We employ \emph{collocated control}, i.e. for the controller we use only the information contained in the effort-flow pair connecting the controller to the robotic system. There are no additional observers (e.g. tracking of the manipulated object).
 
 
-\begin{landscape}
-\begin{eqnarray}
-\resizebox{0.98\hsize}{!}{$ 
-\begin{aligned}
-\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P}_b^b \\ \dot{H}_{b(1)}^1 \\ 
-\dot{P}_1^1 \\ \vdots \\ \dot{H}_{b(N)}^N \\ 
-\dot{P}_N^N\end{pmatrix}
- &= 
-\begin{pmatrix} 0 & 0 & H_b^0 & 0 & 0 & \cdots & 0 & 0  \\ 0 & 0 & H_b^v & 0 & 0 & \cdots & 0 & 0 \\
-- (H_b^0)^T & -(H_b^v)^T & C_b-D_b & Ad_{H_b^{b(1)}}^T (H_{b(1)}^1)^T & Ad_{H_b^1}^T D_1 & \cdots & Ad_{H_b^{b(N)}}^T (H_{b(N)}^N)^T & Ad_{H_b^N}^T D_N \\
-0 & 0 & H_{b(1)}^1 Ad_{H_b^{b(1)}} & 0 & H_{b(1)}^1 Ad_{H_1^{b(1)}} &  & 0 & 0 \\
-0 & 0 & D_1 Ad_{H_b^1} & -Ad_{H_1^{b(1)}}^T H_{b(1)}^1 & C_1-D_1 &  & 0 & 0 \\
-\vdots & \vdots & \vdots &  &  & \ddots &  & \\ 
-0 & 0 & H_{b(N)}^N Ad_{H_b^{b(N)}} & 0 & 0 &  & 0 & H_{b(N)}^N Ad_{H_N^{b(N)}}\\
-0 & 0 & D_N Ad_{H_b^N} & 0 & 0 &  &  -Ad_{H_N^{b(N)}}^T H_{b(N)}^N & C_N-D_N
-\end{pmatrix}
-\begin{pmatrix}
-\frac{\partial V}{\partial H_b^0}\\
-\frac{\partial V}{\partial H_b^v}\\
-\frac{\partial V}{\partial P_b^b}\\
-\frac{\partial V}{\partial H_{b(1)}^1} \\ 
-\frac{\partial V}{\partial P_{1}^1}\\
-\vdots \\
-\frac{\partial V}{\partial H_{b(N)}^N} \\ 
-\frac{\partial V}{\partial P_{N}^N}
-\end{pmatrix}
-+ \\
-&+ 
-\begin{pmatrix}
-0 & 0 & 0 & \cdots & 0 & 0 \\
--H_b^v Ad_{H_b^0} & 0 & 0 & \cdots & 0 & 0 \\
-D_b Ad_{H_0^b} & 0 & 0 & \cdots & 0 & 0 \\
-0 & H_{b(1)}^1 Ad_{H_b^{b(1)}} & 0 &  & 0 & 0 \\
-0 & 0 & I_6 &  & 0 & 0 \\
-\vdots &  &  & \ddots &  & \\
-0 & 0 & 0 &  & H_{b(N)}^N Ad_{H_b^{b(N)}} & 0 \\
-0 & 0 & 0 &  & 0 & I_6
-\end{pmatrix}
-\begin{pmatrix}
-T_v^0 \\ T_{b(1)}^b \\ W_1^1 \\ \vdots \\ T_{b(N)}^b \\ W_N^N
-\end{pmatrix}
-\\
-\begin{pmatrix}
-W_v^{v,0} \\ W_{b(1)}^{b,b} \\ T_1^{1,0} \\ \vdots \\ W_{b(N)}^{b,b} \\ T_N^{N,0}
-\end{pmatrix}
-&= 
-\begin{pmatrix}
-0 & -Ad_{H_b^0}^T (H_b^v)^T  &  Ad_{H_0^b}^T D_b & 0 & 0 & \cdots & 0 & 0 \\
-0 & 0 & 0 &  Ad_{H_b^{b(1)}}^T (H_{b(1)}^1)^T & 0 &  & 0 & 0 \\
-0 & 0 & 0 & 0 & I_6 &  & 0 & 0 \\
-\vdots & \vdots & \vdots &  &  & \ddots &  & \\ 
-0 & 0 & 0 & 0 & 0 &  & Ad_{H_b^{b(N)}}^T (H_{b(N)}^N)^T & 0 \\
-0 & 0 & 0 & 0 & 0 & & 0 & I_6\\
-\end{pmatrix}
-\begin{pmatrix}
-\frac{\partial V}{\partial H_b^0}\\
-\frac{\partial V}{\partial H_b^v}\\
-\frac{\partial V}{\partial P_b^b}\\
-\frac{\partial V}{\partial H_{b(1)}^1} \\ 
-\frac{\partial V}{\partial P_{1}^1}\\
-\vdots \\
-\frac{\partial V}{\partial H_{b(N)}^N} \\ 
-\frac{\partial V}{\partial P_{N}^N}
-\end{pmatrix}
-\end{aligned}
-$}
-\end{eqnarray}
-\end{landscape}
-Notably the input signal coming from the manipulator is the wrench $W_i^i$, thus we require force/torque sensing at the robots. Consequently the output of the controller is the twist $T_i^{i,0}$, leading to a twist-controlled robotic system. Every effort-flow pair contains not only the information encoded by its definition but also the power needed to execute the commanded action. A common concept in tele-operation is the wave transformation (see \cite{Niemeyer_04} for a survey) based on effort-flow pairs. The resulting wave variables possess \emph{hybrid encoding}, i.e. the distinction between effort and flow is discarded. The receiving robot interprets the wave based on its needs. Wave variables only encode strength and direction of an action but do not discriminate between force and twist.
-This is the motivation to introduce a power-preserving transformation based on a constant factor $b$, that relates twists and wrenches.
-\begin{eqnarray}
-\begin{aligned}
-&\mathcal{W}_i^i = b T_i^{i,0} \; , \; i=1...N\\
-&W_i^i = b \mathcal{T}_i^{i,0} \\
-\end{aligned}
-\end{eqnarray}
-Where $\mathcal{W},\mathcal{T}$ denote the wrenches and twists of the robot side.
-The constant $b$ is another tunable parameter, it allows for choosing the weighting of twists and wrenches.
+%\begin{landscape}
+%\begin{eqnarray}
+%\resizebox{0.98\hsize}{!}{$ 
+%\begin{aligned}
+%\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P}_b^b \\ \dot{H}_{b(1)}^1 \\ 
+%\dot{P}_1^1 \\ \vdots \\ \dot{H}_{b(N)}^N \\ 
+%\dot{P}_N^N\end{pmatrix}
+% &= 
+%\begin{pmatrix} 0 & 0 & H_b^0 & 0 & 0 & \cdots & 0 & 0  \\ 0 & 0 & H_b^v & 0 & 0 & \cdots & 0 & 0 \\
+%- (H_b^0)^T & -(H_b^v)^T & C_b-D_b & Ad_{H_b^{b(1)}}^T (H_{b(1)}^1)^T & Ad_{H_b^1}^T D_1 & \cdots & Ad_{H_b^{b(N)}}^T (H_{b(N)}^N)^T & Ad_{H_b^N}^T D_N \\
+%0 & 0 & H_{b(1)}^1 Ad_{H_b^{b(1)}} & 0 & H_{b(1)}^1 Ad_{H_1^{b(1)}} &  & 0 & 0 \\
+%0 & 0 & D_1 Ad_{H_b^1} & -Ad_{H_1^{b(1)}}^T H_{b(1)}^1 & C_1-D_1 &  & 0 & 0 \\
+%\vdots & \vdots & \vdots &  &  & \ddots &  & \\ 
+%0 & 0 & H_{b(N)}^N Ad_{H_b^{b(N)}} & 0 & 0 &  & 0 & H_{b(N)}^N Ad_{H_N^{b(N)}}\\
+%0 & 0 & D_N Ad_{H_b^N} & 0 & 0 &  &  -Ad_{H_N^{b(N)}}^T H_{b(N)}^N & C_N-D_N
+%\end{pmatrix}
+%\begin{pmatrix}
+%\frac{\partial V}{\partial H_b^0}\\
+%\frac{\partial V}{\partial H_b^v}\\
+%\frac{\partial V}{\partial P_b^b}\\
+%\frac{\partial V}{\partial H_{b(1)}^1} \\ 
+%\frac{\partial V}{\partial P_{1}^1}\\
+%\vdots \\
+%\frac{\partial V}{\partial H_{b(N)}^N} \\ 
+%\frac{\partial V}{\partial P_{N}^N}
+%\end{pmatrix}
+%+ \\
+%&+ 
+%\begin{pmatrix}
+%0 & 0 & 0 & \cdots & 0 & 0 \\
+%-H_b^v Ad_{H_b^0} & 0 & 0 & \cdots & 0 & 0 \\
+%D_b Ad_{H_0^b} & 0 & 0 & \cdots & 0 & 0 \\
+%0 & H_{b(1)}^1 Ad_{H_b^{b(1)}} & 0 &  & 0 & 0 \\
+%0 & 0 & I_6 &  & 0 & 0 \\
+%\vdots &  &  & \ddots &  & \\
+%0 & 0 & 0 &  & H_{b(N)}^N Ad_{H_b^{b(N)}} & 0 \\
+%0 & 0 & 0 &  & 0 & I_6
+%\end{pmatrix}
+%\begin{pmatrix}
+%T_v^0 \\ T_{b(1)}^b \\ W_1^1 \\ \vdots \\ T_{b(N)}^b \\ W_N^N
+%\end{pmatrix}
+%\\
+%\begin{pmatrix}
+%W_v^{v,0} \\ W_{b(1)}^{b,b} \\ T_1^{1,0} \\ \vdots \\ W_{b(N)}^{b,b} \\ T_N^{N,0}
+%\end{pmatrix}
+%&= 
+%\begin{pmatrix}
+%0 & -Ad_{H_b^0}^T (H_b^v)^T  &  Ad_{H_0^b}^T D_b & 0 & 0 & \cdots & 0 & 0 \\
+%0 & 0 & 0 &  Ad_{H_b^{b(1)}}^T (H_{b(1)}^1)^T & 0 &  & 0 & 0 \\
+%0 & 0 & 0 & 0 & I_6 &  & 0 & 0 \\
+%\vdots & \vdots & \vdots &  &  & \ddots &  & \\ 
+%0 & 0 & 0 & 0 & 0 &  & Ad_{H_b^{b(N)}}^T (H_{b(N)}^N)^T & 0 \\
+%0 & 0 & 0 & 0 & 0 & & 0 & I_6\\
+%\end{pmatrix}
+%\begin{pmatrix}
+%\frac{\partial V}{\partial H_b^0}\\
+%\frac{\partial V}{\partial H_b^v}\\
+%\frac{\partial V}{\partial P_b^b}\\
+%\frac{\partial V}{\partial H_{b(1)}^1} \\ 
+%\frac{\partial V}{\partial P_{1}^1}\\
+%\vdots \\
+%\frac{\partial V}{\partial H_{b(N)}^N} \\ 
+%\frac{\partial V}{\partial P_{N}^N}
+%\end{pmatrix}
+%\end{aligned}
+%$}
+%\end{eqnarray}
+%\end{landscape}
+%Notably the input signal coming from the manipulator is the wrench $W_i^i$, thus we require force/torque sensing at the robots. Consequently the output of the controller is the twist $T_i^{i,0}$, leading to a twist-controlled robotic system. Every effort-flow pair contains not only the information encoded by its definition but also the power needed to execute the commanded action. A common concept in tele-operation is the wave transformation (see \cite{Niemeyer_04} for a survey) based on effort-flow pairs. The resulting wave variables possess \emph{hybrid encoding}, i.e. the distinction between effort and flow is discarded. The receiving robot interprets the wave based on its needs. Wave variables only encode strength and direction of an action but do not discriminate between force and twist.
+%This is the motivation to introduce a power-preserving transformation based on a constant factor $b$, that relates twists and wrenches.
+%\begin{eqnarray}
+%\begin{aligned}
+%&\mathcal{W}_i^i = b T_i^{i,0} \; , \; i=1...N\\
+%&W_i^i = b \mathcal{T}_i^{i,0} \\
+%\end{aligned}
+%\end{eqnarray}
+%Where $\mathcal{W},\mathcal{T}$ denote the wrenches and twists of the robot side.
+%The constant $b$ is another tunable parameter, it allows for choosing the weighting of twists and wrenches.
 
 \section{Human guidance}
 An intuitive way of guiding the robotic system is to let it follow the hand of the operator. Tracking systems for either of the hand or a device held by the hand are available. These motion capture systems usually run at lower frequencies than the robotic control loop (which is assumed time-continuous). Therefore the tracking output is not a smooth twist trajectory but a time-discrete sequence of position and orientation data. The objective of this section mainly is the derivation of the reference twist $T_v^0$ from the discrete tracking results.   
