@@ -20,6 +20,8 @@ OBJECTS = \
 	"c11_DIPC.obj"\
 	"c12_DIPC.obj"\
 	"c13_DIPC.obj"\
+	"c17_DIPC.obj"\
+	"c18_DIPC.obj"\
 	"c27_DIPC.obj"\
 	"c30_DIPC.obj"\
 	"c31_DIPC.obj"\
@@ -75,6 +77,10 @@ c12_DIPC.obj :	"c12_DIPC.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c12_DIPC.c"
 c13_DIPC.obj :	"c13_DIPC.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_DIPC.c"
+c17_DIPC.obj :	"c17_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c17_DIPC.c"
+c18_DIPC.obj :	"c18_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c18_DIPC.c"
 c27_DIPC.obj :	"c27_DIPC.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c27_DIPC.c"
 c30_DIPC.obj :	"c30_DIPC.c"

@@ -20,7 +20,7 @@ typedef struct {
   boolean_T c12_isStable;
   boolean_T c12_doneDoubleBufferReInit;
   uint8_T c12_is_active_c12_DIPC;
-  real_T c12_r[12];
+  real_T c12_rv[12];
   real_T (*c12_G)[144];
   real_T (*c12_x)[7];
 } SFc12_DIPCInstanceStruct;

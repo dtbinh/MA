@@ -20,7 +20,7 @@ typedef struct {
   boolean_T c4_isStable;
   boolean_T c4_doneDoubleBufferReInit;
   uint8_T c4_is_active_c4_DIPC;
-  real_T c4_r[12];
+  real_T c4_rv[12];
   real_T (*c4_pb)[3];
   real_T (*c4_qb)[4];
   real_T (*c4_pb4)[3];

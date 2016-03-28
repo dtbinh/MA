@@ -19,7 +19,7 @@
 /* Variable Definitions */
 static real_T _sfTime_;
 static const char * c3_debug_family_names[7] = { "nargin", "nargout", "pb", "qb",
-  "r", "pb3", "qb3" };
+  "rv", "pb3", "qb3" };
 
 static const char * c3_b_debug_family_names[6] = { "rwq", "nargin", "nargout",
   "q", "r", "rw" };
@@ -72,7 +72,7 @@ static void c3_info_helper(const mxArray **c3_info);
 static const mxArray *c3_emlrt_marshallOut(const char * c3_u);
 static const mxArray *c3_b_emlrt_marshallOut(const uint32_T c3_u);
 static void c3_quatmultiply(SFc3_DIPCInstanceStruct *chartInstance, real_T c3_q
-  [4], real_T c3_b_r[4], real_T c3_qout[4]);
+  [4], real_T c3_r[4], real_T c3_qout[4]);
 static const mxArray *c3_e_sf_marshallOut(void *chartInstanceVoid, void
   *c3_inData);
 static int32_T c3_g_emlrt_marshallIn(SFc3_DIPCInstanceStruct *chartInstance,
@@ -98,10 +98,10 @@ static void initialize_params_c3_DIPC(SFc3_DIPCInstanceStruct *chartInstance)
 {
   real_T c3_dv0[12];
   int32_T c3_i0;
-  sf_mex_import_named("r", sf_mex_get_sfun_param(chartInstance->S, 0, 0), c3_dv0,
-                      0, 0, 0U, 1, 0U, 1, 12);
+  sf_mex_import_named("rv", sf_mex_get_sfun_param(chartInstance->S, 0, 0),
+                      c3_dv0, 0, 0, 0U, 1, 0U, 1, 12);
   for (c3_i0 = 0; c3_i0 < 12; c3_i0++) {
-    chartInstance->c3_r[c3_i0] = c3_dv0[c3_i0];
+    chartInstance->c3_rv[c3_i0] = c3_dv0[c3_i0];
   }
 }
 
@@ -205,7 +205,7 @@ static void sf_gateway_c3_DIPC(SFc3_DIPCInstanceStruct *chartInstance)
   int32_T c3_i8;
   real_T c3_b_qb[4];
   int32_T c3_i9;
-  real_T c3_b_r[12];
+  real_T c3_b_rv[12];
   uint32_T c3_debug_family_var_map[7];
   real_T c3_nargin = 3.0;
   real_T c3_nargout = 2.0;
@@ -214,7 +214,7 @@ static void sf_gateway_c3_DIPC(SFc3_DIPCInstanceStruct *chartInstance)
   int32_T c3_i10;
   real_T c3_q[4];
   int32_T c3_i11;
-  real_T c3_c_r[3];
+  real_T c3_r[3];
   uint32_T c3_b_debug_family_var_map[6];
   real_T c3_rwq[4];
   real_T c3_b_nargin = 2.0;
@@ -264,7 +264,7 @@ static void sf_gateway_c3_DIPC(SFc3_DIPCInstanceStruct *chartInstance)
   }
 
   for (c3_i9 = 0; c3_i9 < 12; c3_i9++) {
-    c3_b_r[c3_i9] = chartInstance->c3_r[c3_i9];
+    c3_b_rv[c3_i9] = chartInstance->c3_rv[c3_i9];
   }
 
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 7U, 7U, c3_debug_family_names,
@@ -275,7 +275,7 @@ static void sf_gateway_c3_DIPC(SFc3_DIPCInstanceStruct *chartInstance)
     c3_d_sf_marshallIn);
   _SFD_SYMBOL_SCOPE_ADD_EML(c3_b_pb, 2U, c3_b_sf_marshallOut);
   _SFD_SYMBOL_SCOPE_ADD_EML(c3_b_qb, 3U, c3_sf_marshallOut);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c3_b_r, 4U, c3_c_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c3_b_rv, 4U, c3_c_sf_marshallOut,
     c3_c_sf_marshallIn);
   _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c3_b_pb3, 5U, c3_b_sf_marshallOut,
     c3_b_sf_marshallIn);
@@ -288,7 +288,7 @@ static void sf_gateway_c3_DIPC(SFc3_DIPCInstanceStruct *chartInstance)
   }
 
   for (c3_i11 = 0; c3_i11 < 3; c3_i11++) {
-    c3_c_r[c3_i11] = c3_b_r[c3_i11 + 6];
+    c3_r[c3_i11] = c3_b_rv[c3_i11 + 6];
   }
 
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 6U, 6U, c3_b_debug_family_names,
@@ -301,7 +301,7 @@ static void sf_gateway_c3_DIPC(SFc3_DIPCInstanceStruct *chartInstance)
     c3_d_sf_marshallIn);
   _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c3_q, 3U, c3_sf_marshallOut,
     c3_sf_marshallIn);
-  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c3_c_r, 4U, c3_b_sf_marshallOut,
+  _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c3_r, 4U, c3_b_sf_marshallOut,
     c3_b_sf_marshallIn);
   _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(c3_rw, 5U, c3_b_sf_marshallOut,
     c3_b_sf_marshallIn);
@@ -320,7 +320,7 @@ static void sf_gateway_c3_DIPC(SFc3_DIPCInstanceStruct *chartInstance)
 
   c3_dv3[0] = 0.0;
   for (c3_i13 = 0; c3_i13 < 3; c3_i13++) {
-    c3_dv3[c3_i13 + 1] = c3_c_r[c3_i13];
+    c3_dv3[c3_i13 + 1] = c3_r[c3_i13];
   }
 
   for (c3_i14 = 0; c3_i14 < 4; c3_i14++) {
@@ -376,7 +376,7 @@ static void sf_gateway_c3_DIPC(SFc3_DIPCInstanceStruct *chartInstance)
   }
 
   for (c3_i24 = 0; c3_i24 < 12; c3_i24++) {
-    _SFD_DATA_RANGE_CHECK(chartInstance->c3_r[c3_i24], 3U);
+    _SFD_DATA_RANGE_CHECK(chartInstance->c3_rv[c3_i24], 3U);
   }
 
   for (c3_i25 = 0; c3_i25 < 4; c3_i25++) {
@@ -591,19 +591,19 @@ static void c3_e_emlrt_marshallIn(SFc3_DIPCInstanceStruct *chartInstance, const
 static void c3_c_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c3_mxArrayInData, const char_T *c3_varName, void *c3_outData)
 {
-  const mxArray *c3_b_r;
+  const mxArray *c3_b_rv;
   const char_T *c3_identifier;
   emlrtMsgIdentifier c3_thisId;
   real_T c3_y[12];
   int32_T c3_i37;
   SFc3_DIPCInstanceStruct *chartInstance;
   chartInstance = (SFc3_DIPCInstanceStruct *)chartInstanceVoid;
-  c3_b_r = sf_mex_dup(c3_mxArrayInData);
+  c3_b_rv = sf_mex_dup(c3_mxArrayInData);
   c3_identifier = c3_varName;
   c3_thisId.fIdentifier = c3_identifier;
   c3_thisId.fParent = NULL;
-  c3_e_emlrt_marshallIn(chartInstance, sf_mex_dup(c3_b_r), &c3_thisId, c3_y);
-  sf_mex_destroy(&c3_b_r);
+  c3_e_emlrt_marshallIn(chartInstance, sf_mex_dup(c3_b_rv), &c3_thisId, c3_y);
+  sf_mex_destroy(&c3_b_rv);
   for (c3_i37 = 0; c3_i37 < 12; c3_i37++) {
     (*(real_T (*)[12])c3_outData)[c3_i37] = c3_y[c3_i37];
   }
@@ -1002,7 +1002,7 @@ static const mxArray *c3_b_emlrt_marshallOut(const uint32_T c3_u)
 }
 
 static void c3_quatmultiply(SFc3_DIPCInstanceStruct *chartInstance, real_T c3_q
-  [4], real_T c3_b_r[4], real_T c3_qout[4])
+  [4], real_T c3_r[4], real_T c3_qout[4])
 {
   real_T c3_q1;
   real_T c3_q2;
@@ -1017,10 +1017,10 @@ static void c3_quatmultiply(SFc3_DIPCInstanceStruct *chartInstance, real_T c3_q
   c3_q2 = c3_q[1];
   c3_q3 = c3_q[2];
   c3_q4 = c3_q[3];
-  c3_r1 = c3_b_r[0];
-  c3_r2 = c3_b_r[1];
-  c3_r3 = c3_b_r[2];
-  c3_r4 = c3_b_r[3];
+  c3_r1 = c3_r[0];
+  c3_r2 = c3_r[1];
+  c3_r3 = c3_r[2];
+  c3_r4 = c3_r[3];
   c3_qout[0] = ((c3_q1 * c3_r1 - c3_q2 * c3_r2) - c3_q3 * c3_r3) - c3_q4 * c3_r4;
   c3_qout[1] = (c3_q1 * c3_r2 + c3_r1 * c3_q2) + (c3_q3 * c3_r4 - c3_q4 * c3_r3);
   c3_qout[2] = (c3_q1 * c3_r3 + c3_r1 * c3_q3) + (c3_q4 * c3_r2 - c3_q2 * c3_r4);
@@ -1140,10 +1140,10 @@ extern void utFree(void*);
 
 void sf_c3_DIPC_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2693259891U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3208792497U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2651190512U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(421917937U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1413760956U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4280777439U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(745425484U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3215701405U);
 }
 
 mxArray* sf_c3_DIPC_get_post_codegen_info(void);
@@ -1157,7 +1157,7 @@ mxArray *sf_c3_DIPC_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("4pGm0goKveTX3F7A3AwZP");
+    mxArray *mxChecksum = mxCreateString("OxC09uHp2jeVWFyASf5sME");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -1403,7 +1403,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
           _SFD_SET_DATA_PROPS(0,1,1,0,"pb");
           _SFD_SET_DATA_PROPS(1,1,1,0,"qb");
           _SFD_SET_DATA_PROPS(2,2,0,1,"pb3");
-          _SFD_SET_DATA_PROPS(3,10,0,0,"r");
+          _SFD_SET_DATA_PROPS(3,10,0,0,"rv");
           _SFD_SET_DATA_PROPS(4,2,0,1,"qb3");
           _SFD_STATE_INFO(0,0,2);
           _SFD_CH_SUBSTATE_COUNT(0);
@@ -1420,7 +1420,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,88);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,90);
         _SFD_CV_INIT_SCRIPT(0,1,0,0,0,0,0,0,0,0);
         _SFD_CV_INIT_SCRIPT_FCN(0,0,"quatrot",0,-1,191);
 
@@ -1465,7 +1465,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
         _SFD_SET_DATA_VALUE_PTR(0U, *chartInstance->c3_pb);
         _SFD_SET_DATA_VALUE_PTR(1U, *chartInstance->c3_qb);
         _SFD_SET_DATA_VALUE_PTR(2U, *chartInstance->c3_pb3);
-        _SFD_SET_DATA_VALUE_PTR(3U, chartInstance->c3_r);
+        _SFD_SET_DATA_VALUE_PTR(3U, chartInstance->c3_rv);
         _SFD_SET_DATA_VALUE_PTR(4U, *chartInstance->c3_qb3);
       }
     } else {
@@ -1478,7 +1478,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization(void)
 {
-  return "RORu1Cg1VRSde8MI7QySzD";
+  return "ReLHav6fyDQEmFb2xQ9aqG";
 }
 
 static void sf_opaque_initialize_c3_DIPC(void *chartInstanceVar)
@@ -1564,13 +1564,13 @@ static void mdlProcessParameters_c3_DIPC(SimStruct *S)
 static void mdlSetWorkWidths_c3_DIPC(SimStruct *S)
 {
   /* Actual parameters from chart:
-     r
+     rv
    */
-  const char_T *rtParamNames[] = { "r" };
+  const char_T *rtParamNames[] = { "rv" };
 
   ssSetNumRunTimeParams(S,ssGetSFcnParamsCount(S));
 
-  /* registration for r*/
+  /* registration for rv*/
   ssRegDlgParamAsRunTimeParam(S, 0, 0, rtParamNames[0], SS_DOUBLE);
   if (sim_mode_is_rtw_gen(S) || sim_mode_is_external(S)) {
     mxArray *infoStruct = load_DIPC_optimization_info();
@@ -1614,10 +1614,10 @@ static void mdlSetWorkWidths_c3_DIPC(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(2874496335U));
-  ssSetChecksum1(S,(1787989496U));
-  ssSetChecksum2(S,(2618210860U));
-  ssSetChecksum3(S,(224514784U));
+  ssSetChecksum0(S,(3070914531U));
+  ssSetChecksum1(S,(492657474U));
+  ssSetChecksum2(S,(237523729U));
+  ssSetChecksum3(S,(1551987309U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
   ssSupportsMultipleExecInstances(S,1);
