@@ -28,10 +28,11 @@
 \contentsline {section}{\numberline {3.2}Human guidance}{34}{section.3.2}
 \contentsline {section}{\numberline {3.3}Energy control}{35}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Energy tanks}{35}{subsection.3.3.1}
-\contentsline {section}{\numberline {3.4}Performance Comparison of control strategies}{37}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Internal impedance control with feed-forward of the object dynamics}{37}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Internal and external impedance based reference trajectory generation}{38}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Intrinsically Passive Controller (IPC)}{39}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.3.2}Energy-adapted stiffness and damping}{37}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Performance Comparison of control strategies}{38}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Internal impedance control with feed-forward of the object dynamics}{38}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Internal and external impedance based reference trajectory generation}{39}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Intrinsically Passive Controller (IPC)}{40}{subsection.3.4.3}
 \contentsline {chapter}{\numberline {4}Conclusion}{41}{chapter.4}
 \contentsline {chapter}{List of Figures}{43}{chapter.4}
 \contentsline {chapter}{Bibliography}{45}{chapter*.13}

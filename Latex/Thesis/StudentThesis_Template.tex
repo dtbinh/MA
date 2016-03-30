@@ -58,8 +58,7 @@
                                  \large{%eingereichte\\
 			  %DIPLOMARBEIT\\%/STUDIENARBEIT/MASTERRBEIT/BACHELORARBEIT\\ 
                                            %von\\
-                                 \large{Zwischenbericht zur\\
-										MASTERARBEIT\\ 
+                                 \large{	MASTERARBEIT\\ 
 										   von\\}          
 
 						\vspace{0.4cm}
@@ -777,10 +776,10 @@ with a skew-symmetric matrix $J(x)$ and a resistive structure matrix $R(x)$ whic
 \subsection{Dynamics of physical components}
 \subsubsection{Springs}
 A \emph{spring} is the ideal, lossless element storing potential energy. It is connected to two bodies and is defined by a potential energy function. The energy is a function of the relative displacement of the attached bodies. Consider a spring between the two bodies $ B_i $ and $ B_j $,  with coordinate frames $ \Psi_i $ and $ \Psi_j $ fixed to the respective body. The stored potential energy is positive definite function $V_{i,j}$ of the form 
-\begin{equation}
+\begin{equation}\label{EQ:SpringEnergyFunction}
 	V_{i,j} : SE(3) \rightarrow \mathbb{R}; \; H_i^j \mapsto V_{i,j}(H_i^j)
 \end{equation}
-For explicit energy functions for different types of springs see \cite{Stramigioli_01b}.
+For explicit energy functions for different types of springs see \cite{Stramigioli_01}.
 The input-state-output form is defined by the relative displacement $H_i^j$ (state variable), the wrench $W_i^{j,j}$ (effort) and the twist $T_i^j$ (flow).
 \begin{eqnarray}
 \begin{aligned}
@@ -1786,6 +1785,63 @@ The first component $T_b^0$ is already covered by the damping of the virtual obj
 \[	T_i^{i,0} = I_6 \frac{\partial V_{k,i}(P_i^i)}{\partial P_i^i} \]
 It is easy to seen how the damping integrates into the complete system representation, therefore it will not be given here again.
 \end{comment}
+
+\subsection{Energy-adapted stiffness and damping}
+As soon as the energy tank is depleted, control inputs are discarded and trajectory following is not given. It is clear that trajectories draining the tank are not feasible with the given energy budget and need to be altered. Simply discarding the desired trajectory information leads to a permanent deviation of the position. Thus we demand a controller that returns onto the desired trajectory as soon as the energy level has recovered. Therefore we propose the use of an energy-adapted spring and damper. The idea is to relax the stiffness of the user-object spring as function of the available energy. This allows the system to "float" loosely and regain energy through damping. Moreover a change of stiffness affects the energy stored in the spring, relaxing stiffness sets energy free which is re-fed into the tank. With a rise of the tank level, stiffness is increased and the spring re-directs the system onto the desired trajectory. To illustrate the principle we start with a general spring given by
+\begin{equation}
+F = k(x_v-x_b) \;,\; T(x_t)\geq T_{th}
+\end{equation}
+This equation is valid if the tank level $T(x_t)$ is above a certain threshold level $T_{th}$. The spring's stiffness $k$ is unaltered, $x_v$ and $x_b$ denote the reference and the actual position respectively. Below the threshold we propose the following spring function
+\begin{equation}
+F = k\frac{T(x_t)}{T_{th}}(x_v-x_b) \;,\; T(x_t)<T_{th}
+\end{equation}
+For ease of notation we define a new stiffness parameter
+\begin{equation}
+\kappa = \begin{cases}
+k & \text{if } \, T(x_t)\geq T_{th} \\
+k \frac{T(x_t)}{T_{th}} & \text{if } \, T(x_t) < T_{th}
+\end{cases}
+\end{equation}
+The corresponding energy function is then
+\begin{equation}
+V_{\kappa}(x_v,x_b,\kappa) = \frac{1}{2} \kappa (x_v-x_b)^2
+\end{equation}    
+The exchanged power with respect to a change of stiffness is 
+\begin{equation}
+\dot{V}_{\kappa} =\frac{\partial V_{\kappa}}{\partial \kappa} \frac{d \kappa}{dt} = \frac{1}{2} (x_v-x_b)^2 \dot{\kappa} = e^Tf,
+\end{equation}
+which corresponds to the product of effort ($\frac{\partial V_{\kappa}}{\partial \kappa}$) and flow ($\dot{\kappa}$) and forms a power port $(f,e)$ as defined in Section \ref{S:HSdescription}. The energy function of a $6$-DoF spring is of the from
+\begin{equation}
+V_{\kappa}:SE(3) \times \mathcal{K} \rightarrow \mathbb{R}; (H_b^v,\kappa)\mapsto V_{\kappa}(H_b^v,\kappa),
+\end{equation}
+which is equal to the previous spring energy function (eq. \ref{EQ:SpringEnergyFunction}) but depends explicitly on the stiffness parameter $\kappa$. $\mathcal{K}$ is a parametric space containing the stiffness matrices. For more information on variable spatial springs see \cite{Stramigioli_01c}. The port-Hamiltonian representation of a variable stiffness spring is given by
+\begin{eqnarray}
+\begin{aligned}
+\begin{pmatrix}
+\dot{H}_b^v \\ \dot{\kappa}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+H_b^v & 0 \\ 0 & I
+\end{pmatrix}
+\begin{pmatrix}
+T_b^{b,v} \\ u_k
+\end{pmatrix}
+\\
+\begin{pmatrix}
+W_b^{b,v} \\ y_k
+\end{pmatrix}
+&=
+\begin{pmatrix}
+{H_b^v}^T & 0 \\ 0 & I
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial V_{\kappa}}{\partial H_b^v} \\ \frac{\partial V_{\kappa}}{\partial \kappa}
+\end{pmatrix},
+\end{aligned}
+\end{eqnarray}
+where $u_k,y_k$ is the input-output pair. 
+
 
 \section{Performance Comparison of control strategies}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  24 MAR 2016 15:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  30 MAR 2016 17:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -867,12 +867,12 @@ LaTeX Info: Redefining \nameref on input line 50.
 \@outlinefile=\write5
 \openout5 = `StudentThesis_Template.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 81.
+LaTeX Font Info:    Try loading font information for U+msa on input line 80.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 81.
+LaTeX Font Info:    Try loading font information for U+msb on input line 80.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -893,14 +893,14 @@ Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.108 \begin{abstract}
+l.107 \begin{abstract}
                        [1]pdfTeX warning (ext4): destination with the same iden
 tifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.114 \end{abstract}
+l.113 \end{abstract}
                      [1]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 132.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 131.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
@@ -908,7 +908,7 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 
 LaTeX Font Warning: Font shape `OT1/phv/a/n' undefined
-(Font)              using `OT1/phv/m/n' instead on input line 132.
+(Font)              using `OT1/phv/m/n' instead on input line 131.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -920,7 +920,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.132 \tableofcontents
+l.131 \tableofcontents
                        [2] (./StudentThesis_Template.toc)
 \tf@toc=\write6
 \openout6 = `StudentThesis_Template.toc'.
@@ -936,7 +936,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.268 \chapter
+l.267 \chapter
               {Introduction} [3
 
 ]
@@ -950,26 +950,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 Chapter 1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 278.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 277.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 278.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 277.
 
-<mhi-meister.jpg, id=179, 641.39626pt x 486.81876pt>
+<mhi-meister.jpg, id=184, 641.39626pt x 486.81876pt>
 File: mhi-meister.jpg Graphic file (type jpg)
  <use mhi-meister.jpg>
-Package pdftex.def Info: mhi-meister.jpg used on input line 286.
+Package pdftex.def Info: mhi-meister.jpg used on input line 285.
 (pdftex.def)             Requested size: 341.43436pt x 259.14923pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--292
+Underfull \hbox (badness 10000) in paragraph at lines 282--291
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--292
+Underfull \hbox (badness 10000) in paragraph at lines 282--291
 
  []
 
@@ -990,7 +990,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6 <./mhi-meister.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 322--329
+Underfull \hbox (badness 10000) in paragraph at lines 321--328
 
  []
 
@@ -1030,10 +1030,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Chapter 2.
 
 LaTeX Warning: Reference `SS:ImposingConstraints' on page 11 undefined on input
- line 474.
+ line 473.
 
 
-Overfull \hbox (17.63243pt too wide) in paragraph at lines 479--479
+Overfull \hbox (17.63243pt too wide) in paragraph at lines 478--478
 []\OT1/cmr/bx/n/17.28 port-Hamiltonian de-scrip-tion of me-chan-i-cal sys-
  []
 
@@ -1055,7 +1055,7 @@ o.pdf springmass.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<springmass-eps-converted-to.pdf, id=279, 271.0125pt x 59.22125pt>
+<springmass-eps-converted-to.pdf, id=284, 271.0125pt x 59.22125pt>
 File: springmass-eps-converted-to.pdf Graphic file (type pdf)
 
 <use springmass-eps-converted-to.pdf>
@@ -1070,7 +1070,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [12 <./springmass-eps-converted-to.pdf>]
-Overfull \hbox (1.93147pt too wide) in paragraph at lines 547--554
+Overfull \hbox (1.93147pt too wide) in paragraph at lines 546--553
  [][] 
  []
 
@@ -1086,7 +1086,7 @@ ed-to.pdf diracstructure.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<diracstructure-eps-converted-to.pdf, id=298, 234.8775pt x 57.21375pt>
+<diracstructure-eps-converted-to.pdf, id=303, 234.8775pt x 57.21375pt>
 File: diracstructure-eps-converted-to.pdf Graphic file (type pdf)
 
 <use diracstructure-eps-converted-to.pdf>
@@ -1122,7 +1122,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16]
-LaTeX Font Info:    Try loading font information for U+euf on input line 687.
+LaTeX Font Info:    Try loading font information for U+euf on input line 686.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
@@ -1133,7 +1133,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 731--732
+Underfull \hbox (badness 10000) in paragraph at lines 730--731
 
  []
 
@@ -1144,7 +1144,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 759--761
+Underfull \hbox (badness 10000) in paragraph at lines 758--760
 
  []
 
@@ -1176,7 +1176,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [22]
-Overfull \hbox (3.81902pt too wide) in alignment at lines 924--934
+Overfull \hbox (3.81902pt too wide) in alignment at lines 923--933
  [][][] []
  []
 
@@ -1201,7 +1201,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1140--1142
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1141
 
  []
 
@@ -1212,12 +1212,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [26]
-Overfull \hbox (8.17212pt too wide) in alignment at lines 1179--1203
+Overfull \hbox (8.17212pt too wide) in alignment at lines 1178--1202
  [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1203--1227
+Underfull \hbox (badness 10000) in paragraph at lines 1202--1226
 
  []
 
@@ -1233,7 +1233,7 @@ verted-to.pdf modellbasedcontrol.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<modellbasedcontrol-eps-converted-to.pdf, id=483, 344.28625pt x 75.28125pt>
+<modellbasedcontrol-eps-converted-to.pdf, id=488, 344.28625pt x 75.28125pt>
 File: modellbasedcontrol-eps-converted-to.pdf Graphic file (type pdf)
 
 <use modellbasedcontrol-eps-converted-to.pdf>
@@ -1259,7 +1259,7 @@ nverted-to.pdf referencetrajectory.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<referencetrajectory-eps-converted-to.pdf, id=502, 328.22626pt x 119.44624pt>
+<referencetrajectory-eps-converted-to.pdf, id=507, 328.22626pt x 119.44624pt>
 File: referencetrajectory-eps-converted-to.pdf Graphic file (type pdf)
 
 <use referencetrajectory-eps-converted-to.pdf>
@@ -1267,7 +1267,7 @@ Package pdftex.def Info: referencetrajectory-eps-converted-to.pdf used on input
  line 52.
 (pdftex.def)             Requested size: 341.43436pt x 124.25395pt.
 )
-Overfull \hbox (20.01736pt too wide) in alignment at lines 1345--1379
+Overfull \hbox (20.01736pt too wide) in alignment at lines 1344--1378
  [][][] []
  []
 
@@ -1296,7 +1296,7 @@ erted-to.pdf admittancecontrol.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<admittancecontrol-eps-converted-to.pdf, id=527, 333.245pt x 119.44624pt>
+<admittancecontrol-eps-converted-to.pdf, id=532, 333.245pt x 119.44624pt>
 File: admittancecontrol-eps-converted-to.pdf Graphic file (type pdf)
 
 <use admittancecontrol-eps-converted-to.pdf>
@@ -1304,7 +1304,7 @@ Package pdftex.def Info: admittancecontrol-eps-converted-to.pdf used on input l
 ine 52.
 (pdftex.def)             Requested size: 341.43436pt x 122.38943pt.
 )
-Overfull \hbox (20.02203pt too wide) in alignment at lines 1435--1470
+Overfull \hbox (20.02203pt too wide) in alignment at lines 1434--1469
  [][][] []
  []
 
@@ -1337,7 +1337,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1482--1485
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1484
 
  []
 
@@ -1370,9 +1370,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [36]
 
-LaTeX Warning: Reference `FIG:abb1' on page 37 undefined on input line 1814.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -1380,14 +1377,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [37]
 
-LaTeX Warning: Reference `FIG:abb2' on page 38 undefined on input line 1892.
-
-
-LaTeX Warning: Citation `Erhart_15/2' on page 38 undefined on input line 1892.
-
-
-LaTeX Warning: Reference `EQ:ObjectDynamics' on page 38 undefined on input line
- 1990.
+LaTeX Warning: Citation `Stramigioli_01c' on page 38 undefined on input line 18
+17.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1397,24 +1388,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [38]
 
-LaTeX Warning: Reference `FIG:abb3' on page 39 undefined on input line 2000.
+LaTeX Warning: Reference `FIG:abb1' on page 39 undefined on input line 1870.
 
 
-LaTeX Warning: Reference `FIG:abb4' on page 39 undefined on input line 2063.
+LaTeX Warning: Reference `FIG:abb2' on page 39 undefined on input line 1948.
 
 
-Overfull \hbox (1.88338pt too wide) in paragraph at lines 2154--2155
-[]\OT1/cmr/m/n/12 This ar-chi-tec-ture in con-trast to the pre-vi-ous makes use
- of mea-sured con-tact wrenches.
- []
+LaTeX Warning: Citation `Erhart_15/2' on page 39 undefined on input line 1948.
 
 
-LaTeX Warning: Reference `FIG:DIPCtrans' on page 39 undefined on input line 215
-9.
-
-
-LaTeX Warning: Reference `FIG:DIPCrot' on page 39 undefined on input line 2222.
-
+LaTeX Warning: Reference `EQ:ObjectDynamics' on page 39 undefined on input line
+ 2046.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1424,14 +1408,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [39]
 
+LaTeX Warning: Reference `FIG:abb3' on page 40 undefined on input line 2056.
+
+
+LaTeX Warning: Reference `FIG:abb4' on page 40 undefined on input line 2119.
+
+
+Overfull \hbox (1.88338pt too wide) in paragraph at lines 2210--2211
+[]\OT1/cmr/m/n/12 This ar-chi-tec-ture in con-trast to the pre-vi-ous makes use
+ of mea-sured con-tact wrenches.
+ []
+
+
+LaTeX Warning: Reference `FIG:DIPCtrans' on page 40 undefined on input line 221
+5.
+
+
+LaTeX Warning: Reference `FIG:DIPCrot' on page 40 undefined on input line 2278.
+
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[40
-
-]
+[40]
 Chapter 4.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1439,7 +1441,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[41]
+[41
+
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1511,15 +1515,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2390.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2390.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2446.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2446.
  (./StudentThesis_Template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2390.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2390.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2446.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2446.
 
 Package rerunfilecheck Info: File `StudentThesis_Template.out' has not changed.
 
-(rerunfilecheck)             Checksum: 821E4D98CDEC16F58D401F7819C63902;1979.
+(rerunfilecheck)             Checksum: AC23386CAAE62BC006887828C055E292;2069.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1527,13 +1531,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2390.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2446.
  ) 
 Here is how much of TeX's memory you used:
- 27496 strings out of 493304
- 633081 string characters out of 6139871
- 814783 words of memory out of 5000000
- 30199 multiletter control sequences out of 15000+600000
+ 27507 strings out of 493304
+ 633262 string characters out of 6139871
+ 814823 words of memory out of 5000000
+ 30202 multiletter control sequences out of 15000+600000
  17572 words of font info for 61 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  54i,21n,77p,1717b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1558,10 +1562,10 @@ ic/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
 hvr8a.pfb>
-Output written on StudentThesis_Template.pdf (53 pages, 810346 bytes).
+Output written on StudentThesis_Template.pdf (53 pages, 815946 bytes).
 PDF statistics:
- 781 PDF objects out of 1000 (max. 8388607)
- 688 compressed objects within 7 object streams
- 223 named destinations out of 1000 (max. 500000)
- 251 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 797 PDF objects out of 1000 (max. 8388607)
+ 703 compressed objects within 8 object streams
+ 231 named destinations out of 1000 (max. 500000)
+ 259 words of extra memory for PDF output out of 10000 (max. 10000000)
 
