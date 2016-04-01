@@ -55,7 +55,7 @@
 \vspace{0.5cm}
 \Huge{\sc Control of a multi-robot cooperative team guided by a human-operator}\\
 \vspace{1.5cm}
-                                 \large{%eingereichte\\
+                                 \large{eingereichte\\
 			  %DIPLOMARBEIT\\%/STUDIENARBEIT/MASTERRBEIT/BACHELORARBEIT\\ 
                                            %von\\
                                  \large{	MASTERARBEIT\\ 
@@ -468,7 +468,7 @@ The assumption of rigid fixtures between manipulators and object is very common 
 
 
 %_____Kapitel 2_________________________________
-\chapter{port-Hamiltonian system modelling}
+\chapter{port-Hamiltonian system modelling}\label{C:pHS modelling}
 %The controller is divided into two parts, the local one does the real-time interaction of the manipulators with the object. This part is passive, i.e. the robot along with its local controller has a certain amount of energy, the energy can not increase as long as no power is provided by the environment or the higher-level control part. Therefore the two parts will be called Intrinsically Passive Controller and Supervisor, this scheme was introduced by Stramigioli \cite{Stramigioli_01} as a general framework with application to robotic hands.
 In this chapter a modelling approach of the cooperative   system based on the port-Hamiltonian framework is introduced. This aims for a consistent system description over different energetic domains, present in mechanical systems in the form of kinetic and potential energy. The general theory of port-Hamiltonian systems is presented in Section \ref{S:HSdescription}. The generalization for six-dimensional mechanical system leading to systems defined on manifolds is introduced in Section \ref{S:3Dspace-modelling}. In cooperative manipulation set-ups, manipulators and object are rigidly connected, the arising constraints are treated in Section \ref{SS:ImposingConstraints}. 
 System modelling is performed by interconnecting standardized mechanical elements using network theory. The composition of a mechanical impedance, suitable for model-based control (see Chapter 3) is shown in Section \ref{S:springmassdampers}.
@@ -504,10 +504,10 @@ Port-Hamiltonian systems are suitable to describe a variety of physical systems 
 Consider a simple one-dimensional spring-mass system described by $ m\ddot{x} = -kx +F $, where $ m,k,F $ denote the mass, stiffness and external force acting on the mass respectively. We can give a state space formulation of the system
 \begin{figure}[b!]
 	\centering
-	\sf\small
+	\small
 	\def\svgwidth{0.5\columnwidth}
 	\input{springmass.eps_tex}
-	\caption{Spring-mass example.}
+	\caption[Spring-mass example]{Spring-mass example}
 	%\vspace{-20pt}
 	\label{FIG:springmass}
 \end{figure}
@@ -563,15 +563,15 @@ Next to \emph{energy-storing} and \emph{-dissipating} there is a third class of 
 %\end{figure}
 \begin{figure}[b!]
 	\centering
-	\sf\small
+	\small
 	\def\svgwidth{0.6\columnwidth}
 	\input{diracstructure.eps_tex}
 	\caption{port-Hamiltonian system structure}
 	\label{FIG:pHsstructure}
 \end{figure}
 
-Complex physical systems can be modelled as a network of energy storing and dissipating elements, similar to representation of electrical networks consisting of resistors, inductors and capacitors. The rules of interconnection are Newton's third law (action-reaction), Kirchhoff's laws and power-conserving elements like transformers or gyrators. The aim of PHS-modelling is to describe the power-conserving elements with the interconnection laws as a geometric structure and to define the Hamiltonian function as the total energy of the system. \\
-The power flowing between the system's portions is described by the flow-effort product $e^Tf$. The external port $(f_P,e_P)$ describes the energy flow to/from environment or a controller. 
+Complex physical systems can be modelled as a network of energy storing and dissipating elements, similar to representation of electrical networks consisting of resistors, inductors and capacitors. The rules of interconnection are Newton's third law (action-reaction), Kirchhoff's laws and power-conserving elements like transformers or gyrators. The aim of port-Hamiltonian modelling is to describe the power-conserving elements with the interconnection laws as a geometric structure and to define the Hamiltonian function as the total energy of the system. \\
+The power flowing between the system's portions is described by the flow-effort product $e^Tf$.
 
 \subsection{Dirac structures and interconnection ports} \label{SS:PHSinterconnection}
 The energy-routing structure forms the basis of every port-Hamiltonian system. It can be compared to the printed circuit board in electronics, where capacitors, inductors and resistors are the energy-storing and damping elements. Mathematically it has the form of a \emph{Dirac} structure \cite{vanderSchaft_06}. The main property of a Dirac structure is power conservation, i.e. the power flowing into and out of it always sums to zero. We can define the set of ports $(f,e)$ connecting to the Dirac structure $\mathcal{D}$, thus 
@@ -579,25 +579,30 @@ The energy-routing structure forms the basis of every port-Hamiltonian system. I
 e^Tf = 0 \;  \; \forall (f,e)\in\mathcal{D}
 \end{equation}
 Where $\mathcal{D}$ is a subspace of the space of flow and effort $\mathcal{D} \subset \mathcal{E}\times \mathcal{F}$. The space of flows is $f \in \mathcal{F}$ the space of efforts is its dual linear space $e \in \mathcal{E} = \mathcal{F}^*$. The Dirac structure has the same dimension than the space of flow $dim \mathcal{D} = dim \mathcal{F}$.
-Further mathematical requirements can be found in literature \cite{vanderSchaft_06,Schaft_14}. The interconnection of ports is defined by the Dirac structure matrix $D$
+Further mathematical requirements can be found in literature \cite{vanderSchaft_06,Schaft_14}. Power conservation means that supplied energy is either stored or dissipated in the system. All storing and resistive elements can be represented each in a single element as shown in figure \ref{FIG:pHsstructure}. Three ports join in the interconnection structure, one for external supply $(f_P,e_P)$, one for the sum of storing elements $(f_S,e_S)$ and one for the resistive elements $(f_R,e_R)$. Mathematically the  interconnection of ports is defined by the Dirac structure matrix $D$
 \begin{equation}\
 \begin{pmatrix}
 e_P \\ f_S \\ e_R
 \end{pmatrix} = D \begin{pmatrix}
-f_P \\ e_S \\ e_R
+f_P \\ e_S \\ f_R
 \end{pmatrix}
 \end{equation}
-with the internal elements
+It can be shown that for a skew-symmetric $D$ the power balance of the ports is
 \begin{equation}
-D :=  \begin{pmatrix}
-D_P & G_1 & G_2 \\ -G_1^T & D_S & G_3 \\ -G_2^T & -G_3^T & D_R 
-\end{pmatrix}
+e_S^Tf_S + e_P^Tf_P + e_R^Tf_R = 0,
 \end{equation}
-and $D_P,D_S,D_R$ are skew-symmetric, $G_*$ are arbitrary matrices. Thus $D = -D^T$ is skew-symmetric, which is necessary for $e^Tf=0$.
-The power exchanged through a port is given by $ e_*^Tf_*$. In Fig. \ref{FIG:pHsstructure} the port variables entering the Dirac structure have already been split. 
+This fulfils the desired power conservation.\\
+We can simplify equation \ref{EQ:generalPHS} by setting $x = (q^T,p^T)^T$ and introduce a general port-Hamiltonian system of the form
+\begin{eqnarray}
+\begin{aligned}
+\dot{x} &= [J(x)-R(x)]\frac{\partial H}{\partial x}(x) + g(x)f\\
+e &= g^T(x)\frac{\partial H}{\partial x}(x),
+\end{aligned}
+\end{eqnarray}
+with $J(x) \in \mathbb{R}^{n\times n}$ being a skew-symmetric structure matrix and $R(x)  \in  \mathbb{R}^{n\times n}$ being a positive semi-definite, symmetric dissipation matrix.
 
 \subsubsection{Energy storage port}
-The port accounts for the internal storage of the system, its port variables are $ (f_S,e_S) $. The power supplied through this port is stored in the Hamiltonian energy function $H(x)$ of the system. Here $x$ denotes a general energy state variable. The resulting energy balance is:
+The port accounts for the internal storage of the system, its port variables are $ (f_S,e_S) $. The power supplied through this port is stored in the Hamiltonian energy function $H(x)$ of the system. The resulting energy balance is:
 \begin{equation}\label{EQ:storageport}
 	\frac{d}{dt}H = \frac{\partial^T H}{\partial x}(x) \dot{x}
 \end{equation}
@@ -1319,11 +1324,11 @@ This example shows how kinematic constraints can be solved by calculating the co
 %\end{pmatrix} \]
 %Towards the port-Hamiltonian representation of the constrained system we seek to replace the term $ \frac{\partial \bar{V}}{\partial q} $ by $ \frac{\partial \bar{V}}{\partial \bar{p}} $. The kinetic co-energy of the system is $\bar{V}^* =\frac{1}{2} \dot{q}^T \bar{M} \dot{q}$.
 
-\section{A model-based controller for cooperative manipulation}
+\section{A model-based controller for cooperative manipulation}\label{S:modelbasedcontrol}
 The idea of the presented controller is to model an impedance controlled cooperative manipulation set-up. This includes compliant relations between the object and the manipulators as well as an impedance relation between the object and a desired set-point trajectory. The concept was introduced by Stramigioli \cite{Stramigioli_01} and is called the \emph{Intrisically Passive Controller} (IPC). The controller is composed of geometric interconnection of mechanical elements and is thus passive. It features two energy ports, one to allow a high-level controller, e.g. a human operator, specify a reference trajectory. The other port connects to the robot side. Energy is exchanged only through these ports.
 \begin{figure}[b!]
 	\centering
-	\sf\small
+	\small
 	\def\svgwidth{0.99\columnwidth}
 	\input{modellbasedcontrol.eps_tex}
 	\caption{Overall set-up}
@@ -1335,7 +1340,7 @@ The idea of the presented controller is to model an impedance controlled coopera
 Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the common object, spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the modelled object (no object tracking information from the real set-up is used). Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the springs, mass and dampers of the modelled manipulators. One spring hinge-point is connected to the surface of the object, the other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance},\ref{EQ:internalimpedance}) forms the controller, the structure can be seen from figure \ref{FIG:referencetrajectory}. In place of a full cooperative manipulation set-up with $n$ manipulators we derive the controller for a single manipulator $i$, the equations for $i=1...N$ manipulators can be found in the Appendix.
 \begin{figure}[b!]
 	\centering
-	\sf\small
+	\small
 	\def\svgwidth{0.8\columnwidth}
 	\input{referencetrajectory.eps_tex}
 	\caption{Reference trajectory generating controller}
@@ -1409,7 +1414,7 @@ W_b^b \\ W_{b(i)}^{b(i)}
 \end{eqnarray}
 \begin{figure}[b!]
 	\centering
-	\sf\small
+	\small
 	\def\svgwidth{0.8\columnwidth}
 	\input{admittancecontrol.eps_tex}
 	\caption{Admittance-type controller}
@@ -1470,16 +1475,24 @@ $}
 
 %The controller presented above does not incorporate rigid couplings between manipulators and object. The controlled cooperative set-up however does. Therefore it is possible that the controller commands motions that do not comply with the constraints and thus constraint forces as calculated in section \ref{S:ImposingConstraints} arise. In the model we can calculate these forces and cancel them out by subtracting them from the 
 
-\chapter{Energy-aware control}
-Towards a conclusion on stability of the overall system, it is necessary to take the environmental conditions into consideration. Letting a human explicitly control a cooperative robot-team rises the question of her/his dynamic behaviour and the impact on the system. Furthermore the environment, the robotic system is interacting with, can change unexpectedly, stability considerations based on certain environment models may thus lose its basis. Preserving stability is especially crucial when the human operator is on-site to ensure her/his safety. The objective of this chapter is to introduce an energy tank with an energy controller to maintain a safe level of energy int the system, regardless of the dynamics of human and environment. The energy-based controller from chapter 2 integrates seamless with the tank concept.
-\section{Passivity-based control} 
-...
-\\   
-Recall the power balance already given by eq. (\ref{EQ:energybalance}), in integrated form we obtain the energy balance of a pHs
-\begin{equation}
-\underbrace{H(x(t))-H(x(0))}_{stored\, energy} = \underbrace{\int_0^t e_P^Tf_P dt}_{ext.\, supplied} + \underbrace{\int_0^te_R^Tf_R dt}_{dissipated} 
-\end{equation}
-The dissipated co-energy is negative since $e_R^tf_R \leq 0$. Clearly the given energy balance corresponds to a \emph{passive} system. The Hamiltonian energy functions of the systems presented in Chapter 2 are \emph{candidate Lyapunov} functions. The interconnection of pH/passive systems is still a pH/passive system. By interconnection of pH-controller and passive plant we obtain a passive controlled-robotic system. This type of systems has an important advantage when it comes to interaction with humans and/or unknown environments. Usually whose dynamics are either uncertain or too complicated to be modelled. Passive systems are stable with any system, regardless its structure or complexity, that can provide only a bounded amount of energy (see \cite{Stramigioli_15} for details). \\
+\chapter{Energy-aware control}\label{C:Energy-aware control}
+Towards a conclusion on stability of the overall system, it is necessary to take the environmental conditions into consideration. Letting a human explicitly control a cooperative robot-team rises the question of her/his dynamic behaviour and the impact on the system. Furthermore the environment, the robotic system is interacting with, can change unexpectedly. Stability considerations based on certain environment models may thus lose their basis. Preserving stability is especially crucial when the human operator is on-site to ensure her/his safety. The objective of this chapter is to introduce an energy tank with an energy controller to maintain a safe level of energy in the system, regardless of the dynamics of human and environment. The energy-based controller from chapter \ref{C:pHS modelling} integrates seamlessly with the tank concept.
+\section{Passivity and unknown environments} 
+Passivity is a key concept when dealing with unknown environments. It is well known that passive systems are stable with any system, regardless its structure or complexity, that can provide only a bounded amount of energy. On the other hand it is shown in \cite{Stramigioli_15}, that for a non-passive system there always exists an environment that destabilizes the overall behaviour. It is often argued that the human arm is not distinguishable from a mechanical impedance, this stems from experiments with a human manipulating a controlled impedance \cite{Hogan_89}. The robotic device applies a force to the human and s/he responds with motion, therefore the human-machine interface is on an energetic level (the product of force and velocity is mechanical power). In recent years new input methods appeared (hand tracking, gesture control). Here the interaction between human and robotic system is an exchange of information. Feedback given through tactile or visual information does not effectively restrict the operator's motion allowing him to issue nearly arbitrary commands. In order to obtain passive human-guided robotic system we propose to assign the operator with an energy budget at disposal to issue commands. This allows achieve stability with any environment the robotic system is interacting with, as long as its energy supply is bounded. Stability is given without requiring certain models or assumptions for human and environment. Furthermore the energy stored in the robotic set-up is controlled, this effectively limits the possible impact on the environment and therefore contributes to the safety if a human is on-site.       
+\begin{figure}[b!]
+	\centering
+	\small
+	\def\svgwidth{0.95\columnwidth}
+	\input{passivityenvironment.eps_tex}
+	\vspace{10pt}
+	\caption{The robotic system interacting with operator and environment}
+	\label{FIG:passivityenvironment}
+\end{figure}   
+%Recall the power balance already given by eq. (\ref{EQ:energybalance}), in integrated form we obtain the energy balance of a pHs
+%\begin{equation}
+%\underbrace{H(x(t))-H(x(0))}_{stored\, energy} = \underbrace{\int_0^t e_P^Tf_P dt}_{ext.\, supplied} + \underbrace{\int_0^te_R^Tf_R dt}_{dissipated} 
+%\end{equation}
+%The dissipated co-energy is negative since $e_R^tf_R \leq 0$. Clearly the given energy balance corresponds to a \emph{passive} system. The Hamiltonian energy functions of the systems presented in Chapter 2 are \emph{candidate Lyapunov} functions. The interconnection of pH/passive systems is still a pH/passive system. By interconnection of pH-controller and passive plant we obtain a passive controlled-robotic system. This type of systems has an important advantage when it comes to interaction with humans and/or unknown environments. Usually whose dynamics are either uncertain or too complicated to be modelled. Passive systems are stable with any system, regardless its structure or complexity, that can provide only a bounded amount of energy (see \cite{Stramigioli_15} for details). \\
 %In this chapter we propose a passive model-based controller for a robot-team manipulating a common object. We employ \emph{collocated control}, i.e. for the controller we use only the information contained in the effort-flow pair connecting the controller to the robotic system. There are no additional observers (e.g. tracking of the manipulated object).
 
 
@@ -1562,51 +1575,51 @@ The dissipated co-energy is negative since $e_R^tf_R \leq 0$. Clearly the given 
 %Where $\mathcal{W},\mathcal{T}$ denote the wrenches and twists of the robot side.
 %The constant $b$ is another tunable parameter, it allows for choosing the weighting of twists and wrenches.
 
-\section{Human guidance}
-An intuitive way of guiding the robotic system is to let it follow the hand of the operator. Tracking systems for either of the hand or a device held by the hand are available. These motion capture systems usually run at lower frequencies than the robotic control loop (which is assumed time-continuous). Therefore the tracking output is not a smooth twist trajectory but a time-discrete sequence of position and orientation data. The objective of this section mainly is the derivation of the reference twist $T_v^0$ from the discrete tracking results.   
-From the previous sections we know $T_v^0 = \dot{H}_v^0 H_0^v$, in a discrete representation this is
-\begin{equation}
-\begin{aligned}
-T_v^0 (k+1) &= \dot{H}_v^0(k+1) H_0^v(k+1)(H_0^v(k))^{-1} = \\ &=\dot{H}_v^0(k+1)(H_v^0(k+1))^{-1} H_v^0(k)
-\end{aligned}
-\end{equation}  We can calculate the change of position/orientation over the sampling time interval $\Delta T$
-\begin{equation}
-\dot{H}_v^0 (k+1) = \frac{H_v^0 (k+1) (H_v^0(k))^{-1}  }{T_s}
-\end{equation}
-Thus we have obtained a discrete twist representation based on discrete pose inputs. It is a discontinuous sequence updated every $T_s$ and thus exhibits steps in its value. The energy exchanged through the port during $T_s$ is
-\begin{equation}
-\Delta V_k^{k+1} =  \int_{kT_s}^{(k+1)T_s}W_v^{v,0}dt \; T_v^0(k+1)
-\end{equation}  
-Steps of the input result in discontinuities in the energy function, since the input(flow) is the time derivative of the energy state. Consider the time-discrete twist $T_v^0(k+1)$ assigned to the continuous system input, i.e. $T_v^0(t) := T_v^0(k+1)$. Thus the input changes its value every $T_s$. The input $T_v^0(t)$ is an external flow $f_p$, contributing to the energy balance given in eq. (\ref{EQ:energybalance}). Since the pHs is continuous the property of energy conservation holds for all $f_P$. The steps in the system energy are exclusively supplied by external power and are thus not passivity violating.
-In contrast to there are time-discrete pHs, described in \cite{Stramigioli_05}. The main difference are time-discrete energy states, i.e. the state of the next time step is computed from the actual flow and state value. In this class of systems passivity is violated if, throughout a time-step, more energy than stored is extracted. Therefore consider the example of an elongated spring. The relaxing twist is so high that its integration (i.e. the displacement) over the time-step is higher than the initial elongation. I.e. in one time-step the spring not only fully relaxes to its equilibrium but also elongates in the other direction, this would generate energy and violates passivity. In our case assuming a continuous pHs, this cannot happen because the time-steps are infinitely small.\\
-Using time-discrete input functions with a continuous pHs does not affect passivity. Thus they can be used as a minimum solution for connecting a human directly to the controller presented in the previous section.
+%\section{Human guidance}
+%An intuitive way of guiding the robotic system is to let it follow the hand of the operator. Tracking systems for either of the hand or a device held by the hand are available. These motion capture systems usually run at lower frequencies than the robotic control loop (which is assumed time-continuous). Therefore the tracking output is not a smooth twist trajectory but a time-discrete sequence of position and orientation data. The objective of this section mainly is the derivation of the reference twist $T_v^0$ from the discrete tracking results.   
+%From the previous sections we know $T_v^0 = \dot{H}_v^0 H_0^v$, in a discrete representation this is
+%\begin{equation}
+%\begin{aligned}
+%T_v^0 (k+1) &= \dot{H}_v^0(k+1) H_0^v(k+1)(H_0^v(k))^{-1} = \\ &=\dot{H}_v^0(k+1)(H_v^0(k+1))^{-1} H_v^0(k)
+%\end{aligned}
+%\end{equation}  We can calculate the change of position/orientation over the sampling time interval $\Delta T$
+%\begin{equation}
+%\dot{H}_v^0 (k+1) = \frac{H_v^0 (k+1) (H_v^0(k))^{-1}  }{T_s}
+%\end{equation}
+%Thus we have obtained a discrete twist representation based on discrete pose inputs. It is a discontinuous sequence updated every $T_s$ and thus exhibits steps in its value. The energy exchanged through the port during $T_s$ is
+%\begin{equation}
+%\Delta V_k^{k+1} =  \int_{kT_s}^{(k+1)T_s}W_v^{v,0}dt \; T_v^0(k+1)
+%\end{equation}  
+%Steps of the input result in discontinuities in the energy function, since the input(flow) is the time derivative of the energy state. Consider the time-discrete twist $T_v^0(k+1)$ assigned to the continuous system input, i.e. $T_v^0(t) := T_v^0(k+1)$. Thus the input changes its value every $T_s$. The input $T_v^0(t)$ is an external flow $f_p$, contributing to the energy balance given in eq. (\ref{EQ:energybalance}). Since the pHs is continuous the property of energy conservation holds for all $f_P$. The steps in the system energy are exclusively supplied by external power and are thus not passivity violating.
+%In contrast to there are time-discrete pHs, described in \cite{Stramigioli_05}. The main difference are time-discrete energy states, i.e. the state of the next time step is computed from the actual flow and state value. In this class of systems passivity is violated if, throughout a time-step, more energy than stored is extracted. Therefore consider the example of an elongated spring. The relaxing twist is so high that its integration (i.e. the displacement) over the time-step is higher than the initial elongation. I.e. in one time-step the spring not only fully relaxes to its equilibrium but also elongates in the other direction, this would generate energy and violates passivity. In our case assuming a continuous pHs, this cannot happen because the time-steps are infinitely small.\\
+%Using time-discrete input functions with a continuous pHs does not affect passivity. Thus they can be used as a minimum solution for connecting a human directly to the controller presented in the previous section.
 
 
 % The power responsible for this step is supplied through the external port. The property of a continuous pHs that externally supplied energy is either stored or dissipated, is not violated by discontinuous inputs, nor is passivity. Consider the time-discrete external flow $f_P (k+1) =: f_P(t)$ which is assigned to the time-continuous flow and updated every $T_s$. The energy balance described for continuous pHs in eq. (\ref{EQ:energybalance}) holds for any input $f_P(t)$ (cf. \cite{Stramigioli_05}). The problem of extracting more energy energy than stored in the system throughout a sampling interval is prevalent in discrete pHs. These systems compute the energy-state of the next time-step based on the current time-step, due to the discrete nature this energy-state can be below the energetic minimum of the system. To make this more clear consider the example of a moving system, which is slowed down very quickly: $(T_v^0(k+1) \ll T_v^0(k)$. But still $(T_v^0(k+1) > 0$, otherwise energy would be supplied. Consider a elongated spring which is commanded to shorten/compress very quickly, the twist is so high that in the next time-step the twist is elongated already in the over direction. Thus the spring has passed through its energetic minimum and more energy than stored would have been extracted. This clearly violates passivity. It is also obvious that this case cannot occur in a continuous system. Thus the presented simple version of connecting a human with a spring to the controller, does not violate passivity.
 
-\section{Energy control}
-By incorporating a human in the control loop, who commands the system by hand motion, we introduce a source of energy. Unlike in many master-slave systems where the human motion is hindered by a reactive force-feedback, in our case the human's motion is free. Thus we cannot assume her/him to be passive any more, since the energy supply can be unbounded. One solution ensuring stability is assigning the operator with a certain \emph{energy budget} s/he can use to change the energetic state of the system. The idea is that the combined total energy either used in the system or stored in a \emph{energy tank} is always constant. Next to the naturally present types (kinetic, potential energy) we add the virtually stored energy. Being energetically conservative means that the energy is transformed between these three types. Clearly this demands that \emph{dissipated} energy is regained into the virtual storage. From a purely physical point of view this not meaningful since every energy conversion increases a system's entropy. In control theory however this poses no problem, the lossless case leads to stable, passive results \cite{Stramigioli_15}.
-
-\subsection{Energy tanks}   
-The \emph{energy tank} is a virtual storage element defined with a Hamiltonian energy function. Let $x_t$ denote the (scalar) energy state and we have a simple, positive definite function $T(x_t) = \frac{1}{2}x_t^2$. The dynamic equations of the tank are
+\section{Energy tanks}
+The motivation for the use of an \emph{energy tank} is to energetically decouple the human operator from the robotic system, i.e. the operator is no longer able to supply energy to the system. This is a consequence of the chosen input method, which based on information rather than on energy exchange, as discussed above. The energy necessary for driving the robotic system comes from the tank, the operator only controls the energetic flow.\\
+The total energy stored either in the tank or in the model based controller is always constant, for the moment we assume there is no energy exchange with the environment. Thus we require the combined system to be lossless. The dampers in the model-based controller extract energy, we seek to re-gain the dissipated energy and put it back into the tank.\\ 
+The energy tank is a virtual storage element defined with a Hamiltonian energy function. Let $x_t$ denote the (scalar) energy state and we have a simple, positive definite function $T(x_t) = \frac{1}{2}x_t^2$. The dynamic equations of the tank are
 \begin{eqnarray}
 \begin{aligned}
 \dot{x_t} &= u_t \\
 y_t &= \frac{\partial T(x_t)}{\partial x_t} (=x_t)
 \end{aligned}
 \end{eqnarray}
-Here $u_t,y_t$ denote the input and output respectively. Towards the application of the energy tank it is useful to consider a standard port-Hamiltonian system of the form
-\begin{eqnarray}
+Here $u_t,y_t$ denote the input and output respectively. Towards the application of the energy tank we consider an example port-Hamiltonian system of the form
+\begin{eqnarray}\label{EQ:generalPHS}
 \begin{aligned}
 \dot{x} &= [J(x) - R(x)] \frac{\partial V}{\partial x} + g(x)u \\
 y &= g^T(x) \frac{\partial V}{\partial x}
 \end{aligned}
 \end{eqnarray}
+This standard system is chosen to keep the derivation simple and can be replaced with the controllers from section \ref{S:modelbasedcontrol}.
 Now we seek to re-route the dissipated energy into the energy tank, this can be accomplished by choosing the tank input as $u_t = \frac{1}{x_t}\frac{\partial V^T}{\partial x}R(x)\frac{\partial V}{\partial x} + \tilde{u}_t$. With a new input $\tilde{u}_t$ we have a the tank's energy balance
-\begin{equation}
+\begin{equation}\label{EQ:tankpower}
 \dot{T}(x_t)=y_tu_t = \frac{\partial V^T}{\partial x}R(x)\frac{\partial V}{\partial x} + x_t\tilde{u}_t
 \end{equation}
-This corresponds to the systems dissipated energy plus some external supply. Next we use this external supply to interconnect tank and pHs. A power-preserving interconnection is established, here we use a combination of gyrator and transformer with ratio $n$
+This corresponds to the systems dissipated energy plus some external supply. Next we use this external supply to interconnect tank and port-Hamiltonian system. A power-preserving interconnection is established, here we use a combination of gyrator and transformer with ratio $n$
 \begin{eqnarray}
 \begin{aligned}
 u &= ny_t \\
@@ -1651,7 +1664,16 @@ R(x) & 0 \\ -\frac{1}{x_t}\frac{\partial \mathcal{V}^T}{\partial x}R(x) & 0
 \end{aligned}
 \end{eqnarray}
 Note that there is no more an input-output port, this is because ports are defined by energy exchange.\\
-However when a robotic system interacts with the environment energy is exchanged, this clearly interferes with the concept of a constant energy budget. On the other hand the possible impact on the environment is limited. This is beneficial when interacting with humans and requiring to ensure their safety. If we do not assume a model or certain properties for the environment, a basic strategy for coping with undefined energy exchange is to allow the operator to supply and withdraw energy from the tank. Practically of the tank reaches a maximum energy level, further supplies are discarded (or transferred to the operator). On the other hand if the budget is used up and no more actions on the environment are allowed the human can supply more energy to the tank. 
+However when a robotic system interacts with the environment energy is exchanged, this clearly interferes with the concept of a constant energy budget. On the other hand the possible impact on the environment is limited. This is beneficial when interacting with humans and requiring to ensure their safety. If we do not assume a model or certain properties for the environment, a basic strategy for coping with undefined energy exchange is to allow the operator to supply and withdraw energy from the tank. Practically of the tank reaches a maximum energy level, further supplies are discarded (or transferred to the operator). On the other hand if the budget is used up and no more actions on the environment are allowed the human can supply more energy to the tank.
+\begin{figure}[b!]
+	\centering
+	\small
+	\def\svgwidth{0.95\columnwidth}
+	\input{energytank.eps_tex}
+	\vspace{10pt}
+	\caption{The human operator controls the energy flow between tank and robotic system}
+	\label{FIG:energytank}
+\end{figure}  
 
 
 
@@ -1814,7 +1836,7 @@ which corresponds to the product of effort ($\frac{\partial V_{\kappa}}{\partial
 \begin{equation}
 V_{\kappa}:SE(3) \times \mathcal{K} \rightarrow \mathbb{R}; (H_b^v,\kappa)\mapsto V_{\kappa}(H_b^v,\kappa),
 \end{equation}
-which is equal to the previous spring energy function (eq. \ref{EQ:SpringEnergyFunction}) but depends explicitly on the stiffness parameter $\kappa$. $\mathcal{K}$ is a parametric space containing the stiffness matrices. For more information on variable spatial springs see \cite{Stramigioli_01c}. The port-Hamiltonian representation of a variable stiffness spring is given by
+which is equal to the previous spring energy function (eq. (\ref{EQ:SpringEnergyFunction})) but depends explicitly on the stiffness parameter $\kappa$. $\mathcal{K}$ is a parametric space containing the stiffness matrices. For more information on variable spatial springs see \cite{Stramigioli_01c}. The port-Hamiltonian representation of a variable stiffness spring is given by
 \begin{eqnarray}
 \begin{aligned}
 \begin{pmatrix}
@@ -1840,9 +1862,40 @@ W_b^{b,v} \\ y_k
 \end{pmatrix},
 \end{aligned}
 \end{eqnarray}
-where $u_k,y_k$ is the input-output pair. 
-
-
+where $u_k,y_k$ is the input-output pair. Towards pairing the variable stiffness spring with the energy tank we can express $\kappa$ as a function of the tank level. By using the tank power flow equation (\ref{EQ:tankpower}) we obtain
+\begin{equation}
+\dot{\kappa} = \begin{cases}
+0 & \text{if } \, T(x_t)\geq T_{th} \\
+\frac{k}{T_{th}}\dot{T}(x_t) = \frac{k}{T_{th}} \dot{x}_t \frac{\partial \mathcal{V}_{\kappa}}{\partial x_t} & \text{if }  \, T(x_t) < T_{th}
+\end{cases}
+\end{equation}
+The power exchanged between variable spring and tank due to stiffness changes is
+\begin{equation}
+\dot{\mathcal{V}_{\kappa}} = \frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa}\dot{\kappa} =
+\begin{cases}
+0 & \text{if } \, T(x_t)\geq T_{th} \\
+\frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa}\frac{k}{T_{th}} \dot{x}_t \frac{\partial \mathcal{V_{\kappa}}}{\partial x_t} & \text{if }  \, T(x_t) < T_{th}
+\end{cases}
+\end{equation}
+The power exchanged by the energy tank is of the form $\dot{T}(x_t) = \frac{\mathcal{V}_{\kappa}}{\partial x_t}u_t$, therefore $\frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa}\frac{k}{T_{th}} \dot{x}_t$ is an input for the energy tank. Using these assignments we can write the port-Hamiltonian representation of variable stiffness spring and energy tank. For simplicity that we assume that the variable stiffness spring is part of the general system of equation (\ref{EQ:generalPHS})
+\begin{equation}
+\begin{pmatrix}
+\dot{x} \\ \dot{x}_t \\ \dot{\kappa}
+\end{pmatrix} =
+\left[
+\begin{pmatrix}
+J(x) & \frac{\alpha w}{x_t} & 0\\ -\frac{\alpha w^T}{x_t} & 0 & -\frac{k}{T_{th}}\dot{x}_t \\ 0 & \frac{k}{T_{th}}\dot{x}_t & 0\end{pmatrix}
+- 
+\begin{pmatrix}
+R(x) & 0 & 0\\ -\frac{1}{x_t}\frac{\partial \mathcal{V}^T}{\partial x}R(x) & 0 & 0 \\ 0 & 0 & 0
+\end{pmatrix}
+\right]
+\begin{pmatrix}
+\frac{\partial \mathcal{V}_{\kappa}}{\partial x} \\
+\frac{\partial \mathcal{V}_{\kappa}}{\partial x_t} \\
+\frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa} 
+\end{pmatrix}
+\end{equation}   
 \section{Performance Comparison of control strategies}
 
 To evaluate the presented controllers in an objective way, they are implemented in \emph{Simulink} and compared in terms of:

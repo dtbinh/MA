@@ -1,7 +1,55 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: StudentThesis_Template.aux
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: StudentThesis_Template.aux
 The style file: alphaurl.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: mybib.bib
 Warning--entry type for "MHI-MEISTeR" isn't style-file defined
 --line 297 of file mybib.bib
 Warning--I didn't find a database entry for "Erhart_15/2"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 37 entries,
+            3274 wiz_defined-function locations,
+            937 strings with 12051 characters,
+and the built_in function-call counts, 20827 in all, are:
+= -- 2153
+> -- 853
+< -- 29
++ -- 269
+- -- 263
+* -- 1223
+:= -- 3025
+add.period$ -- 124
+call.type$ -- 37
+change.case$ -- 229
+chr.to.int$ -- 36
+cite$ -- 37
+duplicate$ -- 691
+empty$ -- 1747
+format.name$ -- 306
+if$ -- 5180
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 41
+newline$ -- 193
+num.names$ -- 125
+pop$ -- 352
+preamble$ -- 1
+purify$ -- 271
+quote$ -- 0
+skip$ -- 1464
+stack$ -- 0
+substring$ -- 994
+swap$ -- 174
+text.length$ -- 29
+text.prefix$ -- 8
+top$ -- 0
+type$ -- 276
+warning$ -- 0
+while$ -- 152
+width$ -- 41
+write$ -- 502
 (There were 2 warnings)
