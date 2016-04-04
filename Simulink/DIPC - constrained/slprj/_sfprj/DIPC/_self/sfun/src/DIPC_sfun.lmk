@@ -1,0 +1,99 @@
+CC     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"DIPC_sfun.obj"\
+	"c1_DIPC.obj"\
+	"c2_DIPC.obj"\
+	"c3_DIPC.obj"\
+	"c4_DIPC.obj"\
+	"c5_DIPC.obj"\
+	"c6_DIPC.obj"\
+	"c7_DIPC.obj"\
+	"c8_DIPC.obj"\
+	"c9_DIPC.obj"\
+	"c10_DIPC.obj"\
+	"c11_DIPC.obj"\
+	"c12_DIPC.obj"\
+	"c13_DIPC.obj"\
+	"c17_DIPC.obj"\
+	"c18_DIPC.obj"\
+	"c27_DIPC.obj"\
+	"c30_DIPC.obj"\
+	"c31_DIPC.obj"\
+	"c36_DIPC.obj"\
+	"c37_DIPC.obj"\
+	"c43_DIPC.obj"\
+	"DIPC_sfun_registry.obj"\
+	"lccstub.obj"\
+	"DIPC_sfun.def"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsimulink.lib"\
+	"C:\Program Files\MATLAB\R2014b\lib\win64\libmwipp.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014b\extern\include"  -I"C:\Program Files\MATLAB\R2014b\simulink\include"  -I"C:\Program Files\MATLAB\R2014b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014b\rtw\c\src"  -I"C:\Users\Martin\Documents\Git\Simulink\DIPC\slprj\_sfprj\DIPC\_self\sfun\src" 
+ 
+
+DIPC_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o DIPC_sfun.mexw64 @DIPC_sfun.lmko
+DIPC_sfun.obj :	"DIPC_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "DIPC_sfun.c"
+c1_DIPC.obj :	"c1_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_DIPC.c"
+c2_DIPC.obj :	"c2_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_DIPC.c"
+c3_DIPC.obj :	"c3_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_DIPC.c"
+c4_DIPC.obj :	"c4_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_DIPC.c"
+c5_DIPC.obj :	"c5_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_DIPC.c"
+c6_DIPC.obj :	"c6_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_DIPC.c"
+c7_DIPC.obj :	"c7_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_DIPC.c"
+c8_DIPC.obj :	"c8_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c8_DIPC.c"
+c9_DIPC.obj :	"c9_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c9_DIPC.c"
+c10_DIPC.obj :	"c10_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c10_DIPC.c"
+c11_DIPC.obj :	"c11_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c11_DIPC.c"
+c12_DIPC.obj :	"c12_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c12_DIPC.c"
+c13_DIPC.obj :	"c13_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_DIPC.c"
+c17_DIPC.obj :	"c17_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c17_DIPC.c"
+c18_DIPC.obj :	"c18_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c18_DIPC.c"
+c27_DIPC.obj :	"c27_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c27_DIPC.c"
+c30_DIPC.obj :	"c30_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c30_DIPC.c"
+c31_DIPC.obj :	"c31_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c31_DIPC.c"
+c36_DIPC.obj :	"c36_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c36_DIPC.c"
+c37_DIPC.obj :	"c37_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c37_DIPC.c"
+c43_DIPC.obj :	"c43_DIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c43_DIPC.c"
+DIPC_sfun_registry.obj :	"DIPC_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "DIPC_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
