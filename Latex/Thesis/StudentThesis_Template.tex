@@ -19,6 +19,7 @@
 %um Kopf- und Fußzeile bei chapter-Seiten zu reaktivieren
 \newcommand{\helv}{%
    \fontfamily{phv}\fontseries{a}\fontsize{9}{11}\selectfont}
+\newcommand{\f}[1]{\boldsymbol{#1}}
 \fancypagestyle{plain}{	
 	\fancyfoot{}% keine Fußzeile
 	\fancyhead[RE]{\helv\leftmark}% Rechts auf geraden Seiten=innen; in \leftmark stehen \chapters
@@ -481,7 +482,7 @@ For the derivation of the port-Hamiltonian description of a mechanical system we
 \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}}\right) - \frac{\partial \mathcal{L}}{\partial q} = g(q)f,
 \end{equation}
 where $q$ is the vector of generalized configuration coordinates of the system. The \emph{Lagrangian} $\mathcal{L} = V_k - V_p$ equals the difference between the kinetic co-energy $V_k$ and the potential energy $V_p$. The kinetic co-energy is explicitly given as $V_k = \frac{1}{2} \dot{q}^T M(q) \dot{q}$, with a symmetric, positive definite inertia matrix $M(q)$. The generalized forces $f$ act on the system with an input matrix $g(q)$. We define the generalized \emph{momenta} for every Lagrangian $p := \frac{\partial \mathcal{L}}{\partial \dot{q}}$ and obtain $p = M(q)\dot{q}$.
-Introducing the \emph{Hamiltonian} (energy) function $H(q,p) = p^T\dot{q} - \mathcal{L}(q,\dot{q})$ we can rewrite the Euler-Lagrange equation in form of the classical Hamiltonian equations of a mechanical system \begin{eqnarray}\label{EQ:generalPHS}
+Introducing the \emph{Hamiltonian} (energy) function $H(q,p) = p^T\dot{q} - \mathcal{L}(q,\dot{q})$ we can rewrite the Euler-Lagrange equation in form of the classical Hamiltonian equations of a mechanical system \begin{eqnarray}\label{EQ:mechanicalPHS}
 	\begin{aligned}
 	& \dot{q} = \frac{\partial H}{\partial p}(q,p)\\
 	& \dot{p} = -\frac{\partial H}{\partial q}(q,p) + g(q)f
@@ -592,8 +593,8 @@ It can be shown that for a skew-symmetric $D$ the power balance of the ports is
 e_S^Tf_S + e_P^Tf_P + e_R^Tf_R = 0,
 \end{equation}
 This fulfils the desired power conservation.\\
-We can simplify equation \ref{EQ:generalPHS} by setting $x = (q^T,p^T)^T$ and introduce a general port-Hamiltonian system of the form
-\begin{eqnarray}
+We can simplify equation \ref{EQ:mechanicalPHS} by setting $x = (q^T,p^T)^T$ and introduce a general port-Hamiltonian system of the form
+\begin{eqnarray}\label{EQ:generalPHS}
 \begin{aligned}
 \dot{x} &= [J(x)-R(x)]\frac{\partial H}{\partial x}(x) + g(x)f\\
 e &= g^T(x)\frac{\partial H}{\partial x}(x),
@@ -655,8 +656,20 @@ where $ x = (x_1, x_2)^T $ and $ H = H_1 + H_2 $ is the sum of the two energies.
 R = \begin{pmatrix}
 R_1 & 0 \\ 0 & R_2\end{pmatrix}\]
 
-
-
+\subsubsection{port-Hamiltonian systems and passivity}
+A system is \emph{passive} if there exists a differentiable storage function $H(x) \geq 0$ that satisfies 
+\begin{equation}\label{EQ:PassivityDefinition}
+\frac{d}{dt}H(x(t)) \leq u^T(t)y(t)
+\end{equation}
+The product of the input-output pair $(u,y)$ is the supplied power. By definition the Hamiltonian function represents the total energy stored in the system. For a port-Hamiltonian system of the form of equation (\ref{EQ:generalPHS}) we have
+\begin{eqnarray}
+\begin{aligned}
+\frac{d}{dt}H(x) &= \frac{\partial^T H}{\partial x} \frac{dx}{dt} = \frac{\partial^T H}{\partial x}\left[(J(x)-R(x))\frac{\partial H}{\partial x} + g(x)f\right] = \\
+&= \frac{\partial^T H}{\partial x}J(x)\frac{\partial H}{\partial x} - \frac{\partial^T H}{\partial x}R(x)\frac{\partial H}{\partial x} + (g^{-T}(x)e)^T g(x)f = \\
+&= e^Tf - \frac{\partial^T H}{\partial x}R(x)\frac{\partial H}{\partial x}
+\end{aligned}
+\end{eqnarray}
+The property $\frac{\partial^T H}{\partial x}J(x)\frac{\partial H}{\partial x}=0$ holds for a skew symmetric matrix $J(x) = -J(x)^T$. The product of the effort-flow pair $e^Tf$ is the power supplied to the system. Since $R(x)=R(x)^T \geq 0$ is symmetric and positive semi-definite, we have $\frac{\partial^T H}{\partial x}R(x)\frac{\partial H}{\partial x} \geq 0$. Conclusively equation (\ref{EQ:PassivityDefinition}) holds for every port-Hamiltonian system that satisfies the properties of equation (\ref{EQ:generalPHS}), clearly the system is \emph{passive}. If $R=0$, i.e. the system exhibits no dissipation we call it \emph{lossless}.  
 \section{3D-space modelling of mechanical systems}\label{S:3Dspace-modelling}
 
 
@@ -778,7 +791,7 @@ with a skew-symmetric matrix $J(x)$ and a resistive structure matrix $R(x)$ whic
 
 
 
-\subsection{Dynamics of physical components}
+\subsection{Dynamics of physical components}\label{SS:DynamicsPhysicalComponents}
 \subsubsection{Springs}
 A \emph{spring} is the ideal, lossless element storing potential energy. It is connected to two bodies and is defined by a potential energy function. The energy is a function of the relative displacement of the attached bodies. Consider a spring between the two bodies $ B_i $ and $ B_j $,  with coordinate frames $ \Psi_i $ and $ \Psi_j $ fixed to the respective body. The stored potential energy is positive definite function $V_{i,j}$ of the form 
 \begin{equation}\label{EQ:SpringEnergyFunction}
@@ -1324,8 +1337,11 @@ This example shows how kinematic constraints can be solved by calculating the co
 %\end{pmatrix} \]
 %Towards the port-Hamiltonian representation of the constrained system we seek to replace the term $ \frac{\partial \bar{V}}{\partial q} $ by $ \frac{\partial \bar{V}}{\partial \bar{p}} $. The kinetic co-energy of the system is $\bar{V}^* =\frac{1}{2} \dot{q}^T \bar{M} \dot{q}$.
 
-\section{A model-based controller for cooperative manipulation}\label{S:modelbasedcontrol}
-The idea of the presented controller is to model an impedance controlled cooperative manipulation set-up. This includes compliant relations between the object and the manipulators as well as an impedance relation between the object and a desired set-point trajectory. The concept was introduced by Stramigioli \cite{Stramigioli_01} and is called the \emph{Intrisically Passive Controller} (IPC). The controller is composed of geometric interconnection of mechanical elements and is thus passive. It features two energy ports, one to allow a high-level controller, e.g. a human operator, specify a reference trajectory. The other port connects to the robot side. Energy is exchanged only through these ports.
+\section{Model-based controllers for cooperative manipulation}\label{S:modelbasedcontrol}
+In this section we present two model-based control schemes based on the \emph{Intrinsically Passive Controller} (IPC) paradigm introduced by Stramigioli \cite{Stramigioli_01}. Intrinsically passive control exhibits the advantages of a physical fundament, \emph{passivity} and stability during contact and non-contact transitions. 
+The controller design mimics an impedance controlled cooperative manipulation set-up, i.e. the controller has the structure of robots manipulating a common object, see figure \ref{FIG:modelbasedcontrol} for an overview. The apparent control commands are obtained from a simulation of the real system dynamics. In this \emph{virtual} set-up the common object and the manipulators are simple inertias. The manipulators are connected to the object by springs and dampers, i.e. the connection is compliant, leading to stability during contact and non-contact transitions. It is important to notice that the IPC is no more than a geometric interconnection of mechanic elements in a virtual domain.\\
+ The schemes is object-centred, i.e. the user controls the object explicitly and the controller generates appropriate commands for the robotic system. \emph{Explicit} refers to a direct connection between the user (i.e. the reference trajectory given by the user) and the virtual object, established by a spring and a damper. On the other side the controller is connected to the real robotic set-up by issuing either trajectory (subsection \ref{SS:referencetrajectoryDIPC}) or force commands (subsection \ref{SS:constrainedDIPC}) to the manipulators. The respective dual quantity serves as an input for the controller. Conclusively the controller is a virtual system model that generates control outputs by simulating the virtual dynamics and receives feedback with the dual of the commanded quantity.\\
+Every connection either between the sub-elements inside the controller or the external ones (user-IPC, IPC-robots) are described by effort-flow pairs, i.e. power ports. From an energetic point of view the interconnection is lossless (see subsection \ref{SS:PHSinterconnection}) and the elements are passive, this motivates the term \emph{intrinsic passivity}. By definition a passive controller cannot generate energy, thus energy must be provided from outside, either by the user or by the robotic system, through the power ports. 
 \begin{figure}[b!]
 	\centering
 	\small
@@ -1334,10 +1350,10 @@ The idea of the presented controller is to model an impedance controlled coopera
 	\caption{Overall set-up}
 	\label{FIG:modelbasedcontrol}
 \end{figure}
+Stramigioli's original IPC scheme \cite{Stramigioli_01} does not incorporate the inertias of the manipulators in the controller. A cooperative manipulation problem demands good dynamic response and low squeezing forces on the common object, these requirements are met by simulating the manipulator inertias in the controller. The inertias can be added to the controller in (at least) two ways, leading to the two schemes presented below.   
 
-
-\subsection{Compliant reference trajectory generation}
-Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the common object, spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the modelled object (no object tracking information from the real set-up is used). Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the springs, mass and dampers of the modelled manipulators. One spring hinge-point is connected to the surface of the object, the other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance},\ref{EQ:internalimpedance}) forms the controller, the structure can be seen from figure \ref{FIG:referencetrajectory}. In place of a full cooperative manipulation set-up with $n$ manipulators we derive the controller for a single manipulator $i$, the equations for $i=1...N$ manipulators can be found in the Appendix.
+\subsection{Compliant trajectory generating IPC}\label{SS:referencetrajectoryDIPC}
+Starting from the mechanical impedance equations derived in subsection \ref{S:springmassdampers}, a controller based on the structure of the cooperative manipulation set-up is designed. The starting point is the impedance equation (\ref{EQ:externalimpedance}) accounting for the relation between object and reference trajectory. The inertia $M_b$ represents the common object, spring and damper establish a relation between desired and \emph{actual} object twist. In this context the actual twist is the twist of the modelled object (no object tracking information from the real set-up is used). Analogously to a real cooperative manipulation set-up, the $i$-manipulators connect to the virtual object. In the controller these connections are compliant (not rigid), i.e. springs are between object and manipulators. The manipulator-object impedance equation (\ref{EQ:internalimpedance}) defines the springs, mass and dampers of the modelled manipulators. One spring hinge-point is connected to the surface of the object, the other hinge point is connected to the impedance relation's inertia  $M_i$, which clearly represents the $i$-th manipulator's body. In summary a simple geometric interconnection of the impedance equations (\ref{EQ:externalimpedance},\ref{EQ:internalimpedance}) forms the controller, the structure can be seen from figure \ref{FIG:referencetrajectory}. In place of a full cooperative manipulation set-up with $n$ manipulators we derive the controller for a single manipulator $i$, the equations for $i=1...N$ manipulators can be found in the Appendix.
 \begin{figure}[b!]
 	\centering
 	\small
@@ -1381,10 +1397,12 @@ W_v^{0,0} \\ T_i^{i,0}
 \end{aligned}
 $}
 \end{eqnarray}
-Note that the output to the robot side is a twist, the control scheme thus generates a compliant reference trajectory for the robots to follow. Similar to \cite{Caccavale_08} we require a local a underlying force control layer to operate the robots.
+Note that the output to the robot side is a twist, the control scheme thus generates a compliant reference trajectory for the robots to follow. Similar to \cite{Caccavale_08} we require a local underlying force control layer to operate the robots.
 
-\subsection{Admittance-type control}
-Admittance-type control means (in contrast to the previous) specifying a reference trajectory on the user side and obtaining wrenches for the robots from the controller. The idea behind this control scheme is to connect the manipulator inertias rigidly to the object and leave the spring open to the actual robot side (see Figure \ref{FIG:admittancecontrol}). Rigid coupling of a manipulator with the object is treated with the approach presented in section \ref{S:ImposingConstraints}. Once again we start from a single manipulator $i$ in place of a full cooperative manipulation set-up. Bodies $b$ and $b(i)$ are rigidly connected and their port-Hamiltonian equations are
+\subsection{Constrained dynamics IPC}\label{SS:constrainedDIPC}
+In a robotic set-up velocities are easier to measure than forces. From this point of view it is convenient to design a controller that issues force commands to the robots and receives velocity feedback. The difficulty to overcome here is the \emph{preferred causality} of port-Hamiltonian elements. Notice from subsection \ref{SS:DynamicsPhysicalComponents} that springs expect a twist for input and output a wrench. Vice versa inertias accept a wrench input, resulting in a twist output. In this formulations the state variable is computed by integration over time, opposite causality representations are possible but require the time derivative. Numerical differentiation amplifies numerical noise, thus the integration form is the preferred one. Furthermore integration allows to use information in form of initial conditions, while differentiation does not. For more information on causality see \cite{duindam2009geoplexbook}.\\
+ In the controller both the virtual object and the robotic system expect wrenches, in terms of causality calling for a spring. A virtual manipulator inertia is added by rigidly connecting it to the virtual object, figure \ref{FIG:admittancecontrol} illustrates the composition. In a real cooperative manipulation set-up it is also  common to  have this rigid connection between end-effector and object, making this an obvious choice for control. \\
+Rigid coupling of a manipulator and the object is treated with the approach presented in section \ref{S:ImposingConstraints}. Once again we start from a single manipulator $i$ in place of a full cooperative manipulation set-up. Bodies $b$ and $b(i)$ are rigidly connected and their port-Hamiltonian equations are
 \begin{eqnarray}
 \begin{aligned}
 \begin{pmatrix}
@@ -1426,7 +1444,7 @@ The Lagrange multipliers are eliminated as shown in section \ref{S:ImposingConst
 \mathcal{A}_{b,b} &= 
 1 - Ad_{H_b^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_b^0}M_b^{-1} \\
 \mathcal{A}_{i,b} &= Ad_{H_b^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_{b(i)}^0}M_{b(i)}^{-1} \\
-\mathcal{A}_{b,b} &= Ad_{H_{b(i)}^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_b^0}M_b^{-1} \\
+\mathcal{A}_{b,i} &= Ad_{H_{b(i)}^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_b^0}M_b^{-1} \\
 \mathcal{A}_{i,i} &= 
 1 - Ad_{H_{b(i)}^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_{b(i)}^0}M_{b(i)}^{-1}
 \end{aligned}
@@ -1473,12 +1491,102 @@ W_v^{0,0} \\ W_i^{0,0}
 $}
 \end{eqnarray}
 
+\begin{figure}[t]
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$\Phi_z$[rad]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {orientation, desired orientation},
+		legend style = {at={(axis cs:0.52, -0.25)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_Orientation.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_desired Orientation.txt};
+%\draw[->, thick] (axis cs:5, 10) -- (axis cs:7, 9);
+%\draw[->, thick] (axis cs:15, 8) -- (axis cs:13.3, 6);
+%\draw[<->, thick] (axis cs:5.35, 5) -- (axis cs:5.35, 17);
+%\node at (axis cs:2.5,11){\small{\parbox{3.2cm}{Increased internal stress for $N_{h} \neq \{ 1{,}2{,}3\}$} }};
+%\node at (axis cs:15.5,9){\small{Placeholder}};
+\end{axis}35
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {$\omega_z$[rad/s]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {angular velocity, des. ang. velocity},
+		legend style = {at={(axis cs:0.5, -2)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_Angular Velocity.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_desired ang velocity.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N],m[Nm]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_x$, force $f_y$, torque $m_z$},
+		legend style = {at={(axis cs:1.45, 500)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_Manipulator wrench_tx.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_Manipulator wrench_ty.txt};
+	\addplot[green,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_Manipulator wrench_rz.txt};\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [
+		ylabel = {f[N],m[Nm]},
+		xlabel = {t[s]},
+		minor y tick num = 1,
+		axis lines = left,
+		legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$},
+		legend style = {at={(axis cs:1, 4)}, anchor = north},
+		legend cell align=left,
+		grid = major,
+		height=5cm,
+		width=0.98\linewidth
+	]
+\addplot[red,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_Internal wrench_tx.txt};
+\addplot[blue,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_Internal wrench_ty.txt};
+	\addplot[green,]
+	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCconstrained_Internal wrench_rz.txt};\end{axis}
+\end{tikzpicture}
+\vspace{-10pt}
+\caption[IPC: Rotation]{Constrained dynamic IPC: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
+	\label{FIG:DIPCrot}
+\end{figure}
+
 %The controller presented above does not incorporate rigid couplings between manipulators and object. The controlled cooperative set-up however does. Therefore it is possible that the controller commands motions that do not comply with the constraints and thus constraint forces as calculated in section \ref{S:ImposingConstraints} arise. In the model we can calculate these forces and cancel them out by subtracting them from the 
 
 \chapter{Energy-aware control}\label{C:Energy-aware control}
-Towards a conclusion on stability of the overall system, it is necessary to take the environmental conditions into consideration. Letting a human explicitly control a cooperative robot-team rises the question of her/his dynamic behaviour and the impact on the system. Furthermore the environment, the robotic system is interacting with, can change unexpectedly. Stability considerations based on certain environment models may thus lose their basis. Preserving stability is especially crucial when the human operator is on-site to ensure her/his safety. The objective of this chapter is to introduce an energy tank with an energy controller to maintain a safe level of energy in the system, regardless of the dynamics of human and environment. The energy-based controller from chapter \ref{C:pHS modelling} integrates seamlessly with the tank concept.
+Towards a conclusion on stability of the overall system, it is necessary to take the environmental conditions into consideration. Letting a human explicitly control a cooperative robot-team rises the question of her/his dynamic behaviour and the impact on the system. Furthermore the environment, the robotic system is interacting with, can change unexpectedly. Thus stability considerations based on certain environment models may thus lose their basis. Preserving stability is especially crucial when the human operator is on-site to ensure her/his safety. The objective of this chapter is to introduce an energy tank, that sources the controller, to maintain a safe level of energy in the system, regardless of the dynamics of a human and the environment. The energy-based controllers from section \ref{S:modelbasedcontrol} integrate seamlessly with the tank concept.
 \section{Passivity and unknown environments} 
-Passivity is a key concept when dealing with unknown environments. It is well known that passive systems are stable with any system, regardless its structure or complexity, that can provide only a bounded amount of energy. On the other hand it is shown in \cite{Stramigioli_15}, that for a non-passive system there always exists an environment that destabilizes the overall behaviour. It is often argued that the human arm is not distinguishable from a mechanical impedance, this stems from experiments with a human manipulating a controlled impedance \cite{Hogan_89}. The robotic device applies a force to the human and s/he responds with motion, therefore the human-machine interface is on an energetic level (the product of force and velocity is mechanical power). In recent years new input methods appeared (hand tracking, gesture control). Here the interaction between human and robotic system is an exchange of information. Feedback given through tactile or visual information does not effectively restrict the operator's motion allowing him to issue nearly arbitrary commands. In order to obtain passive human-guided robotic system we propose to assign the operator with an energy budget at disposal to issue commands. This allows achieve stability with any environment the robotic system is interacting with, as long as its energy supply is bounded. Stability is given without requiring certain models or assumptions for human and environment. Furthermore the energy stored in the robotic set-up is controlled, this effectively limits the possible impact on the environment and therefore contributes to the safety if a human is on-site.       
+Passivity is a key concept when dealing with unknown environments. It is well known that passive robotic systems are stable with any environment, regardless its structure or complexity, that can provide only a bounded amount of energy. On the other hand it is shown in \cite{Stramigioli_15}, that for a non-passive robotic system, there always exists a (passive) environment that destabilizes the overall behaviour.\\
+When a human operator controls a robotic set-up by hand motion, it is often argued that the human arm is not distinguishable from a mechanical impedance. This stems from experiments with a human manipulating a controlled impedance \cite{Hogan_89}. The robotic device applies a force to the human and s/he responds with motion, therefore the human-machine interface is on an energetic level (the product of force and velocity is mechanical power).
 \begin{figure}[b!]
 	\centering
 	\small
@@ -1487,7 +1595,10 @@ Passivity is a key concept when dealing with unknown environments. It is well kn
 	\vspace{10pt}
 	\caption{The robotic system interacting with operator and environment}
 	\label{FIG:passivityenvironment}
-\end{figure}   
+\end{figure}
+In recent years new input methods appeared (hand tracking, gesture control). Here the interaction between human and robotic system is an exchange of information. There is no explicit relation between force and velocity (impedance) and therefore it is not meaningful to model the human operator with an impedance. Feedback given through tactile or visual information does not effectively restrict the operator's motion, allowing him to issue nearly arbitrary commands. Figure \ref{FIG:passivityenvironment} illustrates the exchange of energy of a passive robotic team with the environment and an operator that can directly power the controller.\\
+In order to obtain passive human-guided robotic system we propose to assign the operator with an energy budget at disposal to issue commands. The structure is shown in figure \ref{FIG:energytank} and the theory treated in the next section. This allows to achieve stability with any environment the robotic system is interacting with, as long as its energy supply is bounded. Using the concept of passivity, asymptotic stability is given without requiring certain models or assumptions for the human and the environment. Furthermore the energy stored in the robotic set-up is bounded, this effectively limits the possible impact on the environment and therefore contributes to the safety if a human is on-site.       
+   
 %Recall the power balance already given by eq. (\ref{EQ:energybalance}), in integrated form we obtain the energy balance of a pHs
 %\begin{equation}
 %\underbrace{H(x(t))-H(x(0))}_{stored\, energy} = \underbrace{\int_0^t e_P^Tf_P dt}_{ext.\, supplied} + \underbrace{\int_0^te_R^Tf_R dt}_{dissipated} 
@@ -1598,43 +1709,43 @@ Passivity is a key concept when dealing with unknown environments. It is well kn
 % The power responsible for this step is supplied through the external port. The property of a continuous pHs that externally supplied energy is either stored or dissipated, is not violated by discontinuous inputs, nor is passivity. Consider the time-discrete external flow $f_P (k+1) =: f_P(t)$ which is assigned to the time-continuous flow and updated every $T_s$. The energy balance described for continuous pHs in eq. (\ref{EQ:energybalance}) holds for any input $f_P(t)$ (cf. \cite{Stramigioli_05}). The problem of extracting more energy energy than stored in the system throughout a sampling interval is prevalent in discrete pHs. These systems compute the energy-state of the next time-step based on the current time-step, due to the discrete nature this energy-state can be below the energetic minimum of the system. To make this more clear consider the example of a moving system, which is slowed down very quickly: $(T_v^0(k+1) \ll T_v^0(k)$. But still $(T_v^0(k+1) > 0$, otherwise energy would be supplied. Consider a elongated spring which is commanded to shorten/compress very quickly, the twist is so high that in the next time-step the twist is elongated already in the over direction. Thus the spring has passed through its energetic minimum and more energy than stored would have been extracted. This clearly violates passivity. It is also obvious that this case cannot occur in a continuous system. Thus the presented simple version of connecting a human with a spring to the controller, does not violate passivity.
 
 \section{Energy tanks}
-The motivation for the use of an \emph{energy tank} is to energetically decouple the human operator from the robotic system, i.e. the operator is no longer able to supply energy to the system. This is a consequence of the chosen input method, which based on information rather than on energy exchange, as discussed above. The energy necessary for driving the robotic system comes from the tank, the operator only controls the energetic flow.\\
-The total energy stored either in the tank or in the model based controller is always constant, for the moment we assume there is no energy exchange with the environment. Thus we require the combined system to be lossless. The dampers in the model-based controller extract energy, we seek to re-gain the dissipated energy and put it back into the tank.\\ 
-The energy tank is a virtual storage element defined with a Hamiltonian energy function. Let $x_t$ denote the (scalar) energy state and we have a simple, positive definite function $T(x_t) = \frac{1}{2}x_t^2$. The dynamic equations of the tank are
+The motivation for the use of an \emph{energy tank} is to energetically decouple the human operator from the robotic system, i.e. the operator is no longer able to supply energy to the system. This is a consequence of the chosen input method, which is based on information rather than on energy exchange, as discussed above. The energy necessary for driving the robotic system comes from the tank, the operator only controls the energetic flow.\\
+On command of the operator energy flows from the energy tank into the controller and on into the robotic system. Under ideal conditions energy is circulating between these parts and the total amount stays constant (lossless system). In subsection \ref{SS:EnergyExchangeEnvironment} we discuss cases of a permanent change of the energy balance. At first we examine the combination of energy tank and a controller as defined in section \ref{S:modelbasedcontrol}. Therefore we assume that no energy is exchanged with the robotic system. In this case we can guarantee a lossless combined system by re-harvesting the energy dissipated in the controller's dampers. \\ 
+The energy tank is a virtual storage element defined with a Hamiltonian energy function. Let $x_t \in \mathbb{R}$ denote the (scalar) energy state and we have a simple, positive definite function $T(x_t) = \frac{1}{2}x_t^2$. The dynamic equations of the tank are
 \begin{eqnarray}
 \begin{aligned}
-\dot{x_t} &= u_t \\
-y_t &= \frac{\partial T(x_t)}{\partial x_t} (=x_t)
+\dot{x_t} &= f_t \\
+e_t &= \frac{\partial T(x_t)}{\partial x_t} (=x_t)
 \end{aligned}
 \end{eqnarray}
-Here $u_t,y_t$ denote the input and output respectively. Towards the application of the energy tank we consider an example port-Hamiltonian system of the form
-\begin{eqnarray}\label{EQ:generalPHS}
+Here $(f_t,e_t)$ is the flow-effort pair, corresponding to input and output respectively. Towards the application of the energy tank we consider an example port-Hamiltonian system of the form
+\begin{eqnarray}
 \begin{aligned}
-\dot{x} &= [J(x) - R(x)] \frac{\partial V}{\partial x} + g(x)u \\
-y &= g^T(x) \frac{\partial V}{\partial x}
+\dot{\f{x}} &= [J(\f{x}) - R(\f{x})] \frac{\partial V}{\partial \f{x}} + g(\f{x})\f{f} \\
+\f{e} &= g^T(\f{x}) \frac{\partial V}{\partial \f{x}}
 \end{aligned}
 \end{eqnarray}
-This standard system is chosen to keep the derivation simple and can be replaced with the controllers from section \ref{S:modelbasedcontrol}.
-Now we seek to re-route the dissipated energy into the energy tank, this can be accomplished by choosing the tank input as $u_t = \frac{1}{x_t}\frac{\partial V^T}{\partial x}R(x)\frac{\partial V}{\partial x} + \tilde{u}_t$. With a new input $\tilde{u}_t$ we have a the tank's energy balance
+This standard system is chosen to keep the derivation process simple and can be replaced with the controllers from section \ref{S:modelbasedcontrol}.
+First we seek to re-route the dissipated energy into the energy tank, this is accomplished by choosing the tank input as $f_t = \frac{1}{x_t}\frac{\partial V^T}{\partial \f{x}}R(\f{x})\frac{\partial V}{\partial \f{x}} + \tilde{f}_t$. With a new input $\tilde{f}_t$ we have the tank's energy balance
 \begin{equation}\label{EQ:tankpower}
-\dot{T}(x_t)=y_tu_t = \frac{\partial V^T}{\partial x}R(x)\frac{\partial V}{\partial x} + x_t\tilde{u}_t
+\dot{T}(x_t)=e_tf_t = \frac{\partial V^T}{\partial \f{x}}R(\f{x})\frac{\partial V}{\partial \f{x}} + x_t\tilde{f}_t
 \end{equation}
 This corresponds to the systems dissipated energy plus some external supply. Next we use this external supply to interconnect tank and port-Hamiltonian system. A power-preserving interconnection is established, here we use a combination of gyrator and transformer with ratio $n$
 \begin{eqnarray}
 \begin{aligned}
-u &= ny_t \\
-\tilde{u}_t &= -n^Ty
+\f{f} &= \f{n}e_t \\
+\tilde{f}_t &= -\f{n}^T\f{e}
 \end{aligned}
 \end{eqnarray}
-By construction and independent of a particular choice of $n$ this relation is power-continuous
+By construction and independent of a particular choice of $\f{n}$ this relation is power-continuous
 \begin{equation}
-u^Ty = y_t^Tn^Ty = -y_t^T\tilde{u}_t
+\f{f}^T\f{e} = e_t^T\f{n}^T\f{e} = -e_t^T\tilde{f}_t
 \end{equation}
-The combined energy function of the interconnected system is $\mathcal{V}(x,x_t)=V(x)+T(x_t)$. The choice of $n$ is not fixed but can be adjusted dynamically to shape the energy flow. In particular it is appealing to use $n$ to replicate the original control signal by choosing $n = \frac{w}{x_t}$. The new control input $w$ can effectively take the role of $u$, i.e. the pHs becomes
+The combined energy function of the interconnected system is $\mathcal{V}(\f{x},x_t)=V(\f{x})+T(x_t)$. The choice of $\f{n}$ is not fixed but can be adjusted dynamically to shape the energy flow. In particular it is appealing to use $\f{n}$ to replicate the original control signal by choosing $\f{n} = \frac{\f{w}}{x_t}$. The new control input $\f{w}$ can effectively take the role of $\f{f}$, i.e. the port-Hamiltonian system becomes
 \begin{equation}
-\dot{x} = [J(x) - R(x)] \frac{\partial V}{\partial x} + g(x)\frac{w}{x_t}y_t = [J(x) - R(x)] \frac{\partial V}{\partial x} + g(x)w
+\dot{\f{x}} = [J(\f{x}) - R(\f{x})] \frac{\partial V}{\partial \f{x}} + g(\f{x})\frac{\f{w}}{x_t}e_t = [J(\f{x}) - R(\f{x})] \frac{\partial V}{\partial \f{x}} + g(\f{x})\f{w}
 \end{equation}
-For a $x_t\rightarrow0$, i.e. an empty energy tank, there is a singularity. Thus an complete depletion of the tank must be avoided. Introducing a switching parameter $\alpha$, we set $n=\frac{\alpha w}{x_t}$ with 
+For a $x_t\rightarrow0$, i.e. an empty energy tank, there is a singularity. Thus an complete depletion of the tank must be avoided. A minimum strategy is to introduce a switching parameter $\alpha$, we set $\f{n}=\frac{\alpha \f{w}}{x_t}$ with 
 \begin{equation}
 \alpha = \begin{cases}
 1 & \text{if } \, T(x_t)\geq\epsilon>0 \\
@@ -1643,28 +1754,37 @@ For a $x_t\rightarrow0$, i.e. an empty energy tank, there is a singularity. Thus
 \end{equation}
 This means that a control input is executed unchanged as long as certain amount $\epsilon$ of energy is in the tank. Once the energy budget is exceeded and command execution possibly violates passivity the input is set to $0$, effectively suspending energy exchange. This happens in both ways, neither is it possibly to re-transfer into the tank through the interconnection. At this point the tank can only be refilled by dissipation. Dissipation is associated with kinetic energy, as long as the system is moving it can recover from the input-suspended state. If the system is driven to a state of exclusively potential energy, there is no dissipation and a deadlock is reached.\\
 Reaching a state of exclusively potential energy takes infinite time, this is because a state of higher potential energy can only be reached by motion. I.e. kinetic energy is a predecessor of potential energy. A fragment of the kinetic energy is dissipated and is available in the energy budget again. The available energy approaches $\epsilon$ asymptotically.\\
-Consequently we can give a combined port-Hamiltonian representation of system and tank
+Another apparent issue with the binary parameter $\alpha$ is the abrupt switching behaviour if the tank level is in the neighbourhood of $\epsilon$. Numeric simulations indicate high forces and chattering behaviour.\\
+A solution to this desired behaviour is to make $\alpha$ a function of the tank level and continuously scale the desired trajectory.
+\begin{equation}
+\alpha = \begin{cases}
+1 & \text{if } \, T(x_t)\geq T_{th} \\
+\frac{T(x_t)-\epsilon}{T_{th}} & \text{if } \, \epsilon \leq T(x_t) < T_{th} \\
+0 & T(x_t) < \epsilon
+\end{cases}
+\end{equation}
+Here $T_{th} > \epsilon$ is a threshold level that defines the width of the transition region. Adapting the reference trajectory leads to a permanent position deviation, if the user does not actively readjust after the tank level has recovered. We approach this problem in the next subsection.\\ 
+Regardless of a particular choice of $\alpha$ we can give a combined port-Hamiltonian representation of the  system and the tank
 \begin{eqnarray}
 \begin{aligned}
 \begin{pmatrix}
-\dot{x} \\ \dot{x}_t
+\dot{\f{x}} \\ \dot{x}_t
 \end{pmatrix} =
 \left[
 \begin{pmatrix}
-J(x) & \frac{\alpha w}{x_t} \\ -\frac{\alpha w^T}{x_t} & 0
+J(\f{x}) & \frac{\alpha \f{w}}{x_t} \\ -\frac{\alpha \f{w}^T}{x_t} & 0
 \end{pmatrix} - 
 \begin{pmatrix}
-R(x) & 0 \\ -\frac{1}{x_t}\frac{\partial \mathcal{V}^T}{\partial x}R(x) & 0
+R(\f{x}) & 0 \\ -\frac{1}{x_t}\frac{\partial^T \mathcal{V}}{\partial \f{x}}R(\f{x}) & 0
 \end{pmatrix}
 \right]
 \begin{pmatrix}
-\frac{\partial \mathcal{V}}{\partial x} \\
+\frac{\partial \mathcal{V}}{\partial \f{x}} \\
 \frac{\partial \mathcal{V}}{\partial x_t}
 \end{pmatrix}
 \end{aligned}
 \end{eqnarray}
-Note that there is no more an input-output port, this is because ports are defined by energy exchange.\\
-However when a robotic system interacts with the environment energy is exchanged, this clearly interferes with the concept of a constant energy budget. On the other hand the possible impact on the environment is limited. This is beneficial when interacting with humans and requiring to ensure their safety. If we do not assume a model or certain properties for the environment, a basic strategy for coping with undefined energy exchange is to allow the operator to supply and withdraw energy from the tank. Practically of the tank reaches a maximum energy level, further supplies are discarded (or transferred to the operator). On the other hand if the budget is used up and no more actions on the environment are allowed the human can supply more energy to the tank.
+
 \begin{figure}[b!]
 	\centering
 	\small
@@ -1673,10 +1793,145 @@ However when a robotic system interacts with the environment energy is exchanged
 	\vspace{10pt}
 	\caption{The human operator controls the energy flow between tank and robotic system}
 	\label{FIG:energytank}
-\end{figure}  
+\end{figure} 
 
+Note that there is no more an input-output port, this is because ports are defined by energy exchange of the system with its environment. It is shown in subsection \ref{SS:PHSinterconnection} that the systems consistent with (\ref{EQ:generalPHS}) are passive, analogously we show that the described combination of such a system and the energy tank is \emph{lossless}.
+\begin{eqnarray}
+\begin{aligned}
+&\frac{d}{dt}\mathcal{V}(\f{x},x_t) = 
+\begin{pmatrix}
+\frac{\partial^T \mathcal{V}}{\partial \f{x}} & \frac{\partial^T \mathcal{V}}{\partial x_t}
+\end{pmatrix}
+\begin{pmatrix}
+\dot{\f{x}} \\ \dot{x_t}
+\end{pmatrix}
+= \frac{\partial^T \mathcal{V}}{\partial \f{x}}J(\f{x})\frac{\partial \mathcal{V}}{\partial \f{x}} + \frac{\partial^T \mathcal{V}}{\partial \f{x}}\frac{\alpha \f{w}}{x_t}\frac{\partial \mathcal{V}}{\partial x_t} - \\
+&
+ -\frac{\partial^T \mathcal{V}}{\partial \f{x}}R(\f{x})\frac{\partial \mathcal{V}}{\partial \f{x}} -\frac{\partial^T \mathcal{V}}{\partial x_t}\frac{\alpha \f{w}^T}{x_t} \frac{\partial \mathcal{V}}{\partial \f{x}} + \frac{\partial^T \mathcal{V}}{\partial x_t}\frac{1}{x_t}\frac{\partial^T \mathcal{V}}{\partial \f{x}}R(\f{x})\frac{\partial \mathcal{V}}{\partial \f{x}} = 0
+\end{aligned}
+\end{eqnarray}
 
+ 
+\subsection{Energy-adapted stiffness and damping}\label{SS:EnergyAdaptedStiffness}
+With the above conjunction of tank and controller control inputs are discarded, as soon as the energy tank is depleted. It is clear that desired trajectories driving the tank to a negative state are not feasible with the given energy budget and need to be altered. Simply discarding the desired trajectory information leads to a permanent deviation of the position. Thus we demand a controller that returns onto the desired trajectory as soon as the energy level has recovered. Therefore we propose the use of an energy-adapted spring and damper. The idea is to relax the stiffness of the user-object spring as function of the available energy. This allows the system to "float" loosely and regain energy through damping. Moreover a change of stiffness affects the energy stored in the spring, relaxing stiffness sets energy free, which is re-fed into the tank. With a rise of the tank level, stiffness is increased and the spring re-directs the system onto the desired trajectory. To illustrate the principle we start with an example one-dimensional spring given by
+\begin{equation}
+F = k_{vb}(x_v-x_b) \;,\; T(x_t)\geq T_{th}
+\end{equation}
+This equation is valid if the tank level $T(x_t)$ is above a certain threshold level $T_{th}$. The spring's stiffness $k_{vb} \in \mathbb{R}^+$ is unaltered, $x_v, x_b \in \mathbb{R}$ denote the reference and the actual position respectively. Below the threshold we propose the following spring function
+\begin{equation}
+F = k_{vb}\frac{T(x_t)}{T_{th}}(x_v-x_b) \;,\; T(x_t)<T_{th}
+\end{equation}
+For ease of notation we define a new stiffness parameter
+\begin{equation}
+\kappa = \begin{cases}
+k_{vb} & \text{if } \, T(x_t)\geq T_{th} \\
+k_{vb} \frac{T(x_t)}{T_{th}} & \text{if } \, T(x_t) < T_{th}
+\end{cases}
+\end{equation}
+The corresponding energy function is then
+\begin{equation}
+V_{\kappa}(x_v,x_b,\kappa) = \frac{1}{2} \kappa (x_v-x_b)^2
+\end{equation}    
+The exchanged power with respect to a change of stiffness is 
+\begin{equation}
+\dot{V}_{\kappa} =\frac{\partial V_{\kappa}}{\partial \kappa} \frac{d \kappa}{dt} = \frac{1}{2} (x_v-x_b)^2 \dot{\kappa} = e_k^Tf_k,
+\end{equation}
+which corresponds to the product of effort ($\frac{\partial V_{\kappa}}{\partial \kappa}$) and flow ($\dot{\kappa}$) and forms a power port $(f_k,e_k)$ as defined in Section \ref{S:HSdescription}. The energy function of a $6$-DoF spring is of the from
+\begin{equation}
+V_{\kappa}:SE(3) \times \mathcal{K} \rightarrow \mathbb{R}; (H_b^v,\kappa)\mapsto V_{\kappa}(H_b^v,\kappa),
+\end{equation}
+which is equal to the previous spring energy function (eq. (\ref{EQ:SpringEnergyFunction})) but depends explicitly on the stiffness parameter $\kappa$. $\mathcal{K}$ is a parametric space that equals $\mathbb{R}$ in case of an isotropic spring. For more information on variable spatial springs see \cite{Stramigioli_01c}. The port-Hamiltonian representation of a variable stiffness spring is given by
+\begin{eqnarray}
+\begin{aligned}
+\begin{pmatrix}
+\dot{H}_b^v \\ \dot{\kappa}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+H_b^v & 0 \\ 0 & I
+\end{pmatrix}
+\begin{pmatrix}
+T_b^{b,v} \\ f_k
+\end{pmatrix}
+\\
+\begin{pmatrix}
+W_b^{b,v} \\ e_k
+\end{pmatrix}
+&=
+\begin{pmatrix}
+{H_b^v}^T & 0 \\ 0 & I
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial V_{\kappa}}{\partial H_b^v} \\ \frac{\partial V_{\kappa}}{\partial \kappa}
+\end{pmatrix},
+\end{aligned}
+\end{eqnarray}
+where $f_k,e_k$ is the input-output pair. Towards pairing the variable stiffness spring with the energy tank we can express $\kappa$ as a function of the tank level. By using the tank power flow equation (\ref{EQ:tankpower}) we obtain
+\begin{equation}
+\dot{\kappa} = \begin{cases}
+0 & \text{if } \, T(x_t)\geq T_{th} \\
+\frac{k}{T_{th}}\dot{T}(x_t) = \frac{k_{vb}}{T_{th}} \dot{x}_t \frac{\partial \mathcal{V}_{\kappa}}{\partial x_t} & \text{if }  \, T(x_t) < T_{th}
+\end{cases}
+\end{equation}
+The power exchanged between variable spring and tank due to stiffness changes is
+\begin{equation}
+\dot{\mathcal{V}_{\kappa}} = \frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa}\dot{\kappa} =
+\begin{cases}
+0 & \text{if } \, T(x_t)\geq T_{th} \\
+\frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa}\frac{k_{vb}}{T_{th}} \dot{x}_t \frac{\partial \mathcal{V_{\kappa}}}{\partial x_t} & \text{if }  \, T(x_t) < T_{th}
+\end{cases}
+\end{equation}
+The power exchanged by the energy tank is of the form $\dot{T}(x_t) = \frac{\mathcal{V}_{\kappa}}{\partial x_t}f_t$, therefore $\frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa}\frac{k_{vb}}{T_{th}} \dot{x}_t$ is an input for the energy tank. Using these assignments we can write the port-Hamiltonian representation of variable stiffness spring and energy tank. For simplicity we assume that the variable stiffness spring is part of the general system of equation (\ref{EQ:generalPHS})
+\begin{equation}
+\begin{pmatrix}
+\dot{\f{x}} \\ \dot{x}_t \\ \dot{\kappa}
+\end{pmatrix} =
+\left[
+\begin{pmatrix}
+J(\f{x}) & \frac{\alpha \f{w}}{x_t} & 0\\ -\frac{\alpha \f{w}^T}{x_t} & 0 & -\frac{k_{vb}}{T_{th}}\dot{x}_t \\ 0 & \frac{k_{vb}}{T_{th}}\dot{x}_t & 0\end{pmatrix}
+- 
+\begin{pmatrix}
+R(\f{x}) & 0 & 0\\ -\frac{1}{x_t}\frac{\partial \mathcal{V}^T}{\partial \f{x}}R(\f{x}) & 0 & 0 \\ 0 & 0 & 0
+\end{pmatrix}
+\right]
+\begin{pmatrix}
+\frac{\partial \mathcal{V}_{\kappa}}{\partial \f{x}} \\
+\frac{\partial \mathcal{V}_{\kappa}}{\partial x_t} \\
+\frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa} 
+\end{pmatrix}
+\end{equation}
+The combination of such an example system with a variable stiffness spring and a tank is lossless, if we disregard the energy exchange with the robotic environment.
+\begin{eqnarray}
+\begin{aligned}
+&\frac{d}{dt}\mathcal{V}(\f{x},x_t,\kappa) = 
+\begin{pmatrix}
+\frac{\partial^T \mathcal{V}}{\partial \f{x}} & \frac{\partial^T \mathcal{V}}{\partial x_t} &
+\frac{\partial^T \mathcal{V}}{\partial \kappa}
+\end{pmatrix}
+\begin{pmatrix}
+\dot{\f{x}} \\ \dot{x_t} \\ \dot{\kappa}
+\end{pmatrix}
+= \frac{\partial^T \mathcal{V}}{\partial \f{x}}J(\f{x})\frac{\partial \mathcal{V}}{\partial \f{x}} + \frac{\partial^T \mathcal{V}}{\partial \f{x}}\frac{\alpha \f{w}}{x_t}\frac{\partial \mathcal{V}}{\partial x_t} - \\
+&
+ -\frac{\partial^T \mathcal{V}}{\partial \f{x}}R(\f{x})\frac{\partial \mathcal{V}}{\partial \f{x}} -\frac{\partial^T \mathcal{V}}{\partial x_t}\frac{\alpha \f{w}^T}{x_t} \frac{\partial \mathcal{V}}{\partial \f{x}} - \frac{\partial^T \mathcal{V}}{\partial x_t}\frac{k_{vb}}{T_{th}}\dot{x}_t \frac{\partial \mathcal{V}}{\partial \kappa}   + \frac{\partial^T \mathcal{V}}{\partial x_t}\frac{1}{x_t}\frac{\partial^T \mathcal{V}}{\partial \f{x}}R(\f{x})\frac{\partial \mathcal{V}}{\partial \f{x}} + \\
+ &
++ \frac{\partial^T \mathcal{V}}{\partial \kappa} \frac{k_{vb}}{T_{th}}\dot{x}_t \frac{\partial \mathcal{V}}{\partial x_t}= 0
+\end{aligned}
+\end{eqnarray}
+The dissipative structure $R(\f{x})$ can be changed without compromising passivity as long as it is positive semi-definite. A change of a damping parameter does not change the energy stored in the system, since dampers do not store energy and do not have a state variable. A similar approach as for stiffness indicates good results in numeric simulations. With a depletion of the energy tank the damping $d_{vb} \in \mathbb{R}^+$ along the user-object spring is reduced, thus the coupling between user and virtual object is further relaxed.
+\begin{equation}
+\delta = \begin{cases}
+d_{vb} & \text{if } \, T(x_t)\geq T_{th} \\
+d_{vb} \frac{T(x_t)}{T_{th}} & \text{if } \, T(x_t) < T_{th}
+\end{cases}
+\end{equation} 
 
+\subsection{Energy exchange with the robotic system and environment}\label{SS:EnergyExchangeEnvironment}
+So far we made simplification of assuming no energy exchange of the controller through the robots with the environment. In contrast to the human-controller relation, the controller-robot relation is established on an energetic level. The robot measures its velocity at exactly the same point it applies the commanded force, this defines the power port between the controller and the robotic environment. The power flow through this port can affect the energy of the tank-controller permanently, i.e. an irreversible drain of  energy is possible. In the following three important cases are discussed that interfere with the concept of a constant energy level in tank and controller.\\ 
+In the controller we assume the robots to be a simple inertia, in reality however they are a system of actuated joints and links with a dynamic behaviour different from a  single inertia. To achieve the desired control performance the robots can be pre-compensated by  passive feedback-linearisation \cite{Ott_04}. The internal dynamics and gravity are compensated in favour of shaping a desired inertia. This technique however is passive, but not lossless, because lossless would require ideal measurements and modelling. This means at this point energy is irreversibly dissipated. \\
+The second issue is the friction in the robot's joints, it can degrade precision and results in a loss of energy seen from the controller-robot power port. In \cite{Tien_08} a passive observer/compensation technique is presented that estimates the torque necessary to overcome friction and applies it in addition. Although this method reduces energy loss it is still passive, not lossless. Thus, over time the energy stored in robots, controller and energy tank decreases. \\
+A permanent decrease of energy in the system occurs, if the robotic system is performing work on the environment. For example, let the common object (connected to the robots) move other objects in the workspace. The work performed on this objects is withdrawn permanently from the energy balance. An automatic substitution of power exerted on the environment is not reasonable because it violates passivity and destroys the concept of limited impact by bounding the system's energy. Consequently we propose to allow the operator to supply energy to the tank, in a manner independent of the motion control interface.\\
+With no restrictive assumptions on the environment we must consider the case of an environment supplying energy to the robotic system. For safety we suggest to automatically discard energy supplied to the tank that exceeds a certain limit.
 
 
 
@@ -1808,94 +2063,7 @@ The first component $T_b^0$ is already covered by the damping of the virtual obj
 It is easy to seen how the damping integrates into the complete system representation, therefore it will not be given here again.
 \end{comment}
 
-\subsection{Energy-adapted stiffness and damping}
-As soon as the energy tank is depleted, control inputs are discarded and trajectory following is not given. It is clear that trajectories draining the tank are not feasible with the given energy budget and need to be altered. Simply discarding the desired trajectory information leads to a permanent deviation of the position. Thus we demand a controller that returns onto the desired trajectory as soon as the energy level has recovered. Therefore we propose the use of an energy-adapted spring and damper. The idea is to relax the stiffness of the user-object spring as function of the available energy. This allows the system to "float" loosely and regain energy through damping. Moreover a change of stiffness affects the energy stored in the spring, relaxing stiffness sets energy free which is re-fed into the tank. With a rise of the tank level, stiffness is increased and the spring re-directs the system onto the desired trajectory. To illustrate the principle we start with a general spring given by
-\begin{equation}
-F = k(x_v-x_b) \;,\; T(x_t)\geq T_{th}
-\end{equation}
-This equation is valid if the tank level $T(x_t)$ is above a certain threshold level $T_{th}$. The spring's stiffness $k$ is unaltered, $x_v$ and $x_b$ denote the reference and the actual position respectively. Below the threshold we propose the following spring function
-\begin{equation}
-F = k\frac{T(x_t)}{T_{th}}(x_v-x_b) \;,\; T(x_t)<T_{th}
-\end{equation}
-For ease of notation we define a new stiffness parameter
-\begin{equation}
-\kappa = \begin{cases}
-k & \text{if } \, T(x_t)\geq T_{th} \\
-k \frac{T(x_t)}{T_{th}} & \text{if } \, T(x_t) < T_{th}
-\end{cases}
-\end{equation}
-The corresponding energy function is then
-\begin{equation}
-V_{\kappa}(x_v,x_b,\kappa) = \frac{1}{2} \kappa (x_v-x_b)^2
-\end{equation}    
-The exchanged power with respect to a change of stiffness is 
-\begin{equation}
-\dot{V}_{\kappa} =\frac{\partial V_{\kappa}}{\partial \kappa} \frac{d \kappa}{dt} = \frac{1}{2} (x_v-x_b)^2 \dot{\kappa} = e^Tf,
-\end{equation}
-which corresponds to the product of effort ($\frac{\partial V_{\kappa}}{\partial \kappa}$) and flow ($\dot{\kappa}$) and forms a power port $(f,e)$ as defined in Section \ref{S:HSdescription}. The energy function of a $6$-DoF spring is of the from
-\begin{equation}
-V_{\kappa}:SE(3) \times \mathcal{K} \rightarrow \mathbb{R}; (H_b^v,\kappa)\mapsto V_{\kappa}(H_b^v,\kappa),
-\end{equation}
-which is equal to the previous spring energy function (eq. (\ref{EQ:SpringEnergyFunction})) but depends explicitly on the stiffness parameter $\kappa$. $\mathcal{K}$ is a parametric space containing the stiffness matrices. For more information on variable spatial springs see \cite{Stramigioli_01c}. The port-Hamiltonian representation of a variable stiffness spring is given by
-\begin{eqnarray}
-\begin{aligned}
-\begin{pmatrix}
-\dot{H}_b^v \\ \dot{\kappa}
-\end{pmatrix}
-&=
-\begin{pmatrix}
-H_b^v & 0 \\ 0 & I
-\end{pmatrix}
-\begin{pmatrix}
-T_b^{b,v} \\ u_k
-\end{pmatrix}
-\\
-\begin{pmatrix}
-W_b^{b,v} \\ y_k
-\end{pmatrix}
-&=
-\begin{pmatrix}
-{H_b^v}^T & 0 \\ 0 & I
-\end{pmatrix}
-\begin{pmatrix}
-\frac{\partial V_{\kappa}}{\partial H_b^v} \\ \frac{\partial V_{\kappa}}{\partial \kappa}
-\end{pmatrix},
-\end{aligned}
-\end{eqnarray}
-where $u_k,y_k$ is the input-output pair. Towards pairing the variable stiffness spring with the energy tank we can express $\kappa$ as a function of the tank level. By using the tank power flow equation (\ref{EQ:tankpower}) we obtain
-\begin{equation}
-\dot{\kappa} = \begin{cases}
-0 & \text{if } \, T(x_t)\geq T_{th} \\
-\frac{k}{T_{th}}\dot{T}(x_t) = \frac{k}{T_{th}} \dot{x}_t \frac{\partial \mathcal{V}_{\kappa}}{\partial x_t} & \text{if }  \, T(x_t) < T_{th}
-\end{cases}
-\end{equation}
-The power exchanged between variable spring and tank due to stiffness changes is
-\begin{equation}
-\dot{\mathcal{V}_{\kappa}} = \frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa}\dot{\kappa} =
-\begin{cases}
-0 & \text{if } \, T(x_t)\geq T_{th} \\
-\frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa}\frac{k}{T_{th}} \dot{x}_t \frac{\partial \mathcal{V_{\kappa}}}{\partial x_t} & \text{if }  \, T(x_t) < T_{th}
-\end{cases}
-\end{equation}
-The power exchanged by the energy tank is of the form $\dot{T}(x_t) = \frac{\mathcal{V}_{\kappa}}{\partial x_t}u_t$, therefore $\frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa}\frac{k}{T_{th}} \dot{x}_t$ is an input for the energy tank. Using these assignments we can write the port-Hamiltonian representation of variable stiffness spring and energy tank. For simplicity that we assume that the variable stiffness spring is part of the general system of equation (\ref{EQ:generalPHS})
-\begin{equation}
-\begin{pmatrix}
-\dot{x} \\ \dot{x}_t \\ \dot{\kappa}
-\end{pmatrix} =
-\left[
-\begin{pmatrix}
-J(x) & \frac{\alpha w}{x_t} & 0\\ -\frac{\alpha w^T}{x_t} & 0 & -\frac{k}{T_{th}}\dot{x}_t \\ 0 & \frac{k}{T_{th}}\dot{x}_t & 0\end{pmatrix}
-- 
-\begin{pmatrix}
-R(x) & 0 & 0\\ -\frac{1}{x_t}\frac{\partial \mathcal{V}^T}{\partial x}R(x) & 0 & 0 \\ 0 & 0 & 0
-\end{pmatrix}
-\right]
-\begin{pmatrix}
-\frac{\partial \mathcal{V}_{\kappa}}{\partial x} \\
-\frac{\partial \mathcal{V}_{\kappa}}{\partial x_t} \\
-\frac{\partial \mathcal{V}_{\kappa}}{\partial \kappa} 
-\end{pmatrix}
-\end{equation}   
+
 \section{Performance Comparison of control strategies}
 
 To evaluate the presented controllers in an objective way, they are implemented in \emph{Simulink} and compared in terms of:
