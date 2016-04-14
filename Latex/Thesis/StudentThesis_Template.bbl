@@ -73,7 +73,16 @@ D.~Heck, D.~Kostic, A.~Denasi, and H.~Nijmeijer.
 \newblock {\em Control Conference (ECC), 2013 European}, pages 2299--2304, July
   2013.
 
-\bibitem[Hog84]{Hogan_84}
+\bibitem[Hog84a]{Hogan_84b}
+N.~Hogan.
+\newblock Adaptive control of mechanical impedance by coactivation of
+  antagonist muscles.
+\newblock {\em IEEE Transactions on Automatic Control}, 29(8):681--690, Aug
+  1984.
+\newblock \href {http://dx.doi.org/10.1109/TAC.1984.1103644}
+  {\path{doi:10.1109/TAC.1984.1103644}}.
+
+\bibitem[Hog84b]{Hogan_84}
 N.~Hogan.
 \newblock Impedance control: An approach to manipulation.
 \newblock {\em American Control Conference}, pages 304--313, June 1984.
@@ -133,6 +142,12 @@ G.~Niemeyer, C.~Preusche, and G.~Hirzinger.
   Heidelberg, May 2008.
 \newblock ISBN 978-3-540-23957-4.
 
+\bibitem[NSW00]{Newman_00}
+JA~Newman, N~Shewchenko, and E.~Welbourne.
+\newblock A proposed new biomechanical head injury assessment function - the
+  maximum power index.
+\newblock {\em Stapp Car Crash Journal}, 44:215--247, Nov 2000.
+
 \bibitem[OASK{\etalchar{+}}04]{Ott_04}
 C.~Ott, A.~Albu-Schaffer, A.~Kugi, S.~Stamigioli, and G.~Hirzinger.
 \newblock A passivity based cartesian impedance controller for flexible joint
@@ -140,6 +155,13 @@ C.~Ott, A.~Albu-Schaffer, A.~Kugi, S.~Stamigioli, and G.~Hirzinger.
 \newblock In {\em Robotics and Automation, 2004. Proceedings. ICRA '04. 2004
   IEEE International Conference on}, volume~3, pages 2659--2665 Vol.3, April
   2004.
+
+\bibitem[OSMM01]{Ortega_01}
+R.~Ortega, A.~J. Van~Der Schaft, I.~Mareels, and B.~Maschke.
+\newblock Putting energy back in control.
+\newblock {\em IEEE Control Systems}, 21(2):18--33, Apr 2001.
+\newblock \href {http://dx.doi.org/10.1109/37.915398}
+  {\path{doi:10.1109/37.915398}}.
 
 \bibitem[SC92]{Schneider_92}
 S.A. Schneider and R.H. Cannon.

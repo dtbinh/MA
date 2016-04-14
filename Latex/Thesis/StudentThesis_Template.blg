@@ -11,45 +11,45 @@ Warning--entry type for "MHI-MEISTeR" isn't style-file defined
 --line 297 of file mybib.bib
 Warning--I didn't find a database entry for "Erhart_15/2"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 39 entries,
+You've used 42 entries,
             3274 wiz_defined-function locations,
-            954 strings with 12659 characters,
-and the built_in function-call counts, 22538 in all, are:
-= -- 2335
-> -- 897
-< -- 34
-+ -- 285
-- -- 278
-* -- 1327
-:= -- 3233
-add.period$ -- 132
-call.type$ -- 39
-change.case$ -- 243
-chr.to.int$ -- 38
-cite$ -- 39
-duplicate$ -- 762
-empty$ -- 1903
-format.name$ -- 323
-if$ -- 5617
-int.to.chr$ -- 2
+            977 strings with 13168 characters,
+and the built_in function-call counts, 24175 in all, are:
+= -- 2505
+> -- 967
+< -- 35
++ -- 310
+- -- 301
+* -- 1447
+:= -- 3474
+add.period$ -- 143
+call.type$ -- 42
+change.case$ -- 263
+chr.to.int$ -- 40
+cite$ -- 42
+duplicate$ -- 805
+empty$ -- 2036
+format.name$ -- 350
+if$ -- 6011
+int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 43
-newline$ -- 205
-num.names$ -- 131
-pop$ -- 381
+missing$ -- 46
+newline$ -- 222
+num.names$ -- 140
+pop$ -- 403
 preamble$ -- 1
-purify$ -- 287
+purify$ -- 310
 quote$ -- 0
-skip$ -- 1580
+skip$ -- 1687
 stack$ -- 0
-substring$ -- 1132
-swap$ -- 217
-text.length$ -- 34
-text.prefix$ -- 9
+substring$ -- 1211
+swap$ -- 224
+text.length$ -- 35
+text.prefix$ -- 10
 top$ -- 0
-type$ -- 292
+type$ -- 316
 warning$ -- 0
-while$ -- 162
-width$ -- 44
-write$ -- 533
+while$ -- 173
+width$ -- 47
+write$ -- 576
 (There were 2 warnings)
