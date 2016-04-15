@@ -1,0 +1,105 @@
+CC     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"CaccavaleVillani_sfun.obj"\
+	"c1_CaccavaleVillani.obj"\
+	"c2_CaccavaleVillani.obj"\
+	"c3_CaccavaleVillani.obj"\
+	"c4_CaccavaleVillani.obj"\
+	"c5_CaccavaleVillani.obj"\
+	"c6_CaccavaleVillani.obj"\
+	"c7_CaccavaleVillani.obj"\
+	"c8_CaccavaleVillani.obj"\
+	"c9_CaccavaleVillani.obj"\
+	"c10_CaccavaleVillani.obj"\
+	"c12_CaccavaleVillani.obj"\
+	"c13_CaccavaleVillani.obj"\
+	"c14_CaccavaleVillani.obj"\
+	"c15_CaccavaleVillani.obj"\
+	"c21_CaccavaleVillani.obj"\
+	"c22_CaccavaleVillani.obj"\
+	"c23_CaccavaleVillani.obj"\
+	"c26_CaccavaleVillani.obj"\
+	"c30_CaccavaleVillani.obj"\
+	"c31_CaccavaleVillani.obj"\
+	"c36_CaccavaleVillani.obj"\
+	"c37_CaccavaleVillani.obj"\
+	"c43_CaccavaleVillani.obj"\
+	"CaccavaleVillani_sfun_registry.obj"\
+	"lccstub.obj"\
+	"CaccavaleVillani_sfun.def"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsimulink.lib"\
+	"C:\Program Files\MATLAB\R2014b\lib\win64\libmwipp.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014b\extern\include"  -I"C:\Program Files\MATLAB\R2014b\simulink\include"  -I"C:\Program Files\MATLAB\R2014b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014b\rtw\c\src"  -I"C:\Users\Martin\Documents\Git\Simulink\CaccavaleVillani\slprj\_sfprj\CaccavaleVillani\_self\sfun\src" 
+ 
+
+CaccavaleVillani_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o CaccavaleVillani_sfun.mexw64 @CaccavaleVillani_sfun.lmko
+CaccavaleVillani_sfun.obj :	"CaccavaleVillani_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "CaccavaleVillani_sfun.c"
+c1_CaccavaleVillani.obj :	"c1_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_CaccavaleVillani.c"
+c2_CaccavaleVillani.obj :	"c2_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_CaccavaleVillani.c"
+c3_CaccavaleVillani.obj :	"c3_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_CaccavaleVillani.c"
+c4_CaccavaleVillani.obj :	"c4_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_CaccavaleVillani.c"
+c5_CaccavaleVillani.obj :	"c5_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_CaccavaleVillani.c"
+c6_CaccavaleVillani.obj :	"c6_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_CaccavaleVillani.c"
+c7_CaccavaleVillani.obj :	"c7_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_CaccavaleVillani.c"
+c8_CaccavaleVillani.obj :	"c8_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c8_CaccavaleVillani.c"
+c9_CaccavaleVillani.obj :	"c9_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c9_CaccavaleVillani.c"
+c10_CaccavaleVillani.obj :	"c10_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c10_CaccavaleVillani.c"
+c12_CaccavaleVillani.obj :	"c12_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c12_CaccavaleVillani.c"
+c13_CaccavaleVillani.obj :	"c13_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_CaccavaleVillani.c"
+c14_CaccavaleVillani.obj :	"c14_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c14_CaccavaleVillani.c"
+c15_CaccavaleVillani.obj :	"c15_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c15_CaccavaleVillani.c"
+c21_CaccavaleVillani.obj :	"c21_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c21_CaccavaleVillani.c"
+c22_CaccavaleVillani.obj :	"c22_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c22_CaccavaleVillani.c"
+c23_CaccavaleVillani.obj :	"c23_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c23_CaccavaleVillani.c"
+c26_CaccavaleVillani.obj :	"c26_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c26_CaccavaleVillani.c"
+c30_CaccavaleVillani.obj :	"c30_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c30_CaccavaleVillani.c"
+c31_CaccavaleVillani.obj :	"c31_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c31_CaccavaleVillani.c"
+c36_CaccavaleVillani.obj :	"c36_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c36_CaccavaleVillani.c"
+c37_CaccavaleVillani.obj :	"c37_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c37_CaccavaleVillani.c"
+c43_CaccavaleVillani.obj :	"c43_CaccavaleVillani.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c43_CaccavaleVillani.c"
+CaccavaleVillani_sfun_registry.obj :	"CaccavaleVillani_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "CaccavaleVillani_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"

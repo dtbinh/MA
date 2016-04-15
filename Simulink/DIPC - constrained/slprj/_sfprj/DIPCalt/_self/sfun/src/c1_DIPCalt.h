@@ -20,11 +20,10 @@ typedef struct {
   boolean_T c1_isStable;
   boolean_T c1_doneDoubleBufferReInit;
   uint8_T c1_is_active_c1_DIPCalt;
-  real_T c1_rv[12];
-  real_T (*c1_pb)[3];
-  real_T (*c1_qb)[4];
-  real_T (*c1_pb1)[3];
-  real_T (*c1_qb1)[4];
+  real_T c1_r[12];
+  real_T (*c1_dx)[6];
+  real_T (*c1_b)[24];
+  real_T (*c1_x)[7];
 } SFc1_DIPCaltInstanceStruct;
 
 #endif                                 /*typedef_SFc1_DIPCaltInstanceStruct*/

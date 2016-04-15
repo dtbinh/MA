@@ -1,0 +1,96 @@
+CC     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"StramigioliIPC_sfun.obj"\
+	"c1_StramigioliIPC.obj"\
+	"c2_StramigioliIPC.obj"\
+	"c3_StramigioliIPC.obj"\
+	"c4_StramigioliIPC.obj"\
+	"c5_StramigioliIPC.obj"\
+	"c6_StramigioliIPC.obj"\
+	"c7_StramigioliIPC.obj"\
+	"c8_StramigioliIPC.obj"\
+	"c9_StramigioliIPC.obj"\
+	"c10_StramigioliIPC.obj"\
+	"c11_StramigioliIPC.obj"\
+	"c12_StramigioliIPC.obj"\
+	"c13_StramigioliIPC.obj"\
+	"c17_StramigioliIPC.obj"\
+	"c27_StramigioliIPC.obj"\
+	"c30_StramigioliIPC.obj"\
+	"c31_StramigioliIPC.obj"\
+	"c36_StramigioliIPC.obj"\
+	"c37_StramigioliIPC.obj"\
+	"c43_StramigioliIPC.obj"\
+	"StramigioliIPC_sfun_registry.obj"\
+	"lccstub.obj"\
+	"StramigioliIPC_sfun.def"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsimulink.lib"\
+	"C:\Program Files\MATLAB\R2014b\lib\win64\libmwipp.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014b\extern\include"  -I"C:\Program Files\MATLAB\R2014b\simulink\include"  -I"C:\Program Files\MATLAB\R2014b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014b\rtw\c\src"  -I"C:\Users\Martin\Documents\Git\Simulink\Stramigioli IPC\slprj\_sfprj\StramigioliIPC\_self\sfun\src" 
+ 
+
+StramigioliIPC_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o StramigioliIPC_sfun.mexw64 @StramigioliIPC_sfun.lmko
+StramigioliIPC_sfun.obj :	"StramigioliIPC_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "StramigioliIPC_sfun.c"
+c1_StramigioliIPC.obj :	"c1_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_StramigioliIPC.c"
+c2_StramigioliIPC.obj :	"c2_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_StramigioliIPC.c"
+c3_StramigioliIPC.obj :	"c3_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_StramigioliIPC.c"
+c4_StramigioliIPC.obj :	"c4_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_StramigioliIPC.c"
+c5_StramigioliIPC.obj :	"c5_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_StramigioliIPC.c"
+c6_StramigioliIPC.obj :	"c6_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_StramigioliIPC.c"
+c7_StramigioliIPC.obj :	"c7_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_StramigioliIPC.c"
+c8_StramigioliIPC.obj :	"c8_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c8_StramigioliIPC.c"
+c9_StramigioliIPC.obj :	"c9_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c9_StramigioliIPC.c"
+c10_StramigioliIPC.obj :	"c10_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c10_StramigioliIPC.c"
+c11_StramigioliIPC.obj :	"c11_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c11_StramigioliIPC.c"
+c12_StramigioliIPC.obj :	"c12_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c12_StramigioliIPC.c"
+c13_StramigioliIPC.obj :	"c13_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_StramigioliIPC.c"
+c17_StramigioliIPC.obj :	"c17_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c17_StramigioliIPC.c"
+c27_StramigioliIPC.obj :	"c27_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c27_StramigioliIPC.c"
+c30_StramigioliIPC.obj :	"c30_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c30_StramigioliIPC.c"
+c31_StramigioliIPC.obj :	"c31_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c31_StramigioliIPC.c"
+c36_StramigioliIPC.obj :	"c36_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c36_StramigioliIPC.c"
+c37_StramigioliIPC.obj :	"c37_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c37_StramigioliIPC.c"
+c43_StramigioliIPC.obj :	"c43_StramigioliIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c43_StramigioliIPC.c"
+StramigioliIPC_sfun_registry.obj :	"StramigioliIPC_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "StramigioliIPC_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"

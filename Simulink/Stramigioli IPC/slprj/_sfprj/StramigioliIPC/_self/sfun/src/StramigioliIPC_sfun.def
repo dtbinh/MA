@@ -1,0 +1,3 @@
+LIBRARY StramigioliIPC_sfun.mexw64
+EXPORTS
+mexFunction

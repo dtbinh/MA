@@ -18,7 +18,7 @@ m3d = 1.00*m3;
 m4d = 1.00*m4;
 
 %angular inertia
-j0 = 0.03;
+j0 = 0.2;
 j1 = 2;
 j2 = 2;
 j3 = 2;
@@ -31,7 +31,7 @@ j3d = 1.00*j3;
 j4d = 1.00*j4;
 
 %position of manipulators
-r = [1; 0; 0;
+r = 0.4*[1; 0; 0;
     0; 1; 0;
     -1; 0; 0;
     0; -1; 0];
@@ -61,7 +61,6 @@ delta1 = 80;
 delta2 = 80;
 delta3 = 80;
 delta4 = 80;
-%Dc = 0;
 Do = 1500;
 deltao = 10;
 

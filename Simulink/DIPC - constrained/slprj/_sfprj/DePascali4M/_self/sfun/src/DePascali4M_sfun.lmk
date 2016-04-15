@@ -1,0 +1,99 @@
+CC     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"DePascali4M_sfun.obj"\
+	"c1_DePascali4M.obj"\
+	"c5_DePascali4M.obj"\
+	"c6_DePascali4M.obj"\
+	"c7_DePascali4M.obj"\
+	"c21_DePascali4M.obj"\
+	"c22_DePascali4M.obj"\
+	"c23_DePascali4M.obj"\
+	"c25_DePascali4M.obj"\
+	"c26_DePascali4M.obj"\
+	"c27_DePascali4M.obj"\
+	"c28_DePascali4M.obj"\
+	"c29_DePascali4M.obj"\
+	"c30_DePascali4M.obj"\
+	"c31_DePascali4M.obj"\
+	"c36_DePascali4M.obj"\
+	"c37_DePascali4M.obj"\
+	"c38_DePascali4M.obj"\
+	"c39_DePascali4M.obj"\
+	"c40_DePascali4M.obj"\
+	"c41_DePascali4M.obj"\
+	"c43_DePascali4M.obj"\
+	"DePascali4M_sfun_registry.obj"\
+	"lccstub.obj"\
+	"DePascali4M_sfun.def"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsimulink.lib"\
+	"C:\Program Files\MATLAB\R2014b\lib\win64\libmwipp.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014b\extern\include"  -I"C:\Program Files\MATLAB\R2014b\simulink\include"  -I"C:\Program Files\MATLAB\R2014b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014b\rtw\c\src"  -I"C:\Users\Martin\Documents\Git\Simulink\DIPC - constrained\slprj\_sfprj\DePascali4M\_self\sfun\src" 
+ 
+
+DePascali4M_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o DePascali4M_sfun.mexw64 @DePascali4M_sfun.lmko
+DePascali4M_sfun.obj :	"DePascali4M_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "DePascali4M_sfun.c"
+c1_DePascali4M.obj :	"c1_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_DePascali4M.c"
+c5_DePascali4M.obj :	"c5_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_DePascali4M.c"
+c6_DePascali4M.obj :	"c6_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_DePascali4M.c"
+c7_DePascali4M.obj :	"c7_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_DePascali4M.c"
+c21_DePascali4M.obj :	"c21_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c21_DePascali4M.c"
+c22_DePascali4M.obj :	"c22_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c22_DePascali4M.c"
+c23_DePascali4M.obj :	"c23_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c23_DePascali4M.c"
+c25_DePascali4M.obj :	"c25_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c25_DePascali4M.c"
+c26_DePascali4M.obj :	"c26_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c26_DePascali4M.c"
+c27_DePascali4M.obj :	"c27_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c27_DePascali4M.c"
+c28_DePascali4M.obj :	"c28_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c28_DePascali4M.c"
+c29_DePascali4M.obj :	"c29_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c29_DePascali4M.c"
+c30_DePascali4M.obj :	"c30_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c30_DePascali4M.c"
+c31_DePascali4M.obj :	"c31_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c31_DePascali4M.c"
+c36_DePascali4M.obj :	"c36_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c36_DePascali4M.c"
+c37_DePascali4M.obj :	"c37_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c37_DePascali4M.c"
+c38_DePascali4M.obj :	"c38_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c38_DePascali4M.c"
+c39_DePascali4M.obj :	"c39_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c39_DePascali4M.c"
+c40_DePascali4M.obj :	"c40_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c40_DePascali4M.c"
+c41_DePascali4M.obj :	"c41_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c41_DePascali4M.c"
+c43_DePascali4M.obj :	"c43_DePascali4M.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c43_DePascali4M.c"
+DePascali4M_sfun_registry.obj :	"DePascali4M_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "DePascali4M_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
