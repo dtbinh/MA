@@ -7,6 +7,7 @@ LIBFLAGS =
 
 OBJECTS = \
 	"DIPCalt_sfun.obj"\
+	"c1_DIPCalt.obj"\
 	"c5_DIPCalt.obj"\
 	"c6_DIPCalt.obj"\
 	"c7_DIPCalt.obj"\
@@ -14,14 +15,8 @@ OBJECTS = \
 	"c9_DIPCalt.obj"\
 	"c10_DIPCalt.obj"\
 	"c11_DIPCalt.obj"\
-	"c13_DIPCalt.obj"\
-	"c17_DIPCalt.obj"\
 	"c19_DIPCalt.obj"\
 	"c20_DIPCalt.obj"\
-	"c22_DIPCalt.obj"\
-	"c23_DIPCalt.obj"\
-	"c24_DIPCalt.obj"\
-	"c25_DIPCalt.obj"\
 	"c27_DIPCalt.obj"\
 	"c29_DIPCalt.obj"\
 	"c30_DIPCalt.obj"\
@@ -52,6 +47,8 @@ DIPCalt_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
 	$(LD) $(LDFLAGS) -o DIPCalt_sfun.mexw64 @DIPCalt_sfun.lmko
 DIPCalt_sfun.obj :	"DIPCalt_sfun.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "DIPCalt_sfun.c"
+c1_DIPCalt.obj :	"c1_DIPCalt.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_DIPCalt.c"
 c5_DIPCalt.obj :	"c5_DIPCalt.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_DIPCalt.c"
 c6_DIPCalt.obj :	"c6_DIPCalt.c"
@@ -66,22 +63,10 @@ c10_DIPCalt.obj :	"c10_DIPCalt.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c10_DIPCalt.c"
 c11_DIPCalt.obj :	"c11_DIPCalt.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c11_DIPCalt.c"
-c13_DIPCalt.obj :	"c13_DIPCalt.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_DIPCalt.c"
-c17_DIPCalt.obj :	"c17_DIPCalt.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c17_DIPCalt.c"
 c19_DIPCalt.obj :	"c19_DIPCalt.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c19_DIPCalt.c"
 c20_DIPCalt.obj :	"c20_DIPCalt.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c20_DIPCalt.c"
-c22_DIPCalt.obj :	"c22_DIPCalt.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c22_DIPCalt.c"
-c23_DIPCalt.obj :	"c23_DIPCalt.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c23_DIPCalt.c"
-c24_DIPCalt.obj :	"c24_DIPCalt.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c24_DIPCalt.c"
-c25_DIPCalt.obj :	"c25_DIPCalt.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c25_DIPCalt.c"
 c27_DIPCalt.obj :	"c27_DIPCalt.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c27_DIPCalt.c"
 c29_DIPCalt.obj :	"c29_DIPCalt.c"
