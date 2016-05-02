@@ -1,10 +1,10 @@
 % Init file for Model1angular.slx
 
 %Gravity
-g = [0;0;-9.81];
+g = [0;0;0];
 
 %Masses
-m0 = 10;
+m0 = 1.4;
 m1 = 10; 
 m2 = 10;
 m3 = 10; 
@@ -17,11 +17,11 @@ m3d = 1.00*m3;
 m4d = 1.00*m4;
 
 %angular inertia
-j0 = 10;
-j1 = 10;
-j2 = 10;
-j3 = 10;
-j4 = 10;
+j0 = 0.2;
+j1 = 0.5;
+j2 = 0.5;
+j3 = 0.5;
+j4 = 0.5;
 
 %specified angular inertia
 j1d = 1.00*j1;
@@ -30,7 +30,7 @@ j3d = 1.00*j3;
 j4d = 1.00*j4;
 
 %position of manipulators
-r = [1; 0; 0;
+r = 0.4*[1; 0; 0;
     0; 1; 0;
     -1; 0; 0;
     0; -1; 0];
@@ -40,24 +40,24 @@ r = [1; 0; 0;
 %A = [-eye(3),skew_sm(r(1:3)),eye(3),zeros(3,9);zeros(3),-eye(3),zeros(3),eye(3),zeros(3,6);-eye(3),skew_sm(r(4:6)),zeros(3,6),eye(3),zeros(3);zeros(3),-eye(3),zeros(3,9),eye(3)];
 
 %stiffness
-k1 = 8000;
-k2 = 8000;
-k3 = 8000;
-k4 = 8000;
-kappa1 = 1000;
-kappa2 = 1000;
-kappa3 = 1000;
-kappa4 = 1000;
+k1 = 400;
+k2 = 400;
+k3 = 400;
+k4 = 400;
+kappa1 = 2;
+kappa2 = 2;
+kappa3 = 2;
+kappa4 = 2;
 
 %damping
-d1 = 550;
-d2 = 550;
-d3 = 550;
-d4 = 550;
-delta1 = 200;
-delta2 = 200;
-delta3 = 200;
-delta4 = 200;
+d1 = 1000;
+d2 = 1000;
+d3 = 1000;
+d4 = 1000;
+delta1 = 80;
+delta2 = 80;
+delta3 = 80;
+delta4 = 80;
 
 
 

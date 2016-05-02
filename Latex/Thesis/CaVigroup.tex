@@ -1,0 +1,122 @@
+\begin{tikzpicture}
+\begin{groupplot}[
+      group style={group size=2 by 3,ylabels at=edge 			left},
+      ylabel style={text height=0.02\textwidth,inner 			ysep=0pt},
+      grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
+    ]
+    \nextgroupplot 
+	\addplot[red,] table 								{/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans_errPos.txt};\label{plots:errPos}
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot
+	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_errOrient.txt};\label{plots:errOrient}
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+  \end{groupplot}
+  % legend
+  \path (top|-current bounding box.north)--
+        coordinate(legendpos)
+        (bot|-current bounding box.north);
+  \matrix[
+      matrix of nodes,
+      anchor=south,
+      draw,
+      inner sep=0.2em,
+    ]at([yshift=1ex]legendpos)
+    { \ref*{plots:errPos}&{ $\Delta p_x$ [m]}&[5pt]
+      \ref*{plots:errOrient}&{ $\Delta \Phi_z$ [rad]}&[5pt]\\};
+\end{tikzpicture} 
+
+
+
+\begin{tikzpicture}
+\begin{groupplot}[
+      group style={group size=2 by 3,ylabels at=edge 			left},
+      ylabel style={text height=0.02\textwidth,inner 			ysep=0pt},
+      grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
+    ]
+    \nextgroupplot 
+	\addplot[red,] table 								{/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans_errVeloc.txt};\label{plots:errVeloc}
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot
+	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_errAngVel.txt};\label{plots:errAngVel}
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+  \end{groupplot}
+  % legend
+  \path (top|-current bounding box.north)--
+        coordinate(legendpos)
+        (bot|-current bounding box.north);
+  \matrix[
+      matrix of nodes,
+      anchor=south,
+      draw,
+      inner sep=0.2em,
+    ]at([yshift=1ex]legendpos)
+    { \ref*{plots:errVeloc}&{ $\Delta\dot{p}_x$ [m/s]}&[5pt]
+      \ref*{plots:errAngVel}&{ $\Delta\omega_z$ [rad/s]}&[5pt]\\};
+\end{tikzpicture} 
+
+
+
+\begin{tikzpicture}
+\begin{groupplot}[
+      group style={group size=2 by 3,ylabels at=edge 			left},
+      ylabel style={text height=0.02\textwidth,inner 			ysep=0pt},
+      grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
+    ]
+    \nextgroupplot 
+	\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans_Manipulator wrench_tx.txt}; 
+	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans_Manipulator wrench_ty.txt}; 
+	\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans_Manipulator wrench_rz.txt};	
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot
+	\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator wrench_tx.txt};\label{plots:forcex}
+	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator wrench_ty.txt};\label{plots:forcey} 
+	\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Manipulator wrench_rz.txt};\label{plots:torquez}	
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+  \end{groupplot}
+  % legend
+  \path (top|-current bounding box.north)--
+        coordinate(legendpos)
+        (bot|-current bounding box.north);
+  \matrix[
+      matrix of nodes,
+      anchor=south,
+      draw,
+      inner sep=0.2em,
+    ]at([yshift=1ex]legendpos)
+    { \ref*{plots:forcex}&{ $f_x$ [N]}&[5pt]
+    	  \ref*{plots:forcey}&{ $f_y$ [N]}&[5pt]
+      \ref*{plots:torquez}&{ $m_z$ [Nm]}&[5pt]\\};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\begin{groupplot}[
+      group style={group size=2 by 3,ylabels at=edge 			left},
+      ylabel style={text height=0.02\textwidth,inner 			ysep=0pt},
+      grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
+    ]
+    \nextgroupplot 
+	\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans_Internal wrench_tx.txt}; 
+	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans_Internal wrench_ty.txt}; 
+	\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans_Internal wrench_rz.txt};	
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot
+	\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_tx.txt};\label{plots:forceix}
+	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_ty.txt};\label{plots:forceiy} 
+	\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_Internal Wrench_rz.txt};\label{plots:torqueiz}	
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+  \end{groupplot}
+  % legend
+  \path (top|-current bounding box.north)--
+        coordinate(legendpos)
+        (bot|-current bounding box.north);
+  \matrix[
+      matrix of nodes,
+      anchor=south,
+      draw,
+      inner sep=0.2em,
+    ]at([yshift=1ex]legendpos)
+    { \ref*{plots:forceix}&{ $f_{int,x}$ [N]}&[5pt]
+    	  \ref*{plots:forceiy}&{ $f_{int,y}$ [N]}&[5pt]
+      \ref*{plots:torqueiz}&{ $m_{int,z}$ [Nm]}&[5pt]\\};
+\end{tikzpicture}

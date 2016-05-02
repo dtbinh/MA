@@ -1,0 +1,60 @@
+\begin{tikzpicture} 
+ \begin{axis} [ 
+ ylabel = {$\Phi_z$ [rad]}, 
+ xlabel = {$t$[s]}, 
+ minor y tick num = 1, 
+ axis lines = left, 
+legend entries = {error orientation $\Delta \Phi_z$}, 
+legend columns=-1, 
+ legend style = {at={(0.5,1.1)},anchor=south,column sep=1ex,}, legend cell align=left, grid=major, height=5cm, width=0.98\linewidth 
+ ]
+\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_errPos.txt}; 
+\end{axis} 
+\end{tikzpicture} 
+
+\begin{tikzpicture} 
+ \begin{axis} [ 
+ ylabel = {$\omega_z$ [rad/s]}, 
+ xlabel = {$t$[s]}, 
+ minor y tick num = 1, 
+ axis lines = left, 
+legend entries = {error angular velocity $\Delta \omega_z$}, 
+legend columns=-1, 
+ legend style = {at={(0.5,1.1)},anchor=south,column sep=1ex,}, legend cell align=left, grid=major, height=5cm, width=0.98\linewidth 
+ ]
+\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_errVeloc.txt}; 
+\end{axis} 
+\end{tikzpicture} 
+
+\begin{tikzpicture} 
+ \begin{axis} [ 
+ ylabel = {$f$[N],$m$[Nm]}, 
+ xlabel = {$t$[s]}, 
+ minor y tick num = 1, 
+ axis lines = left, 
+legend entries = {force $f_x$, force $f_y$, torque $m_z$}, 
+legend columns=-1, 
+ legend style = {at={(0.5,1.1)},anchor=south,column sep=1ex,}, legend cell align=left, grid=major, height=5cm, width=0.98\linewidth 
+ ]
+\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Manipulator wrench_tx.txt}; 
+\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Manipulator wrench_ty.txt}; 
+\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Manipulator wrench_rz.txt}; 
+\end{axis} 
+\end{tikzpicture} 
+
+\begin{tikzpicture} 
+ \begin{axis} [ 
+ ylabel = {$f$[N],$m$[Nm]}, 
+ xlabel = {$t$[s]}, 
+ minor y tick num = 1, 
+ axis lines = left, 
+legend entries = {force $f_{int,x}$, force $f_{int,y}$, torque $m_{int,z}$}, 
+legend columns=-1, 
+ legend style = {at={(0.5,1.1)},anchor=south,column sep=1ex,}, legend cell align=left, grid=major, height=5cm, width=0.98\linewidth 
+ ]
+\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Internal wrench_tx.txt}; 
+\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Internal wrench_ty.txt}; 
+\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Internal wrench_rz.txt}; 
+\end{axis} 
+\end{tikzpicture} 
+

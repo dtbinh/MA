@@ -1,4 +1,4 @@
-%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'diracstructure.eps' (pdf, eps, ps)
 %%
@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{233.06906886bp}%
+    \setlength{\unitlength}{233.07499511bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,16 +48,16 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.23759701)%
+  \begin{picture}(1,0.23758447)%
     \put(0,0){\includegraphics[width=\unitlength]{diracstructure.eps}}%
-    \put(0.0624091,0.15262684){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{${Storage}$}}}%
-    \put(0.73060822,0.15132657){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{${Dissipation}$}}}%
-    \put(0.47387071,0.15219344){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\mathcal{D}$}}}%
-    \put(0.31923586,0.20350607){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_S$}}}%
-    \put(0.31880246,0.09290506){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_S$}}}%
-    \put(0.62765195,0.09307931){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_R$}}}%
-    \put(0.62815716,0.20350607){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_R$}}}%
-    \put(0.3981127,0.01472078){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_P$}}}%
-    \put(0.52518339,0.01472078){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_P$}}}%
+    \put(0.07894455,0.1520337){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Storage}}}%
+    \put(0.748257,0.15134105){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Dissipation}}}%
+    \put(0.47384147,0.15220789){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\mathcal{D}$}}}%
+    \put(0.31921055,0.20351922){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_S$}}}%
+    \put(0.31877716,0.09292103){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_S$}}}%
+    \put(0.6276188,0.09309527){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_R$}}}%
+    \put(0.62812399,0.20351922){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_R$}}}%
+    \put(0.39808539,0.01473873){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_P$}}}%
+    \put(0.52515285,0.01473873){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_P$}}}%
   \end{picture}%
 \endgroup%

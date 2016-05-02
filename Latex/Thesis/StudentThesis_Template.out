@@ -3,25 +3,30 @@
 \BOOKMARK [1][-]{section.1.2}{Related Work}{chapter.1}% 3
 \BOOKMARK [0][-]{chapter.2}{port-Hamiltonian system modelling}{}% 4
 \BOOKMARK [1][-]{section.2.1}{Energy-based modelling and control}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.2}{port-Hamiltonian description of mechanical systems}{chapter.2}% 6
-\BOOKMARK [2][-]{subsection.2.2.1}{Dirac structures and interconnection ports}{section.2.2}% 7
-\BOOKMARK [1][-]{section.2.3}{3D-space modelling of mechanical systems}{chapter.2}% 8
-\BOOKMARK [2][-]{subsection.2.3.1}{Euclidean space and motions}{section.2.3}% 9
-\BOOKMARK [2][-]{subsection.2.3.2}{Dynamics of physical components}{section.2.3}% 10
-\BOOKMARK [1][-]{section.2.4}{Spring-mass-damper systems}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.5}{Imposing constraints}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.6}{Model-based controllers for cooperative manipulation}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.6.1}{Compliant trajectory generating IPC}{section.2.6}% 14
-\BOOKMARK [2][-]{subsection.2.6.2}{Constrained dynamics IPC}{section.2.6}% 15
-\BOOKMARK [0][-]{chapter.3}{Energy-aware control}{}% 16
-\BOOKMARK [1][-]{section.3.1}{Passivity and unknown environments}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.2}{Energy tanks}{chapter.3}% 18
-\BOOKMARK [2][-]{subsection.3.2.1}{Energy-adapted stiffness and damping}{section.3.2}% 19
-\BOOKMARK [2][-]{subsection.3.2.2}{Energy exchange with the robotic system and environment}{section.3.2}% 20
-\BOOKMARK [0][-]{chapter.4}{Experimental evaluation}{}% 21
-\BOOKMARK [1][-]{subsection.4.0.3}{Internal impedance control with feed-forward of the object dynamics}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.0.4}{Internal and external impedance based reference trajectory generation}{subsection.4.0.3}% 23
-\BOOKMARK [2][-]{subsection.4.0.5}{Intrinsically Passive Controller \(IPC\)}{subsection.4.0.3}% 24
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 25
-\BOOKMARK [0][-]{chapter.5}{List of Figures}{}% 26
-\BOOKMARK [0][-]{chapter*.14}{Bibliography}{}% 27
+\BOOKMARK [1][-]{section.2.2}{Formation control for cooperative manipulation}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{port-Hamiltonian description of mechanical systems}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.3.1}{Dirac structures and interconnection ports}{section.2.3}% 8
+\BOOKMARK [1][-]{section.2.4}{3D-space modelling of mechanical systems}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.4.1}{Euclidean space and motions}{section.2.4}% 10
+\BOOKMARK [2][-]{subsection.2.4.2}{Dynamics of physical components}{section.2.4}% 11
+\BOOKMARK [1][-]{section.2.5}{Spring-mass-damper systems}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.6}{Imposing constraints}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.7}{Model-based controllers for cooperative manipulation}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.7.1}{Compliant trajectory generating IPC}{section.2.7}% 15
+\BOOKMARK [2][-]{subsection.2.7.2}{Constrained dynamics IPC}{section.2.7}% 16
+\BOOKMARK [0][-]{chapter.3}{Energy-aware control}{}% 17
+\BOOKMARK [1][-]{section.3.1}{Passivity and unknown environments}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.2}{Energy tanks}{chapter.3}% 19
+\BOOKMARK [2][-]{subsection.3.2.1}{Energy-adapted stiffness and damping}{section.3.2}% 20
+\BOOKMARK [2][-]{subsection.3.2.2}{Energy exchange with the robotic system and environment}{section.3.2}% 21
+\BOOKMARK [0][-]{chapter.4}{Experimental evaluation}{}% 22
+\BOOKMARK [1][-]{section.4.1}{State-of-the-art control schemes for cooperative manipulation}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.1.1}{Internal and external impedance based reference trajectory generation}{section.4.1}% 24
+\BOOKMARK [2][-]{subsection.4.1.2}{Internal impedance control with feed-forward of the object dynamics}{section.4.1}% 25
+\BOOKMARK [2][-]{subsection.4.1.3}{Intrinsically Passive Controller \(IPC\)}{section.4.1}% 26
+\BOOKMARK [1][-]{section.4.2}{Simulation of the constrained dynamics IPC}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.3}{Compliant trajectory generating IPC}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.4}{Energy-bounded trajectory tracking}{chapter.4}% 29
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 30
+\BOOKMARK [0][-]{chapter.5}{List of Figures}{}% 31
+\BOOKMARK [0][-]{chapter*.17}{Bibliography}{}% 32

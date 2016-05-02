@@ -1,0 +1,29 @@
+\begin{tikzpicture}
+\begin{groupplot}[
+      group style={group size=2 by 3,ylabels at=edge 			left},
+      ylabel style={text height=0.02\textwidth,inner 			ysep=0pt},
+      grid=major,height=0.35\linewidth,width=0.5\linewidth,/tikz/font=\small
+    ]
+    \nextgroupplot 
+	\addplot[red,] table 								{/home/mangerer/MAgit/MA/Latex/plotdata/ReferenceTrajectory.txt};\label{plots:RefTran}
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot
+	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/ReferenceTrajectory.txt};\label{plots:RefRot}
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+  \end{groupplot}
+  % legend
+  \path (top|-current bounding box.north)--
+        coordinate(legendpos)
+        (bot|-current bounding box.north);
+  \matrix[
+      matrix of nodes,
+      anchor=south,
+      draw,
+      inner sep=0.2em,
+    ]at([yshift=1ex]legendpos)
+    { \ref*{plots:RefRot}&{ $\dot{p}_x$ [m/s]}&[5pt]
+      \ref*{plots:RefTran}&{$\omega_z$ [rad/s]}&[5pt]\\};
+\end{tikzpicture} 
+
+
+

@@ -1,15 +1,15 @@
 % Init file for Model1angular.slx
 
 %Gravity
-g = [0;0;-9.81];
+g = [0;0;0];
 
 alpha = 1.5;
 %Masses
 m0 = 1.4;
-m1 = 2; 
-m2 = 2;
-m3 = 2; 
-m4 = 2;
+m1 = 10; 
+m2 = 10;
+m3 = 10; 
+m4 = 10;
 
 %specified masses
 m1d = 1.00*m1;
@@ -19,10 +19,10 @@ m4d = 1.00*m4;
 
 %angular inertia
 j0 = 0.2;
-j1 = 2;
-j2 = 2;
-j3 = 2;
-j4 = 2;
+j1 = 0.5;
+j2 = 0.5;
+j3 = 0.5;
+j4 = 0.5;
 
 %specified angular inertia
 j1d = 1.00*j1;
@@ -69,8 +69,8 @@ l = [1 1 1 1];
 
 kvt = 192;
 kvr = 14;
-kpr = 150;
 kpt = 50;
+kpr = 150;
 
 set_param('CaccavaleVillani','AlgebraicLoopSolver','TrustRegion')
 

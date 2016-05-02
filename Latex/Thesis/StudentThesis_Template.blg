@@ -7,49 +7,45 @@ Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: mybib.bib
-Warning--entry type for "MHI-MEISTeR" isn't style-file defined
---line 297 of file mybib.bib
-Warning--I didn't find a database entry for "Erhart_15/2"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 42 entries,
+You've used 48 entries,
             3274 wiz_defined-function locations,
-            977 strings with 13168 characters,
-and the built_in function-call counts, 24175 in all, are:
-= -- 2505
-> -- 967
-< -- 35
-+ -- 310
-- -- 301
-* -- 1447
-:= -- 3474
-add.period$ -- 143
-call.type$ -- 42
-change.case$ -- 263
-chr.to.int$ -- 40
-cite$ -- 42
-duplicate$ -- 805
-empty$ -- 2036
-format.name$ -- 350
-if$ -- 6011
+            1016 strings with 14267 characters,
+and the built_in function-call counts, 27331 in all, are:
+= -- 2838
+> -- 1092
+< -- 37
++ -- 351
+- -- 341
+* -- 1659
+:= -- 3932
+add.period$ -- 167
+call.type$ -- 48
+change.case$ -- 300
+chr.to.int$ -- 46
+cite$ -- 48
+duplicate$ -- 890
+empty$ -- 2308
+format.name$ -- 398
+if$ -- 6783
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 46
-newline$ -- 222
-num.names$ -- 140
-pop$ -- 403
+missing$ -- 50
+newline$ -- 258
+num.names$ -- 158
+pop$ -- 455
 preamble$ -- 1
-purify$ -- 310
+purify$ -- 354
 quote$ -- 0
-skip$ -- 1687
+skip$ -- 1901
 stack$ -- 0
-substring$ -- 1211
-swap$ -- 224
-text.length$ -- 35
-text.prefix$ -- 10
+substring$ -- 1350
+swap$ -- 239
+text.length$ -- 37
+text.prefix$ -- 12
 top$ -- 0
-type$ -- 316
+type$ -- 364
 warning$ -- 0
-while$ -- 173
-width$ -- 47
-write$ -- 576
-(There were 2 warnings)
+while$ -- 193
+width$ -- 53
+write$ -- 665
