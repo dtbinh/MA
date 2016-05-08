@@ -5,10 +5,10 @@
       grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
     ]
     \nextgroupplot 
-	\addplot[red,] table 								{/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_errPos.txt};\label{plots:errPos}
+	\addplot[red,] table {../plotdata/DIPCctrans_errPos.txt};\label{plots:errPos}
 	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
 	\nextgroupplot
-	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCcrot_errOrient.txt};\label{plots:errOrient}
+	\addplot[blue,] table {../plotdata/DIPCcrot_errOrient.txt};\label{plots:errOrient}
 	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
   \end{groupplot}
   % legend
@@ -34,10 +34,10 @@
       grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
     ]
     \nextgroupplot 
-	\addplot[red,] table 								{/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_errVeloc.txt};\label{plots:errVeloc}
+	\addplot[red,] table {../plotdata/DIPCctrans_errVeloc.txt};\label{plots:errVeloc}
 	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
 	\nextgroupplot
-	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCcrot_errAngVel.txt};\label{plots:errAngVel}
+	\addplot[blue,] table {../plotdata/DIPCcrot_errAngVel.txt};\label{plots:errAngVel}
 	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
   \end{groupplot}
   % legend
@@ -63,14 +63,14 @@
       grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
     ]
     \nextgroupplot 
-	\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Manipulator wrench_tx.txt}; 
-	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Manipulator wrench_ty.txt}; 
-	\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Manipulator wrench_rz.txt};	
+	\addplot[red,] table {../plotdata/DIPCctrans_Manipulator wrench_tx.txt}; 
+	\addplot[blue,] table {../plotdata/DIPCctrans_Manipulator wrench_ty.txt}; 
+	\addplot[green,] table {../plotdata/DIPCctrans_Manipulator wrench_rz.txt};	
 	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
 	\nextgroupplot
-	\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCcrot_Manipulator wrench_tx.txt};\label{plots:forcex}
-	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCcrot_Manipulator wrench_ty.txt};\label{plots:forcey} 
-	\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCcrot_Manipulator wrench_rz.txt};\label{plots:torquez}	
+	\addplot[red,] table {../plotdata/DIPCcrot_Manipulator wrench_tx.txt};\label{plots:forcex}
+	\addplot[blue,] table {../plotdata/DIPCcrot_Manipulator wrench_ty.txt};\label{plots:forcey} 
+	\addplot[green,] table {../plotdata/DIPCcrot_Manipulator wrench_rz.txt};\label{plots:torquez}	
 	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
   \end{groupplot}
   % legend
@@ -96,14 +96,14 @@
       grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
     ]
     \nextgroupplot 
-	\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Internal wrench_tx.txt}; 
-	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Internal wrench_ty.txt}; 
-	\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCctrans_Internal wrench_rz.txt};	
+	\addplot[red,] table {../plotdata/DIPCctrans_Internal wrench_tx.txt}; 
+	\addplot[blue,] table {../plotdata/DIPCctrans_Internal wrench_ty.txt}; 
+	\addplot[green,] table {../plotdata/DIPCctrans_Internal wrench_rz.txt};	
 	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
 	\nextgroupplot
-	\addplot[red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCcrot_Internal wrench_tx.txt};\label{plots:forceix}
-	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCcrot_Internal wrench_ty.txt};\label{plots:forceiy} 
-	\addplot[green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCcrot_Internal wrench_rz.txt};\label{plots:torqueiz}	
+	\addplot[red,] table {../plotdata/DIPCcrot_Internal wrench_tx.txt};\label{plots:forceix}
+	\addplot[blue,] table {../plotdata/DIPCcrot_Internal wrench_ty.txt};\label{plots:forceiy} 
+	\addplot[green,] table {../plotdata/DIPCcrot_Internal wrench_rz.txt};\label{plots:torqueiz}	
 	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
   \end{groupplot}
   % legend

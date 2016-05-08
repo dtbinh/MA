@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{OASK{\etalchar{+}}04}
+\begin{thebibliography}{OvdSCA08}
 
 \bibitem[BH96]{Bonitz_96}
 R.G. Bonitz and T.C. Hsia.
@@ -72,6 +72,13 @@ G.~Gioioso, A.~Franchi, G.~Salvietti, S.~Scheggi, and D.~Prattichizzo.
 R.C. Goertz.
 \newblock Fundamentals of general-purpose remote manipulators.
 \newblock {\em Nucleonics}, 10(11):36--45, 1952.
+
+\bibitem[HB12]{Hirche_12}
+S.~Hirche and M.~Buss.
+\newblock Human-oriented control for haptic teleoperation.
+\newblock {\em Proceedings of the IEEE}, 100(3):623--647, March 2012.
+\newblock \href {http://dx.doi.org/10.1109/JPROC.2011.2175150}
+  {\path{doi:10.1109/JPROC.2011.2175150}}.
 
 \bibitem[HKDN13]{Heck_13}
 D.~Heck, D.~Kostic, A.~Denasi, and H.~Nijmeijer.
@@ -185,6 +192,22 @@ R.~Ortega, A.~J. Van~Der Schaft, I.~Mareels, and B.~Maschke.
 \newblock {\em IEEE Control Systems}, 21(2):18--33, Apr 2001.
 \newblock \href {http://dx.doi.org/10.1109/37.915398}
   {\path{doi:10.1109/37.915398}}.
+
+\bibitem[OvdSCA08]{Ortega_08}
+R.~Ortega, A.~van~der Schaft, F.~Castanos, and A.~Astolfi.
+\newblock Control by interconnection and standard passivity-based control of
+  port-hamiltonian systems.
+\newblock {\em IEEE Transactions on Automatic Control}, 53(11):2527--2542, Dec
+  2008.
+
+\bibitem[PST{\etalchar{+}}15]{Peters_15}
+J.~R. Peters, V.~Srivastava, G.~S. Taylor, A.~Surana, M.~P. Eckstein, and
+  F.~Bullo.
+\newblock Human supervisory control of robotic teams: Integrating cognitive
+  modeling with engineering design.
+\newblock {\em IEEE Control Systems}, 35(6):57--80, Dec 2015.
+\newblock \href {http://dx.doi.org/10.1109/MCS.2015.2471056}
+  {\path{doi:10.1109/MCS.2015.2471056}}.
 
 \bibitem[SC92]{Schneider_92}
 S.A. Schneider and R.H. Cannon.

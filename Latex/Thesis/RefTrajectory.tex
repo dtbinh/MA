@@ -5,10 +5,10 @@
       grid=major,height=0.35\linewidth,width=0.5\linewidth,/tikz/font=\small
     ]
     \nextgroupplot 
-	\addplot[red,] table 								{/home/mangerer/MAgit/MA/Latex/plotdata/ReferenceTrajectory.txt};\label{plots:RefTran}
+	\addplot[red,] table {../plotdata/ReferenceTrajectory.txt};\label{plots:RefTran}
 	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
 	\nextgroupplot
-	\addplot[blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/ReferenceTrajectory.txt};\label{plots:RefRot}
+	\addplot[blue,] table {../plotdata/ReferenceTrajectory.txt};\label{plots:RefRot}
 	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
   \end{groupplot}
   % legend
