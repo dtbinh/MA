@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  21 JAN 2016 13:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  14 MAY 2016 20:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1614,7 +1614,7 @@ verted-to.pdf pics/general_setup.eps>
 (epstopdf)             \includegraphics on input line 95.
 Package epstopdf Info: Output file is already uptodate.
 
-<pics/general_setup-eps-converted-to.pdf, id=132, 266.9975pt x 186.6975pt>
+<pics/general_setup-eps-converted-to.pdf, id=134, 266.9975pt x 186.6975pt>
 File: pics/general_setup-eps-converted-to.pdf Graphic file (type pdf)
 
 <use pics/general_setup-eps-converted-to.pdf>
@@ -1646,51 +1646,100 @@ e 257.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
  [5
 
-]
-<pics/diracstructure.png, id=197, 961.34157pt x 328.97906pt>
-File: pics/diracstructure.png Graphic file (type png)
+] (./pics/overview.eps_tex
+Package epstopdf Info: Source file: <pics/overview.eps>
+(epstopdf)                    date: 2016-05-14 20:07:16
+(epstopdf)                    size: 103046 bytes
+(epstopdf)             Output file: <pics/overview-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-14 20:06:49
+(epstopdf)                    size: 56346 bytes
+(epstopdf)             Command: <repstopdf --outfile=pics/overview-eps-converte
+d-to.pdf pics/overview.eps>
+(epstopdf)             \includegraphics on input line 52.
+runsystem(repstopdf --outfile=pics/overview-eps-converted-to.pdf pics/overview.
+eps)...executed safely (allowed).
 
-<use pics/diracstructure.png>
-Package pdftex.def Info: pics/diracstructure.png used on input line 273.
-(pdftex.def)             Requested size: 184.3758pt x 63.09398pt.
+Package epstopdf Info: Result file: <pics/overview-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-14 20:07:21
+(epstopdf)                    size: 56346 bytes.
+
+<pics/overview-eps-converted-to.pdf, id=202, 328.22626pt x 90.3375pt>
+File: pics/overview-eps-converted-to.pdf Graphic file (type pdf)
+
+<use pics/overview-eps-converted-to.pdf>
+Package pdftex.def Info: pics/overview-eps-converted-to.pdf used on input line 
+52.
+(pdftex.def)             Requested size: 304.21866pt x 83.73041pt.
+)
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
- <use logos/itr_logo_foot_full_small_3.pdf>
+
+<use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 273.
+e 268.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
+ [6
 
-[6
+ <./pics/overview-eps-converted-to.pdf>] (./pics/virtualstructure.eps_tex
+Package epstopdf Info: Source file: <pics/virtualstructure.eps>
+(epstopdf)                    date: 2016-05-14 19:44:03
+(epstopdf)                    size: 822984 bytes
+(epstopdf)             Output file: <pics/virtualstructure-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2016-05-14 19:58:45
+(epstopdf)                    size: 142007 bytes
+(epstopdf)             Command: <repstopdf --outfile=pics/virtualstructure-eps-
+converted-to.pdf pics/virtualstructure.eps>
+(epstopdf)             \includegraphics on input line 52.
+Package epstopdf Info: Output file is already uptodate.
 
- <./pics/diracstructure.png (PNG copy)>]
-<pics/IPCsprings.png, id=218, 890.5772pt x 624.83438pt>
+<pics/virtualstructure-eps-converted-to.pdf, id=226, 555.07375pt x 395.4775pt>
+File: pics/virtualstructure-eps-converted-to.pdf Graphic file (type pdf)
+
+<use pics/virtualstructure-eps-converted-to.pdf>
+Package pdftex.def Info: pics/virtualstructure-eps-converted-to.pdf used on inp
+ut line 52.
+(pdftex.def)             Requested size: 304.21866pt x 216.74692pt.
+)
+Overfull \vbox (3.50803pt too high) detected at line 279
+ []
+
+File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
+<use logos/itr_logo_foot_full_small_3.pdf>
+Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
+e 279.
+(pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
+ [7
+
+ <./pics/virtualstructure-eps-converted-to.pdf>] <pics/IPCsprings.png, id=256, 
+890.5772pt x 624.83438pt>
 File: pics/IPCsprings.png Graphic file (type png)
 
 <use pics/IPCsprings.png>
-Package pdftex.def Info: pics/IPCsprings.png used on input line 368.
+Package pdftex.def Info: pics/IPCsprings.png used on input line 374.
 (pdftex.def)             Requested size: 138.2795pt x 97.0104pt.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 368.
+e 374.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [7
+ [8
 
  <./pics/IPCsprings.png (PNG copy)>]
 
 pdfTeX warning: pdflatex (file ./pics/IPCscheme.pdf): PDF inclusion: found PDF 
 version <1.5>, but at most version <1.4> allowed
-<pics/IPCscheme.pdf, id=241, 798.73407pt x 266.49562pt>
+<pics/IPCscheme.pdf, id=280, 798.73407pt x 266.49562pt>
 File: pics/IPCscheme.pdf Graphic file (type pdf)
 
 <use pics/IPCscheme.pdf>
-Package pdftex.def Info: pics/IPCscheme.pdf used on input line 408.
+Package pdftex.def Info: pics/IPCscheme.pdf used on input line 414.
 (pdftex.def)             Requested size: 307.28987pt x 102.5259pt.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 408.
+e 414.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [8
+ [9
 
  <./pics/IPCscheme.pdf>]
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosit
@@ -1703,9 +1752,9 @@ PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 523.
+e 529.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [9
+ [10
 
 ]
 PGFPlots: reading {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredVelocity.
@@ -1719,168 +1768,168 @@ File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
 
 <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 574.
+e 580.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [10
+ [11
 
 ]
 
 pdfTeX warning: pdflatex (file ./pics/pspm.pdf): PDF inclusion: found PDF versi
 on <1.5>, but at most version <1.4> allowed
-<pics/pspm.pdf, id=331, 790.45313pt x 264.23718pt>
+<pics/pspm.pdf, id=373, 790.45313pt x 264.23718pt>
 File: pics/pspm.pdf Graphic file (type pdf)
  <use pics/pspm.pdf>
-Package pdftex.def Info: pics/pspm.pdf used on input line 643.
+Package pdftex.def Info: pics/pspm.pdf used on input line 649.
 (pdftex.def)             Requested size: 307.28987pt x 102.72145pt.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
 
 <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 643.
+e 649.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [11
+ [12
 
  <./pics/pspm.pdf>]
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
 
 <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 660.
+e 666.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [12
+ [13
 
 ]
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
-<logos/pdf_logo.pdf, id=399, 175.48561pt x 184.46918pt>
+<logos/pdf_logo.pdf, id=444, 175.48561pt x 184.46918pt>
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 File: logos/pdf_logo.pdf Graphic file (type pdf)
  <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <6> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 670.
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 676.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 670.
+Package hyperref Warning: Suppressing link with empty target on input line 676.
 
 
 File: logos/pdf_logo.pdf Graphic file (type pdf)
 <use logos/pdf_logo.pdf>
-Package pdftex.def Info: logos/pdf_logo.pdf used on input line 670.
+Package pdftex.def Info: logos/pdf_logo.pdf used on input line 676.
 (pdftex.def)             Requested size: 11.38109pt x 11.96277pt.
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 670.
+e 676.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [13
+ [14
 
  <./logos/pdf_logo.pdf>]
 File: logos/itr_logo_foot_full_small_3.pdf Graphic file (type pdf)
  <use logos/itr_logo_foot_full_small_3.pdf>
 Package pdftex.def Info: logos/itr_logo_foot_full_small_3.pdf used on input lin
-e 670.
+e 676.
 (pdftex.def)             Requested size: 362.77263pt x 17.00516pt.
- [14
+ [15
 
 
 ]
@@ -1893,24 +1942,24 @@ e 670.
 \tf@snm=\write10
 \openout10 = `example_students.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 673.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 673.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 679.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 679.
 
 (./example_students.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 673.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 673.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 679.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 679.
 Package rerunfilecheck Info: File `example_students.out' has not changed.
 (rerunfilecheck)             Checksum: 6FB7DEA76F6AF00C0B09832FE48ED772;177.
 Package logreq Info: Writing requests to 'example_students.run.xml'.
 \openout1 = `example_students.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 673.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 679.
  ) 
 Here is how much of TeX's memory you used:
- 35772 strings out of 493304
- 822168 string characters out of 6139871
- 2121428 words of memory out of 5000000
- 38472 multiletter control sequences out of 15000+600000
+ 35790 strings out of 493304
+ 822599 string characters out of 6139871
+ 2121167 words of memory out of 5000000
+ 38482 multiletter control sequences out of 15000+600000
  13402 words of font info for 50 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  73i,18n,102p,970b,2190s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1928,9 +1977,9 @@ fonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on example_students.pdf (14 pages, 980651 bytes).
+Output written on example_students.pdf (15 pages, 1138582 bytes).
 PDF statistics:
- 520 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 216 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 564 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 

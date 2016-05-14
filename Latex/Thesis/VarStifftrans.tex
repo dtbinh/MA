@@ -1,7 +1,7 @@
 \begin{tikzpicture} 
  \begin{axis} [ 
-% ylabel = {[m]}, 
- xlabel = {$t$[s]}, 
+ ylabel = {Position}, 
+ %xlabel = {$t$[s]}, 
  minor y tick num = 1, 
  axis lines = left, 
 legend entries = {$p_x^d$ [m],$p_x$ [m]}, 
@@ -17,8 +17,8 @@ legend columns=-1,
 
 \begin{tikzpicture} 
  \begin{axis} [ 
- %ylabel = {[m/s]}, 
- xlabel = {$t$[s]}, 
+ ylabel = {Linear velocity}, 
+ %xlabel = {$t$[s]}, 
  minor y tick num = 1, 
  axis lines = left, 
 legend entries = {$\dot{p}_x^d$ [m/s],$\dot{p}_x$ [m/s]}, 
@@ -33,11 +33,11 @@ legend columns=-1,
 
 \begin{tikzpicture} 
  \begin{axis} [ 
-% ylabel = {[J]}, 
- xlabel = {$t$[s]}, 
+ ylabel = {Tank level}, 
+ %xlabel = {$t$[s]}, 
  minor y tick num = 1, 
  axis lines = left, 
-legend entries = {$T(x_t)$ [J]}, 
+legend entries = {$T(x_\g{t})$ [J]}, 
 legend columns=-1, 
  legend style = {at={(0.5,1.1)},anchor=south,column sep=1ex,}, legend cell align=left, grid=major, height=5cm, width=0.98\linewidth 
  ]
@@ -47,7 +47,7 @@ legend columns=-1,
 
 \begin{tikzpicture} 
  \begin{axis} [ 
-% ylabel = {$f$[N],$m$[Nm]}, 
+ ylabel = {Manipualtor wrench}, 
  xlabel = {$t$[s]}, 
  minor y tick num = 1, 
  axis lines = left, 

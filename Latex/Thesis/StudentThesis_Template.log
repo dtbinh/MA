@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  10 MAY 2016 22:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  14 MAY 2016 19:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -949,20 +949,20 @@ LaTeX Warning: Label `plots:torqueiz' multiply defined.
 )
 \openout1 = `StudentThesis_Template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count177
@@ -981,7 +981,7 @@ Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.12} (current compat level: 1.9).
 
 \AtBeginShipoutBox=\box46
-Package hyperref Info: Link coloring OFF on input line 54.
+Package hyperref Info: Link coloring OFF on input line 55.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -990,20 +990,20 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count183
 )
-LaTeX Info: Redefining \ref on input line 54.
-LaTeX Info: Redefining \pageref on input line 54.
-LaTeX Info: Redefining \nameref on input line 54.
+LaTeX Info: Redefining \ref on input line 55.
+LaTeX Info: Redefining \pageref on input line 55.
+LaTeX Info: Redefining \nameref on input line 55.
 
 (./StudentThesis_Template.out) (./StudentThesis_Template.out)
 \@outlinefile=\write5
 \openout5 = `StudentThesis_Template.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 84.
+LaTeX Font Info:    Try loading font information for U+msa on input line 85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 84.
+LaTeX Font Info:    Try loading font information for U+msb on input line 85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1024,14 +1024,20 @@ Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.111 \begin{abstract}
-                       [1]pdfTeX warning (ext4): destination with the same iden
-tifier (name{page.1}) has been already used, duplicate ignored
+l.112 \begin{abstract}
+                       [1]
+Overfull \hbox (1.06119pt too wide) in paragraph at lines 123--126
+\OT1/cmr/m/n/12 Eingabeschnittstelle, er-fordern die Ber^^?ucksichtigung be-lie
+biger Be-fehle, ein-schlie^^Ylich
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.123 \end{abstract}
+l.126 \end{abstract}
                      [1]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 141.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 144.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
@@ -1039,7 +1045,7 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 
 LaTeX Font Warning: Font shape `OT1/phv/a/n' undefined
-(Font)              using `OT1/phv/m/n' instead on input line 141.
+(Font)              using `OT1/phv/m/n' instead on input line 144.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1051,7 +1057,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.141 \tableofcontents
+l.144 \tableofcontents
                        [2] (./StudentThesis_Template.toc
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1063,7 +1069,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 ...{\numberline {5}Conclusion}{61}{chapter.5}
+l.42 ...rajectory generating IPC}{54}{section.4.3}
                                                    [3
 
 ])
@@ -1079,13 +1085,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [4]
 Chapter 1.
-<meistercomb.jpg, id=214, 1023.825pt x 486.81876pt>
+<meistercomb.jpg, id=224, 1023.825pt x 486.81876pt>
 File: meistercomb.jpg Graphic file (type jpg)
  <use meistercomb.jpg>
-Package pdftex.def Info: meistercomb.jpg used on input line 291.
+Package pdftex.def Info: meistercomb.jpg used on input line 294.
 (pdftex.def)             Requested size: 426.79134pt x 202.93227pt.
 
-Overfull \hbox (7.83238pt too wide) in paragraph at lines 295--296
+Overfull \hbox (7.83238pt too wide) in paragraph at lines 298--299
  [][] 
  []
 
@@ -1119,9 +1125,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7]
-Underfull \vbox (badness 5161) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1147,7 +1150,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Chapter 2.
 
-Overfull \hbox (3.61115pt too wide) in paragraph at lines 341--344
+Overfull \hbox (3.61115pt too wide) in paragraph at lines 344--347
 \OT1/cmr/m/n/12 For the energy-consistent mod-elling of me-chan-i-cal sys-tems 
 two ap-proaches are known:
  []
@@ -1159,7 +1162,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-Overfull \hbox (17.63243pt too wide) in paragraph at lines 348--348
+Overfull \hbox (17.63243pt too wide) in paragraph at lines 351--351
 []\OT1/cmr/bx/n/17.28 port-Hamiltonian de-scrip-tion of me-chan-i-cal sys-
  []
 
@@ -1181,7 +1184,7 @@ o.pdf springmass.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<springmass-eps-converted-to.pdf, id=348, 271.0125pt x 59.22125pt>
+<springmass-eps-converted-to.pdf, id=358, 271.0125pt x 59.22125pt>
 File: springmass-eps-converted-to.pdf Graphic file (type pdf)
 
 <use springmass-eps-converted-to.pdf>
@@ -1196,16 +1199,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13 <./springmass-eps-converted-to.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 407.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 410.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 407.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 410.
 
-Overfull \hbox (1.93147pt too wide) in paragraph at lines 420--427
+Overfull \hbox (1.93147pt too wide) in paragraph at lines 423--430
  [][] 
  []
 
@@ -1221,7 +1224,7 @@ ed-to.pdf diracstructure.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<diracstructure-eps-converted-to.pdf, id=366, 234.8775pt x 57.21375pt>
+<diracstructure-eps-converted-to.pdf, id=376, 234.8775pt x 57.21375pt>
 File: diracstructure-eps-converted-to.pdf Graphic file (type pdf)
 
 <use diracstructure-eps-converted-to.pdf>
@@ -1264,7 +1267,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18]
-LaTeX Font Info:    Try loading font information for U+euf on input line 578.
+LaTeX Font Info:    Try loading font information for U+euf on input line 583.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
@@ -1275,7 +1278,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
+Underfull \hbox (badness 10000) in paragraph at lines 628--629
 
  []
 
@@ -1286,7 +1289,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 650--652
+Underfull \hbox (badness 10000) in paragraph at lines 656--658
 
  []
 
@@ -1318,14 +1321,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [24]
-Overfull \hbox (4.16391pt too wide) in paragraph at lines 805--807
+Overfull \hbox (4.16391pt too wide) in paragraph at lines 811--813
 \OT1/cmr/m/n/12 This is the port-Hamiltonian rep-re-sen-ta-tion of a one-dimens
 ional spring-mass-damper
- []
-
-
-Overfull \hbox (3.81902pt too wide) in alignment at lines 815--825
- [][][] []
  []
 
 
@@ -1356,18 +1354,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1031--1033
+Underfull \hbox (badness 10000) in paragraph at lines 1039--1041
 
  []
 
 
-Overfull \hbox (0.46487pt too wide) in paragraph at lines 1058--1060
+Overfull \hbox (0.46487pt too wide) in paragraph at lines 1066--1068
 \OT1/cmr/m/n/12 Here we as-sume that the in-er-tias are not con-fig-u-ra-tion d
 e-pen-dent, i.e. time-invariant.
  []
 
 
-Overfull \hbox (14.37227pt too wide) in alignment at lines 1070--1094
+Overfull \hbox (14.37227pt too wide) in alignment at lines 1078--1102
  [][][] []
  []
 
@@ -1378,7 +1376,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1094--1118
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1126
 
  []
 
@@ -1394,7 +1392,7 @@ verted-to.pdf modellbasedcontrol.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<modellbasedcontrol-eps-converted-to.pdf, id=578, 344.28625pt x 75.28125pt>
+<modellbasedcontrol-eps-converted-to.pdf, id=587, 344.28625pt x 75.28125pt>
 File: modellbasedcontrol-eps-converted-to.pdf Graphic file (type pdf)
 
 <use modellbasedcontrol-eps-converted-to.pdf>
@@ -1420,7 +1418,7 @@ nverted-to.pdf referencetrajectory.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<referencetrajectory-eps-converted-to.pdf, id=594, 328.22626pt x 119.44624pt>
+<referencetrajectory-eps-converted-to.pdf, id=603, 328.22626pt x 119.44624pt>
 File: referencetrajectory-eps-converted-to.pdf Graphic file (type pdf)
 
 <use referencetrajectory-eps-converted-to.pdf>
@@ -1428,6 +1426,14 @@ Package pdftex.def Info: referencetrajectory-eps-converted-to.pdf used on input
  line 52.
 (pdftex.def)             Requested size: 341.43436pt x 124.25395pt.
 )
+Overfull \hbox (20.00406pt too wide) in alignment at lines 1251--1285
+ [][][] []
+ []
+
+
+Underfull \vbox (badness 1622) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1435,12 +1441,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [31 <./modellbasedcontrol-eps-converted-to.pdf>]
-Overfull \hbox (20.01736pt too wide) in alignment at lines 1243--1277
- [][][] []
- []
-
-
-Underfull \vbox (badness 2073) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -1461,7 +1462,7 @@ erted-to.pdf admittancecontrol.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<admittancecontrol-eps-converted-to.pdf, id=619, 333.245pt x 119.44624pt>
+<admittancecontrol-eps-converted-to.pdf, id=628, 333.245pt x 119.44624pt>
 File: admittancecontrol-eps-converted-to.pdf Graphic file (type pdf)
 
 <use admittancecontrol-eps-converted-to.pdf>
@@ -1476,7 +1477,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [33]
-Overfull \hbox (20.00635pt too wide) in alignment at lines 1343--1378
+Overfull \hbox (20.00635pt too wide) in alignment at lines 1352--1387
  [][][] []
  []
 
@@ -1517,7 +1518,7 @@ onverted-to.pdf passivityenvironment.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<passivityenvironment-eps-converted-to.pdf, id=654, 305.14pt x 100.375pt>
+<passivityenvironment-eps-converted-to.pdf, id=663, 305.14pt x 100.375pt>
 File: passivityenvironment-eps-converted-to.pdf Graphic file (type pdf)
 
 <use passivityenvironment-eps-converted-to.pdf>
@@ -1549,6 +1550,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [39]
+Overfull \hbox (6.54405pt too wide) in paragraph at lines 1599--1601
+\OT1/cmr/m/n/12 The com-bined Hamil-to-nian en-ergy func-tion of the in-ter-con
+-nected sys-tem is $[]([]\OML/cmm/m/it/12 ; x[]\OT1/cmr/m/n/12 ) =
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1567,7 +1573,7 @@ o.pdf energytank.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<energytank-eps-converted-to.pdf, id=696, 305.14pt x 100.375pt>
+<energytank-eps-converted-to.pdf, id=705, 305.14pt x 100.375pt>
 File: energytank-eps-converted-to.pdf Graphic file (type pdf)
 
 <use energytank-eps-converted-to.pdf>
@@ -1666,7 +1672,7 @@ PGFPlots: reading {"../plotdata/CaVirot_Internal Wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/CaVirot_Internal Wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 43.07407pt on input line 1897.
+LaTeX Warning: Float too large for page by 62.05644pt on input line 1907.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1690,7 +1696,7 @@ PGFPlots: reading {"../plotdata/DePasrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/DePasrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 43.07535pt on input line 1931.
+LaTeX Warning: Float too large for page by 62.05772pt on input line 1941.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1707,7 +1713,7 @@ Package epstopdf Info: Source file: <ImpedanceIPC.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<ImpedanceIPC-eps-converted-to.pdf, id=789, 403.5075pt x 80.3pt>
+<ImpedanceIPC-eps-converted-to.pdf, id=798, 403.5075pt x 80.3pt>
 File: ImpedanceIPC-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ImpedanceIPC-eps-converted-to.pdf>
@@ -1715,7 +1721,7 @@ Package pdftex.def Info: ImpedanceIPC-eps-converted-to.pdf used on input line 5
 2.
 (pdftex.def)             Requested size: 405.45045pt x 80.68697pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1949--1957
+Underfull \hbox (badness 10000) in paragraph at lines 1959--1968
 
  []
 
@@ -1744,7 +1750,7 @@ PGFPlots: reading {"../plotdata/StrIPCrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/StrIPCrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 28.57858pt on input line 1991.
+LaTeX Warning: Float too large for page by 47.56096pt on input line 2002.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1792,7 +1798,7 @@ PGFPlots: reading {"../plotdata/DIPCcrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/DIPCcrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 28.57954pt on input line 2018.
+LaTeX Warning: Float too large for page by 47.56192pt on input line 2029.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1828,7 +1834,7 @@ PGFPlots: reading {"../plotdata/DIPCrrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/DIPCrrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 27.81679pt on input line 2045.
+LaTeX Warning: Float too large for page by 46.79916pt on input line 2056.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1852,9 +1858,14 @@ PGFPlots: reading {../plotdata/VarStifftrans_TankLevel.txt}
 PGFPlots: reading {"../plotdata/VarStifftrans_Manipulator wrench_tx.txt"}
 PGFPlots: reading {"../plotdata/VarStifftrans_Manipulator wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/VarStifftrans_Manipulator wrench_rz.txt"}
+
+Overfull \hbox (3.2637pt too wide) in paragraph at lines 62--63
+[][] 
+ []
+
 )
 
-LaTeX Warning: Float too large for page by 62.0377pt on input line 2054.
+LaTeX Warning: Float too large for page by 1.94057pt on input line 2066.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1988,15 +1999,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2134.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2134.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2147.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2147.
  (./StudentThesis_Template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2134.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2134.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2147.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2147.
 
 Package rerunfilecheck Info: File `StudentThesis_Template.out' has not changed.
 
-(rerunfilecheck)             Checksum: 252CD5CE93EE4CD829DDE4DF621EA99D;2580.
+(rerunfilecheck)             Checksum: CDA2FD87F41BD892C2CFE2943DD4DA75;2792.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2004,20 +2015,20 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2134.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2147.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 300 ({)
+### simple group (level 1) entered at line 303 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 29923 strings out of 493304
- 700307 string characters out of 6139871
- 1412117 words of memory out of 5000000
- 32271 multiletter control sequences out of 15000+600000
+ 29928 strings out of 493304
+ 700429 string characters out of 6139871
+ 1413337 words of memory out of 5000000
+ 32276 multiletter control sequences out of 15000+600000
  18248 words of font info for 63 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 71i,24n,100p,1886b,2306s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,24n,100p,1857b,2306s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texl
@@ -2040,10 +2051,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
 /public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /helvetic/uhvr8a.pfb>
-Output written on StudentThesis_Template.pdf (75 pages, 1236946 bytes).
+Output written on StudentThesis_Template.pdf (75 pages, 1243992 bytes).
 PDF statistics:
- 1173 PDF objects out of 1200 (max. 8388607)
- 1047 compressed objects within 11 object streams
+ 1183 PDF objects out of 1200 (max. 8388607)
+ 1057 compressed objects within 11 object streams
  354 named destinations out of 1000 (max. 500000)
- 314 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 330 words of extra memory for PDF output out of 10000 (max. 10000000)
 
