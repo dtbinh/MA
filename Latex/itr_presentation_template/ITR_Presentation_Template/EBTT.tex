@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+\begin{groupplot}[
+      group style={group size=2 by 3,ylabels at=edge 			left},
+      ylabel style={text height=0.02\textwidth,inner 			ysep=-5pt},
+      grid=major,height=0.35\linewidth,width=0.48\linewidth,/tikz/font=\footnotesize
+    ]
+    \nextgroupplot[xlabel={$t$[s]}, ylabel={Lin. vel. $\dot{p}_x$[m/s]}] 
+	\addplot[blue,] table {../../plotdata/VarStifftrans_desired velocity.txt};
+	\addplot[red,] table {../../plotdata/VarStifftrans_Velocity.txt};
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot[xlabel={$t$[s]}, ylabel={Energy $T$[J]}]
+	\addplot[green,] table {../../plotdata/VarStifftrans_TankLevel.txt};
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+  \end{groupplot}
+  % legend
+  \path (top|-current bounding box.north)--
+        coordinate(legendpos)
+        (bot|-current bounding box.north);
+  \matrix[
+      matrix of nodes,
+      anchor=south,
+      draw,
+      inner sep=0.2em,
+    ]at([yshift=1ex]legendpos)
+    { {\color{blue}\textemdash} &{commanded}&[5pt]
+      {\color{red}\textemdash} &{actual}&[5pt]
+      {\color{green}\textemdash} &{Tank level}&[5pt]\\};
+\end{tikzpicture}

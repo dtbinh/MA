@@ -12,14 +12,6 @@ F.~Caccavale, P.~Chiacchio, A.~Marino, and L.~Villani.
 \newblock Six-dof impedance control of dual-arm cooperative manipulators.
 \newblock {\em Mechatronics, IEEE/ASME Transactions on}, 13(5):576--586, 2008.
 
-\bibitem[CM08]{CoopManipHandbook}
-F.~Caccavle and Uchiyama M.
-\newblock {Cooperative Manipulation}.
-\newblock In Bruno Siciliano and Oussama Khatib, editors, {\em Springer
-  Handbook of Robotics}, chapter~29, pages 701--718. Springer Berlin
-  Heidelberg, May 2008.
-\newblock ISBN 978-3-540-23957-4.
-
 \bibitem[CV01]{Caccavale_01}
 F.~Caccvale and L.~Villani.
 \newblock An impedance control strategy for cooperative manipulation.
@@ -36,12 +28,6 @@ V.~Duindam and S.~Stramigioli.
 \newblock {\em Modeling and Control for Efficient Bipedal Walking Robots}.
 \newblock Springer Tracts in Advanced Robotics. Springer-Verlag, Berlin
   Heidelberg, 2009.
-
-\bibitem[EH15]{Erhart_15}
-S.~Erhart and S.~Hirche.
-\newblock Internal force analysis and load distribution for cooperative
-  multi-robot manipulation.
-\newblock {\em Robotics, IEEE Transactions on}, 31(5):1238--1243, 2015.
 
 \bibitem[EH16]{Erhart_16}
 S.~Erhart and S.~Hirche.
@@ -184,12 +170,6 @@ MathWorks.
 \newblock {Simulink Documentation R2016a, online, accessed April 23, 2016}.
 \newblock URL:
   \url{http://de.mathworks.com/help/simulink/ug/types-of-solvers.html}.
-
-\bibitem[NSW00]{Newman_00}
-JA~Newman, N~Shewchenko, and E.~Welbourne.
-\newblock A proposed new biomechanical head injury assessment function - the
-  maximum power index.
-\newblock {\em Stapp Car Crash Journal}, 44:215--247, Nov 2000.
 
 \bibitem[OASK{\etalchar{+}}04]{Ott_04}
 C.~Ott, A.~Albu-Schaffer, A.~Kugi, S.~Stamigioli, and G.~Hirzinger.
@@ -343,15 +323,6 @@ Ewoud Vos, Jacquelien~M.A. Scherpen, Arjan~J. van~der Schaft, and Ate Postma.
   Control (IFAC)}, 19(1):6662--6667, 2014.
 \newblock \href {http://dx.doi.org/10.3182/20140824-6-ZA-1003.00394}
   {\path{doi:10.3182/20140824-6-ZA-1003.00394}}.
-
-\bibitem[WFS91]{Walker_91}
-I.~Walker, R.~Freeman, and Marcus S.
-\newblock Analysis of motion and internal loading of objects grasped by
-  multiple cooperating manipulators.
-\newblock {\em International Journal of Robotics Research}, 10(4):396--409, Aug
-  1991.
-\newblock \href {http://dx.doi.org/doi: 10.1177/027836499101000408}
-  {\path{doi:doi: 10.1177/027836499101000408}}.
 
 \bibitem[WOH06]{Wimboeck_06}
 T.~Wimboeck, C.~Ott, and G.~Hirzinger.

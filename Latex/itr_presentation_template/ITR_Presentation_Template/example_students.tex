@@ -1,8 +1,12 @@
 \documentclass[student]{ITRslides}
-\usepackage{tikz,pgfplots}
+\usepackage{tikz,pgfplots,epstopdf,psfrag,pstricks}
+\pgfplotsset{compat=1.9}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{matrix} 
 \addbibresource{ref.bib}
 \graphicspath{{pics/}{logos/}}
-
+\newcommand{\f}[1]{\boldsymbol{#1}}
+\newcommand{\g}[1]{\text{#1}}
 
 \title{Control of a multi-robot cooperative team guided by a human operator}
 \presenter{M. Angerer}
@@ -29,31 +33,25 @@
 \section{Introduction}
 
 \begin{frame}
-	\frametitle{Why use human guided cooperative manipulation?}
-		\begin{columns}[t]
+	\frametitle{Shared control with a human in the loop}
+	Human reasoning combines with the enhanced flexibility of multiple robots 
+		\begin{columns}[T]
 		\column{0.5\linewidth}
 	
 			\begin{figure}
 			\centering
 			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-			\includegraphics[width=0.98\textwidth]{mhi-meister45.jpg}
+			\includegraphics[width=0.98\textwidth]{handcontrol.jpg}
 			%\caption{Coordinated handling of tools by a tele-operated robot \cite{MHI-MEISTeR}}
 			\end{figure}
 		
-		\column{0.6\linewidth}
-			
-		Human reasoning
-		\begin{itemize}
-			\item Foresight and adaptiveness to incidents
-			\item Superior planning capabilities
-		\end{itemize}
-		\vspace{15pt}
-		Enhanced flexibility of multiple robots
-			\begin{itemize}
-				\item Transportation of large/heavy objects
-	\item Assembly of multiple parts 
-	\item Coordinated use of tools
-			\end{itemize}
+		\column{0.5\linewidth}
+		\vspace{10pt}
+		Non-restrictive input interfaces allow for almost arbitrary trajectories\\
+		\begin{block}{}
+			\textit{How can we ensure stability and safety with a human in the loop?}
+		\end{block}
+		
 			
 			\end{columns}
 \end{frame}
@@ -85,10 +83,11 @@
 			\end{figure}
 	\end{columns}
 	\vspace{10pt}
-	\begin{block}{Goal}
+	\begin{block}{Goals for control design}
 	\begin{itemize}
-	\item Consistent modelling of constrained systems 
-	\item Model-based control with human-in-the-loop
+	\item Automatic preservation of formation 
+	\item Stability with arbitrary trajectories
+	\item Safe behaviour with humans on-site
 	\end{itemize}
 	\end{block}	
 
@@ -98,55 +97,27 @@
 	\frametitle{Related Work}
 	\textbf{Robot-team control}
 	\begin{itemize}
-		\item Virtual object based impedance control \nocite{Schneider_92} {\tiny [SC92]} 
-				\item Internal and external impedance control \nocite{Caccavale_01,Caccavale_08} {\tiny [CV01,CCMV08]} 
-%			\begin{itemize}
-%			%\item object tracking required
-%			%\item knowledge of object shape and dynamics required
-%			%\item Force/Torque sensors at the manipulators required
-%			\end{itemize}
-	
-		\item Intrinsically Passive Control \nocite{Stramigioli_01, Wimboeck_08} {\tiny [Str01,WOH08]} 
-%		\begin{itemize}
-%			%\item no object tracking, virtual object simulation
-%			%\item knowledge of object shape and dynamics required
-%		\end{itemize}
-		\item Object dynamics' feed-forward \nocite{Erhart_15} {\tiny [EH15]} 
-	\item Formation control of a robot team \nocite{Sieber_15,Wimboeck_06}{\tiny [SMH15,WOH06]} 
-%		\begin{itemize}
-%			%\item no object dynamics considered
-%			%\item no knowledge of object required
-%		\end{itemize}
+		\item (Inverse) grasp-matrix approaches \nocite{Schneider_92,Caccavale_08} {\tiny [SC92,CCMV08]} 	
+		\item Virtual structures \nocite{Stramigioli_01, Sieber_15} {\tiny [Str01,SMH15]} 
 	\end{itemize}
 	\textbf{Human in the loop}
 	\begin{itemize}	
-		\item Formation-based control \nocite{Sieber_15, Scheggi_14}{\tiny [SMH15,SMP14]} 
-%		\begin{itemize}
-%			\item Single leader, multiple followers
-%			\item Robots preserve formation autonomously
-%			\item Tactile feedback
-%		\end{itemize}
-		\item Bilateral tele-manipulation  \nocite{Lee_05} {\tiny [LS05]} 
-%		\begin{itemize}
-%			\item Single master coupled to human, constrained system as slave
-%			\item Local control of interaction dynamics
-%			\item Force feedback
-%		\end{itemize}
-
+		\item Bilateral tele-manipulation  \nocite{Lee_05} {\tiny [LS05]} 	
+		\item Human leader - robotic followers \nocite{Sieber_15, Scheggi_14}{\tiny [SMH15,SMP14]} 
 		\item Gesture-based Control \nocite{Gioioso_2014}{\tiny [GFS+14]} 
-%		\begin{itemize}
-%			\item Free-hand motion controls constrained system
-%			\item Visual feedback
-%			%\item only visual feedback
-%		\end{itemize}
-		\end{itemize}
+	\end{itemize}
+	\textbf{Safety by energy-regulation}
+	\begin{itemize}
+		\item Adaptive impedance control of a single manipulator \nocite{Tadele_14}{\tiny [TVS14]}
+		\item Energy observer in physical human-robot interaction \nocite{Geravand_16}{\tiny [GSLP16]}
+	\end{itemize}
 		
 			\begin{block}{}
 			\begin{itemize}
-			\item port-Hamiltonian systems allow for energy consistent modelling of complex physical systems
-			\item \emph{IPC} concept based on a physical model
+			\item Stability with non-restrictive input interfaces is unexplored
+			\item Passivity is commonly used to cope with unmodelled dynamics
 
-			\item Closed loop stability for bounded energy supply% and a passive control architecture
+			\item Energy-based safety metrics apply for impact limitation 
 			\end{itemize}
 			\end{block}
 \end{frame}
@@ -202,21 +173,43 @@
 %
 %\end{frame}
 
+
+\begin{frame}
+	\frametitle{Overview}
+	
+	\begin{figure}
+		\centering
+		%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
+		\def\svgwidth{0.99\columnwidth}
+		\input{pics/overview.eps_tex}
+	\end{figure}
+	\begin{itemize}
+		\item Source for the passive robot-team controller: Energy Tank
+		\item Human user controls the power flow
+		\item Energy supplied to the robots is re-fed into the tank
+	\end{itemize}
+	\begin{block}{}
+		Energy-consistent description in the \emph{port-Hamiltonian} framework
+		\end{block}
+	
+\end{frame}
+
+
 \begin{frame}
 	\frametitle{port-Hamiltonian systems}
-	\begin{block}{Idea}
-	Network representation of interconnected non-linear physical systems
+	\begin{block}{}
+	Visualize power flow, allow for model-based control design,\\ facilitate stability proofs
 	\end{block}	
-	\textbf{Hamiltonian} $H$: total energy of the system\\
-		\textbf{Port}: a pair $(f,e)$ of \emph{flow} $f$ and \emph{effort} $e$ variables\\
+	\textbf{Hamiltonian} $\mathcal{H}$: total energy of the system\\
+		\textbf{Port}: power-conjugated pair $(u,y)$ of \emph{flow} $u$ and \emph{effort} $y$ variables\\
 	\begin{align*}
-		 \dot{x} &= J(x)\frac{\partial H}{\partial x}(x) +g(x)f \\
-e &= g^T(x)\frac{\partial H}{\partial x}(x)
+		 \dot{x} &= \left[J(x)-R(x)\right]\frac{\partial \mathcal{H}}{\partial x}(x) +B(x)u \\
+y &= B^T(x)\frac{\partial \mathcal{H}}{\partial x}(x)
 	\end{align*}
 
-	state-space representation with \emph{structure matrix} $J(x)$,\\ \emph{input matrix} $g(x)$ \\
+	input-state-output form with \emph{structure-} $J(x)$, \emph{dissipation-} $R(x)$\\ and \emph{mapping }matrix $B(x)$ \\
 
-	\textbf{Energy balance:} power exchanged through a port $ \frac{d}{dt}H = e^Tf $
+	\textbf{Energy balance:}  $ \frac{d}{dt}\mathcal{H} = y^Tu - \frac{\partial^T \mathcal{H}}{\partial x}R(x)\frac{\partial \mathcal{H}}{\partial x} $ ($\rightarrow$ passive)
 	
 	
 
@@ -255,26 +248,32 @@ e &= g^T(x)\frac{\partial H}{\partial x}(x)
 %\end{itemize}
 
 \end{frame}
-\begin{frame}
-	\frametitle{Overview}
 
+\begin{frame}
+	\frametitle{Model-based control design}
+	\textit{Plants and controllers are energy-transforming devices, which we interconnect to achieve the desired behaviour.} \nocite{Ortega_01}{\tiny [OSMM01]}
+	\vspace{10pt}
+		\begin{columns}
+			\column{0.4\linewidth}
 			\begin{figure}
 			\centering
 			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-			\def\svgwidth{0.99\columnwidth}
-			\input{pics/overview.eps_tex}
-			\end{figure}
-
-\end{frame}
-\begin{frame}
-	\frametitle{Virtual structure}
-
-			\begin{figure}
-			\centering
-			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-			\def\svgwidth{0.99\columnwidth}
+			\def\svgwidth{1\columnwidth}
 			\input{pics/virtualstructure.eps_tex}
 			\end{figure}
+			\column{0.6\linewidth}
+			\textbf{Virtual structure}
+			\begin{itemize}
+				\item Geometric composition of springs, masses and dampers
+				\item Establishing a formation of robots
+				\item Virtually coupling the human
+				\item Energetic model of the real system
+				\item Connection by physical rules \\ (actio = reactio) 
+			\end{itemize}
+			\end{columns}
+								\begin{block}{Stability}
+									Model errors never influence passivity nor stability \nocite{Stramigioli_01}{\tiny [Str01]} 
+								\end{block}
 
 \end{frame}
 
@@ -335,127 +334,161 @@ e &= g^T(x)\frac{\partial H}{\partial x}(x)
 %\end{frame}
 
 \begin{frame}
-	\frametitle{System model} \[
-	\begin{pmatrix}	\dot{x}_M \\ \dot{x}_S\end{pmatrix} = 
-	\begin{pmatrix}J_M & -(\phi_M)^T\\ \phi_M & 0 \end{pmatrix} 
-	\begin{pmatrix}\frac{\partial H}{\partial x_M} \\ \frac{\partial H}{\partial x_S}\end{pmatrix}
-	+ \begin{pmatrix} 0 & 0 & 0 \\ \phi_h & \phi_{rl} & \phi_m \end{pmatrix}
-	\begin{pmatrix}
-	T_h \\ T_{rl} \\ T
-	\end{pmatrix} \]
-	\[ \begin{pmatrix} W_h \\ W_{rl} \\ W \end{pmatrix} = 
-	\begin{pmatrix}0 & \phi_h^T \\ 0 & \phi_{rl}^T \\ 0 & \phi_m^T \end{pmatrix}
-	\begin{pmatrix}\frac{\partial H}{\partial x_M}\\\frac{\partial H}{\partial x_S}\end{pmatrix} \]
+	\frametitle{Example controller derivation}
+\only<1>{Starting from the virtual object...
+	 \[
+	\begin{aligned}
+	&\dot{P_b^b} = C_b \frac{\partial \mathcal{H}}{\partial P_b^b} + I_6 W_{b}^b \\
+	&T_b^{b,0} = I_6 \frac{\partial \mathcal{H}}{\partial P_b^b}
+	\end{aligned}
+	\]
+	
+		\begin{figure}
 
-\begin{columns}
-		\column{0.5\linewidth}
-\begin{itemize}
-\item $ x_M$: inertia state vector 
-\item $ x_S $: spring state vector
-%\item $H = H_S + H_M$: sum of energies
-%\item $\phi_M,J_M,\phi_h,\phi_{rl}$: geometric description matrices
-\item $T_h$: desired object twist
-\item $T_{rl}$: desired rest-length twist
-\item $T$: manipulator twist
-\item $W_h,W_{rl},W$: wrenches
-\end{itemize}
-
-%Reference inputs: $T_h,T_{rl}$\\
-%Control output: end-effector wrenches $W_E = -(\phi_E)^T \frac{\partial H}{\partial x_S} $
-		\column{0.5\linewidth}
-
-             \begin{figure}[htb]
-			\centering
 			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-			\includegraphics[width=0.9\textwidth]{IPCsprings.png}
-			\end{figure}
-		\end{columns}
+			\def\svgwidth{0.1\columnwidth}
+			\input{pics/controlderivation1.eps_tex}
+		\end{figure}
+Momentum $P_b^b$ (state), wrench $W_b^b$ (flow), twist $T_b^{b,0}$ (effort), \\ centripetal and Coriolis terms $C_b$\\ 
+\textbf{Hamiltonian} $\mathcal{H}= \frac{1}{2} {P_b^b}^T M_b^{-1} P_b^b$}
 
+
+%\end{frame}
+%
+%\begin{frame}
+	%\frametitle{Example controller derivation}
+\only<2>{	... adding a coupling spring to the user...
+	\[
+	\begin{aligned}
+	&\begin{pmatrix}\dot{H}_b^v \\ \dot{P_b^b} \end{pmatrix}=
+	\begin{pmatrix} 0 & H_b^v \\ -{H_b^v}^T & C_b \end{pmatrix}
+	\begin{pmatrix} \frac{\partial \mathcal{H}}{\partial H_b^v} \\ \frac{\partial \mathcal{H}}{\partial P_b^b}  \end{pmatrix} + 
+	\begin{pmatrix} -H_b^v Ad_{H_0^b} & 0 \\ 0 & I_6\end{pmatrix} 
+	\begin{pmatrix} T_v^0 \\ W_{b}^b \end{pmatrix}\\
+	& \begin{pmatrix}
+	W_v^0 \\ T_b^{b,0} \end{pmatrix} = 
+	\begin{pmatrix}	-Ad_{H_0^b}^T {H_b^v}^T & 0 \\ 0 & I_6	\end{pmatrix}
+	\begin{pmatrix} \frac{\partial \mathcal{H}}{\partial H_b^v} \\ \frac{\partial \mathcal{H}}{\partial P_b^b}  \end{pmatrix}
+	\end{aligned}
+	\]
+	
+	\begin{figure}
+		
+		%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
+		\def\svgwidth{0.25\columnwidth}
+		\input{pics/controlderivation2.eps_tex}
+	\end{figure}
+	relative configuration $H_b^v$ (state), desired twist $T_v^0$ (flow),\\ wrench $W_v^0$ (effort), adjoint mapping $Ad_{H_0^b}$\\ 
+	\textbf{Hamiltonian} $\mathcal{H}= \frac{1}{2} {P_b^b}^T M_b^{-1} P_b^b + V_\g{P}(H_b^v)$}
+	
+	
+%\end{frame}
+%
+%\begin{frame}
+%	\frametitle{Example controller derivation}
+\only<3>{... and another spring to the $i$-th manipulator.
+	\resizebox{1\vsize}{!}{$
+		\begin{aligned}
+	\begin{pmatrix}\dot{H}_b^v \\ \dot{P_b^b} \\ \dot{H}_{b(i)}^i\end{pmatrix}&=
+	\begin{pmatrix} 0 & H_b^v & 0 \\ -{H_b^v}^T & C_b & -Ad_{H_b^{b(i)}}^T {H_{b(i)}^i}^T \\ 0 & H_{b(i)}^i Ad_{H_b^{b(i)}} & 0 \end{pmatrix}
+	\begin{pmatrix} \frac{\partial \mathcal{H}}{\partial H_b^v} \\ \frac{\partial \mathcal{H}}{\partial P_b^b} \\ \frac{\partial \mathcal{H}}{\partial H_{b(i)}^i}  \end{pmatrix} \\ 
+	&+ 
+	\begin{pmatrix} -H_b^v Ad_{H_0^b} & 0 \\ 0 & 0 \\ 0 & -H_{b(i)}^i Ad_{H_0^{b(i)}}\end{pmatrix} 
+	\begin{pmatrix} T_v^0 \\ T_i^0 \end{pmatrix}\\
+	 \begin{pmatrix}
+	W_v^0 \\ W_i^0 \end{pmatrix} &= 
+	\begin{pmatrix}	-Ad_{H_0^b}^T {H_b^v}^T & 0 & 0\\ 0 & 0 & -Ad_{H_0^{b(i)}}^T {H_{b(i)}^i}^T	\end{pmatrix}
+	\begin{pmatrix} \frac{\partial \mathcal{H}}{\partial H_b^v} \\ \frac{\partial \mathcal{H}}{\partial P_b^b} \\ \frac{\partial \mathcal{H}}{\partial H_{b(i)}^i}  \end{pmatrix} \\
+	\end{aligned}
+	$}
+	
+	\begin{figure}
+		
+		%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
+		\def\svgwidth{0.4\columnwidth}
+		\input{pics/controlderivation3.eps_tex}
+	\end{figure}
+	\textbf{Hamiltonian} $\mathcal{H}= \frac{1}{2} {P_b^b}^T M_b^{-1} P_b^b + V_\g{P}(H_b^v) + V_\g{P}(H_{b(i)}^i)$}
+	
 \end{frame}
 
 \begin{frame}
-	\frametitle{Intrinsically Passive Control}
-	\begin{block}{}
-	Control based on the model of an impedance controlled cooperative manipulation set-up
-	\end{block}
- \begin{figure}[htb]
- \vspace{-15pt}
-			\centering
-			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-			\includegraphics[width=1\textwidth]{IPCscheme.pdf}
-\vspace{-30pt}
-\end{figure}
-\begin{columns}[t]
-		\column{1\linewidth}
-			
+	\frametitle{Modelling of rigid contact}
+	In cooperative manipulation it is common to assume a rigid connection of manipulators and object. \\
+	\textbf{Kinematic constraints} $ 0 = A^T(x)\frac{\partial \mathcal{H}}{\partial x}$ ($\rightarrow$ DAEs)\\
 	
-		\begin{itemize}
-%			\item Geometric interconnection of springs, masses and dampers
-			\item Internal and external \emph{impedance} relations
-%			\item No manipulator inertia re-shaping + dampers: \textbf{passivity}
-			\item Energy supplied by operator/environment
-%			\item Formation changes through variable virtual object shape
-		\end{itemize}
-
-		
-%		\column{0\linewidth}
-%             \begin{figure}[htb]
-%			\centering
-%			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-%			\includegraphics[width=0.98\textwidth]{IPCscheme.pdf}
-%
-%			\end{figure}
-		
-			
-		\end{columns}
-					\begin{block}{Stability}
-Model errors never influence passivity nor stability \nocite{Stramigioli_01}{\tiny [Str01]} 
+	\begin{block}{Solved input-state-output form}
+		\resizebox{!}{!}{$
+			\begin{aligned}
+			\dot{x} &= \left[J(x)-R(x)\right]\frac{\partial \mathcal{H}}{\partial x}(x) +B(x)u\\ &+ A(A^TM^{-1}A)^{-1} A^T M^{-1} (u+C\frac{\partial \mathcal{H}}{\partial x})\\
+			y &= B^T(x)\frac{\partial \mathcal{H}}{\partial x}(x)
+			\end{aligned}
+		$}
 	\end{block}
+Rigid connections are power-conservative.\nocite{Schaft13}{\tiny [Sch13]}
+
 \end{frame}
 
 
-
-%\begin{frame}
-%	\frametitle{Grasping an object}
-%\begin{columns}
-%		\column{0.4\linewidth}
-%			
-%	
-%		\begin{itemize}
-%			\item Variable rest-length springs
-%			\item Rest-length: virtual object size
-%			\item Distinct power port
-%		\end{itemize}
-%
-%		
-%		\column{0.62\linewidth}
-%             \begin{figure}[htb]
-%			\centering
-%			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-%			\includegraphics[width=0.98\textwidth]{IPCobjects.png}
-%			\caption{Virtual and real object \cite{Wimboeck_08}}
-%			\end{figure}
-%		
-%			
-%		\end{columns}
-%\end{frame}
+\begin{frame}
+	\frametitle{Energy tanks}
+	\textbf{Virtual storage element:} Energy function $T(x_\g{t}) = \frac{1}{2}x_\g{t}^2$
+	\begin{align*}
+	x_\g{t} &= u_\g{t} \\
+	y_\g{t} &= \frac{\partial T(x_\g{t})}{\partial x_\g{t}} (=x_\g{t})
+	\end{align*}
+	Interconnection of tank and controller by a transformer/gyrator
+	\begin{align*}
+		u = ny_\g{t}\\
+		u_\g{t} = -n^T y
+	\end{align*}
+	The interconnection is power-continuous for any ratio $n$\\
+	For $ n = \frac{w}{x_\g{t}}$, $w$ is the new control input
+	\begin{align*}
+	\dot{x} &= \left[J(x)-R(x)\right]\frac{\partial \mathcal{H}}{\partial x}(x) +B(x)\frac{w}{\color{gray}{x_\g{t}}}{\color{gray}y_\g{t}} \\
+	y &= B^T(x)\frac{\partial \mathcal{H}}{\partial x}(x)
+	\end{align*} 
+\end{frame}
 
 
+\begin{frame}
+	\frametitle{Re-filling and energy balance}
+	\begin{figure}[b!]
+		\centering
+		\footnotesize
+		\def\svgwidth{0.95\columnwidth}
+		\input{pics/energytank.eps_tex}				
+	\end{figure}
+	\textit{Lossy robots and unknown energy exchange with the environment}
+	Controller dissipation and power supplied to the robots is re-fed into the tank, i.e. $\dot{T}(x_\g{t})+\dot{\mathcal{H}}=0$.
+	\[
+	\dot{T}(x_\g{t}) + \underbrace{\frac{\partial^T \mathcal{H}}{\partial x}R(x)\frac{\partial \mathcal{H}}{\partial x} + \sum_{i=1}^n {W_i^{0,0}}^T T_i^0}_{\text{compensation}} = - \dot{{\mathcal{H}}} + \sum_{i=1}^n {W_i^{0,0}}^T T_i^0
+	\] 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Safety metrics and adaptive stiffness}
+	Minimal kinetic energies that result in severe injuries \nocite{Tadele_14}{\tiny TVS14}
+	\[
+	V_{\g{K,min}} = 
+	\begin{cases}
+	517 \text{ J} & \text{adult cranium bone failure} \\
+	127 \text{ J} & \text{infant cranium bone failure} \\
+	30 \text{ J} & \text{neck fracture}
+	\end{cases}
+	\]
+	\textit{How can we change user commands to comply with these limits?}
+	Human hand is stiff when moving slow, compliant when fast \nocite{[Hog84b]}{\tiny [Hog84]}
+	\textbf{Energy-adapted human coupling:} reduced stiffness $\kappa$ and damping below a threshold tank level $T_{\g{th}}$
+	\[
+	\kappa = \begin{cases}
+	k_{vb} & \text{if } \, T(x_\g{t})\geq T_{\g{th}} \\
+	k_{vb} \frac{T(x_\g{t})}{T_{\g{th}}} & \text{if } \, T(x_\g{t}) < T_{\g{th}}
+	\end{cases} \]
+	\end{frame}
 
 
-%\begin{frame}
-%	\frametitle{Future work: Internal force control}
-%	Friction constraint of a \emph{soft finger}
-%	\[f_N \geq \frac{1}{\mu_f} \vert f_T \vert + \frac{1}{\mu_m} \vert m_N \vert
-%	\]
-%	\begin{itemize}
-%		\item Autonomous control of grasping forces subject to dynamic manipulation requirements
-%		\item Energy taken from virtual object spring
-%		\item Operator sets constant grasping forces
-%	\end{itemize}
-%	
-%	
-%\end{frame}
+
 
 \section{Results}
 %\begin{frame}
@@ -478,105 +511,43 @@ Model errors never influence passivity nor stability \nocite{Stramigioli_01}{\ti
 %\end{columns}
 %\end{frame}
 \begin{frame}
-	\frametitle{Comparison: position tracking}
-%Impedance-based reference trajectory generation \cite{Caccavale_01}
-\begin{figure}[t]
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$p_x$[m]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {desired position, object force feed-forward, impedance-based trajectory gen., virtual object},
-		legend style = {at={(axis cs:1.2, 0.07)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=7.5cm,
-		width=0.98\linewidth
-	]
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransdesiredPosition.txt};\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransPosition.txt};
-\addplot[yellow,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Position.txt};
-\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
-\end{axis}
-\end{tikzpicture}
-%\begin{tikzpicture}
-%	\begin{axis} [
-%		ylabel = {$p_x$[m]},
-%		xlabel = {t[s]},
-%		minor y tick num = 1,
-%		axis lines = left,
-%		legend entries = {position,desired position},
-%		legend style = {at={(axis cs:2.6, 0.7)}, anchor = north},
-%		legend cell align=left,
-%		grid = major,
-%		height=3.5cm,
-%		width=0.98\linewidth
-%	]
-%\addplot[red,]
-%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransPosition.txt};
-%\addplot[blue,]
-%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredPosition.txt};
-%\end{axis}
-%\end{tikzpicture}
-\vspace{-20pt}
-%\caption{Top: Object force feed-forward;
-%Bottom: Virtual Object}
+	\frametitle{Trajectory tracking: Comparison}
+	\vspace{-30pt}
+	\begin{figure}
+\include{DIPCcgroup}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Trajectory tracking: Interpretation}
+\begin{figure}
+	\centering
+	\small
+	\def\svgwidth{1\columnwidth}
+	\input{pics/ImpedanceIPC.eps_tex}
+\end{figure}
+Different role of inertias in the controllers: force gradients cause performance gap
+\begin{figure}
+	\vspace{-30pt}
+	\include{ForceCmp}
 \end{figure}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Comparison: velocity tracking}
-%Internal impedance control with object force-feedforward \cite{DePascali_15}
-\begin{figure}[t]
-\begin{tikzpicture}
-	\begin{axis} [
-		ylabel = {$v_x$[m/s]},
-		xlabel = {t[s]},
-		minor y tick num = 1,
-		axis lines = left,
-		legend entries = {desired velocity, object force feed-forward, impedance-based trajectory gen., virtual object},
-		legend style = {at={(axis cs:0.8, -2)}, anchor = north},
-		legend cell align=left,
-		grid = major,
-		height=7.5cm,
-		width=0.98\linewidth
-	]
-\addplot[blue,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_desiredVelocity.txt};
-\addplot[red,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DePatransVelocity.txt};
-\addplot[yellow,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVi_Velocity.txt};
-\addplot[green,]
-	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
-\end{axis}
-\end{tikzpicture}
-%\begin{tikzpicture}
-%	\begin{axis} [
-%		ylabel = {$v_x$[m]},
-%		xlabel = {t[s]},
-%		minor y tick num = 1,
-%		axis lines = left,
-%		legend entries = {velocity,desired velocity},
-%		legend style = {at={(axis cs:0.8, -0.5)}, anchor = north},
-%		legend cell align=left,
-%		grid = major,
-%		height=3.5cm,
-%		width=0.98\linewidth
-%	]
-%\addplot[red,]
-%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransVelocity.txt};
-%\addplot[blue,]
-%	table {/home/mangerer/MAgit/MA/Latex/plotdata/DIPCtransdesiredVelocity.txt};
-%\end{axis}
-%\end{tikzpicture}
-\vspace{-20pt}
-%\caption{Top: External impedance based reference trajectory generation; Bottom: Virtual object}
-\end{figure}
+	\frametitle{Energy-bounded trajectory tracking}
+	\begin{figure}
+		\include{EBTT}
+	\end{figure}
+	\begin{itemize}
+		\item Controller is an energetic model of the real system
+		\item Velocity and possible forces are limited by the energy budget
+		\item Robots return to the desired position as fast as possible
+		\item 
+	\end{itemize}
+	 
+	
+	
 \end{frame}
 
 %\begin{frame}
@@ -630,37 +601,22 @@ Model errors never influence passivity nor stability \nocite{Stramigioli_01}{\ti
 %\end{frame}
 \section{Conclusion}
 
-\begin{frame}
-	\frametitle{Human in the loop}
-	\begin{itemize}
-			\item Desired object position is connected with a spring to the human
-			\item Time-discrete reference changes possibly violate passivity
-			\item Spring energy leap $\Delta \bar{P}(k) = H_S(t_k) - H_S(t_k^-)$ 
-			\item Pre-filled energy tank to allow for initial twist
-%			\item Passive Set Position Modulation \cite{Lee_10}
-%			\item Suitable for bilateral tele-manipulation
-%			\item Spring rest-lengths: adjust to grasp/release objects
-		\end{itemize}
-		\begin{figure}
-					\centering
-					\includegraphics[width=1\textwidth]{pspm.pdf}
-
-		\end{figure}
-\end{frame}
 
 \begin{frame}
-	\frametitle{Overview \& open issues}
+	\frametitle{Conclusion \& future work}
 	\begin{itemize}
-		\item port-Hamiltonian model of a cooperative manipulation set-up
-		\item Appropriate dynamic performance of the model-based controller
+		\item Energy-consistent modelling and control of a cooperative set-up
+		\item Intrinsically passive controller with energy-adapted coupling of the user
+		\item Energy budget at the user's disposal to operate the system
+		\item System behaves save and stable with arbitrary user commands
 
   
 	\end{itemize}
-		\begin{block}{Open issues}
+		\begin{block}{Future work}
 \begin{itemize}
-\item Formulation of the HIL in the Hamiltonian framework
-\item Passive, stable closed loop behaviour
-\item Experimental evaluation
+\item Experimental implementation
+\item Evaluation of safety metrics for violent pressure
+\item Generalization for a wider class of teleoperated systems
 \end{itemize}
 	\end{block}	
 \end{frame}

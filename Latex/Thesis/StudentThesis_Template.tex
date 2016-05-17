@@ -1795,8 +1795,9 @@ The two controllers presented in section \ref{S:modelbasedcontrol} are based on 
 It is thus sufficient to apply the energetic limits, imposed by the safety metrics, to the controller. The proposed automatic compensation re-supplies the energy transferred to the robots into the energy tank. 
 The power exchanged between controller and the $i$-th robot is defined by the given by the wrench-twist product ${W_i^{0,0}}^T T_i^0$, applying the automatic compensation the energy balance is
 \begin{equation}
-\dot{T}(x_\g{t}) + \underbrace{\sum_{i=1}^n {W_i^{0,0}}^T T_i^0}_{\text{compensation}} = \dot{\bar{\mathcal{H}}} + \sum_{i=1}^n {W_i^{0,0}}^T T_i^0
+\dot{T}(x_\g{t}) + \underbrace{\sum_{i=1}^n {W_i^{0,0}}^T T_i^0}_{\text{compensation}} = - \dot{{\mathcal{H}}}(x) + \sum_{i=1}^n {W_i^{0,0}}^T T_i^0
 \end{equation}
+This means a constant level of energy in tank and controller $\dot{T}(x_\g{t})+\dot{\mathcal{H}} = 0$.
 Clearly, the compensation term $\sum_{i=1}^n {W_i^{0,0}}^T T_i^0$ is active, it provides energy in lieu of the user, who is energetically decoupled in our approach. Still all energy flows through the controller and is bounded if necessary. But the energy budget, given by the tank level, accounts only for the controller state. Please recall that the combination of controller and tank is lossless, so the system can always carry out tasks within the given safety margin.\\ 
 In order to explain the proposal of enhancing stability and safety by energy-bounding the controller, consider the following illustrative examples.
 The operator drives the system to a high velocity, due to the moving virtual inertias in the controller, the tank is used up. This leads to a relaxation of the coupling of user and virtual object and prevents prevents further acceleration. Thus the robotic system is kept at a certain speed. This also holds if the virtual inertia parameters deviate from their real pendants (modelling errors). The combination of the initial tank level and the virtual inertias determine the achievable system speed. We can calculate this speed by using the apparent inertia of a cooperative set-up from \cite{Erhart_16}.\\ 

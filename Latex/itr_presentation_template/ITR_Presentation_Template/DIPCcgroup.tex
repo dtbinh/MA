@@ -1,0 +1,95 @@
+\begin{tikzpicture}
+\begin{groupplot}[
+      group style={group size=2 by 3,ylabels at=edge 			left},
+      ylabel style={text height=0.02\textwidth,inner 			ysep=-5pt},
+      grid=major,height=0.35\linewidth,width=0.48\linewidth,/tikz/font=\footnotesize
+    ]
+    \nextgroupplot[ylabel={Position $\Delta p_x$[m]}] 
+	\addplot[blue,] table {../../plotdata/DIPCctrans_errPos.txt};\label{plots:cIPC}
+	\addplot[red,] table {../../plotdata/CaVitrans_errPos.txt};\label{plots:errPos}
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot[ylabel={Orient. $\Delta \Phi_z$[rad]}]
+	\addplot[blue,] table {../../plotdata/DIPCcrot_errOrient.txt};\label{plots:cIPC}
+	\addplot[red,] table {../../plotdata/CaVirot_errOrient.txt};\label{plots:errOrient}
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+  \end{groupplot}
+  % legend
+  \path (top|-current bounding box.north)--
+        coordinate(legendpos)
+        (bot|-current bounding box.north);
+  \matrix[
+      matrix of nodes,
+      anchor=south,
+      draw,
+      inner sep=0.2em,
+    ]at([yshift=1ex]legendpos)
+    { {\color{blue}\textemdash} &{ constrained IPC}&[5pt]
+      {\color{red}\textemdash} &{ classic impedance control}&[5pt]\\};
+\end{tikzpicture} 
+
+
+
+\begin{tikzpicture}
+\begin{groupplot}[
+      group style={group size=2 by 3,ylabels at=edge 			left},
+      ylabel style={text height=0.02\textwidth,inner ysep=-5pt},
+      grid=major,height=0.35\linewidth,width=0.48\linewidth,/tikz/font=\footnotesize
+    ]
+    \nextgroupplot[xlabel={$t$[s]}, ylabel={Lin. vel. $\Delta \dot{p}_x$[m/s]}] 
+	\addplot[blue,] table {../../plotdata/DIPCctrans_errVeloc.txt};\label{plots:cIPC}
+	\addplot[red,] table {../../plotdata/CaVitrans_errVeloc.txt};
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot[xlabel={$t$[s]}, ylabel={Ang. vel. $\Delta \omega_z$[rad/s]}]
+	\addplot[blue,] table {../../plotdata/DIPCcrot_errAngVel.txt};\label{plots:cIPC}
+	\addplot[red,] table {../../plotdata/CaVirot_errAngVel.txt};
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+  \end{groupplot}
+  % legend
+%  \path (top|-current bounding box.north)--
+%        coordinate(legendpos)
+%        (bot|-current bounding box.north);
+%  \matrix[
+%      matrix of nodes,
+%      anchor=south,
+%      draw,
+%      inner sep=0.2em,
+%    ]at([yshift=1ex]legendpos)
+%    { \ref*{plots:errVeloc}&{ $\Delta\dot{p}_x$ [m/s]}&[5pt]
+%      \ref*{plots:errAngVel}&{ $\Delta\omega_z$ [rad/s]}&[5pt]\\};
+\end{tikzpicture} 
+
+
+
+%\begin{tikzpicture}
+%\begin{groupplot}[
+%      group style={group size=2 by 3,ylabels at=edge 			left},
+%      ylabel style={text height=0.02\textwidth,inner 			ysep=0pt},
+%      grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
+%    ]
+%    \nextgroupplot[ylabel={Manipulator wrench}]  
+%	\addplot[red,] table {../../plotdata/DIPCctrans_Manipulator wrench_tx.txt}; 
+%	\addplot[blue,] table {../../plotdata/DIPCctrans_Manipulator wrench_ty.txt}; 
+%	\addplot[green,] table {../../plotdata/DIPCctrans_Manipulator wrench_rz.txt};	
+%	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+%	\nextgroupplot
+%	\addplot[red,] table {../../plotdata/DIPCcrot_Manipulator wrench_tx.txt};\label{plots:forcex}
+%	\addplot[blue,] table {../../plotdata/DIPCcrot_Manipulator wrench_ty.txt};\label{plots:forcey} 
+%	\addplot[green,] table {../../plotdata/DIPCcrot_Manipulator wrench_rz.txt};\label{plots:torquez}	
+%	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+%  \end{groupplot}
+%  % legend
+%  \path (top|-current bounding box.north)--
+%        coordinate(legendpos)
+%        (bot|-current bounding box.north);
+%  \matrix[
+%      matrix of nodes,
+%      anchor=south,
+%      draw,
+%      inner sep=0.2em,
+%    ]at([yshift=1ex]legendpos)
+%    { \ref*{plots:forcex}&{ $f_x$ [N]}&[5pt]
+%    	  \ref*{plots:forcey}&{ $f_y$ [N]}&[5pt]
+%      \ref*{plots:torquez}&{ $m_z$ [Nm]}&[5pt]\\};
+%\end{tikzpicture}
+
+
