@@ -3,7 +3,12 @@
 \pgfplotsset{compat=1.9}
 \usepgfplotslibrary{groupplots}
 \usetikzlibrary{matrix} 
-\addbibresource{ref.bib}
+\addbibresource{../../Thesis/mybib.bib}
+\AtEveryBibitem{\clearfield{note}}
+\AtEveryBibitem{\clearfield{isbn}}
+\AtEveryBibitem{\clearfield{doi}}
+\AtEveryBibitem{\clearfield{issn}}
+\AtEveryBibitem{\clearname{editor}}
 \graphicspath{{pics/}{logos/}}
 \newcommand{\f}[1]{\boldsymbol{#1}}
 \newcommand{\g}[1]{\text{#1}}
@@ -12,7 +17,7 @@
 \presenter{M. Angerer}
 
 \supervisor{S. Musi\'c}
-\typeofpres{Intermediate Presentation Master Thesis}
+\typeofpres{Final Presentation Master Thesis}
 
 \usetikzlibrary{decorations.pathreplacing}
 \newcommand{\tikzmark}[2]{\tikz[remember picture,baseline=(#1.base)]{\node[inner sep=0pt] (#1) {#2};}}
@@ -425,17 +430,19 @@ Momentum $P_b^b$ (state), wrench $W_b^b$ (flow), twist $T_b^{b,0}$ (effort), \\ 
 			\end{aligned}
 		$}
 	\end{block}
-Rigid connections are power-conservative.\nocite{Schaft13}{\tiny [Sch13]}
+	Constraint matrix $A$, inertia matrix $M$, centripetal force matrix $C$ \\
+	\vspace{6pt}
+Rigid connections are power-conservative.\nocite{Schaft_13}{\tiny [Sch13]}
 
 \end{frame}
 
 
 \begin{frame}
 	\frametitle{Energy tanks}
-	\textbf{Virtual storage element:} Energy function $T(x_\g{t}) = \frac{1}{2}x_\g{t}^2$
+	\textbf{Virtual storage element:} Energy function $\mathcal{T}(x_\g{t}) = \frac{1}{2}x_\g{t}^2$
 	\begin{align*}
 	x_\g{t} &= u_\g{t} \\
-	y_\g{t} &= \frac{\partial T(x_\g{t})}{\partial x_\g{t}} (=x_\g{t})
+	y_\g{t} &= \frac{\partial \mathcal{T}(x_\g{t})}{\partial x_\g{t}} (=x_\g{t})
 	\end{align*}
 	Interconnection of tank and controller by a transformer/gyrator
 	\begin{align*}
@@ -460,9 +467,9 @@ Rigid connections are power-conservative.\nocite{Schaft13}{\tiny [Sch13]}
 		\input{pics/energytank.eps_tex}				
 	\end{figure}
 	\textit{Lossy robots and unknown energy exchange with the environment}
-	Controller dissipation and power supplied to the robots is re-fed into the tank, i.e. $\dot{T}(x_\g{t})+\dot{\mathcal{H}}=0$.
+	Controller dissipation and power supplied to the robots is re-fed into the tank, i.e. $\dot{\mathcal{T}}(x_\g{t})+\dot{\mathcal{H}}=0$.
 	\[
-	\dot{T}(x_\g{t}) + \underbrace{\frac{\partial^T \mathcal{H}}{\partial x}R(x)\frac{\partial \mathcal{H}}{\partial x} + \sum_{i=1}^n {W_i^{0,0}}^T T_i^0}_{\text{compensation}} = - \dot{{\mathcal{H}}} + \sum_{i=1}^n {W_i^{0,0}}^T T_i^0
+	\dot{\mathcal{T}}(x_\g{t}) + \underbrace{\frac{\partial^T \mathcal{H}}{\partial x}R(x)\frac{\partial \mathcal{H}}{\partial x} + \sum_{i=1}^n {W_i^{0}}^T T_i^0}_{\text{compensation}} = - \dot{{\mathcal{H}}} + \sum_{i=1}^n {W_i^{0}}^T T_i^0
 	\] 
 \end{frame}
 
@@ -478,12 +485,12 @@ Rigid connections are power-conservative.\nocite{Schaft13}{\tiny [Sch13]}
 	\end{cases}
 	\]
 	\textit{How can we change user commands to comply with these limits?}
-	Human hand is stiff when moving slow, compliant when fast \nocite{[Hog84b]}{\tiny [Hog84]}
-	\textbf{Energy-adapted human coupling:} reduced stiffness $\kappa$ and damping below a threshold tank level $T_{\g{th}}$
+	Human hand is stiff when moving slow, compliant when fast \nocite{Hogan_84b}{\tiny [Hog84]}
+	\textbf{Energy-adapted human coupling:} reduced stiffness $\kappa$ and damping below a threshold tank level $\mathcal{T}_{\g{th}}$
 	\[
 	\kappa = \begin{cases}
-	k_{vb} & \text{if } \, T(x_\g{t})\geq T_{\g{th}} \\
-	k_{vb} \frac{T(x_\g{t})}{T_{\g{th}}} & \text{if } \, T(x_\g{t}) < T_{\g{th}}
+	k_{vb} & \text{if } \, \mathcal{T}(x_\g{t})\geq \mathcal{T}_{\g{th}} \\
+	k_{vb} \frac{\mathcal{T}(x_\g{t})}{\mathcal{T}_{\g{th}}} & \text{if } \, \mathcal{T}(x_\g{t}) < \mathcal{T}_{\g{th}}
 	\end{cases} \]
 	\end{frame}
 
@@ -511,28 +518,40 @@ Rigid connections are power-conservative.\nocite{Schaft13}{\tiny [Sch13]}
 %\end{columns}
 %\end{frame}
 \begin{frame}
-	\frametitle{Trajectory tracking: Comparison}
+	\frametitle{Trajectory tracking: Constrained dynamic IPC }
+	%\frametitle{Trajectory tracking: Comparison}
 	\vspace{-30pt}
 	\begin{figure}
-\include{DIPCcgroup}
+%\include{TrajCmp}
+\include{DIPCc}
 \end{figure}
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Trajectory tracking: Interpretation}
-\begin{figure}
-	\centering
-	\small
-	\def\svgwidth{1\columnwidth}
-	\input{pics/ImpedanceIPC.eps_tex}
-\end{figure}
-Different role of inertias in the controllers: force gradients cause performance gap
-\begin{figure}
+	\frametitle{Trajectory tracking: Classic (enhanced) IPC }
+	%\frametitle{Trajectory tracking: Comparison}
 	\vspace{-30pt}
-	\include{ForceCmp}
+	\begin{figure}
+%\include{TrajCmp}
+\include{StrIPC}
 \end{figure}
 \end{frame}
+
+%\begin{frame}
+%	\frametitle{Trajectory tracking: Interpretation}
+%\begin{figure}
+%	\centering
+%	\small
+%	\def\svgwidth{1\columnwidth}
+%	\input{pics/ImpedanceIPC.eps_tex}
+%\end{figure}
+%Different role of inertias in the controllers: force gradients cause performance gap
+%\begin{figure}
+%	\vspace{-30pt}
+%	\include{ForceCmp}
+%\end{figure}
+%\end{frame}
 
 \begin{frame}
 	\frametitle{Energy-bounded trajectory tracking}

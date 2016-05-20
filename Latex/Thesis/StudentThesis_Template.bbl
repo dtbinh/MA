@@ -1,39 +1,49 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{OvdSME99}
+\begin{thebibliography}{OvdSMM01}
 
 \bibitem[BH96]{Bonitz_96}
 R.G. Bonitz and T.C. Hsia.
 \newblock Internal force-based impedance control for cooperating manipulators.
-\newblock {\em Robotics and Automation, IEEE Transactions on}, 12(1):78--89,
+\newblock {\em IEEE Transactions on Robotics and Automation}, 12(1):78--89, Feb
   1996.
+\newblock \href {http://dx.doi.org/10.1109/70.481752}
+  {\path{doi:10.1109/70.481752}}.
 
 \bibitem[CCMV08]{Caccavale_08}
 F.~Caccavale, P.~Chiacchio, A.~Marino, and L.~Villani.
 \newblock Six-dof impedance control of dual-arm cooperative manipulators.
-\newblock {\em Mechatronics, IEEE/ASME Transactions on}, 13(5):576--586, 2008.
+\newblock {\em IEEE/ASME Transactions on Mechatronics}, 13(5):576--586, 2008.
+\newblock \href {http://dx.doi.org/10.1109/TMECH.2008.2002816}
+  {\path{doi:10.1109/TMECH.2008.2002816}}.
 
 \bibitem[CV01]{Caccavale_01}
 F.~Caccvale and L.~Villani.
 \newblock An impedance control strategy for cooperative manipulation.
-\newblock {\em Advanced Intelligent Mechatronics, IEEE/ASME International
-  Conference on}, 1:343--348, 2001.
+\newblock In {\em Proc. IEEE/ASME Int. Conf. on Advanced Intelligent
+  Mechatronics}, volume~1, pages 343--348, 2001.
+\newblock \href {http://dx.doi.org/10.1109/AIM.2001.936478}
+  {\path{doi:10.1109/AIM.2001.936478}}.
 
 \bibitem[DMSB09]{duindam2009geoplexbook}
 V.~Duindam, A.~Macchelli, S.~Stramigioli, and H.~Bruyninckx.
 \newblock {\em Modeling and Control of Complex Physical Systems}.
-\newblock Springer Verlag, Berlin Heidelberg, 2009.
+\newblock Springer, 2009.
+\newblock \href {http://dx.doi.org/10.1007/978-3-642-03196-0}
+  {\path{doi:10.1007/978-3-642-03196-0}}.
 
 \bibitem[DS09]{Duindam_09}
 V.~Duindam and S.~Stramigioli.
-\newblock {\em Modeling and Control for Efficient Bipedal Walking Robots}.
-\newblock Springer Tracts in Advanced Robotics. Springer-Verlag, Berlin
-  Heidelberg, 2009.
+\newblock {\em Modeling and Control for Efficient Bipedal Walking Robots},
+  volume~53 of {\em Springer Tracts in Advanced Robotics}.
+\newblock Springer, 2009.
+\newblock \href {http://dx.doi.org/10.1007/978-3-540-89918-1}
+  {\path{doi:10.1007/978-3-540-89918-1}}.
 
 \bibitem[EH16]{Erhart_16}
 S.~Erhart and S.~Hirche.
 \newblock Model and analysis of the interaction dynamics in cooperative
   manipulation tasks.
-\newblock {\em Robotics, IEEE Transactions on}, 2016.
+\newblock {\em IEEE Transactions on Robotics}, 2016.
 
 \bibitem[FSM{\etalchar{+}}11]{Franken_11}
 M.~Franken, S.~Stramigioli, S.~Misra, C.~Secchi, and A.~Macchelli.
@@ -47,8 +57,10 @@ M.~Franken, S.~Stramigioli, S.~Misra, C.~Secchi, and A.~Macchelli.
 G.~Gioioso, A.~Franchi, G.~Salvietti, S.~Scheggi, and D.~Prattichizzo.
 \newblock The flying hand: A formation of {UAVs} for cooperative aerial
   tele-manipulation.
-\newblock {\em Robotics and Automation (ICRA), 2014 IEEE International
-  Conference on}, pages 4335--4341, May 2014.
+\newblock In {\em Proc. IEEE Int. Conf. on Robotics and Automation}, pages
+  4335--4341, May 2014.
+\newblock \href {http://dx.doi.org/10.1109/ICRA.2014.6907490}
+  {\path{doi:10.1109/ICRA.2014.6907490}}.
 
 \bibitem[Goe52]{Goertz_52}
 R.C. Goertz.
@@ -59,16 +71,14 @@ R.C. Goertz.
 M.~Geravand, E.~Shahriari, A.~De~Luca, and A.~Peer.
 \newblock {Port-based Modeling of Human-Robot Collaboration towards
   Safety-enhancing Energy Shaping Control}.
-\newblock In {\em 2016 IEEE International Conference on Robotics and
-  Automation}, 2016.
+\newblock In {\em Proc. IEEE Int. Conf. on Robotics and Automation}, 2016.
 \newblock accepted for publication.
 
 \bibitem[Had14]{Haddadin_14}
 Sami Haddadin.
 \newblock {\em Towards Safe Robots - Approaching Asimov's 1st Law}, volume~90
   of {\em Springer Tracts in Advanced Robotics}.
-\newblock Springer, Berlin, 2014.
-\newblock ISBN 978-3-642-40307-1.
+\newblock Springer, 2014.
 \newblock \href {http://dx.doi.org/10.1007/978-3-642-40308-8}
   {\path{doi:10.1007/978-3-642-40308-8}}.
 
@@ -81,12 +91,13 @@ S.~Hirche and M.~Buss.
 
 \bibitem[HKDN13]{Heck_13}
 D.~Heck, D.~Kostic, A.~Denasi, and H.~Nijmeijer.
-\newblock Six-dof impedance control of dual-arm cooperative manipulators.
-\newblock {\em Control Conference (ECC), 2013 European}, pages 2299--2304, July
+\newblock Internal and external force-based impedance control for cooperative
+  manipulation.
+\newblock In {\em Proc. European Control Conference}, pages 2299--2304, July
   2013.
 
 \bibitem[Hog84a]{Hogan_84b}
-N.~Hogan.
+Neville Hogan.
 \newblock Adaptive control of mechanical impedance by coactivation of
   antagonist muscles.
 \newblock {\em IEEE Transactions on Automatic Control}, 29(8):681--690, Aug
@@ -95,15 +106,15 @@ N.~Hogan.
   {\path{doi:10.1109/TAC.1984.1103644}}.
 
 \bibitem[Hog84b]{Hogan_84}
-N.~Hogan.
+Neville Hogan.
 \newblock Impedance control: An approach to manipulation.
-\newblock {\em American Control Conference}, pages 304--313, June 1984.
+\newblock In {\em American Control Conference}, pages 304--313, June 1984.
 
 \bibitem[Hog89]{Hogan_89}
-N.~Hogan.
+Neville Hogan.
 \newblock Controlling impedance at the man/machine interface.
-\newblock In {\em Robotics and Automation, 1989. Proceedings., 1989 IEEE
-  International Conference on}, pages 1626--1631 vol.3, May 1989.
+\newblock In {\em Proc. IEEE Int. Conf. on Robotics and Automation}, pages
+  1626--1631 vol.3, May 1989.
 \newblock \href {http://dx.doi.org/10.1109/ROBOT.1989.100210}
   {\path{doi:10.1109/ROBOT.1989.100210}}.
 
@@ -132,36 +143,37 @@ D.~Lee and K.~Huang.
   {\path{doi:10.1109/TRO.2010.2041877}}.
 
 \bibitem[LL02]{Liu_02}
-Guanfeng Liu and Zexiang Li.
+G.~Liu and Z.~Li.
 \newblock A unified geometric approach to modeling and control of constrained
   mechanical systems.
 \newblock {\em IEEE Transactions on Robotics and Automation}, 18(4):574--587,
   Aug 2002.
+\newblock \href {http://dx.doi.org/10.1109/TRA.2002.802207}
+  {\path{doi:10.1109/TRA.2002.802207}}.
 
 \bibitem[LS05]{Lee_05}
-Dongjun Lee and M.W. Spong.
+D.~Lee and M.W. Spong.
 \newblock Bilateral teleoperation of multiple cooperative robots over delayed
   communication networks: Theory.
-\newblock In {\em Robotics and Automation (ICRA), International Conference on},
-  pages 360--365, April 2005.
+\newblock In {\em Proc. IEEE Int. Conf. Robotics and Automation}, pages
+  360--365, April 2005.
 \newblock \href {http://dx.doi.org/10.1109/ROBOT.2005.1570145}
   {\path{doi:10.1109/ROBOT.2005.1570145}}.
 
 \bibitem[LTC09]{Laffranchi_09}
 M.~Laffranchi, N.~G. Tsagarakis, and D.~G. Caldwell.
 \newblock Safe human robot interaction via energy regulation control.
-\newblock In {\em 2009 IEEE/RSJ International Conference on Intelligent Robots
-  and Systems}, pages 35--41, Oct 2009.
+\newblock In {\em Proc. IEEE/RSJ Int. Conf. on Intelligent Robots and Systems},
+  pages 35--41, Oct 2009.
 \newblock \href {http://dx.doi.org/10.1109/IROS.2009.5354803}
   {\path{doi:10.1109/IROS.2009.5354803}}.
 
 \bibitem[LTC12]{Laffranchi_12}
-Matteo Laffranchi, Nikos~G. Tsagarakis, and Darwin~G. Caldwell.
+M.~Laffranchi, N.~G. Tsagarakis, and D.~G. Caldwell.
 \newblock Improving safety of human-robot interaction through energy regulation
   control and passive compliant design.
 \newblock In Maurtua Inaki, editor, {\em {Human Machine Interaction - Getting
-  Closer}}, chapter~8, pages 155--170. InTech, Rijeka, 2012.
-\newblock ISBN 978-953-307-890-8.
+  Closer}}, chapter~8, pages 155--170. InTech, 2012.
 \newblock \href {http://dx.doi.org/10.5772/1349} {\path{doi:10.5772/1349}}.
 
 \bibitem[Mat16]{SimulinkHelp:Solver}
@@ -175,39 +187,42 @@ MathWorks.
 C.~Ott, A.~Albu-Schaffer, A.~Kugi, S.~Stamigioli, and G.~Hirzinger.
 \newblock A passivity based cartesian impedance controller for flexible joint
   robots - part i: torque feedback and gravity compensation.
-\newblock In {\em Robotics and Automation, 2004. Proceedings. ICRA '04. 2004
-  IEEE International Conference on}, volume~3, pages 2659--2665 Vol.3, April
-  2004.
-
-\bibitem[OSMM01]{Ortega_01}
-R.~Ortega, A.~J. Van~Der Schaft, I.~Mareels, and B.~Maschke.
-\newblock Putting energy back in control.
-\newblock {\em IEEE Control Systems}, 21(2):18--33, Apr 2001.
-\newblock \href {http://dx.doi.org/10.1109/37.915398}
-  {\path{doi:10.1109/37.915398}}.
+\newblock In {\em Proc. IEEE Int. Conf. on Robotics and Automation}, volume~3,
+  pages 2659--2665, April 2004.
+\newblock \href {http://dx.doi.org/10.1109/ROBOT.2004.1307462}
+  {\path{doi:10.1109/ROBOT.2004.1307462}}.
 
 \bibitem[OvdSCA08]{Ortega_08}
-R.~Ortega, A.~van~der Schaft, F.~Castanos, and A.~Astolfi.
+R.~Ortega, A.~J. van~der Schaft, F.~Castanos, and A.~Astolfi.
 \newblock Control by interconnection and standard passivity-based control of
   port-hamiltonian systems.
 \newblock {\em IEEE Transactions on Automatic Control}, 53(11):2527--2542, Dec
   2008.
+\newblock \href {http://dx.doi.org/10.1109/TAC.2008.2006930}
+  {\path{doi:10.1109/TAC.2008.2006930}}.
 
 \bibitem[OvdSME99]{Ortega_99}
-R.~Ortega, A.~van~der Schaft, B.~Maschke, and G.~Escobar.
+R.~Ortega, A.~J. van~der Schaft, B.~Maschke, and G.~Escobar.
 \newblock Energy-shaping of port-controlled hamiltonian systems by
   interconnection.
-\newblock In {\em Decision and Control, 1999. Proceedings of the 38th IEEE
-  Conference on}, volume~2, pages 1646--1651 vol.2, 1999.
+\newblock In {\em Proc. IEEE Conf. on Decision and Control}, volume~2, pages
+  1646--1651 vol.2, 1999.
 \newblock \href {http://dx.doi.org/10.1109/CDC.1999.830260}
   {\path{doi:10.1109/CDC.1999.830260}}.
+
+\bibitem[OvdSMM01]{Ortega_01}
+R.~Ortega, A.~J. van~der Schaft, I.~Mareels, and B.~Maschke.
+\newblock Putting energy back in control.
+\newblock {\em IEEE Control Systems Magazine}, 21(2):18--33, Apr 2001.
+\newblock \href {http://dx.doi.org/10.1109/37.915398}
+  {\path{doi:10.1109/37.915398}}.
 
 \bibitem[PST{\etalchar{+}}15]{Peters_15}
 J.~R. Peters, V.~Srivastava, G.~S. Taylor, A.~Surana, M.~P. Eckstein, and
   F.~Bullo.
 \newblock Human supervisory control of robotic teams: Integrating cognitive
   modeling with engineering design.
-\newblock {\em IEEE Control Systems}, 35(6):57--80, Dec 2015.
+\newblock {\em IEEE Control Systems Magazine}, 35(6):57--80, Dec 2015.
 \newblock \href {http://dx.doi.org/10.1109/MCS.2015.2471056}
   {\path{doi:10.1109/MCS.2015.2471056}}.
 
@@ -215,67 +230,83 @@ J.~R. Peters, V.~Srivastava, G.~S. Taylor, A.~Surana, M.~P. Eckstein, and
 S.A. Schneider and R.H. Cannon.
 \newblock Object impedance control for cooperative manipulation: theory and
   experimental results.
-\newblock {\em Robotics and Automation, IEEE Transactions on}, 8(3):383--394,
+\newblock {\em IEEE Transactions on Robotics and Automation}, 8(3):383--394,
   1992.
+\newblock \href {http://dx.doi.org/10.1109/70.143355}
+  {\path{doi:10.1109/70.143355}}.
 
 \bibitem[SD01]{Stramigioli_01c}
 S.~Stramigioli and V.~Duindam.
 \newblock Variable spatial springs for robot control applications.
-\newblock {\em Intelligent Robots and Systems, 2001. Proceedings. 2001 IEEE/RSJ
-  International Conference on}, 4:1906--1911, 2001.
+\newblock In {\em Proc. IEEE/RSJ Int. Conf. on Intelligent Robots and Systems},
+  volume~4, pages 1906--1911, 2001.
+\newblock \href {http://dx.doi.org/10.1109/IROS.2001.976352}
+  {\path{doi:10.1109/IROS.2001.976352}}.
 
 \bibitem[She92]{Sheridian_92}
 T.B. Sheridian.
 \newblock {\em Telerobotcis, Automation and Human Supervisory Control}.
-\newblock MIT Press, Cambridge, MA, 1992.
+\newblock MIT Press, Cambridge, 1992.
 
 \bibitem[SMA99]{Stramigioli_99}
 S.~Stramigioli, Claudio Melchiorri, and S.~Andreotti.
 \newblock A passivity-based control scheme for robotic grasping and
   manipulation.
-\newblock {\em Decision and Control, 1999. Proceedings of the 38th IEEE
-  Conference on}, 3:2951--2956, 1999.
+\newblock In {\em Proc. IEEE Conf. on Decision and Control}, volume~3, pages
+  2951--2956, 1999.
+\newblock \href {http://dx.doi.org/10.1109/CDC.1999.831385}
+  {\path{doi:10.1109/CDC.1999.831385}}.
 
 \bibitem[SMH15]{Sieber_15}
 D.~Sieber, S.~Music, and S.~Hirche.
 \newblock Multi-robot manipulation controlled by a human with haptic feedback.
-\newblock {\em IEEE/RSJ International Conference on Intelligent Robots and
-  Systems (IROS)}, pages 2440--2446, Sep 2015.
+\newblock In {\em Proc. IEEE/RSJ Int. Conf. on Intelligent Robots and Systems},
+  pages 2440--2446, Sep 2015.
+\newblock \href {http://dx.doi.org/10.1109/IROS.2015.7353708}
+  {\path{doi:10.1109/IROS.2015.7353708}}.
 
 \bibitem[SMP14]{Scheggi_14}
 S.~Scheggi, F.~Morbidi, and D.~Prattichizzo.
 \newblock Human-robot formation control via visual and vibrotactile haptic
   feedback.
-\newblock {\em Haptics, IEEE Transactions on}, 7(4):499--511, Oct 2014.
+\newblock {\em IEEE Transactions on Haptics}, 7(4):499--511, Oct 2014.
+\newblock \href {http://dx.doi.org/10.1109/TOH.2014.2332173}
+  {\path{doi:10.1109/TOH.2014.2332173}}.
 
 \bibitem[Str01a]{Stramigioli_01b}
 Stefano Stramigioli.
 \newblock Geometric modeling of mechanical systems for interactive control.
-\newblock In Alfonso Banos, Francoise Lamnabhi-Lagarrigue, and FranciscoJ.
+\newblock In Alfonso Banos, Francoise Lamnabhi-Lagarrigue, and Francisco~J.
   Montoya, editors, {\em Advances in the control of nonlinear systems}, volume
   264 of {\em Lecture Notes in Control and Information Sciences}, pages
-  309--332. Springer London, 2001.
+  309--332. Springer, 2001.
+\newblock \href {http://dx.doi.org/10.1007/BFb0110375}
+  {\path{doi:10.1007/BFb0110375}}.
 
 \bibitem[Str01b]{Stramigioli_01}
 Stefano Stramigioli.
 \newblock {\em Modeling and IPC Control of Interactive Mechanical Systems: A
-  Coordinate-Free Approach}.
-\newblock Springer-Verlag London, London, UK, 2001.
+  Coordinate-Free Approach}, volume 266 of {\em Lecture Notes in Control and
+  Information Sciences}.
+\newblock Springer, 2001.
+\newblock \href {http://dx.doi.org/10.1007/BFb0110400}
+  {\path{doi:10.1007/BFb0110400}}.
 
 \bibitem[Str15]{Stramigioli_15}
 Stefano Stramigioli.
 \newblock Energy-aware robotics.
 \newblock In M.~K. Camlibel, A.~A. Julius, R.~Pasumarthy, and J.~Scherpen,
   editors, {\em Mathematical Control Theory I}, volume 461 of {\em Lecture
-  Notes in Control and Information Sciences}, pages 37--50. Springer London,
-  2015.
+  Notes in Control and Information Sciences}, pages 37--50. Springer, 2015.
+\newblock \href {http://dx.doi.org/10.1007/978-3-319-20988-3}
+  {\path{doi:10.1007/978-3-319-20988-3}}.
 
 \bibitem[TASLH08]{Tien_08}
 L.~Le Tien, A.~Albu-Schaffer, A.~De Luca, and G.~Hirzinger.
 \newblock Friction observer and compensation for control of robots with joint
   torque measurement.
-\newblock In {\em Intelligent Robots and Systems, 2008. IROS 2008. IEEE/RSJ
-  International Conference on}, pages 3789--3795, Sept 2008.
+\newblock In {\em Proc. IEEE/RSJ Int. Conf. on Intelligent Robots and Systems},
+  pages 3789--3795, Sept 2008.
 \newblock \href {http://dx.doi.org/10.1109/IROS.2008.4651049}
   {\path{doi:10.1109/IROS.2008.4651049}}.
 
@@ -289,25 +320,28 @@ T.~S. Tadele, T.~J.~A. de~Vries, and S.~Stramigioli.
   {\path{doi:10.1109/ICRA.2014.6907007}}.
 
 \bibitem[vdS06]{vanderSchaft_06}
-Arjan van~der {Schaft}.
+Arjan~J. van~der Schaft.
 \newblock Port-hamiltonian systems: an introductory survey.
 \newblock In M.~{Sanz-Sole}, J.~{Soria}, J.L. {Varona}, and J.~{Verdera},
-  editors, {\em Proceedings of the International Congress of Mathematicians
-  Vol. III: Invited Lectures}, pages 1339--1365, Madrid, Spain, 2006. European
-  Mathematical Society Publishing House (EMS Ph).
+  editors, {\em Proc. Int. Congress of Mathematicians Vol. III: Invited
+  Lectures}, pages 1339--1365, Madrid, Spain, 2006. European Mathematical
+  Society Publishing House.
 
 \bibitem[vdS13]{Schaft_13}
-Arjan van~der Schaft.
+Arjan~J. van~der Schaft.
 \newblock Port-hamiltonian differential-algebraic systems.
 \newblock In A.~Ilchmann and T.~Reis, editors, {\em Surveys in
-  Differential-Algebraic Equations I}, Differential-Algebraic Equations Forum,
-  pages 173--226. Springer Berlin, 2013.
+  Differential-Algebraic Equations I}, pages 173--226. Springer, 2013.
+\newblock \href {http://dx.doi.org/10.1007/978-3-642-34928-7}
+  {\path{doi:10.1007/978-3-642-34928-7}}.
 
 \bibitem[vdSJ14]{Schaft_14}
-Arjan van~der Schaft and Dimitri Jeltsema.
-\newblock {\em Port.Hamiltonian Systems Theory: An Introductory Overview}.
+A.~J. van~der Schaft and Dimitri Jeltsema.
+\newblock {\em Port-Hamiltonian Systems Theory: An Introductory Overview}.
 \newblock Foundations and Trends in Systems and Control. NOW Publishing Inc.,
   Hanover, MA, 2014.
+\newblock \href {http://dx.doi.org/10.1561/2600000002}
+  {\path{doi:10.1561/2600000002}}.
 
 \bibitem[Vos15]{VosDiss_15}
 Ewoud Vos.
@@ -316,11 +350,11 @@ Ewoud Vos.
 \newblock ISBN 978-90-367-7603-5.
 
 \bibitem[VSvdSP14]{Vos_14}
-Ewoud Vos, Jacquelien~M.A. Scherpen, Arjan~J. van~der Schaft, and Ate Postma.
+Ewoud Vos, Jacquelien~M.A. Scherpen, A.~J. van~der Schaft, and Ate Postma.
 \newblock Formation control of wheeled robots in the port-hamiltonian
   framework.
-\newblock {\em World Congress ofthe International Federation of Automatic
-  Control (IFAC)}, 19(1):6662--6667, 2014.
+\newblock In {\em World Congress of the International Federation of Automatic
+  Control (IFAC)}, volume~19, pages 6662--6667, 2014.
 \newblock \href {http://dx.doi.org/10.3182/20140824-6-ZA-1003.00394}
   {\path{doi:10.3182/20140824-6-ZA-1003.00394}}.
 
@@ -328,15 +362,19 @@ Ewoud Vos, Jacquelien~M.A. Scherpen, Arjan~J. van~der Schaft, and Ate Postma.
 T.~Wimboeck, C.~Ott, and G.~Hirzinger.
 \newblock Passivity-based object-level impedance control for a multifingered
   hand.
-\newblock {\em IEEE/RSJ International Conference on Intelligent Robots and
-  Systems (IROS)}, pages 4621--4627, Oct 2006.
+\newblock In {\em Proc. IEEE/RSJ Int. Conf. on Intelligent Robots and Systems},
+  pages 4621--4627, Oct 2006.
+\newblock \href {http://dx.doi.org/10.1109/IROS.2006.282170}
+  {\path{doi:10.1109/IROS.2006.282170}}.
 
 \bibitem[WOH08]{Wimboeck_08}
 T.~Wimboeck, C.~Ott, and G.~Hirzinger.
 \newblock Analysis and experimental evaluation of the intrinsically passive
   controller (ipc) for multifingered hands.
-\newblock {\em Robotics and Automation, IEEE International Conference on},
-  pages 278--284, May 2008.
+\newblock {\em Porc. IEEE Int. Conf. on Robotics and Automation}, pages
+  278--284, May 2008.
+\newblock \href {http://dx.doi.org/10.1109/ROBOT.2008.4543221}
+  {\path{doi:10.1109/ROBOT.2008.4543221}}.
 
 \bibitem[Woo71]{Wood_71}
 Jack~L. Wood.
@@ -349,9 +387,9 @@ Jack~L. Wood.
 K.~Waldron and J.~Schmiedeler.
 \newblock {Kinematics}.
 \newblock In Bruno Siciliano and Oussama Khatib, editors, {\em Springer
-  Handbook of Robotics}, chapter~1, pages 9--33. Springer Berlin Heidelberg,
-  May 2008.
-\newblock ISBN 978-3-540-23957-4.
+  Handbook of Robotics}, chapter~1, pages 9--33. Springer, 2008.
+\newblock \href {http://dx.doi.org/10.1007/978-3-540-30301-5}
+  {\path{doi:10.1007/978-3-540-30301-5}}.
 
 \bibitem[YPM{\etalchar{+}}96]{Yoganandan_96}
 N.~Yoganandan, F.A. Pintar, D.J. Maiman, J.F. Cusick, A.~Sances, and P.R.

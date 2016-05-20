@@ -52,12 +52,12 @@
     \put(0,0){\includegraphics[width=\unitlength]{diracstructure.eps}}%
     \put(0.07894455,0.1520337){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Storage}}}%
     \put(0.748257,0.15134105){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Dissipation}}}%
-    \put(0.47384147,0.15220789){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\mathcal{D}$}}}%
-    \put(0.31921055,0.20351922){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_S$}}}%
-    \put(0.31877716,0.09292103){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_S$}}}%
-    \put(0.6276188,0.09309527){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_R$}}}%
-    \put(0.62812399,0.20351922){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_R$}}}%
-    \put(0.39808539,0.01473873){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_P$}}}%
-    \put(0.52515285,0.01473873){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_P$}}}%
+    \put(0.47366727,0.1520337){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\mathcal{D}$}}}%
+    \put(0.31921055,0.20351922){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{e}_\text{S}$}}}%
+    \put(0.31877716,0.09292103){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{f}_\text{S}$}}}%
+    \put(0.6276188,0.09309527){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{f}_\text{R}$}}}%
+    \put(0.62812399,0.20351922){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{e}_\text{R}$}}}%
+    \put(0.4221817,0.01473883){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}$}}}%
+    \put(0.52515285,0.01473873){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{u}$}}}%
   \end{picture}%
 \endgroup%

@@ -1,3 +1,51 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: StudentThesis_Template.aux
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: StudentThesis_Template.aux
 The style file: alphaurl.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: mybib.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 50 entries,
+            3274 wiz_defined-function locations,
+            1049 strings with 15080 characters,
+and the built_in function-call counts, 30482 in all, are:
+= -- 3186
+> -- 1164
+< -- 51
++ -- 384
+- -- 376
+* -- 1989
+:= -- 4258
+add.period$ -- 201
+call.type$ -- 50
+change.case$ -- 322
+chr.to.int$ -- 48
+cite$ -- 50
+duplicate$ -- 1020
+empty$ -- 2603
+format.name$ -- 434
+if$ -- 7568
+int.to.chr$ -- 3
+int.to.str$ -- 0
+missing$ -- 53
+newline$ -- 298
+num.names$ -- 162
+pop$ -- 505
+preamble$ -- 1
+purify$ -- 379
+quote$ -- 0
+skip$ -- 2102
+stack$ -- 0
+substring$ -- 1436
+swap$ -- 390
+text.length$ -- 51
+text.prefix$ -- 13
+top$ -- 0
+type$ -- 376
+warning$ -- 0
+while$ -- 204
+width$ -- 53
+write$ -- 752

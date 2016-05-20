@@ -26,17 +26,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="203.56638"
-     inkscape:cy="766.00314"
+     inkscape:cx="310.54237"
+     inkscape:cy="777.08729"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:snap-grids="true"
      inkscape:snap-others="false"
      inkscape:window-width="1680"
-     inkscape:window-height="995"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-height="1022"
+     inkscape:window-x="1680"
+     inkscape:window-y="0"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
@@ -143,7 +143,7 @@
          y="237.36218">$\mathcal{D}$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-size:7.5px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"
        x="225"
        y="222.3622"
        id="text4269"
@@ -151,10 +151,10 @@
          sodipodi:role="line"
          id="tspan4271"
          x="225"
-         y="222.3622">$e_S$</tspan></text>
+         y="222.3622">$\bm{e}_\text{S}$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-size:7.5px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"
        x="224.87373"
        y="254.58429"
        id="text4273"
@@ -162,10 +162,10 @@
          sodipodi:role="line"
          id="tspan4275"
          x="224.87373"
-         y="254.58429">$f_S$</tspan></text>
+         y="254.58429">$\bm{f}_\text{S}$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-size:7.5px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"
        x="314.85281"
        y="254.53352"
        id="text4273-8"
@@ -173,10 +173,10 @@
          sodipodi:role="line"
          id="tspan4275-2"
          x="314.85281"
-         y="254.53352">$f_R$</tspan></text>
+         y="254.53352">$\bm{f}_\text{R}$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-size:7.5px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"
        x="315"
        y="222.3622"
        id="text4295"
@@ -184,21 +184,21 @@
          sodipodi:role="line"
          id="tspan4297"
          x="315"
-         y="222.3622">$e_R$</tspan></text>
+         y="222.3622">$\bm{e}_\text{R}$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="247.97969"
-       y="277.36221"
+       style="font-size:7.5px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"
+       x="255"
+       y="277.36218"
        id="text4299"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4301"
-         x="247.97969"
-         y="277.36221">$e_P$</tspan></text>
+         x="255"
+         y="277.36218">$\bm{y}$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-size:7.5px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"
        x="285"
        y="277.36221"
        id="text4303"
@@ -206,6 +206,6 @@
          sodipodi:role="line"
          id="tspan4305"
          x="285"
-         y="277.36221">$f_P$</tspan></text>
+         y="277.36221">$\bm{u}$</tspan></text>
   </g>
 </svg>
