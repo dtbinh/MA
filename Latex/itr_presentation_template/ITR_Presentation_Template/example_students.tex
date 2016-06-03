@@ -4,7 +4,7 @@
 \usepgfplotslibrary{groupplots}
 \usetikzlibrary{matrix} 
 \addbibresource{../../Thesis/mybib.bib}
-\AtEveryBibitem{\clearfield{note}}
+%\AtEveryBibitem{\clearfield{note}}
 \AtEveryBibitem{\clearfield{isbn}}
 \AtEveryBibitem{\clearfield{doi}}
 \AtEveryBibitem{\clearfield{issn}}
@@ -38,31 +38,40 @@
 \section{Introduction}
 
 \begin{frame}
-	\frametitle{Shared control with a human in the loop}
-	Human reasoning combines with the enhanced flexibility of multiple robots 
+	\frametitle{Human-robot team interaction}
+	Humans come with superior foresight and robustness to incidents.\\ 
+	Cooperative robot teams allow for a variety of complex tasks.
 		\begin{columns}[T]
-		\column{0.5\linewidth}
+		\column{0.52\linewidth}
 	
 			\begin{figure}
-			\centering
+			
 			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-			\includegraphics[width=0.98\textwidth]{handcontrol.jpg}
-			%\caption{Coordinated handling of tools by a tele-operated robot \cite{MHI-MEISTeR}}
+			\includegraphics[width=1\textwidth]{mhi-meister45.jpg}\\
+			\scriptsize{Coordinated use of tools: Pipe cutting}\nocite{MHI-MEISTeR}{\tiny{ [MHI14]}} 
 			\end{figure}
 		
 		\column{0.5\linewidth}
 		\vspace{10pt}
-		Non-restrictive input interfaces allow for almost arbitrary trajectories\\
-		\begin{block}{}
-			\textit{How can we ensure stability and safety with a human in the loop?}
-		\end{block}
+		Unstructured environments demand the human's direct 						involvement in the control loop.\\
+		\vspace{10pt}
+		Human and robots are getting closer and intuitive user interfaces enable robot operation by untrained personnel.\\
+		 
+
+		\end{columns}
+		\vspace{12pt}
+		\textbf{We must not compromise stability and safety.}
+ 
 		
 			
-			\end{columns}
+
 \end{frame}
 
 \begin{frame}
 	\frametitle{Problem setting}
+	
+	A set of robots manipulating a common object\\
+	A human guiding the formation by hand motion
 		\begin{columns}
 %	\begin{itemize}
 %		\item Precise and stable control during free-motion/contact transition
@@ -73,8 +82,9 @@
 %	\end{itemize}
 	\column{0.5\linewidth}
 	\begin{itemize}
-	\item A set of robots manipulating a common object
-	\item A human guiding the formation by hand motion
+	\item Multiple robots need to be controlled simultaneously 
+	\item The formation constraints have to be satisfied
+	\item The input method is non-reactive - any trajectory is possible
 	\end{itemize}
 		
 	\column{0.5\linewidth}
@@ -83,16 +93,16 @@
 			\begin{figure}
 			\centering
 			%\psfrag{q1}[Bl][Bl]{\small $\alpha$}
-			\includegraphics[width=0.8\textwidth]{general_setup.eps}
+			\includegraphics[width=0.98\textwidth]{general_setup.eps}
 
 			\end{figure}
 	\end{columns}
-	\vspace{10pt}
+
 	\begin{block}{Goals for control design}
 	\begin{itemize}
-	\item Automatic preservation of formation 
-	\item Stability with arbitrary trajectories
-	\item Safe behaviour with humans on-site
+	\item Object-centred user interface 
+	\item Autonomous preservation of formation
+	\item Stability and safety with arbitrary commands
 	\end{itemize}
 	\end{block}	
 
@@ -100,7 +110,7 @@
 
 \begin{frame}
 	\frametitle{Related Work}
-	\textbf{Robot-team control}
+	\textbf{Low-level coordination}
 	\begin{itemize}
 		\item (Inverse) grasp-matrix approaches \nocite{Schneider_92,Caccavale_08} {\tiny [SC92,CCMV08]} 	
 		\item Virtual structures \nocite{Stramigioli_01, Sieber_15} {\tiny [Str01,SMH15]} 
@@ -118,12 +128,11 @@
 	\end{itemize}
 		
 			\begin{block}{}
-			\begin{itemize}
-			\item Stability with non-restrictive input interfaces is unexplored
-			\item Passivity is commonly used to cope with unmodelled dynamics
 
-			\item Energy-based safety metrics apply for impact limitation 
-			\end{itemize}
+\hspace*{1mm} Stability with non-restrictive input interfaces is unexplored \\
+ \hspace*{1mm} Passivity is commonly used to cope with unmodelled dynamics \\
+ \hspace*{1mm} Energy-based safety metrics apply for impact limitation 
+
 			\end{block}
 \end{frame}
 
@@ -163,7 +172,7 @@
 %	
 %\end{frame}
 
-\section{Approach}
+\section{Control design}
 
 %\begin{frame}
 %	\frametitle{port-Hamiltonian systems}
@@ -180,7 +189,7 @@
 
 
 \begin{frame}
-	\frametitle{Overview}
+	\frametitle{Overall control architecture}
 	
 	\begin{figure}
 		\centering
@@ -189,9 +198,9 @@
 		\input{pics/overview.eps_tex}
 	\end{figure}
 	\begin{itemize}
-		\item Source for the passive robot-team controller: Energy Tank
+		\item Source for the robot-team controller: Energy Tank
 		\item Human user controls the power flow
-		\item Energy supplied to the robots is re-fed into the tank
+		\item Energy supplied to the robots is re-supplied to the tank
 	\end{itemize}
 	\begin{block}{}
 		Energy-consistent description in the \emph{port-Hamiltonian} framework
@@ -475,7 +484,7 @@ Rigid connections are power-conservative.\nocite{Schaft_13}{\tiny [Sch13]}
 
 \begin{frame}
 	\frametitle{Safety metrics and adaptive stiffness}
-	Minimal kinetic energies that result in severe injuries \nocite{Tadele_14}{\tiny TVS14}
+	Minimal kinetic energies that result in severe injuries \nocite{Tadele_14}{\tiny [TVS14]}
 	\[
 	V_{\g{K,min}} = 
 	\begin{cases}

@@ -1,8 +1,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Demonstration of MHI MEISTeR at Fukushima Daiichi NPS}}{6}{figure.1.1}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces A human user controlling a robotic team by hand motion}}{8}{figure.1.2}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces A human user interacting with a robotic team cooperatively grasping and manipulating an object}}{8}{figure.1.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Spring-mass example}}{13}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Spring-mass example}}{14}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces port-Hamiltonian system structure}}{15}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Overall set-up}}{31}{figure.2.3}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Compliant reference trajectory generating controller}}{32}{figure.2.4}

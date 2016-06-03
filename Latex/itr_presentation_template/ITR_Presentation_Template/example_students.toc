@@ -4,7 +4,7 @@
 \defcounter {refsection}{0}\relax 
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {2}{Approach}{5}{0}{2}
+\beamer@sectionintoc {2}{Control design}{5}{0}{2}
 \defcounter {refsection}{0}\relax 
 \beamer@sectionintoc {3}{Results}{15}{0}{3}
 \defcounter {refsection}{0}\relax 

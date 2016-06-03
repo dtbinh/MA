@@ -1,15 +1,15 @@
 \contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Problem Statement}{7}{section.1.1}
-\contentsline {section}{\numberline {1.2}Cooperative manipulation and energy regulation control}{8}{section.1.2}
-\contentsline {chapter}{\numberline {2}port-Hamiltonian modelling}{11}{chapter.2}
+\contentsline {section}{\numberline {1.1}Problem Statement}{8}{section.1.1}
+\contentsline {section}{\numberline {1.2}Cooperative manipulation and energy regulation control}{9}{section.1.2}
+\contentsline {chapter}{\numberline {2}port-Hamiltonian modelling in cooperative manipualtion tasks}{11}{chapter.2}
 \contentsline {section}{\numberline {2.1}Energy-based modelling and control}{11}{section.2.1}
 \contentsline {section}{\numberline {2.2}port-Hamiltonian description of mechanical systems}{12}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Dirac structures and interconnection ports}{15}{subsection.2.2.1}
 \contentsline {subsubsection}{Energy storage port}{16}{section*.2}
 \contentsline {subsubsection}{Energy dissipation port}{16}{section*.3}
-\contentsline {subsubsection}{External port}{16}{section*.4}
+\contentsline {subsubsection}{External port}{17}{section*.4}
 \contentsline {subsection}{\numberline {2.2.2}Interconnection of port-Hamiltonian systems}{17}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}port-Hamiltonian systems and passivity}{17}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.3}port-Hamiltonian systems and passivity}{18}{subsection.2.2.3}
 \contentsline {section}{\numberline {2.3}3D-space modelling of mechanical systems}{18}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Euclidean space and motions}{18}{subsection.2.3.1}
 \contentsline {subsubsection}{Coordinate frames}{18}{section*.5}
@@ -17,16 +17,16 @@
 \contentsline {subsection}{\numberline {2.3.2}Input-state-output port-Hamiltonian systems in 3D space}{21}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Dynamics of physical components}{22}{subsection.2.3.3}
 \contentsline {subsubsection}{Springs}{22}{section*.7}
-\contentsline {subsubsection}{Inertias}{22}{section*.8}
-\contentsline {subsubsection}{Dampers}{24}{section*.9}
+\contentsline {subsubsection}{Inertias}{23}{section*.8}
+\contentsline {subsubsection}{Dampers}{25}{section*.9}
 \contentsline {section}{\numberline {2.4}Spring-mass-damper systems in 3D space}{25}{section.2.4}
-\contentsline {section}{\numberline {2.5}Imposing constraints}{26}{section.2.5}
+\contentsline {section}{\numberline {2.5}Imposing constraints}{27}{section.2.5}
 \contentsline {subsubsection}{Constraints for 6D-motion}{28}{section*.10}
 \contentsline {section}{\numberline {2.6}Model-based controllers for cooperative manipulation}{30}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}Compliant trajectory generating IPC}{31}{subsection.2.6.1}
-\contentsline {subsubsection}{Passivity}{32}{section*.11}
+\contentsline {subsubsection}{Passivity}{33}{section*.11}
 \contentsline {subsection}{\numberline {2.6.2}Constrained dynamics IPC}{33}{subsection.2.6.2}
-\contentsline {subsubsection}{Passivity}{34}{section*.12}
+\contentsline {subsubsection}{Passivity}{35}{section*.12}
 \contentsline {chapter}{\numberline {3}Energy regulating control}{37}{chapter.3}
 \contentsline {section}{\numberline {3.1}Passivity and safe energy levels}{37}{section.3.1}
 \contentsline {section}{\numberline {3.2}Energy tanks}{39}{section.3.2}

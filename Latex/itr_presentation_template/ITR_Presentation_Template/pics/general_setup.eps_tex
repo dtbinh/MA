@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'overview.eps' (pdf, eps, ps)
+%% Accompanies image file 'general_setup.eps' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{326.7581778bp}%
+    \setlength{\unitlength}{265.94277099bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,13 +48,7 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.2710368)%
-    \put(0,0){\includegraphics[width=\unitlength]{overview.eps}}%
-    \put(0.0289964,0.25615577){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Energy Tank}}}%
-    \put(0.77572599,0.25615577){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Robot team}}}%
-    \put(0.21261843,0.10432923){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14689762\unitlength}\raggedright adaptive human coupling\end{minipage}}}%
-    \put(0.60434543,0.10432923){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14689762\unitlength}\raggedright Tank re-filling\end{minipage}}}%
-    \put(0.325,0.2757098){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.33\unitlength}\raggedright Model-based control\end{minipage}}}%
-    \put(0.26890632,0.18509722){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06008257\unitlength}\raggedright $n$\end{minipage}}}%
+  \begin{picture}(1,0.69313978)%
+    \put(0,0){\includegraphics[width=\unitlength]{general_setup.eps}}%
   \end{picture}%
 \endgroup%

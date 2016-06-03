@@ -2,8 +2,8 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: example_students.aux
 The style file: biblatex.bst
-A level-1 auxiliary file: TrajCmp.aux
-A level-1 auxiliary file: ForceCmp.aux
+A level-1 auxiliary file: DIPCc.aux
+A level-1 auxiliary file: StrIPC.aux
 A level-1 auxiliary file: EBTT.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -21,44 +21,44 @@ Database file #2: ../../Thesis/mybib.bib
 Biblatex version: 2.8
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 13 entries,
+You've used 14 entries,
             6047 wiz_defined-function locations,
-            1235 strings with 10779 characters,
-and the built_in function-call counts, 40551 in all, are:
-= -- 1352
-> -- 1388
-< -- 353
-+ -- 416
-- -- 553
-* -- 3606
-:= -- 2617
+            1242 strings with 11063 characters,
+and the built_in function-call counts, 43165 in all, are:
+= -- 1437
+> -- 1466
+< -- 374
++ -- 431
+- -- 579
+* -- 3787
+:= -- 2761
 add.period$ -- 0
-call.type$ -- 13
-change.case$ -- 12
+call.type$ -- 14
+change.case$ -- 13
 chr.to.int$ -- 41
-cite$ -- 24
-duplicate$ -- 4534
-empty$ -- 4345
-format.name$ -- 919
-if$ -- 9070
+cite$ -- 26
+duplicate$ -- 4847
+empty$ -- 4658
+format.name$ -- 967
+if$ -- 9677
 int.to.chr$ -- 0
-int.to.str$ -- 27
+int.to.str$ -- 29
 missing$ -- 0
-newline$ -- 413
-num.names$ -- 516
-pop$ -- 3951
+newline$ -- 434
+num.names$ -- 557
+pop$ -- 4267
 preamble$ -- 1
-purify$ -- 184
+purify$ -- 196
 quote$ -- 0
-skip$ -- 2353
+skip$ -- 2523
 stack$ -- 0
-substring$ -- 662
-swap$ -- 1656
-text.length$ -- 368
-text.prefix$ -- 12
+substring$ -- 680
+swap$ -- 1758
+text.length$ -- 389
+text.prefix$ -- 13
 top$ -- 1
-type$ -- 482
+type$ -- 520
 warning$ -- 0
-while$ -- 283
+while$ -- 300
 width$ -- 0
-write$ -- 399
+write$ -- 419

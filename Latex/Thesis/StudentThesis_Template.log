@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  25 MAY 2016 16:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  3 JUN 2016 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1093,15 +1093,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [4]
 Chapter 1.
-
-LaTeX Warning: Citation `CoopManipHandbook' on page 5 undefined on input line 2
-90.
-
-
-LaTeX Warning: Citation `TeleoperationHandbook' on page 5 undefined on input li
-ne 292.
-
-<meistercomb.jpg, id=224, 1023.825pt x 486.81876pt>
+<meistercomb.jpg, id=227, 1023.825pt x 486.81876pt>
 File: meistercomb.jpg Graphic file (type jpg)
  <use meistercomb.jpg>
 Package pdftex.def Info: meistercomb.jpg used on input line 297.
@@ -1139,20 +1131,19 @@ Package epstopdf Info: Source file: <general_setup.eps>
 (epstopdf)                    size: 8868 bytes
 (epstopdf)             Command: <repstopdf --outfile=general_setup-eps-converte
 d-to.pdf general_setup.eps>
-(epstopdf)             \includegraphics on input line 324.
+(epstopdf)             \includegraphics on input line 329.
 Package epstopdf Info: Output file is already uptodate.
 
-<general_setup-eps-converted-to.pdf, id=258, 266.9975pt x 186.6975pt>
+<general_setup-eps-converted-to.pdf, id=265, 266.9975pt x 186.6975pt>
 File: general_setup-eps-converted-to.pdf Graphic file (type pdf)
 
 <use general_setup-eps-converted-to.pdf>
 Package pdftex.def Info: general_setup-eps-converted-to.pdf used on input line 
-324.
+329.
 (pdftex.def)             Requested size: 170.71393pt x 119.37488pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--330
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1181,12 +1172,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10
-
-]
+[10]
 Chapter 2.
 
-Overfull \hbox (3.61115pt too wide) in paragraph at lines 359--362
+Overfull \hbox (12.38466pt too wide) in paragraph at lines 361--363
+\OT1/cmr/m/n/12 In this chap-ter a model of the co-op-er-a-tive ma-nip-u-la-tio
+n sys-tem in the port-Hamiltonian
+ []
+
+
+Overfull \hbox (3.61115pt too wide) in paragraph at lines 365--368
 \OT1/cmr/m/n/12 For the energy-consistent mod-elling of me-chan-i-cal sys-tems 
 two ap-proaches are known:
  []
@@ -1197,8 +1192,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11]
-Overfull \hbox (17.63243pt too wide) in paragraph at lines 366--366
+[11
+
+]
+Overfull \hbox (17.63243pt too wide) in paragraph at lines 372--372
 []\OT1/cmr/bx/n/17.28 port-Hamiltonian de-scrip-tion of me-chan-i-cal sys-
  []
 
@@ -1220,7 +1217,7 @@ o.pdf springmass.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<springmass-eps-converted-to.pdf, id=363, 271.0125pt x 59.22125pt>
+<springmass-eps-converted-to.pdf, id=373, 271.0125pt x 59.22125pt>
 File: springmass-eps-converted-to.pdf Graphic file (type pdf)
 
 <use springmass-eps-converted-to.pdf>
@@ -1234,17 +1231,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13 <./springmass-eps-converted-to.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 425.
+[13]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 434.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 425.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 434.
 
-Overfull \hbox (1.93147pt too wide) in paragraph at lines 438--445
+Overfull \hbox (1.93147pt too wide) in paragraph at lines 447--454
  [][] 
  []
 
@@ -1260,7 +1256,7 @@ ed-to.pdf diracstructure.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<diracstructure-eps-converted-to.pdf, id=381, 234.8775pt x 57.21375pt>
+<diracstructure-eps-converted-to.pdf, id=389, 234.8775pt x 57.21375pt>
 File: diracstructure-eps-converted-to.pdf Graphic file (type pdf)
 
 <use diracstructure-eps-converted-to.pdf>
@@ -1274,7 +1270,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14]
+[14 <./springmass-eps-converted-to.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1303,7 +1299,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18]
-LaTeX Font Info:    Try loading font information for U+euf on input line 598.
+LaTeX Font Info:    Try loading font information for U+euf on input line 610.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
@@ -1314,7 +1310,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 643--644
+Underfull \hbox (badness 10000) in paragraph at lines 655--656
 
  []
 
@@ -1325,7 +1321,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 671--673
+Underfull \hbox (badness 10000) in paragraph at lines 683--685
 
  []
 
@@ -1357,7 +1353,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [24]
-Overfull \hbox (4.16391pt too wide) in paragraph at lines 826--828
+Overfull \hbox (4.16391pt too wide) in paragraph at lines 838--840
 \OT1/cmr/m/n/12 This is the port-Hamiltonian rep-re-sen-ta-tion of a one-dimens
 ional spring-mass-damper
  []
@@ -1390,19 +1386,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1054--1056
+Underfull \hbox (badness 10000) in paragraph at lines 1066--1068
 
- []
-
-
-Overfull \hbox (0.46487pt too wide) in paragraph at lines 1081--1083
-\OT1/cmr/m/n/12 Here we as-sume that the in-er-tias are not con-fig-u-ra-tion d
-e-pen-dent, i.e. time-invariant.
- []
-
-
-Overfull \hbox (14.37227pt too wide) in alignment at lines 1093--1117
- [][][] []
  []
 
 
@@ -1412,7 +1397,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1117--1141
+Overfull \hbox (0.46487pt too wide) in paragraph at lines 1093--1095
+\OT1/cmr/m/n/12 Here we as-sume that the in-er-tias are not con-fig-u-ra-tion d
+e-pen-dent, i.e. time-invariant.
+ []
+
+
+Overfull \hbox (14.37227pt too wide) in alignment at lines 1105--1129
+ [][][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1129--1153
 
  []
 
@@ -1428,7 +1424,7 @@ verted-to.pdf modellbasedcontrol.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<modellbasedcontrol-eps-converted-to.pdf, id=592, 344.28625pt x 75.28125pt>
+<modellbasedcontrol-eps-converted-to.pdf, id=604, 344.28625pt x 75.28125pt>
 File: modellbasedcontrol-eps-converted-to.pdf Graphic file (type pdf)
 
 <use modellbasedcontrol-eps-converted-to.pdf>
@@ -1454,7 +1450,7 @@ nverted-to.pdf referencetrajectory.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<referencetrajectory-eps-converted-to.pdf, id=608, 328.22626pt x 119.44624pt>
+<referencetrajectory-eps-converted-to.pdf, id=622, 328.22626pt x 119.44624pt>
 File: referencetrajectory-eps-converted-to.pdf Graphic file (type pdf)
 
 <use referencetrajectory-eps-converted-to.pdf>
@@ -1462,14 +1458,6 @@ Package pdftex.def Info: referencetrajectory-eps-converted-to.pdf used on input
  line 52.
 (pdftex.def)             Requested size: 341.43436pt x 124.25395pt.
 )
-Overfull \hbox (20.00406pt too wide) in alignment at lines 1266--1300
- [][][] []
- []
-
-
-Underfull \vbox (badness 1622) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1477,6 +1465,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [31 <./modellbasedcontrol-eps-converted-to.pdf>]
+Overfull \hbox (20.00406pt too wide) in alignment at lines 1278--1312
+ [][][] []
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1486,7 +1479,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32 <./referencetrajectory-eps-converted-to.pdf>] (./admittancecontrol.eps_tex
+[32 <./referencetrajectory-eps-converted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[33] (./admittancecontrol.eps_tex
 Package epstopdf Info: Source file: <admittancecontrol.eps>
 (epstopdf)                    date: 2016-03-23 19:47:44
 (epstopdf)                    size: 44715 bytes
@@ -1498,7 +1498,7 @@ erted-to.pdf admittancecontrol.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<admittancecontrol-eps-converted-to.pdf, id=633, 333.245pt x 119.44624pt>
+<admittancecontrol-eps-converted-to.pdf, id=654, 333.245pt x 119.44624pt>
 File: admittancecontrol-eps-converted-to.pdf Graphic file (type pdf)
 
 <use admittancecontrol-eps-converted-to.pdf>
@@ -1506,16 +1506,8 @@ Package pdftex.def Info: admittancecontrol-eps-converted-to.pdf used on input l
 ine 52.
 (pdftex.def)             Requested size: 341.43436pt x 122.38943pt.
 )
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[33]
-Overfull \hbox (20.00635pt too wide) in alignment at lines 1367--1402
- [][][] []
- []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1524,6 +1516,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [34 <./admittancecontrol-eps-converted-to.pdf>]
+Overfull \hbox (20.00635pt too wide) in alignment at lines 1379--1414
+ [][][] []
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1537,9 +1533,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36
-
-]
+[36]
 Chapter 3.
 (./passivityenvironment.eps_tex
 Package epstopdf Info: Source file: <passivityenvironment.eps>
@@ -1554,7 +1548,7 @@ onverted-to.pdf passivityenvironment.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<passivityenvironment-eps-converted-to.pdf, id=668, 305.14pt x 100.375pt>
+<passivityenvironment-eps-converted-to.pdf, id=683, 305.14pt x 100.375pt>
 File: passivityenvironment-eps-converted-to.pdf Graphic file (type pdf)
 
 <use passivityenvironment-eps-converted-to.pdf>
@@ -1568,7 +1562,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37]
+[37
+
+]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1586,7 +1582,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [39]
-Overfull \hbox (6.54405pt too wide) in paragraph at lines 1614--1616
+Overfull \hbox (6.54405pt too wide) in paragraph at lines 1626--1628
 \OT1/cmr/m/n/12 The com-bined Hamil-to-nian en-ergy func-tion of the in-ter-con
 -nected sys-tem is $[](\OML/cmm/b/it/12 x\OML/cmm/m/it/12 ; x[]\OT1/cmr/m/n/12 
 ) =
@@ -1610,7 +1606,7 @@ o.pdf energytank.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<energytank-eps-converted-to.pdf, id=710, 305.14pt x 100.375pt>
+<energytank-eps-converted-to.pdf, id=725, 305.14pt x 100.375pt>
 File: energytank-eps-converted-to.pdf Graphic file (type pdf)
 
 <use energytank-eps-converted-to.pdf>
@@ -1709,7 +1705,7 @@ PGFPlots: reading {"../plotdata/CaVirot_Internal Wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/CaVirot_Internal Wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 62.06035pt on input line 1923.
+LaTeX Warning: Float too large for page by 62.06035pt on input line 1935.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1733,7 +1729,7 @@ PGFPlots: reading {"../plotdata/DePasrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/DePasrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 62.05772pt on input line 1957.
+LaTeX Warning: Float too large for page by 62.05772pt on input line 1969.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1750,7 +1746,7 @@ Package epstopdf Info: Source file: <ImpedanceIPC.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<ImpedanceIPC-eps-converted-to.pdf, id=803, 403.5075pt x 80.3pt>
+<ImpedanceIPC-eps-converted-to.pdf, id=819, 403.5075pt x 80.3pt>
 File: ImpedanceIPC-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ImpedanceIPC-eps-converted-to.pdf>
@@ -1758,7 +1754,7 @@ Package pdftex.def Info: ImpedanceIPC-eps-converted-to.pdf used on input line 5
 2.
 (pdftex.def)             Requested size: 405.45045pt x 80.68697pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1975--1984
+Underfull \hbox (badness 10000) in paragraph at lines 1987--1996
 
  []
 
@@ -1787,7 +1783,7 @@ PGFPlots: reading {"../plotdata/StrIPCrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/StrIPCrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 47.56096pt on input line 2018.
+LaTeX Warning: Float too large for page by 47.56096pt on input line 2030.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1835,7 +1831,7 @@ PGFPlots: reading {"../plotdata/DIPCcrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/DIPCcrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 47.56192pt on input line 2045.
+LaTeX Warning: Float too large for page by 47.56192pt on input line 2057.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1871,7 +1867,7 @@ PGFPlots: reading {"../plotdata/DIPCrrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/DIPCrrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 46.79916pt on input line 2072.
+LaTeX Warning: Float too large for page by 46.79916pt on input line 2084.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1902,7 +1898,7 @@ Overfull \hbox (3.2637pt too wide) in paragraph at lines 62--63
 
 )
 
-LaTeX Warning: Float too large for page by 1.94057pt on input line 2082.
+LaTeX Warning: Float too large for page by 1.94057pt on input line 2094.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2036,65 +2032,58 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2163.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2163.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2175.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2175.
  (./StudentThesis_Template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2163.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2163.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2175.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2175.
 
 Package rerunfilecheck Info: File `StudentThesis_Template.out' has not changed.
 
-(rerunfilecheck)             Checksum: CDA2FD87F41BD892C2CFE2943DD4DA75;2792.
+(rerunfilecheck)             Checksum: B1BA4C45336D3F5C40E67947CF60032B;2826.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2163.
- )
-(\end occurred inside a group at level 1)
-
-### simple group (level 1) entered at line 306 ({)
-### bottom level 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2175.
+ ) 
 Here is how much of TeX's memory you used:
- 29994 strings out of 493304
- 701271 string characters out of 6139871
- 1414288 words of memory out of 5000000
- 32341 multiletter control sequences out of 15000+600000
+ 29997 strings out of 493304
+ 701362 string characters out of 6139871
+ 1413445 words of memory out of 5000000
+ 32343 multiletter control sequences out of 15000+600000
  18861 words of font info for 65 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 71i,22n,100p,1857b,2308s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/helvetic/uhvr8a.pfb>
-Output written on StudentThesis_Template.pdf (75 pages, 1250880 bytes).
+ 71i,22n,100p,1857b,2189s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr
+8a.pfb>
+Output written on StudentThesis_Template.pdf (75 pages, 1254797 bytes).
 PDF statistics:
- 1211 PDF objects out of 1440 (max. 8388607)
- 1084 compressed objects within 11 object streams
- 351 named destinations out of 1000 (max. 500000)
+ 1231 PDF objects out of 1440 (max. 8388607)
+ 1103 compressed objects within 12 object streams
+ 352 named destinations out of 1000 (max. 500000)
  335 words of extra memory for PDF output out of 10000 (max. 10000000)
 

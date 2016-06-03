@@ -16,6 +16,14 @@ F.~Caccavale, P.~Chiacchio, A.~Marino, and L.~Villani.
 \newblock \href {http://dx.doi.org/10.1109/TMECH.2008.2002816}
   {\path{doi:10.1109/TMECH.2008.2002816}}.
 
+\bibitem[CM08]{CoopManipHandbook}
+F.~Caccavle and Uchiyama M.
+\newblock Cooperative manipulation.
+\newblock In Bruno Siciliano and Oussama Khatib, editors, {\em Springer
+  Handbook of Robotics}, chapter~29, pages 701--718. Springer, 2008.
+\newblock \href {http://dx.doi.org/10.1007/978-3-540-30301-5}
+  {\path{doi:10.1007/978-3-540-30301-5}}.
+
 \bibitem[CV01]{Caccavale_01}
 F.~Caccvale and L.~Villani.
 \newblock An impedance control strategy for cooperative manipulation.
@@ -183,6 +191,14 @@ MathWorks.
 \newblock URL:
   \url{http://de.mathworks.com/help/simulink/ug/types-of-solvers.html}.
 
+\bibitem[NPH08]{TeleoperationHandbook}
+G.~Niemeyer, C.~Preusche, and G.~Hirzinger.
+\newblock {Telerobotics}.
+\newblock In Bruno Siciliano and Oussama Khatib, editors, {\em Springer
+  Handbook of Robotics}, chapter~31, pages 741--757. Springer, 2008.
+\newblock \href {http://dx.doi.org/10.1007/978-3-540-30301-5}
+  {\path{doi:10.1007/978-3-540-30301-5}}.
+
 \bibitem[OASK{\etalchar{+}}04]{Ott_04}
 C.~Ott, A.~Albu-Schaffer, A.~Kugi, S.~Stamigioli, and G.~Hirzinger.
 \newblock A passivity based cartesian impedance controller for flexible joint
@@ -191,15 +207,6 @@ C.~Ott, A.~Albu-Schaffer, A.~Kugi, S.~Stamigioli, and G.~Hirzinger.
   pages 2659--2665, April 2004.
 \newblock \href {http://dx.doi.org/10.1109/ROBOT.2004.1307462}
   {\path{doi:10.1109/ROBOT.2004.1307462}}.
-
-\bibitem[OvdSCA08]{Ortega_08}
-R.~Ortega, A.~J. van~der Schaft, F.~Castanos, and A.~Astolfi.
-\newblock Control by interconnection and standard passivity-based control of
-  port-hamiltonian systems.
-\newblock {\em IEEE Transactions on Automatic Control}, 53(11):2527--2542, Dec
-  2008.
-\newblock \href {http://dx.doi.org/10.1109/TAC.2008.2006930}
-  {\path{doi:10.1109/TAC.2008.2006930}}.
 
 \bibitem[OvdSME99]{Ortega_99}
 R.~Ortega, A.~J. van~der Schaft, B.~Maschke, and G.~Escobar.
@@ -342,12 +349,6 @@ A.~J. van~der Schaft and Dimitri Jeltsema.
   Hanover, MA, 2014.
 \newblock \href {http://dx.doi.org/10.1561/2600000002}
   {\path{doi:10.1561/2600000002}}.
-
-\bibitem[Vos15]{VosDiss_15}
-Ewoud Vos.
-\newblock {\em Formation control in the port-Hamiltonian framework}.
-\newblock PhD thesis, University of Groningen, 2015.
-\newblock ISBN 978-90-367-7603-5.
 
 \bibitem[VSvdSP14]{Vos_14}
 Ewoud Vos, Jacquelien~M.A. Scherpen, A.~J. van~der Schaft, and Ate Postma.
