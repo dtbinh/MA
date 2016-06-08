@@ -10,11 +10,11 @@
 \BOOKMARK [1][-]{section.2.3}{3D-space modelling of mechanical systems}{chapter.2}% 10
 \BOOKMARK [2][-]{subsection.2.3.1}{Euclidean space and motions}{section.2.3}% 11
 \BOOKMARK [2][-]{subsection.2.3.2}{Input-state-output port-Hamiltonian systems in 3D space}{section.2.3}% 12
-\BOOKMARK [2][-]{subsection.2.3.3}{Dynamics of physical components}{section.2.3}% 13
+\BOOKMARK [2][-]{subsection.2.3.3}{Modelling of atomic mechanical elements}{section.2.3}% 13
 \BOOKMARK [1][-]{section.2.4}{Spring-mass-damper systems in 3D space}{chapter.2}% 14
 \BOOKMARK [1][-]{section.2.5}{Imposing constraints}{chapter.2}% 15
 \BOOKMARK [1][-]{section.2.6}{Model-based controllers for cooperative manipulation}{chapter.2}% 16
-\BOOKMARK [2][-]{subsection.2.6.1}{Compliant trajectory generating IPC}{section.2.6}% 17
+\BOOKMARK [2][-]{subsection.2.6.1}{Compliant trajectory generating dynamic IPC}{section.2.6}% 17
 \BOOKMARK [2][-]{subsection.2.6.2}{Constrained dynamics IPC}{section.2.6}% 18
 \BOOKMARK [0][-]{chapter.3}{Energy regulating control}{}% 19
 \BOOKMARK [1][-]{section.3.1}{Passivity and safe energy levels}{chapter.3}% 20
