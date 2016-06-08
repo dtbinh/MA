@@ -1,0 +1,46 @@
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Problem Statement}{8}{section.1.1}
+\contentsline {section}{\numberline {1.2}Cooperative manipulation and energy regulation control}{10}{section.1.2}
+\contentsline {chapter}{\numberline {2}port-Hamiltonian modelling {\color {blue}\uwave {in cooperative manipualtion tasks}}}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Energy-based modelling and control}{13}{section.2.1}
+\contentsline {section}{\numberline {2.2}port-Hamiltonian description of mechanical systems}{15}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Dirac structures and interconnection ports}{18}{subsection.2.2.1}
+\contentsline {subsubsection}{Energy storage port}{19}{section*.2}
+\contentsline {subsubsection}{Energy dissipation port}{19}{section*.3}
+\contentsline {subsubsection}{External port}{19}{section*.4}
+\contentsline {subsection}{\numberline {2.2.2}Interconnection of port-Hamiltonian systems}{20}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}port-Hamiltonian systems and passivity}{20}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}3D-space modelling of mechanical systems}{21}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Euclidean space and motions}{21}{subsection.2.3.1}
+\contentsline {subsubsection}{Coordinate frames}{21}{section*.5}
+\contentsline {subsubsection}{Twists and wrenches}{22}{section*.6}
+\contentsline {subsection}{\numberline {2.3.2}Input-state-output port-Hamiltonian systems in 3D space}{24}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Dynamics of physical components}{25}{subsection.2.3.3}
+\contentsline {subsubsection}{Springs}{25}{section*.7}
+\contentsline {subsubsection}{Inertias}{25}{section*.8}
+\contentsline {subsubsection}{Dampers}{27}{section*.9}
+\contentsline {section}{\numberline {2.4}Spring-mass-damper systems in 3D space}{28}{section.2.4}
+\contentsline {section}{\numberline {2.5}Imposing constraints}{29}{section.2.5}
+\contentsline {subsubsection}{Constraints for 6D-motion}{31}{section*.10}
+\contentsline {section}{\numberline {2.6}Model-based controllers for cooperative manipulation}{33}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Compliant trajectory generating IPC}{34}{subsection.2.6.1}
+\contentsline {subsubsection}{Passivity}{35}{section*.11}
+\contentsline {subsection}{\numberline {2.6.2}Constrained dynamics IPC}{36}{subsection.2.6.2}
+\contentsline {subsubsection}{Passivity}{37}{section*.12}
+\contentsline {chapter}{\numberline {3}Energy regulating control}{39}{chapter.3}
+\contentsline {section}{\numberline {3.1}Passivity and safe energy levels}{39}{section.3.1}
+\contentsline {section}{\numberline {3.2}Energy tanks}{41}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Energy-adapted stiffness and damping}{43}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Energy exchange with the robotic system and environment}{46}{subsection.3.2.2}
+\contentsline {subsubsection}{Automatic compensation for drained energy}{47}{section*.13}
+\contentsline {chapter}{\numberline {4}Simulation results}{49}{chapter.4}
+\contentsline {section}{\numberline {4.1}State-of-the-art control schemes for cooperative manipulation}{50}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Internal and external impedance based reference trajectory generation}{50}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Internal impedance control with feed-forward of the object dynamics}{51}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Classic IPC by Stramigioli}{51}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Simulation of the constrained dynamics IPC}{56}{section.4.2}
+\contentsline {section}{\numberline {4.3}Compliant trajectory generating IPC}{56}{section.4.3}
+\contentsline {section}{\numberline {4.4}Energy-bounded trajectory tracking}{60}{section.4.4}
+\contentsline {chapter}{\numberline {5}Conclusion}{63}{chapter.5}
+\contentsline {chapter}{List of Figures}{65}{chapter.5}
+\contentsline {chapter}{Bibliography}{67}{chapter*.14}

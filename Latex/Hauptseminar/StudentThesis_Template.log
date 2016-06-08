@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  2 JUN 2016 21:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  6 JUN 2016 17:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -346,98 +346,82 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.132 \chapter
-              {Working with this Template} [3
+l.134 \chapter
+              {Introduction} [3
 
 ] [4
 
 ]
 Chapter 1.
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 153--155
+
+LaTeX Warning: Citation `Sheridian94' on page 5 undefined on input line 137.
+
+
+LaTeX Warning: Citation `Peters_15' on page 5 undefined on input line 142.
+
+
+LaTeX Warning: Citation `Sheridian94' on page 5 undefined on input line 142.
+
+
+LaTeX Warning: Citation `TeleoperationHandbook' on page 5 undefined on input li
+ne 143.
+
+[5] [6]
+Chapter 2.
+
+LaTeX Warning: Citation `Hogan_89' on page 7 undefined on input line 172.
+
+
+LaTeX Warning: Citation `Rahman99' on page 7 undefined on input line 174.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--176
 
  []
 
-[6]
+[7
 
-LaTeX Warning: Citation `literaturstelle1' on page 7 undefined on input line 21
-5.
+]
+Underfull \hbox (badness 10000) in paragraph at lines 182--186
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 231.
+ []
+
+[8]
+Chapter 3.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 204.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 231.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
+ [9
 
-
-LaTeX Warning: Citation `Bloe_99' on page 7 undefined on input line 233.
-
-
-LaTeX Warning: Citation `Jay_87' on page 7 undefined on input line 233.
-
-
-LaTeX Warning: Citation `Bloe_99' on page 7 undefined on input line 235.
-
-
-LaTeX Warning: Citation `Jay_87' on page 7 undefined on input line 235.
-
-
-LaTeX Warning: Citation `Bloe_99' on page 7 undefined on input line 238.
-
-
-LaTeX Warning: Citation `ONeill_2000' on page 7 undefined on input line 238.
-
-
-LaTeX Warning: Citation `ONeill_2000' on page 7 undefined on input line 238.
-
-[7]
-Overfull \hbox (1.04741pt too wide) in paragraph at lines 241--242
-[]\OT1/cmtt/m/n/12 {The {Mungi} {OS} and its Use in Merry-Go-Round Seat Allocat
-ion}\OT1/cmr/m/n/12 . 
- []
-
-[8]
-Chapter 2.
-
-LaTeX Warning: Citation `Elphinstone2014' on page 9 undefined on input line 277
-.
-
-[9
-
-] [10]
-Chapter 3.
-[11
-
-] [12] [13] [14
+] [10
 
 ]
-Chapter 4.
-[15] [16
-
-] (./StudentThesis_Template.lof)
+(./StudentThesis_Template.lof)
 \tf@lof=\write6
 \openout6 = `StudentThesis_Template.lof'.
 
- [17
+ [11
 
-] [18
+] [12
 
 ]
 No file StudentThesis_Template.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 390.
-[19
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 242.
+[13
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 390.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 242.
  (./StudentThesis_Template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 390.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 390.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 242.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 242.
 Package rerunfilecheck Info: File `StudentThesis_Template.out' has not changed.
 
-(rerunfilecheck)             Checksum: 039FA3370844329F92C81C2B16AB5DA1;1212.
+(rerunfilecheck)             Checksum: F29D6E51BB6607499B72AA13FD87A722;518.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -445,31 +429,27 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 390.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 242.
  ) 
 Here is how much of TeX's memory you used:
- 5633 strings out of 493304
- 83086 string characters out of 6139871
- 171267 words of memory out of 5000000
- 8980 multiletter control sequences out of 15000+600000
- 11077 words of font info for 35 fonts, out of 8000000 for 9000
+ 5591 strings out of 493304
+ 82599 string characters out of 6139871
+ 170179 words of memory out of 5000000
+ 8961 multiletter control sequences out of 15000+600000
+ 10601 words of font info for 33 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 30i,11n,45p,967b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,11n,43p,1226b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on StudentThesis_Template.pdf (23 pages, 149995 bytes).
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/h
+elvetic/uhvr8a.pfb>
+Output written on StudentThesis_Template.pdf (17 pages, 84546 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 236 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 157 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

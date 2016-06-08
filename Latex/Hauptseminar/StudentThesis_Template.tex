@@ -76,9 +76,9 @@
 \end{center}
 \vspace{5.0cm}
 \begin{tabular}{ll}
-Betreuer: & Selma Musi\'c, M. Sc.  \\
-Beginn: & 15.04.2016  \\
-Abgabe: &  24.06.2016 \\
+Betreuer: Selma Musi\'c, M. Sc.  \\
+Beginn: \hspace{10.5ex} 15.04.2016  \\
+Abgabe: \hspace{9.8ex} 24.06.2016 \\
 \end{tabular}
 %____________________________________________________________
 
@@ -129,169 +129,38 @@ Hier die deutschsprachige Zusammenfassung
 %_____________________________________________________
 
 
-\chapter{Working with this Template}
-
-Make sure your thesis is well structured, that each major section does what it is supposed to do, and that the whole thing hangs together. The basic structure is often as given in this template (but other structures are possible). In particular, don't think you need to have exactly as many major sections or chapters as the list implies; sometimes it makes sense to merge things, sometimes it makes sense to move things (e.g., the literature review is in many papers deferred until after the results), sometimes it makes sense to split a logical part into several individual sections. Just use some common sense.
-
-Hand in your thesis at minimum \textbf{one week} before the deadline for correction. You will receive feedback for the final version and very likely have to do minor or major revisions of your writing. Plan your writing schedule to allow for these adjustments, which can have quite some impact on your grade! 
-
-\section{Style and Expressions}
-
-Before handing in your thesis, even for an intermediate review, please perform a spellcheck and correct grammar mistakes. The report is not meant to be a narrative text. Please stick to neutral and technical style and avoid subjective or biased expressions or adjectives/adverbs such as \emph{obviously, always, very, especially well, actually, so-called etc}. Scientific writing is about precision and you should underpin your statements factually, not soften them with unnecessary qualifiers.
-
-\subsection{Subsection}
-
-Use chapters, sections and subsections to structure your document
-
-\subsubsection{Subsubsection}
-
-Subsubsections can be used to further structure information within a subsection. They don't show up in your list of contents.
-
-\paragraph{Paragraphs} are sometimes more useful than subsubsections to structure text without breaking the flow.
-
-\section{Compiling}
-Linux: 
-do the following in a Shell:\\
-\begin{verbatim}
-latex myfile
-dvips myfile
-ps2pdf -sPAPERSIZE=a4 myfile.ps
-\end{verbatim}
-Make sure to use the A4 option, when you print the pdf!
-
-\section{Equations}
-Equations are written like that $x^2$. Or like that:
-\begin{equation}
-x^2
-\label{EQ:gleichung1}
-\end{equation}
-You can use (\ref{EQ:gleichung1}) to reference an equation in the
-text. Equations without reference number:
-\[
-x^2
-\]
-
-Please type all numbers in mathematics mode.
-Mathematical equations which are not part of the text should be centred.
-A parameter or variable must not be used at the beginning of a sentence.
-Type physical units as normal text, e.g. s, not $s$!
-Formulas must not jut out over the text margin, so take care to stay within the margins and eventually break the equation into several lines.
-Explain the variables you use. For each newly introduced variable, at least a short description of it should follow the equation in the style of \emph{\ldots with $x$ being the position of the cart and $u$ the control input.}
-In columns, align equations with the arithmetic operator \verb|(=,<, ...)|.
-Mathematical units must be consistently labeled with only one variable. Do not
-use a variable for more than one mathematical unit.
-
-\section{Figures}
-
-For pictures, it is convenient, if they are .eps.
-\begin{figure}[htb]
-\centering
-%\includegraphics[width=0.6\textwidth]{abbildung.eps}
-\caption[Abbreviated Description]{Long Description: The subtitles of tables and illustrations should be self-explanatory.}
-\label{FIG:abb1}
-\end{figure}
-
-Every illustration must be described and referenced in the text, cf. Fig. \ref{FIG:abb1}. 
-There is no such thing as a decorative figure! 
-If the figure is not mentioned in the text and therefore lacks an explanatory function, leave it.
-Lines in plots need to be clearly distinguishable, also in black-and-white print. 
-The subtitles and axis labels must be clearly legible (i.e. big enough) and include a scaling.
-If the illustration is copied from another person's work, you need to mention the
-source with \verb|\cite{}|.
-
-\section{Citations}
-
-For bibliography, edit {\tt mybib.bib} and list all
-references in a special style, e.g. for a book: 
-\begin{verbatim}
-@book{literaturstelle1,
- author    = {S. Sastry},
- title     = {Nonlinear Systems - Analysis, Stability, and Control},
- publisher = {Springer},
- year      = 1999
-}
-\end{verbatim}
-
-Cite references in the text by \cite{literaturstelle1}.
-
-In order to have your references shown in your PDF, compile by:
-
-\begin{verbatim} 
-latex myfile
-bibtex myfile
-latex myfile
-latex  myfile
-dvips myfile
-ps2pdf -sPAPERSIZE=a4 myfile.ps
-\end{verbatim}
-
-Whether to use numeric or alphabetic references isn't all that important (unless prescribed by a conference or journal), but alphabetic tends to be more readable. Independent of citation style, the following rules should be followed:
-
-\begin{itemize}
-\item Use the \LaTeX~cite package. It doesn't give you additional commands, but it fixes a few quirks in \LaTeX. Among others it automatically sorts multiple citations, and it correctly spaces the angular brackets (if you use the \verb|\cite| command without leading white space).
-
-\item Citing several papers at one point should be done with a single \verb|\cite| command. For example, use \verb|gives good results\cite{Bloe_99, Jay_87}|, resulting in gives good results \cite{Bloe_99, Jay_87}. 
-
-Do not use \verb|gives good results\cite{Bloe_99}\cite{Jay_87}| which produces the ugly gives good results \cite{Bloe_99}\cite{Jay_87}. Also, note that there is no space between the \verb|\cite| command and the preceding word, \LaTeX~(with the cite package) does the spacing correctly.
-
-
-\item Avoid citations of the kind: \cite{Bloe_99} thinks that $x>y$ is valid, but \cite{ONeill_2000} argues that this is invalid in case of $z\geq5$. This works a bit better if using alphanumeric citation labels. Better, though, use the author's names: Bloe and Joe [1] think that $x>y$ is valid, but O'Neill et al. \cite{ONeill_2000} argues that this is invalid in case of $z\geq5$. 
-
-
-\item BibTeX is a great tool, but you need to know how to use it. A regular trap is to forget that \TeX~knows more about typesetting than you do. So, for example, it changes the case of words in the title. If your title contains acronyms and proper names (most do), they tend to get down-cased. Any such words which should not have their case changed should be put into braces, e.g., \verb|{The {Mungi} {OS} and its Use in Merry-Go-Round Seat Allocation}|.
-
-
-\item In citations don't abuse the category technical report. People tend to cite just about anything that hasn't been published in a journal or conferences as a TR. This is outright wrong. The concept of a TR is actually fairly well defined: A TR is published in some sort. This is generally as part of a formal TR series of some institution, in hardcopy or on the web or both. (They aren't always called "technical report", other common names are "research report", "technical memorandum", $<$institution$>$ "report" etc.) The publication (i.e. availability outside) is essential, otherwise it's at best an internal report.
-A TR has a number (absolutely!), an institution (publisher), a date (month and year at least) and a publisher's address (besides all the other stuff bibentries have).
-If your document doesn't have these features, it's not a TR. It's probably better categorized as a working paper. Even then it has a date and an institution address.
-
-\item Citing web pages is often unavoidable (but also often a sign of laziness). When citing web pages be aware that they may only be short-lived. Consider whether the reference will be of any use to the reader at all if the link is broken. Or whether your whole document only has a use-by date a few months past writing.
-
-\end{itemize}
-
-Any cited document, whatever it may be, has a few \textbf{mandatory} features:
-\begin{itemize}
-	\item Date. Absolutely. 
-	\item Author/organization/creator/person responsible for contents.
-	\item Whatever information the reader needs to find that document. In most BibTeX entry types these are clearly identified as mandatory fields. Mandatory means that they aren't optional. Don't pretend they are. For a working paper these might be the contact details of the author.
-\end{itemize}
-
-
-
-
 
 %_________Einleitung__________________________________
 \chapter{Introduction}
 
-Your first chapter in the document.
-Introduce the problem (gently!). Try to give the reader an appreciation of the difficulty, and an idea of how you will go about it. It's like the overture of an opera: it plays on all the relevant themes.
+Teleroperation is a general term for remote control of physical systems by humans through the mediation of computers. Despite large efforts towards autonomous systems, human operators are indispensable in many non-repetitive or unpredictable tasks. Human perception, planning and control are still required in unstructured environments that are not accessible or hazardous for human workers, such as outer space, deep water, nuclear contaminated areas, or a battlefield.\\
+Remote control in order to replace a human in dangerous situations often uses master-slave mechanical manipulation. The operator directly controls the remote robot, which has little or no autonomy. Today's robots possess mature sensory functions and high level planning capabilities that allow them to operate independently of human control most of time. Nonetheless a human is still necessary for monitoring, detection of abnormalities and intervention when necessary \cite{Sheridian94}.\\
+Independent of the level of autonomy of the robotic system it is the objective of control design to maximize the benefits of human-robot cooperation. The modelling of human sensing, cognition and actuation opens insights how to provide information to the user, support decision making and design the user interface. This term paper reviews approaches which exploit human modelling in teleoperation to enhance the joint performance of humans and robots.
+Dependent on the role of the human in the control loop, different aspects of human modelling apply. Roughly the following architectures are distinguished for a human in the loop.
 
-Make sure you clearly state the vision/aims of your work, what problem you are trying to solve, and why it is important. While the introduction is the part that is read first (ignoring title and abstract) it is usually best written last (when you actually know what you have really achieved). Remember, it's the first thing that is being read, and will have a major influence on the how the reader approaches your work. If you bore them now, you've most likely lost them already. If you make outrageous claims pretend to solve the world's problems, etc, you're likely fighting an uphill battle later on. Also, make sure you pick up any threads spun in the introduction later on, to ensure that the reader thinks they get what they have been promised. Don't create an expectation that you'll deliver more than you actually do. Remember, the reader may be your marker (of a thesis) or referee (of a paper), and you don't want to annoy them.
+\subsubsection{Direct, shared and supervisory control} 
+In direct control approaches humans operate the robot without any automated help, e.g. by manipulating a haptic device. On the other hand, applying supervisory control, the robotic teams act autonomously and the operator issues high-level commands, e.g. "relocate to a certain place" or "grasp an object" \cite{Peters_15}. The operator continuously receives information on the state of the robotic system and periodically issues commands, thus rather oversees and directs than controls the system \cite{Sheridian94}.
+The intermediate between supervised and directly controlled systems are shared control systems. At least some local, low-level feedback loops refine the robot behaviour to assist the operator in high-level task execution \cite{TeleoperationHandbook}.\\
+The performance in directly controlled manipulation is largely influenced by the motoric functions of the operator, while in supervisory control the human decision making comes to fore. This motivates a coarse differentiation of human modelling sub-domains. 
+
+\subsubsection{Sensory perception, Cognition and Response (SCR)}
+The SCR paradigm is a general classification of the behavioural activity of a human. The modelling of human perception encompasses one or several sensory organs (vision, touch, hearing,...). Cognitive activity refers mainly to decision making, planning and learning. Response or motor functions describes the skeletal-muscular potential and is thus the physiological component of human modelling. Clearly, there are overlaps between the classes, e.g. humans are susceptible to information overload, perception depends also on the mental state of the operator. Nevertheless his paper is structured based on the SCR-classes, we will see that sophisticated approaches span more than class of human modelling.\\
+The remainder of the paper is organized as follows: \textbf{Chapter 2} divides into the 3 classes of SCR.\\
+\textbf{Section 2.1} is dedicated to to response or motor function modelling. The review starts with the class, which has the clearest impact on performance and stability in teleoperation.\\
+\textbf{Section 2.2} has the sensory perception modelling ...\\
+\textbf{Section 2.3} introduces the broad field of cognitive modelling in teleoperation. Starting from decision making between two choices, the upper bound of human cognition modelling is reached with the general purpose mental model \emph{ACT-R}.\\
+\textbf{Chapter 3} draws a brief conclusion.
+  
+
+
+
 
 \section{Problem Statement}
 
-You can either state the problem you are trying to solve in the general introduction, providing the transition from the overall picture to your specific approach, or state it in a separate section. Even if you don't use the separate section, writing down in a few sentences why the problem you are trying to solve is actually hard and hasn't been solved before can give you a better idea of how to approach the topic. This can be also merged with the related work part.
 
-\section{Related Work}
 
-From Kevin Elphinstone's \emph{A Small Guide to Writing Your Thesis}\cite{Elphinstone2014}:
 
-"The related work section (sometimes called literature review) is just that, a review of work related to the problem you are attempting to solve. It should identify and evaluate past approaches to the problem. It should also identify similar solutions to yours that have been applied to other problems not necessarily directly related to the one your solving. Reviewing the successes or limitations of your proposed solution in other contexts provides important understanding that should result in avoiding past mistakes, taking advantage of previous successes, and most importantly, potentially improving your solution or the technique in general when applied in your context and others.
 
-In addition to the obvious purpose indicated, the related work section also can serve to:
-
-\begin{itemize}
-	\item justify that the problem exists by example and argument
-	\item motivate interest in your work by demonstrating relevance and importance
-	\item identify the important issues
-	\item provide background to your solution
-\end{itemize}
-
-Any remaining doubts over the existence, justification, motivation, or relevance of your thesis topic or problem at the end of the introduction should be gone by the end of related work section.
-
-Note that a literature review is just that, a review. It is not a list of papers and a description of their contents! A literature review should critique, categorize, evaluate, and summarize work related to your thesis. Related work is also not a brain dump of everything you know in the field. You are not writing a textbook; only include information directly related to your topic, problem, or solution."
-
-Note: Do the literature review at an early stage of your project to build on the knowledge of others, not reinvent the wheel over and over again! There is nothing more frustrating after weeks or months of hard work to find that your great solution has been published 5 years ago and is considered old news or that there is a method known that produces superior results.
 
 %____________________________________________________
 
@@ -299,42 +168,25 @@ Note: Do the literature review at an early stage of your project to build on the
 
 %_____Kapitel 2_________________________________
 \chapter{Main Part}
-\section{Direct control}
-In a direct control problem we exclude the high-level decision making and focus on the manual control capabilities of a human. This typically means, the operator takes control actions to follow a given reference trajectory. The human trajectory tracking behaviour in teleoperation is characterized by behavioural and physiological models. 
+\section{Response or motor function modelling}
+Motor function modelling is mainly motivated by master-slave manipulation, the human manipulates a \emph{teleoperator} (the master robot) and the \emph{teleroobot} (slave) follows the masters motion. In return the human is provided with force-feedback of the resistance found by the telerobot. Thus, by manipulating the teleoperator, the human enforces a relation between force and velocity, i.e. at the level of interaction the human is a mechanic impedance. In a seminal work Hogan \cite{Hogan_89} investigates the dynamics of a human arm. Although the human arm is actively controlled by neuro-muscular feedback, it is indistinguishable from a passive impedance. Passivity characterizes a dynamical system by its input-output behaviour and is a sufficient criterion for a asymptotic stability, iff the energy supplied to the passive system is finite. The interconnection of passive systems results in another passive system. Therefore the stability of the teleoperation set-up is achieved with a passive teleoperator and a passive telerobot and by passivating the communication channel. This holds for every unknown environment that can supply only a bounded amount of energy.\\
+The interconnection of \emph{per se} passive sub-systems results in an overly conservative teleoperation system. If the communication line exhibits delays, its passivation leads to a distorted display of manipulated the environment to the human. Hard objects are displayed softer and the transmitted inertia in free-space motion is increased. Overly conservative control design affects the operator-perceived environment and hinders the operator's performance.\\
+The human arm impedance is highly adaptive, the principle of antagonist muscles enables the human to willingly change the stiffness by activating both muscles \cite{Rahman99}. With the stiffness also the damping of the arm changes, if a minimum damping can is guaranteed , the control design can be less conservative. Rahman et al. determined a minimum damping using system identification, this guaranteed dissipation is exploited to design a dissipative closed loop system, while the not all components must be passive. 
+By using more knowledge of the human physiological dynamics, the distortion of the displayed environment is reduced.\\
 
-The controlling behavior of a human is highly nonlinear. With a change of circumstances or conditions a human can adjust the control strategy.  Furthermore the control performance is influenced by prior experience and thus changes over time. This makes the human a nonlinear and time-varying controller. Nevertheless human control modelling has a long tradition and many low order models exist. In the following we present controller models for manual tracking tasks, i.e. a reference trajectory is given and feedback from the plant is fed into the controller model. In a seminal work McRuer and Kendall introduce a transfer function for quasi-linear human control behaviour.
-\begin{equation}
-H(j\omega) = K_h\frac{1+j\omega T_L}{(1+j\omega T_N)(1+j\omega T_I)}e^{-j\omega \tau}
-\end{equation} 
-\section{Shared control}
+Chipalkatty et al.: Human-in-the-loop: MPC for shared control of a quadruped rescue robot      
+\section{Sensory perception modelling}
+Aracil et al.: The human role in telerobotics\\
+Hirche and Buss: Human-oriented control for haptic teleoperation
+\section{Cognitive modelling}
+Peters et al.: Human Supervisory Control of Robotic Teams\\
+Bertucelli et al. Developing operator models for {UAV} search scheduling\\
+Yang et al. Hidden Markov model approach to skill learning and its application to telerobotics.\\
+Ritter et al.: Including a model of visual processing with a cognitive architecture to model a simple teleoperation task\\
 
-\section{Supervisory control}
 
-\section{Design of your solution}
 
-Having explained the problem, and what others have done in similar situations, now explain your approach. Again, give a general overview of your design first, and then go into detail. The important part here is the concept of your work, not the actual implementation! Make sure that the document (particularly a thesis) is self-contained: It should be possible for a reader familiar with the general area to understand your design. Again, be forthright about the limitations of your design. Also, make sure you justify any shortcuts/limitations convincingly.
 
-\section{Implementation}
-
-In many (not all cases) there is a clear difference between the general approach (design) and its implementation in your particular circumstances. The design may be more general than what you can do given time and resources. Or you have developed a general design, and are now implementing a prototype on particular hardware. Give all required details. It should be possible to understand all this without referring to the source code. 
-
-This will, in general, include extracts of actual algorithms and hardware components used. Don't list pages of C code, an electronic copy of the source will accompany the submission and should be available to the marker, so there's no point in killing extra trees to put it into the report. Source code, if included at all, goes into the appendix and not the main document.
-
-Make sure you describe your implementation in enough detail. Someone who has nothing else but your thesis report to go by should be able to repeat your work, and arrive at essentially the same implementation. Reproducibility is an important component of scientific work. Also, clearly state the limitations of your implementation, and justify them.
-
-\section{Experimental Results}
-
-A thesis almost always has an experimental part, typically some comparison to other approaches. Benchmarking takes time, for running the experiments, but also for thinking them up in the first place, and for analysing the results. Plan accordingly to spend enough time here!
-
-Think about what makes sense to measure, what you want to learn from your measurements. Think about what is really the relevant contribution of your thesis, and how you can prove that you have achieved your goals. Think about what you can measure in order to get a good insight into the performance of various aspects of your design, how you can distinguish between systematic and accidental effects, how you can convince yourself that your results are right. If you get surprising results, don't just say "surprise, surprise, performance isn't as good as hoped". Find out why. Surprises without explanation indicate either that you are clueless about what's going on, or that you have made a mistake. Unconvincing results, therefore, tend to imply unconvincing marks. 
-
-\paragraph{Statistics:} Measurements always have statistical (sampling) errors. Owing to the deterministic nature of simulations these are sometimes very small, as disturbing factors can be designed. However, the reader should be given an indication of how statistically significant the results are. This is done by providing at least a standard deviation in addition to averages. Whenever the results of several runs are averaged, a standard deviation can (and must) be supplied. After all, you average to reduce statistical errors.
-
-The reproducibility argument applies here just as much as for the implementation. Give enough detail on what you measure, and how you measure it, so that someone who has your implementation (but not your test code) or has re-done your implementation independently, should be able to repeat your measurements and arrive at essentially the same results. In some cases, results seem outright wrong in a thesis. In those cases, not enough detail is provided to allow the supervisor/reader to pinpoint the likely source of the error. Often the cause is systematic errors resulting from an incorrect measurement technique. If it seems wrong, and the text doesn't convince the reader that it is not wrong, the reader will assume that it is wrong.
-
-\section{Discussion}
-
-Discuss and explain your results. Show how they support your thesis (or, if they don't, give a convincing explanation). It is important to separate objective facts clearly from their discussion (which is bound to contain subjective opinion). If the reader doesn't understand your results, reconsider if you have managed to extract the core information and explain it in a straightforward way.
 
 %_______________________________________________
 
