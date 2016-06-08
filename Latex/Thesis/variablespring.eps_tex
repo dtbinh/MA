@@ -1,0 +1,62 @@
+%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'variablespring.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{375.5578064bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.19816958)%
+    \put(0,0){\includegraphics[width=\unitlength]{variablespring.eps}}%
+    \put(0.08604477,0.09200359){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10650824\unitlength}\raggedright $\Psi_i$\end{minipage}}}%
+    \put(0.91411763,0.0884207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10650824\unitlength}\raggedright $\Psi_j$\end{minipage}}}%
+    \put(0.27258334,0.072644){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10650824\unitlength}\raggedright $\Psi_{ic}$\end{minipage}}}%
+    \put(0.72004019,0.08092839){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10650824\unitlength}\raggedright $\Psi_{jc}$\end{minipage}}}%
+    \put(0.19520003,0.16690267){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\begin{minipage}{0.11715906\unitlength}\raggedright $H_i^{ic}$\end{minipage}}}%
+    \put(0.76961577,0.17442096){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\begin{minipage}{0.11715906\unitlength}\raggedright $H_{j}^{jc}$\end{minipage}}}%
+    \put(0.61296537,0.2023937){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\begin{minipage}{0.11715906\unitlength}\raggedright $H_{ic}^{jc}$\end{minipage}}}%
+    \put(0.70839842,0.02444925){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\begin{minipage}{0.11715906\unitlength}\raggedright $H_{i}^{j}$\end{minipage}}}%
+  \end{picture}%
+\endgroup%

@@ -1,12 +1,17 @@
+\select@language {ngerman}
+\select@language {english}
+\select@language {ngerman}
+\select@language {english}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Demonstration of MHI MEISTeR at Fukushima Daiichi NPS}}{6}{figure.1.1}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces A human user interacting with a robotic team cooperatively grasping and manipulating an object}}{8}{figure.1.2}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Spring-mass example}}{14}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces port-Hamiltonian system structure}}{15}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Overall set-up}}{31}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Compliant reference trajectory generating controller}}{32}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Structure of the constrained dynamic IPC}}{34}{figure.2.5}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Frames and configurations for a variable-restlength spring}}{23}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Overall set-up}}{31}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Virtual structure connecting operator and robots in the compliant reference trajectory generating controller }}{32}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Structure of the constrained dynamic IPC}}{35}{figure.2.6}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces The robotic system interacting with operator and environment}}{38}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces The human operator controls the energy flow between tank and robotic system}}{41}{figure.3.2}

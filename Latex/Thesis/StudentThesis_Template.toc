@@ -1,3 +1,7 @@
+\select@language {ngerman}
+\select@language {english}
+\select@language {ngerman}
+\select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
 \contentsline {section}{\numberline {1.1}Problem Statement}{8}{section.1.1}
 \contentsline {section}{\numberline {1.2}Cooperative manipulation and energy regulation control}{9}{section.1.2}
@@ -14,16 +18,16 @@
 \contentsline {subsection}{\numberline {2.3.1}Euclidean space and motions}{18}{subsection.2.3.1}
 \contentsline {subsubsection}{Coordinate frames}{18}{section*.5}
 \contentsline {subsubsection}{Twists and wrenches}{19}{section*.6}
-\contentsline {subsection}{\numberline {2.3.2}Input-state-output port-Hamiltonian systems in 3D space}{21}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Dynamics of physical components}{22}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.2}Input-state-output port-Hamiltonian systems in 3D space}{22}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Modelling of atomic mechanical elements}{22}{subsection.2.3.3}
 \contentsline {subsubsection}{Springs}{22}{section*.7}
 \contentsline {subsubsection}{Inertias}{23}{section*.8}
 \contentsline {subsubsection}{Dampers}{25}{section*.9}
-\contentsline {section}{\numberline {2.4}Spring-mass-damper systems in 3D space}{25}{section.2.4}
+\contentsline {section}{\numberline {2.4}Spring-mass-damper systems in 3D space}{26}{section.2.4}
 \contentsline {section}{\numberline {2.5}Imposing constraints}{27}{section.2.5}
-\contentsline {subsubsection}{Constraints for 6D-motion}{28}{section*.10}
-\contentsline {section}{\numberline {2.6}Model-based controllers for cooperative manipulation}{30}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Compliant trajectory generating IPC}{31}{subsection.2.6.1}
+\contentsline {subsubsection}{Constraints for 6D-motion}{29}{section*.10}
+\contentsline {section}{\numberline {2.6}Model-based controllers for cooperative manipulation}{31}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Compliant trajectory generating dynamic IPC}{32}{subsection.2.6.1}
 \contentsline {subsubsection}{Passivity}{33}{section*.11}
 \contentsline {subsection}{\numberline {2.6.2}Constrained dynamics IPC}{33}{subsection.2.6.2}
 \contentsline {subsubsection}{Passivity}{35}{section*.12}
