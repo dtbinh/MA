@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.5)  8 JUN 2016 21:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.5)  9 JUN 2016 11:22
 entering extended mode
 **StudentThesis_Template.tex
 (StudentThesis_Template.tex
@@ -1295,7 +1295,7 @@ Package epstopdf Info: Source file: <springmass.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<springmass-eps-converted-to.pdf, id=370, 271.0125pt x 59.22125pt>
+<springmass-eps-converted-to.pdf, id=371, 271.0125pt x 59.22125pt>
 File: springmass-eps-converted-to.pdf Graphic file (type pdf)
 
 <use springmass-eps-converted-to.pdf>
@@ -1334,7 +1334,7 @@ d-to.pdf diracstructure.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<diracstructure-eps-converted-to.pdf, id=386, 234.8775pt x 57.21375pt>
+<diracstructure-eps-converted-to.pdf, id=388, 234.8775pt x 57.21375pt>
 File: diracstructure-eps-converted-to.pdf Graphic file (type pdf)
 
 <use diracstructure-eps-converted-to.pdf>
@@ -1420,7 +1420,7 @@ d-to.pdf variablespring.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<variablespring-eps-converted-to.pdf, id=504, 377.41pt x 74.2775pt>
+<variablespring-eps-converted-to.pdf, id=505, 377.41pt x 74.2775pt>
 File: variablespring-eps-converted-to.pdf Graphic file (type pdf)
 
 <use variablespring-eps-converted-to.pdf>
@@ -1449,7 +1449,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [25]
-Overfull \hbox (4.16391pt too wide) in paragraph at lines 857--859
+Overfull \hbox (4.16391pt too wide) in paragraph at lines 859--862
 \OT1/cmr/m/n/12 This is the port-Hamiltonian rep-re-sen-ta-tion of a one-dimens
 ional spring-mass-damper
  []
@@ -1482,12 +1482,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [29]
-Overfull \hbox (14.37227pt too wide) in alignment at lines 1123--1147
+Overfull \hbox (14.37227pt too wide) in alignment at lines 1126--1150
  [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1171
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1174
 
  []
 
@@ -1509,7 +1509,7 @@ erted-to.pdf modellbasedcontrol.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<modellbasedcontrol-eps-converted-to.pdf, id=612, 344.28625pt x 75.28125pt>
+<modellbasedcontrol-eps-converted-to.pdf, id=616, 344.28625pt x 75.28125pt>
 File: modellbasedcontrol-eps-converted-to.pdf Graphic file (type pdf)
 
 <use modellbasedcontrol-eps-converted-to.pdf>
@@ -1535,7 +1535,7 @@ verted-to.pdf referencetrajectory.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<referencetrajectory-eps-converted-to.pdf, id=635, 328.22626pt x 119.44624pt>
+<referencetrajectory-eps-converted-to.pdf, id=639, 328.22626pt x 119.44624pt>
 File: referencetrajectory-eps-converted-to.pdf Graphic file (type pdf)
 
 <use referencetrajectory-eps-converted-to.pdf>
@@ -1543,7 +1543,7 @@ Package pdftex.def Info: referencetrajectory-eps-converted-to.pdf used on input
  line 52.
 (pdftex.def)             Requested size: 341.43436pt x 124.25395pt.
 )
-Overfull \hbox (20.00406pt too wide) in alignment at lines 1298--1332
+Overfull \hbox (20.00406pt too wide) in alignment at lines 1301--1335
  [][][] []
  []
 
@@ -1572,7 +1572,7 @@ rted-to.pdf admittancecontrol.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<admittancecontrol-eps-converted-to.pdf, id=659, 333.245pt x 119.44624pt>
+<admittancecontrol-eps-converted-to.pdf, id=663, 333.245pt x 119.44624pt>
 File: admittancecontrol-eps-converted-to.pdf Graphic file (type pdf)
 
 <use admittancecontrol-eps-converted-to.pdf>
@@ -1580,7 +1580,7 @@ Package pdftex.def Info: admittancecontrol-eps-converted-to.pdf used on input l
 ine 52.
 (pdftex.def)             Requested size: 341.43436pt x 122.38943pt.
 )
-Overfull \hbox (20.00635pt too wide) in alignment at lines 1399--1434
+Overfull \hbox (20.00635pt too wide) in alignment at lines 1402--1437
  [][][] []
  []
 
@@ -1619,7 +1619,7 @@ nverted-to.pdf passivityenvironment.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<passivityenvironment-eps-converted-to.pdf, id=690, 305.14pt x 100.375pt>
+<passivityenvironment-eps-converted-to.pdf, id=694, 305.14pt x 100.375pt>
 File: passivityenvironment-eps-converted-to.pdf Graphic file (type pdf)
 
 <use passivityenvironment-eps-converted-to.pdf>
@@ -1646,7 +1646,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [38 <./passivityenvironment-eps-converted-to.pdf>]
-Overfull \hbox (6.12222pt too wide) in paragraph at lines 1623--1625
+Overfull \hbox (6.12222pt too wide) in paragraph at lines 1626--1628
 \OT1/cmr/m/n/12 The ap-pli-ca-tion of the en-ergy tank is demon-strated with an
  ex-am-ple port-Hamiltonian
  []
@@ -1658,7 +1658,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [39]
-Overfull \hbox (6.54405pt too wide) in paragraph at lines 1646--1648
+Overfull \hbox (6.54405pt too wide) in paragraph at lines 1649--1651
 \OT1/cmr/m/n/12 The com-bined Hamil-to-nian en-ergy func-tion of the in-ter-con
 -nected sys-tem is $[](\OML/cmm/b/it/12 x\OML/cmm/m/it/12 ; x[]\OT1/cmr/m/n/12 
 ) =$
@@ -1682,7 +1682,7 @@ Package epstopdf Info: Source file: <energytank.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<energytank-eps-converted-to.pdf, id=731, 305.14pt x 100.375pt>
+<energytank-eps-converted-to.pdf, id=735, 305.14pt x 100.375pt>
 File: energytank-eps-converted-to.pdf Graphic file (type pdf)
 
 <use energytank-eps-converted-to.pdf>
@@ -1781,7 +1781,7 @@ PGFPlots: reading {"../plotdata/CaVirot_Internal Wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/CaVirot_Internal Wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 62.06035pt on input line 1957.
+LaTeX Warning: Float too large for page by 62.06035pt on input line 1960.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1805,7 +1805,7 @@ PGFPlots: reading {"../plotdata/DePasrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/DePasrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 62.05772pt on input line 1991.
+LaTeX Warning: Float too large for page by 62.05772pt on input line 1994.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1822,7 +1822,7 @@ to.pdf ImpedanceIPC.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<ImpedanceIPC-eps-converted-to.pdf, id=825, 403.5075pt x 80.3pt>
+<ImpedanceIPC-eps-converted-to.pdf, id=829, 403.5075pt x 80.3pt>
 File: ImpedanceIPC-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ImpedanceIPC-eps-converted-to.pdf>
@@ -1830,7 +1830,7 @@ Package pdftex.def Info: ImpedanceIPC-eps-converted-to.pdf used on input line 5
 2.
 (pdftex.def)             Requested size: 405.45045pt x 80.68697pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 2009--2018
+Underfull \hbox (badness 10000) in paragraph at lines 2012--2021
 
  []
 
@@ -1859,7 +1859,7 @@ PGFPlots: reading {"../plotdata/StrIPCrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/StrIPCrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 47.56096pt on input line 2052.
+LaTeX Warning: Float too large for page by 47.56096pt on input line 2055.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1907,7 +1907,7 @@ PGFPlots: reading {"../plotdata/DIPCcrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/DIPCcrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 47.56192pt on input line 2079.
+LaTeX Warning: Float too large for page by 47.56192pt on input line 2082.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1943,7 +1943,7 @@ PGFPlots: reading {"../plotdata/DIPCrrot_Internal wrench_ty.txt"}
 PGFPlots: reading {"../plotdata/DIPCrrot_Internal wrench_rz.txt"}
 )
 
-LaTeX Warning: Float too large for page by 46.79916pt on input line 2106.
+LaTeX Warning: Float too large for page by 46.79916pt on input line 2109.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1974,7 +1974,7 @@ Overfull \hbox (3.2637pt too wide) in paragraph at lines 62--63
 
 )
 
-LaTeX Warning: Float too large for page by 1.94057pt on input line 2116.
+LaTeX Warning: Float too large for page by 1.94057pt on input line 2119.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2106,11 +2106,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2197.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2197.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2200.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2200.
  (StudentThesis_Template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2197.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2197.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2200.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2200.
 
 Package rerunfilecheck Info: File `StudentThesis_Template.out' has not changed.
 
@@ -2122,13 +2122,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2197.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2200.
  ) 
 Here is how much of TeX's memory you used:
- 30995 strings out of 493673
- 730198 string characters out of 3141528
- 1454066 words of memory out of 3000000
- 33197 multiletter control sequences out of 15000+200000
+ 30998 strings out of 493673
+ 730247 string characters out of 3141528
+ 1453188 words of memory out of 3000000
+ 33199 multiletter control sequences out of 15000+200000
  18861 words of font info for 65 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  71i,22n,100p,1858b,2194s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2155,9 +2155,9 @@ blic/amsfonts/cm/cmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/euler/eufm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 urw/helvetic/uhvr8a.pfb>
-Output written on StudentThesis_Template.pdf (75 pages, 1397621 bytes).
+Output written on StudentThesis_Template.pdf (75 pages, 1399280 bytes).
 PDF statistics:
- 1234 PDF objects out of 1440 (max. 8388607)
- 357 named destinations out of 1000 (max. 500000)
+ 1238 PDF objects out of 1440 (max. 8388607)
+ 358 named destinations out of 1000 (max. 500000)
  340 words of extra memory for PDF output out of 10000 (max. 10000000)
 
