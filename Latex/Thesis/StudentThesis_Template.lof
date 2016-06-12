@@ -9,19 +9,19 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Spring-mass example}}{14}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces port-Hamiltonian system structure}}{15}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Frames and configurations for a variable-restlength spring}}{23}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Overall set-up}}{31}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Virtual structure connecting operator and robots in the compliant reference trajectory generating controller }}{32}{figure.2.5}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces General set-up of operator, controller and robots}}{31}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Virtual structure connecting operator and robots in the compliant reference trajectory generating controller }}{33}{figure.2.5}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Structure of the constrained dynamic IPC}}{35}{figure.2.6}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces The robotic system interacting with operator and environment}}{38}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces The human operator controls the energy flow between tank and robotic system}}{41}{figure.3.2}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The human operator controls the energy flow between tank and robotic system}}{39}{figure.3.2}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Test reference trajectories for translation (left) and rotation}}{48}{figure.4.1}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Arrangement of spring, mass and damper in classical impedance control approaches and in the IPC }}{50}{figure.4.4}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Simulation results: Internal and external impedance based reference trajectory generation}}{51}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Simulation results: Internal impedance control with feed-forward of the object dynamics}}{52}{figure.4.3}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Simulation results: Intrinsically Passive Controller}}{53}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Simulation results of the constrained dynamic IPC}}{55}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Simulation results of the compliant reference trajectory generating IPC}}{57}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Simulation results of the energy bounding by a variable stiffness spring}}{59}{figure.4.8}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Arrangement of spring, mass and damper in classical impedance control, dynamic \cite {Wimboeck_08} and classic IPC \cite {Stramigioli_01} }}{50}{figure.4.4}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Simulation results: Internal and external impedance based reference trajectory generation}}{52}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Simulation results: Internal impedance control with feed-forward of the object dynamics}}{53}{figure.4.3}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Simulation results: Dynamic IPC}}{54}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Simulation results of the constrained dynamic IPC}}{56}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Simulation results of the compliant reference trajectory generating IPC}}{58}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Simulation results of the energy bounding by a variable stiffness spring}}{60}{figure.4.8}
 \addvspace {10\p@ }

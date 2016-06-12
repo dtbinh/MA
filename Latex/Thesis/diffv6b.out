@@ -25,10 +25,10 @@
 \BOOKMARK [1][-]{section.4.1}{State-of-the-art control schemes for cooperative manipulation}{chapter.4}% 25
 \BOOKMARK [2][-]{subsection.4.1.1}{Internal and external impedance based reference trajectory generation}{section.4.1}% 26
 \BOOKMARK [2][-]{subsection.4.1.2}{Internal impedance control with feed-forward of the object dynamics}{section.4.1}% 27
-\BOOKMARK [2][-]{subsection.4.1.3}{Dynamic IPC}{section.4.1}% 28
+\BOOKMARK [2][-]{subsection.4.1.3}{Classic IPC by Stramigioli}{section.4.1}% 28
 \BOOKMARK [1][-]{section.4.2}{Simulation of the constrained dynamics IPC}{chapter.4}% 29
 \BOOKMARK [1][-]{section.4.3}{Compliant trajectory generating IPC}{chapter.4}% 30
 \BOOKMARK [1][-]{section.4.4}{Energy-bounded trajectory tracking}{chapter.4}% 31
 \BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 32
 \BOOKMARK [0][-]{chapter.5}{List of Figures}{}% 33
-\BOOKMARK [0][-]{chapter*.15}{Bibliography}{}% 34
+\BOOKMARK [0][-]{chapter*.14}{Bibliography}{}% 34

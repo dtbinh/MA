@@ -1,5 +1,5 @@
 \documentclass[a4paper,twoside, openright,12pt]{report}
-\usepackage{psfrag,pstricks,amsbsy,graphics,float,amsmath,amssymb,epstopdf}
+\usepackage{psfrag,pstricks,amsbsy,graphics,float,amsmath,amssymb,epstopdf,amsthm}
 \usepackage{graphicx, color, mathtools,amsfonts,tikz,pgfplots,lscape,verbatim,bm} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
 \usepackage[latin1]{inputenc}
 \usepackage[english,ngerman]{babel}
@@ -396,7 +396,7 @@ The general equations of a port-Hamiltonian system are
 	&\f{y} = G^T(\f{q})\frac{\partial \mathcal{H}}{\partial 				\f{p}}(\f{q},\f{p})
 \end{aligned}	
 \end{eqnarray}
-Port-Hamiltonian systems are suitable to describe a variety of physical systems including mechanical, electrical, thermal and hydraulic elements, see \cite{duindam2009geoplexbook} for an overview. The common ground across the physical domains is the Hamiltonian energy function and inputs and outputs being dual quantities (e.g. velocity-force, current-voltage, heat flow-temperature change). To emphasize this inherent relation, inputs $\f{u}$ are called \emph{flows}  and outputs $\f{y}$ are called \emph{efforts}.A more formal definition of ports, efforts and flows can be found in the next subsection \ref{SS:PHSinterconnection}. The general appearance of a port-Hamiltonian system in the form of a (non-linear) state-space formulation becomes apparent in the following example.\\
+Port-Hamiltonian systems are suitable to describe a variety of physical systems including mechanical, electrical, thermal and hydraulic elements, see \cite{duindam2009geoplexbook} for an overview. The common ground across the physical domains is the Hamiltonian energy function and inputs and outputs being dual quantities (e.g. velocity-force, current-voltage, heat flow-temperature change). To emphasize this inherent relation, inputs $\f{u}$ are called \emph{flows}  and outputs $\f{y}$ are called \emph{efforts}. A more formal definition of ports, efforts and flows can be found in the next subsection \ref{SS:PHSinterconnection}. The general appearance of a port-Hamiltonian system in the form of a (non-linear) state-space formulation becomes apparent in the following example.\\
 \textbf{Example 2.1:}\\
 Consider a simple one-dimensional spring-mass system described by the equation $ m\ddot{x} = -kx +F $ and shown in figure \ref{FIG:springmass}. The parameters $ m,k,F $ denote the mass, stiffness and external force acting on the mass respectively. A state space formulation of the system is
 \begin{figure}[b!]
@@ -424,8 +424,6 @@ In the Hamiltonian approach the system is described based on the energy function
 	y &= \begin{pmatrix}	0 & 1\end{pmatrix}\begin{pmatrix}\frac{\partial \mathcal{H}}{\partial q}(q,p) \\ \frac{\partial \mathcal{H}}{\partial p}(q,p)\end{pmatrix}
 	\end{aligned}
 \end{eqnarray}
-\newline
-\vspace{2pt}%end example
 
 Key aspect of port-Hamiltonian system is the division into atomic energy storing elements (spring, mass) and their proper interconnection. In the example this is done implicitly by defining energy functions and states for both elements. The rules of interconnection are explicitly given by: 
 \begin{itemize}
@@ -433,6 +431,7 @@ Key aspect of port-Hamiltonian system is the division into atomic energy storing
 	\item equal velocity of a spring tip and the mass $\dot{x}=\frac{\partial \mathcal{H}}{\partial p}$(rigid connection)
 	\item opposite forces at the spring tip and the mass $\dot{p}=-\frac{\partial \mathcal{H}}{\partial q}+F$ (principle of action-reaction) 
 \end{itemize}
+\vspace{2pt}%end example
 
 Due to the \emph{second law of thermodynamics} real mechanical systems are never energy conservative. Consequently the modelling requires energy dissipating elements (since thermal energy is "lost" w.r.t. the mechanical domain). A mechanical system is then described by its basic elements: springs, masses and dampers. Table \ref{TAB:PHSvar_mechanic} gives an overview of the elements and their characterizing quantities. Note that dissipation elements do not have a state because they do not store energy.  
 
@@ -759,7 +758,7 @@ Since no additional energy storages were introduced, the Hamiltonian function is
 
 \subsubsection{Inertias}
 Inertias are special since they in general store two types of energy: kinetic and potential energy due to gravitation. For simplicity the gravitational terms are excluded at first to allow focus on motion. Kinetic energy is a function of the relative motion w.r.t. an inertial reference. When expressing motion in non-inertial or accelerated reference frames, fictitious forces such as the \emph{Coriolis} or the \emph{centrifugal} force need to be considered.\\
-The derivation starts from \emph{Newton's} second law of dynamics, the time derivative of a body's momentum is equal to the applied wrench.
+The derivation of the port-Hamiltonian formulation starts from \emph{Newton's} second law of dynamics. The time derivative of a body's momentum is equal to the applied wrench.
 \begin{equation}
 \dot{P}_b^0 = W_b^0
 \end{equation}
@@ -858,7 +857,7 @@ Recall the motivating example from Section \ref{S:HSdescription} of a simple spr
 	\begin{pmatrix}0 \\ 1\end{pmatrix} F_e\\  
 \end{equation}
 This is the port-Hamiltonian representation of a one-dimensional spring-mass-damper system. Connecting two masses by a spring and a parallel damper is a simple model for a compliant contact \cite{Duindam_09}. Moreover spring-mass-damper systems are the basis of the virtual structures that form the controllers in section \ref{S:modelbasedcontrol}. In cooperative object manipulation there are two compliant contact situations. One to realize soft interaction between object and environment, i.e. actual and desired object position are impedance controlled (see also the related work section). The other is the object-manipulator connection.\\
-The derivation starts from an inertia, which is subject to gravity as modelled in eq. (\ref{EQ:PHSinertia}). Another spring is added to the inertia associated with $\Psi_b$. This spring connects to a desired object position assigned to $\Psi_v$. Its port-Hamiltonian representation is given by
+The derivation of the sprang-mass-damper system starts from an inertia, which is subject to gravity as modelled in eq. (\ref{EQ:PHSinertia}). Another spring is added to the inertia associated with $\Psi_b$. This spring connects to a desired object position assigned to $\Psi_v$. Its port-Hamiltonian representation is given by
 \begin{eqnarray}
 \begin{aligned}
 	&\dot{H}_b^v = H_b^v T_b^{b,v}\\
@@ -943,14 +942,14 @@ Ad_{H_b^{b(i)}}^T (H_{b(i)}^i)^T &  Ad_{H_b^i}^T D_i^T \\
 
 
 \section{Imposing constraints}\label{S:ImposingConstraints}
-The interconnection of a spring and an inertia is the ideal pair in terms of input-output causality. The spring expects a twist-input and outputs a wrench. The inertia has a wrench-input and outputs a twist. It can be seen from eq. (\ref{EQ:PHSinertia}) that the interconnection of inertia and spring gives a set of ordinary differential equations (ODEs). Many mechanical systems cannot be modelled by an interconnection of springs and masses. The prime example is the contact of two rigid objects. Rigid means there is no elastic deformation to be modelled by a spring (for an extensive treatment of hard and soft contact see \cite{Duindam_09}). Rigidly connected objects cannot move with respect to each other, i.e. they move uniformly. In cooperative manipulation the manipulators often connect rigidly to the common object. The attempt to  move the bodies individually results in \emph{internal} forces. A force is termed internal if it produces no \emph{virtual work} with the system's velocity (see \cite{Erhart_16} for a formal definition). The motion-limiting conditions are called kinematic \emph{constraints} and are expressed in the form
+The interconnection of a spring and an inertia is the ideal pair in terms of input-output causality. The spring expects a twist-input and outputs a wrench. The inertia has a wrench-input and outputs a twist. It can be seen from eq. (\ref{EQ:PHSinertia}) that the interconnection of inertia and spring gives a set of ordinary differential equations (ODEs). Many mechanical systems cannot be modelled by an interconnection of springs and masses. The prime example is the contact of two rigid objects. Rigid means there is no elastic deformation to be modelled by a spring (for an extensive treatment of hard and soft contact see \cite{Duindam_09}). Rigidly connected objects cannot move with respect to each other, i.e. they move uniformly. In cooperative manipulation the manipulators often are rigidly connected to the common object. The attempt to  move the bodies individually results in \emph{internal} forces. A force is termed internal if it produces no \emph{virtual work} with the system's velocity (see \cite{Erhart_16} for a formal definition). The motion-limiting conditions are called kinematic \emph{constraints} and are expressed in the form
 \begin{equation}
 A^T(\f{q})\dot{\f{q}}=0,
 \end{equation}
-where $A(\f{q}) \in \mathbb{R}^{k \times l}$ is the \emph{constraint} matrix, $l$ being the number of independent kinematic constraints. The derivation of the constrained Hamiltonian equations starts from the Euler-Lagrange equations of constrained motion \cite{duindam2009geoplexbook}
+where $A(\f{q}) \in \mathbb{R}^{k \times l}$ is the \emph{constraint} matrix and $l$ being the number of independent kinematic constraints. The derivation of the constrained Hamiltonian equations starts from the Euler-Lagrange equations of constrained motion \cite{duindam2009geoplexbook}
 \begin{eqnarray}
 \begin{aligned}
-\frac{d}{dt}\left(\dfrac{\partial \mathcal{L}}{\dot{\f{q}}}\right) - \frac{\partial \mathcal{L}}{\partial \f{q}} &= G(\f{q})\f{u} + A(\f{q})\boldsymbol{\lambda}
+\frac{d}{dt}\left(\dfrac{\partial \mathcal{L}}{\partial \dot{\f{q}}}\right) - \frac{\partial \mathcal{L}}{\partial \f{q}} &= G(\f{q})\f{u} + A(\f{q})\boldsymbol{\lambda}
 \\
 A^T(\f{q})\dot{\f{q}} &= 0
 \end{aligned}
@@ -1065,7 +1064,7 @@ Recall the definition of the linear velocity component of a twist from eq. (\ref
 T_b^0 \\ T_1^0 \\ \vdots \\ T_N^0
 \end{pmatrix}
 \end{equation}
-The derivation starts by differentiating the constraints, here $A$ is not time or configuration dependent, thus $0=A^T\dot{T}$. Consider the simple example of two rigidly connected bodies $b$ and $i$. The constraint equation is
+The elimination of the algebraic condition starts by differentiating the constraints, here $A$ is not time or configuration dependent, thus $0=A^T\dot{T}$. Consider the simple example of two rigidly connected bodies $b$ and $i$. The constraint equation is
 \begin{eqnarray}
 \begin{aligned}
 0 &= \dot{T}_i^0 - \dot{T}_b^0 = \begin{pmatrix}
@@ -1112,7 +1111,7 @@ Consider now the last part of this equation and recall the adjoint representatio
 ad_{T_b^{b,0}}M_b^{-1}P_b^b = \begin{pmatrix}
 \tilde{\omega}_b^{b,0} & 0 \\ \tilde{v}_b^{b,0} & \tilde{\omega}_b^{b,0}\end{pmatrix} \begin{pmatrix}\boldsymbol{\omega}_b^{b,0} \\ \f{v}_b^{b,0}\end{pmatrix} = 0
 \end{equation}
-Here the inertias are assumed to be not configuration dependent, i.e. time-invariant. The insertion of the port-Hamiltonian system equation for $\dot{P}$ leads to
+Here the inertias are assumed to be not configuration dependent, i.e. time-invariant. A real robot has multiple joints and link, its effective inertia is thus configuration dependent. Feedback-linearisation techniques \cite{Ott_04} compensate for the internal dynamic in favour of shaping a desired inertia. The assumption of a non-configuration dependent manipulation inertia is reasonable, if a perfect feedback-linearisation is implemented on the robot. Then the insertion of the port-Hamiltonian system equation for $\dot{P}$ leads to
 \begin{eqnarray}
 \begin{aligned}
 0 = \bar{A}^T M^{-1} \dot{P} = \bar{A}^T M^{-1}(W+CT+\bar{A}\lambda)
@@ -1276,12 +1275,12 @@ The proposed controller design mimics an impedance controlled cooperative manipu
 	\small
 	\def\svgwidth{0.99\columnwidth}
 	\input{modellbasedcontrol.eps_tex}
-	\caption{Overall set-up}
+	\caption[General set-up of operator, controller and robots]{The model-based controller virtually links human and robots}
 	\label{FIG:modelbasedcontrol}
 	\vspace{-10pt}
 \end{figure}
 In this \emph{virtual} set-up the common object and the manipulators are simple inertias. The manipulators connect to the object by springs and dampers, i.e. the connection is compliant. This leads to stability during contact and non-contact transitions.\\
-The scheme is object-centred, i.e. the user controls the object \emph{explicitly} and the controller generates appropriate commands for the robotic system. Explicit here refers to a virtual coupling between the user (i.e. the reference trajectory given by the user) and the virtual object, established by a spring and a damper.\\
+The scheme is object-centred, i.e. the user controls the object directly and the controller generates appropriate commands for the robotic system. Direct here refers to a virtual coupling between the user (i.e. the reference trajectory given by the user) and the virtual object, established by a spring and a damper.\\
 The robots connect to the virtual object equally with a spring and a damper. Therefore the formation is established autonomously. The control output to the robots is either a reference trajectory (subsection \ref{SS:referencetrajectoryDIPC}) or force commands (subsection \ref{SS:constrainedDIPC}). The respective dual quantity serves as an input for the controller.\\
 Conclusively the controller is a virtual system model that generates control outputs by simulating the  dynamics of its internal structure. 
 Every connection either between the sub-elements inside the controller or the external ones (user-controller, controller-robots) are described by effort-flow pairs, i.e. power ports. From an energetic point of view the interconnection is lossless (see subsection \ref{SS:PHSinterconnection}) and the elements are passive. This motivates the term \emph{intrinsic passivity} \cite{Stramigioli_01}. By definition a passive controller cannot generate energy, thus energy must be provided from outside, either by the user or by the robotic system, through the power ports.\\
@@ -1301,7 +1300,7 @@ Beginning from the mechanical impedance equations derived in subsection \ref{S:s
 \begin{eqnarray}
 \resizebox{1\hsize}{!}{$
 \begin{aligned}
-\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P_b^b} \\ \dot{H}_{b(i)}^i \\ \dot{P}_i^i\end{pmatrix}
+\begin{pmatrix*}[l] \dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P_b^b} \\ \dot{H}_{b(i)}^i \\ \dot{P}_i^i\end{pmatrix*}
  &=
 \begin{pmatrix} 0 & 0 & H_b^0 & 0 & 0\\ 0 & 0 & H_b^v & 0 & 0 \\
 - {H_b^0}^T & -{H_b^v}^T & C_b-D_b & -Ad_{H_b^{b(i)}}^T {H_{b(i)}^i}^T & -Ad_{H_b^i}^T D_i \\
@@ -1333,9 +1332,11 @@ W_v^{0,0} \\ T_i^{i,0}
 \end{aligned}
 $}
 \end{eqnarray}
-Note that the output to the robot side is a twist. The control scheme thus generates a compliant reference trajectory for the robots to follow. Similar to \cite{Caccavale_08} we require a local underlying force control layer to operate the robots.
+Note that the  control output generated by this controller is twist, i.e. a compliant reference trajectory for the robots to follow. Similar to \cite{Caccavale_08} we require a local (on joint level) underlying force control layer to operate the robots.
 \subsubsection{Passivity}
-Passivity follows directly from the port-Hamiltonian formulation. The above representation is of the standard from (\ref{EQ:generalPHS}). The terms to be omitted due to the skew-symmetry of the structure matrix $J(x)$ are not given in the following energy balance
+Passivity follows directly from the port-Hamiltonian formulation.
+\begin{proof}
+The above representation is of the standard from (\ref{EQ:generalPHS}). The terms to be omitted due to the skew-symmetry of the structure matrix $J(x)$ are not given in the following energy balance
 \begin{eqnarray}
 \begin{aligned}
 \dot{\mathcal{H}} &= -\frac{\partial^T \mathcal{H}}{\partial P_b^b}D_b\frac{\partial \mathcal{H}}{\partial P_b^b} - \frac{\partial^T \mathcal{H}}{\partial P_i^i}D_i\frac{\partial \mathcal{H}}{\partial P_i^i} \\ 
@@ -1344,6 +1345,7 @@ Passivity follows directly from the port-Hamiltonian formulation. The above repr
 \end{aligned}
 \end{eqnarray}
 i.e. the controller is passive. This is a sufficient condition for asymptotic stability.
+\end{proof}
 \subsection{Constrained dynamics IPC}\label{SS:constrainedDIPC}
 In the compliant trajectory generating IPC, the virtual manipulator inertia connects to the virtual object by a spring. It is also possible to directly connect the two inertias. Typically in a real cooperative set-up the manipulator-object connection is assumed rigid. This requires the modelling of a rigid contact as treated in section \ref{S:ImposingConstraints}. Another advantage of the constrained dynamics controller is that a measurement of the end-effector forces is unnecessary. Generally robots are equipped with rotary encoders measuring the joint angles and -velocities. Employing forward kinematics the end-effector velocity is obtained without an additional sensor. In contrast to this the effective end-effector wrench can only be obtained by measurement with force/torque sensors. From this point of view it is convenient to design a controller that issues force commands to the robots and receives velocity feedback. The difficulty to overcome here is the \emph{preferred causality} of port-Hamiltonian elements. Please note from subsection \ref{SS:DynamicsPhysicalComponents} that springs expect a twist for input and output a wrench. Vice versa inertias accept a wrench input, resulting in a twist output. In this formulations the state variable is computed by integration over time, opposite causality representations are possible but require the time derivative. Numerical differentiation amplifies numerical noise, thus the integration form is the preferred one. Furthermore integration allows to use information in form of initial conditions, while differentiation does not. For more information on causality see \cite{duindam2009geoplexbook}.\\
  In the controller both the virtual object and the robotic system expect wrenches, in terms of causality calling for a spring. Therefore a virtual manipulator inertia is added by rigidly connecting it to the virtual object, figure \ref{FIG:admittancecontrol} illustrates the composition. In a real cooperative manipulation set-up it is also  common to  have this rigid connection between end-effector and object, making this an obvious choice for control. \\
@@ -1402,7 +1404,7 @@ Ad_{H_{b(i)}^0}^T(\bar{A}^TM^{-1}\bar{A})^{-1} Ad_{H_{b(i)}^0}M_{b(i)}^{-1}
 \begin{eqnarray}\label{EQ:DIPCconstrained}
 \resizebox{1\hsize}{!}{$
 \begin{aligned}
-\begin{pmatrix}\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P_b^b} \\ \dot{H}_{b(i)}^i \\ \dot{P}_{b(i)}^{b(i)}\end{pmatrix}
+\begin{pmatrix*}[l]\dot{H}_b^0 \\ \dot{H}_b^v \\  \dot{P_b^b} \\ \dot{H}_{b(i)}^i \\ \dot{P}_{b(i)}^{b(i)}\end{pmatrix*}
  &=
 \begin{pmatrix} 0 & 0 & H_b^0 & 0 & 0\\ 0 & 0 & H_b^v & 0 & 0 \\
 (\mathcal{A}_b^b-I) {H_b^0}^T & (\mathcal{A}_b^b-I) {H_b^v}^T & (I-\mathcal{A}_b^b)(C_b-D_b) & -\mathcal{A}_b^i {H_{b(i)}^i}^T & \mathcal{A}_b^i (C_{b(i)} - D_{b(i)}) \\
@@ -1437,7 +1439,9 @@ $}
 \end{eqnarray}
 
 \subsubsection{Passivity}
-In subsection \ref{SS:Passivity} it is shown that skew-symmetric elements of the structure matrix (denoted with $J(x)$) do not contribute to the energy balance, i.e. are lossless. In the above equation (\ref{EQ:DIPCconstrained}) there is a number of elements, which neither skew-symmetric, nor dissipative. The lossless property of the interconnection still holds. For the derivation of the energy balance the skew-symmetric elements are omitted to keep the analysis small. 
+In subsection \ref{SS:Passivity} it is shown that skew-symmetric elements of the structure matrix (denoted with $J(x)$) do not contribute to the energy balance, i.e. are lossless. In the above equation (\ref{EQ:DIPCconstrained}) there is a number of elements, which neither skew-symmetric, nor dissipative. The lossless property of the interconnection still holds.
+\begin{proof}
+For the derivation of the energy balance the skew-symmetric elements are omitted to keep the analysis small. 
 \begin{eqnarray}
 \resizebox{0.9\hsize}{!}{$
 \begin{aligned}
@@ -1474,13 +1478,14 @@ The energy balance reduces to the dissipative terms and input-output pairs, the 
 \begin{equation}
 \dot{\mathcal{H}} = -\frac{\partial^T \mathcal{H}}{\partial P_b^b} D_b \frac{\partial \mathcal{H}}{\partial P_b^b} - \frac{\partial^T \mathcal{H}}{\partial P_{b(i)}^{b(i)}} D_{b(i)} \frac{\partial V}{\partial P_{b(i)}^{b(i)}} + {W_v^{0,0}}^T T_v^0 + {W_i^{0,0}}^T T_i^0
 \end{equation}
+\end{proof}
  
 
 
 \chapter{Energy regulating control}\label{C:Energy-aware control}
-Towards a conclusion on stability of the overall system, it is necessary to take the environmental conditions into consideration. Letting a human explicitly control a cooperative robot-team rises the question of her/his dynamic behaviour and the impact on the system. Furthermore the environment, the robotic system is interacting with, can change unexpectedly. Thus stability considerations based on certain environment models may lose their basis. Preserving stability is especially crucial when the human operator is on-site to ensure her/his safety. The objective of this chapter is to introduce an energy tank along with a suitable re-filling strategy, that sources the controller. This maintains a safe level of energy in the system, regardless of the dynamics of a human and the environment. The energy-based controllers from section \ref{S:modelbasedcontrol} integrate seamlessly with the tank concept.
+Towards a conclusion on stability of the overall system, it is necessary to take the environmental conditions into consideration. Letting a human directly control a cooperative robot-team raises the question of her/his dynamic behaviour and the impact on the system. Furthermore the environment, the robotic system is interacting with, can change unexpectedly. Thus stability considerations based on certain environment models may lose their basis. Preserving stability is especially crucial when the human operator is on-site to ensure her/his safety. The objective of this chapter is to introduce an energy tank along with a suitable re-filling strategy, that sources the controller. The energy tank maintains a safe level of energy in the system, regardless of the dynamics of a human and the environment. The energy-based controllers from section \ref{S:modelbasedcontrol} integrate seamlessly with the tank concept.
 \section{Passivity and safe energy levels}\label{S:PassivitySafety}
-Passivity is a key concept when dealing with unknown environments. It is well known that passive robotic systems are stable with any environment, regardless its structure or complexity, that can provide only a bounded amount of energy. On the other hand it is shown in \cite{Stramigioli_15}, that for a non-passive robotic system, there always exists a (passive) environment that destabilizes the overall behaviour.\\
+Passivity is a key concept when dealing with unknown environments. It is well known that passive robotic systems are stable with any environment, that can provide only a bounded amount of energy. On the other hand it is shown in \cite{Stramigioli_15}, that for a non-passive robotic system, there always exists a (passive) environment that destabilizes the overall behaviour.\\
 When a human operator controls a robotic set-up by hand motion, it is often argued that the human arm is not distinguishable from a mechanical impedance. This stems from experiments with a human manipulating a controlled impedance \cite{Hogan_89}. The robotic device applies a force to the human and s/he responds with motion, therefore the human-machine interface is on an energetic level (the product of force and velocity is mechanical power).
 \begin{figure}[b!]
 	\centering
@@ -1502,7 +1507,7 @@ V_{\g{K,Limit}} =
 30 \text{ J} & \text{neck fracture}
 \end{cases}
 \end{equation}
-The model-based controllers designed in section \ref{S:modelbasedcontrol} simulate the energetic state of the full cooperative set-up. The Hamiltonian energy function of the controller directly resembles the energy level of the real system. The control behaviour is adapted to shape the energetic state both in the controller and in the controlled set-up to maintain a safe state. 
+The model-based controllers designed in section \ref{S:modelbasedcontrol} simulate the energetic state of the full cooperative set-up. Assuming perfect modelling, the Hamiltonian energy function of the controller provides a value for the energy level of the real system. The control behaviour is adapted to limit the energy virtually stored in the controller. A limited amount of energy in the controller leads to a limited amount of energy in the real system. If the modelling is perfect, the energy levels are equal.
        
    
 %Recall the power balance already given by eq. (\ref{EQ:energybalance}), in integrated form we obtain the energy balance of a pHs
@@ -1615,8 +1620,19 @@ The model-based controllers designed in section \ref{S:modelbasedcontrol} simula
 % The power responsible for this step is supplied through the external port. The property of a continuous pHs that externally supplied energy is either stored or dissipated, is not violated by discontinuous inputs, nor is passivity. Consider the time-discrete external flow $f_P (k+1) =: f_P(t)$ which is assigned to the time-continuous flow and updated every $T_s$. The energy balance described for continuous pHs in eq. (\ref{EQ:energybalance}) holds for any input $f_P(t)$ (cf. \cite{Stramigioli_05}). The problem of extracting more energy energy than stored in the system throughout a sampling interval is prevalent in discrete pHs. These systems compute the energy-state of the next time-step based on the current time-step, due to the discrete nature this energy-state can be below the energetic minimum of the system. To make this more clear consider the example of a moving system, which is slowed down very quickly: $(T_v^0(k+1) \ll T_v^0(k)$. But still $(T_v^0(k+1) > 0$, otherwise energy would be supplied. Consider a elongated spring which is commanded to shorten/compress very quickly, the twist is so high that in the next time-step the twist is elongated already in the over direction. Thus the spring has passed through its energetic minimum and more energy than stored would have been extracted. This clearly violates passivity. It is also obvious that this case cannot occur in a continuous system. Thus the presented simple version of connecting a human with a spring to the controller, does not violate passivity.
 
 \section{Energy tanks}\label{S:EnergyTanks}
-The motivation for the use of an \emph{energy tank} is to energetically decouple the human operator from the robotic system, i.e. the operator is no longer able to supply energy to the system. This is a consequence of the chosen input method, which is based on information rather than on energy exchange, as discussed above. The energy necessary for driving the robotic system comes from the tank, the operator only controls the energetic flow.\\
-On command of the operator energy flows from the energy tank into the controller and on into the robotic system. Under ideal conditions energy is circulating between these parts and the total amount stays constant (lossless system). In subsection \ref{SS:EnergyExchangeEnvironment} cases of a permanent change of the energy balance are discussed. At first the combination of an energy tank and one of the controllers proposed in section \ref{S:modelbasedcontrol}, is analysed. Thereby no energy exchange with the robotic system is assumed. In this case a lossless combined system is guaranteed by re-harvesting the energy dissipated in the controller's dampers. \\ 
+The motivation for the use of an \emph{energy tank} is to energetically decouple the human operator from the robotic system, i.e. the operator is no longer able to supply energy to the system. This is a consequence of the chosen input method, which is based on information rather than on energy exchange, as discussed above. The energy necessary for driving the robotic system comes from the tank, the operator only controls the energetic flow. The scheme is illustrated in figure \ref{FIG:energytank}. \\
+
+\begin{figure}
+	\centering
+	\small
+	\def\svgwidth{0.95\columnwidth}
+	\input{energytank.eps_tex}
+	\vspace{10pt}
+	\caption{The human operator controls the energy flow between tank and robotic system}
+	\label{FIG:energytank}
+\end{figure}
+
+On command of the operator energy flows from the energy tank into the controller and on into the robotic system. Under ideal conditions energy is circulating between these parts and the total amount stays constant (lossless system). In subsection \ref{SS:EnergyExchangeEnvironment} cases of a permanent change of the energy balance are discussed. At first the combination of an energy tank and one of the controllers proposed in section \ref{S:modelbasedcontrol}, is analysed. Thereby no energy exchange with the robotic system is assumed. In this case a lossless combined system is guaranteed by re-harvesting the energy dissipated in the controller's dampers. Re-harvesting means that the energy, that is only virtually dissipated in the controller, becomes available again by supplying it back into the tank. \\ 
 The energy tank is a virtual storage element defined with a Hamiltonian energy function. Let $x_\g{t} \in \mathbb{R}$ denote the (scalar) energy state and $\mathcal{T}$ be a simple, positive definite function $\mathcal{T}(x_\g{t}) = \frac{1}{2}x_\g{t}^2$. The dynamic equations of the tank are
 \begin{eqnarray}
 \begin{aligned}
@@ -1624,19 +1640,18 @@ The energy tank is a virtual storage element defined with a Hamiltonian energy f
 e_\g{t} &= \frac{\partial \mathcal{T}(x_\g{t})}{\partial x_\g{t}} (=x_\g{t})
 \end{aligned}
 \end{eqnarray}
-Here $(f_\g{t},e_\g{t})$ is the flow-effort pair, corresponding to input and output respectively. The application of the energy tank is demonstrated with an example port-Hamiltonian system of the form
-\begin{eqnarray}
-\begin{aligned}
-\dot{\f{x}} &= [J(\f{x}) - D(\f{x})] \frac{\partial \mathcal{H}}{\partial \f{x}} + G(\f{x})\f{u} \\
-\f{y} &= G^T(\f{x}) \frac{\partial \mathcal{H}}{\partial \f{x}}
-\end{aligned}
-\end{eqnarray}
+Here $(f_\g{t},e_\g{t})$ is the flow-effort pair, corresponding to input and output respectively. The application of the energy tank is demonstrated with an example port-Hamiltonian system of the standard input-state-output form, given in equation \ref{EQ:generalPHS}.
 This standard system is chosen to keep the derivation process simple and can be replaced with the controllers from section \ref{S:modelbasedcontrol}.
-The re-routing of the dissipated energy into the energy tank is accomplished by choosing the tank input as $f_\g{t} = \frac{1}{x_\g{t}}\frac{\partial^T \mathcal{H}}{\partial \f{x}}D(\f{x})\frac{\partial \mathcal{H}}{\partial \f{x}} + \tilde{f}_\g{t}$. With a new input $\tilde{f}_\g{t}$ the tank's energy balance becomes
+The re-routing of the virtually dissipated energy into the tank is accomplished by choosing the tank input as
+\begin{equation}
+ f_\g{t} = \frac{1}{x_\g{t}}\frac{\partial^T \mathcal{H}}{\partial \f{x}}D(\f{x})\frac{\partial \mathcal{H}}{\partial \f{x}} + \tilde{f}_\g{t}
+\end{equation}
+The term $\frac{\partial^T \mathcal{H}}{\partial \f{x}}D(\f{x})\frac{\partial \mathcal{H}}{\partial \f{x}}$ is the dissipated power. A new input $\tilde{f}_\g{t}$ is defined to preserve the power port for interconnection with the controller.  
+With the new input the tank's energy balance becomes
 \begin{equation}\label{EQ:tankpower}
 \dot{\mathcal{T}}(x_\g{t})=e_\g{t}f_\g{t} = \frac{\partial^T \mathcal{H}}{\partial \f{x}}D(\f{x})\frac{\partial \mathcal{H}}{\partial \f{x}} + x_\g{t}\tilde{f}_\g{t}
 \end{equation}
-This corresponds to the systems dissipated energy plus some external supply. Next this external supply is used to interconnect tank and port-Hamiltonian system. A power-preserving interconnection is established, which is a combination of gyrator and transformer with ratio $n$
+This corresponds to the systems dissipated energy plus some external supply. Next this external supply is used to interconnect tank and the standard port-Hamiltonian system, representing the controller. A power-preserving interconnection is established, which is a combination of gyrator and transformer with ratio $\f{n}$. This type of interconnection allows the operator to control the power flow, despite being energetically decoupled. 
 \begin{eqnarray}
 \begin{aligned}
 \f{u} &= \f{n}e_\g{t} \\
@@ -1647,19 +1662,22 @@ By construction and independent of a particular choice of $\f{n}$ this relation 
 \begin{equation}
 \f{u}^T\f{y} = e_\g{t}^T\f{n}^T\f{y} = -e_\g{t}^T\tilde{f}_\g{t}
 \end{equation}
-The combined Hamiltonian energy function of the interconnected system is $\bar{\mathcal{H}}(\f{x},x_\g{t})=\mathcal{H}(\f{x})+\mathcal{T}(x_\g{t})$. The choice of $\f{n}$ is not fixed but can be adjusted dynamically to shape the energy flow. In particular it is appealing to use $\f{n}$ to replicate the original control signal by choosing $\f{n} = \frac{\f{w}}{x_\g{t}}$. The new control input $\f{w}$ can effectively take the role of $\f{u}$, i.e. the port-Hamiltonian system becomes
-\begin{equation}
+i.e. the transformer/gyrator is lossless for any $\f{n}$.
+ The choice of $\f{n}$ is not fixed but can be adjusted dynamically to shape the energy flow. In particular it is appealing to use $\f{n}$ to replicate the original control signal by choosing $\f{n} = \frac{\f{w}}{x_\g{t}}$. The new control input $\f{w}$ can effectively take the role of $\f{u}$, i.e. the port-Hamiltonian system becomes
+\begin{equation}\label{EQ:TankInterconnection}
 \dot{\f{x}} = [J(\f{x}) - D(\f{x})] \frac{\partial \bar{\mathcal{H}}}{\partial \f{x}} + G(\f{x})\frac{\f{w}}{x_\g{t}}e_\g{t} = [J(\f{x}) - D(\f{x})] \frac{\partial \bar{\mathcal{H}}}{\partial \f{x}} + G(\f{x})\f{w}
 \end{equation}
-For a $x_\g{t}\rightarrow0$, i.e. an empty energy tank, there is a singularity. Thus an complete depletion of the tank must be avoided. A minimum strategy is to introduce a switching parameter $\alpha$. The transformer ratio is extended to $\f{n}=\frac{\alpha \f{w}}{x_\g{t}}$ with 
+The combined Hamiltonian energy function of the interconnected system is $\bar{\mathcal{H}}(\f{x},x_\g{t})=\mathcal{H}(\f{x})+\mathcal{T}(x_\g{t})$.
+An empty energy tank, i.e. $x_t=0$, results in a division by zero in equation (\ref{EQ:TankInterconnection}). Thus an complete depletion of the tank must be avoided. A minimum strategy is to introduce a switching parameter $\alpha$. The transformer ratio is extended to $\f{n}=\frac{\alpha \f{w}}{x_\g{t}}$ with 
 \begin{equation}
 \alpha = \begin{cases}
 1 & \text{if } \, \mathcal{T}(x_\g{t})\geq\epsilon>0 \\
 0 & \text{if } \, \mathcal{T}(x_\g{t}) < \epsilon
 \end{cases}
 \end{equation}
-This means that a control input is executed unchanged as long as certain amount $\epsilon$ of energy is in the tank. Once the energy budget is exceeded and command execution possibly violates passivity the input is set to $0$, effectively suspending energy exchange. This happens in both ways, neither is it possibly to re-transfer into the tank through the interconnection. At this point the tank can only be refilled by dissipation. Dissipation is associated with kinetic energy, as long as the system is moving it can recover from the input-suspended state. If the system is driven to a state of exclusively potential energy, there is no dissipation and a deadlock is reached.\\
-Reaching a state of exclusively potential energy takes infinite time, this is because a state of higher potential energy can only be reached by motion. I.e. kinetic energy is a predecessor of potential energy. A fragment of the kinetic energy is dissipated and is available in the energy budget again. The available energy approaches $\epsilon$ asymptotically.\\
+This means that a control input is executed unchanged as long as certain amount $\epsilon$ of energy is in the tank. Once the tank is almost empty, i.e. $\mathcal{T}(x_\g{t}) < \epsilon$, further command execution possibly violates passivity. A negative energy level of the (virtual) tank has no physical meaning and compromises passivity by generating energy. The switching parameter $\alpha$ sets the input to $0$, thus effectively suspending energy exchange. This happens in both ways, neither is it possibly to re-transfer energy into the tank through the interconnection. At this point the tank can only be refilled by dissipation. Dissipation is associated with kinetic energy, i.e. as long as the system is moving it can recover from the input-suspended state. If the system is driven to a state of exclusively potential energy, there is no dissipation to refill the tank. If the tank is emptied below the threshold level, the input is ultimately suspended. The system cannot recover anymore because there is no kinetic energy to be dissipated and the switching parameter prevents the energy exchange with the controller.\\
+The controllers designed in section \ref{S:modelbasedcontrol} store potential energy for two reasons, one is due to gravitation, the other is for deviations of desired and actual position. Gravitation is the more unproblematic case, elevating the system means to move the system. Moving means dissipating energy. In the elevating process a snmall portion of energy is dissipated and re-supplied to the tank. When getting close to the tank threshold, the available energy to be transformed into kinetic and then into potential energy gets asymptotically smaller. Only the previously dissipated energy is available and the elevation slows down and approaches to zero speed. Thus reaching a state of exclusively gravitational potential energy takes infinite time.
+Deviations of actual and desired position result in potential energy stored in the springs connecting operator-object and object-manipulators. Consider now the system driven into an obstacle and the operator persisting to command motion in the blocked direction. The operator sets the desired object position and thus the springs are elongated. There is no dissipation because the system is blocked. If the dislocation consumes all the available energy, the system is deadlocked, i.e. the systems inputs are suspended permanently.\\  
 Another apparent issue with the binary parameter $\alpha$ is the abrupt switching behaviour if the tank level is in the neighbourhood of $\epsilon$. Numeric simulations indicate high forces and chattering behaviour.\\
 A solution to this desired behaviour is to make $\alpha$ a function of the tank level and continuously scale the desired trajectory.
 \begin{equation}
@@ -1669,8 +1687,8 @@ A solution to this desired behaviour is to make $\alpha$ a function of the tank 
 0 & \mathcal{T}(x_\g{t}) < \epsilon
 \end{cases}
 \end{equation}
-Here $\mathcal{T}_{\g{th}} > \epsilon$ is a threshold level that defines the width of the transition region. Adapting the reference trajectory leads to a permanent position deviation, if the user does not actively readjust after the tank level has recovered. The next subsection addresses this problem.\\ 
-Regardless of a particular choice of $\alpha$, a combined port-Hamiltonian representation of the system and the tank is
+where $\mathcal{T}_{\g{th}} > \epsilon$ is a threshold level that defines the width of the transition region. Adapting the reference trajectory leads to a permanent position deviation, if the user does not actively readjust after the tank level has recovered. The next subsection addresses this problem.\\ 
+Regardless of a particular choice of $\alpha$, a combined port-Hamiltonian representation of the system and the tank is as follows
 \begin{eqnarray}
 \begin{aligned}
 \begin{pmatrix}
@@ -1691,17 +1709,8 @@ D(\f{x}) & 0 \\ -\frac{1}{x_\g{t}}\frac{\partial^T \bar{\mathcal{H}}}{\partial \
 \end{aligned}
 \end{eqnarray}
 
-\begin{figure}[b!]
-	\centering
-	\small
-	\def\svgwidth{0.95\columnwidth}
-	\input{energytank.eps_tex}
-	\vspace{10pt}
-	\caption{The human operator controls the energy flow between tank and robotic system}
-	\label{FIG:energytank}
-\end{figure} 
 
-Note that there is no more an input-output port, this is because the external ports are defined by energy exchange of the system with its environment. It is shown in subsection \ref{SS:PHSinterconnection} that systems, consistent with (\ref{EQ:generalPHS}), are passive. Analogously the described combination of such a system and the energy tank is \emph{lossless}.
+Note that there is no more an input-output port. This is because the external ports are defined by energy exchange of the system with its environment. It is shown in subsection \ref{SS:PHSinterconnection} that systems, consistent with (\ref{EQ:generalPHS}), are passive. Analogously the described combination of such a system and the energy tank is \emph{lossless}:
 \begin{eqnarray}
 \begin{aligned}
 &\frac{d}{dt}\bar{\mathcal{H}}(\f{x},x_\g{t}) = 
@@ -1725,7 +1734,7 @@ Moreover a change of stiffness affects the energy stored in the spring, relaxing
 \begin{equation}
 F = k_{vb}(x_v-x_b) \;,\; \mathcal{T}(x_\g{t})\geq \mathcal{T}_{\g{th}}
 \end{equation}
-This equation is valid if the tank level $\mathcal{T}(x_\g{t})$ is above a certain threshold level $\mathcal{T}_{\g{th}}$. The spring's stiffness $k_{vb} \in \mathbb{R}^+$ is unaltered, $x_v, x_b \in \mathbb{R}$ denote the reference and the actual position respectively. Below the threshold the following spring function is proposed
+This equation is valid if the tank level $\mathcal{T}(x_\g{t})$ is above a certain threshold level $\mathcal{T}_{\g{th}}$. The stiffness of the spring $k_{vb} \in \mathbb{R}^+$ is constant, $x_v, x_b \in \mathbb{R}$ denote the reference and the actual position respectively. Below the threshold the following spring function is proposed
 \begin{equation}
 F = k_{vb}\frac{\mathcal{T}(x_\g{t})}{\mathcal{T}_{\g{th}}}(x_v-x_b) \;,\; \mathcal{T}(x_\g{t})<\mathcal{T}_{\g{th}}
 \end{equation}
@@ -1835,7 +1844,7 @@ d_{vb} \frac{\mathcal{T}(x_\g{t})}{\mathcal{T}_{th}} & \text{if } \, \mathcal{T}
 \end{equation} 
 
 \subsection{Energy exchange with the robotic system and environment}\label{SS:EnergyExchangeEnvironment}
-So far, there was the simplification of assuming no energy exchange of the controller through the robots with the environment. In contrast to the human-controller relation, the controller-robot relation is established on an energetic level. The robot measures its velocity at exactly the same point it applies the commanded force, this defines the power port between the controller and the robotic environment. The power flow through this port can affect the energy of the tank-controller permanently, i.e. an irreversible drain of  energy is possible. In the following three important cases are discussed that interfere with the concept of a constant energy level in tank and controller.\\ 
+So far, there was the simplification of assuming no energy exchange of the controller through the robots with the environment. In contrast to the human-controller relation, the controller-robot relation is established on an energetic level. The robot measures its velocity at exactly the same point it applies the commanded force. This defines the power port between the controller and the robotic environment. The power flow through this port can affect the energy of the tank-controller permanently, i.e. an irreversible drain of  energy is possible. In the following three important cases are discussed that interfere with the concept of a constant energy level in tank and controller.\\ 
 In the controllers of section \ref{S:modelbasedcontrol} the robots are a simple inertias. In reality however they are a system of actuated joints and links with a dynamic behaviour different from a single inertia. To achieve the desired control performance the robots can be pre-compensated by  passive feedback-linearisation \cite{Ott_04}. The internal dynamics and gravity are compensated in favour of shaping a desired inertia. This technique however is passive, but not lossless, because lossless would require ideal measurements and modelling. This means, at this point energy is irreversibly dissipated. \\
 The second issue is the friction in the robot's joints, it can degrade precision and results in a loss of energy seen from the controller-robot power port. In \cite{Tien_08} a passive observer/compensation technique is presented that estimates the torque necessary to overcome friction and applies it in addition. Although this method reduces the energy loss due to friction, it is still a cautious estimation (i.e. passive) and not lossless. Thus, over time the energy stored in robots, controller and energy tank decreases. \\
 A permanent drain of energy in the system occurs, if the robotic system is performing work on the environment. For example, let the common object (connected to the robots) move other objects in the workspace. The work performed on this objects is withdrawn permanently from the energy balance.\\
@@ -1843,16 +1852,16 @@ Clearly, there is always a drain of energy in a realistic system  and at some ti
 With no restrictive assumptions on the environment, energy supply by the environment have to be considered. For safety reasons it is advisable to automatically discard energy supplied to the tank that exceeds the initial level.
 
 \subsubsection{Automatic compensation for drained energy}
-The two controllers presented in section \ref{S:modelbasedcontrol} are based on the model of a cooperative manipulation set-up. In an ideal case the same amount of energy stored in the energy is virtually bound in the controller. I.e. the controller reflects the energy state of the real system. Since all energy sourced by the tank flows through the controller into the robots, bounding the energy in the controller also limits the energy stored in the robotic system.
+The two controllers presented in section \ref{S:modelbasedcontrol} are based on the model of a cooperative manipulation set-up. In an ideal case the same amount of energy stored in the energy is virtually bound in the controller, i.e. the controller reflects the energy state of the real system. Since all energy sourced by the tank flows through the controller into the robots, bounding the energy in the controller also limits the energy stored in the robotic system.
 It is thus sufficient to apply the energetic limits, imposed by the safety metrics, to the controller. The proposed automatic compensation re-supplies the energy transferred to the robots into the energy tank. 
-The power exchanged between controller and the $i$-th robot is defined by the given by the wrench-twist product ${W_i^{0,0}}^T T_i^0$, applying the automatic compensation the energy balance is
+The power exchanged between controller and the $i$-th robot is defined by the wrench-twist product $(W_i^{0,0})^T T_i^0$, applying the automatic compensation the energy balance is
 \begin{equation}
-\dot{\mathcal{T}}(x_\g{t}) + \underbrace{\sum_{i=1}^n {W_i^{0,0}}^T T_i^0}_{\text{compensation}} = - \dot{{\mathcal{H}}}(x) + \sum_{i=1}^n {W_i^{0,0}}^T T_i^0
+\dot{\mathcal{T}}(x_\g{t}) + \underbrace{\sum_{i=1}^n (W_i^{0,0})^T T_i^0}_{\text{compensation}} = - \dot{{\mathcal{H}}}(x) + \sum_{i=1}^n (W_i^{0,0})^T T_i^0
 \end{equation}
 This means a constant level of energy in tank and controller $\dot{\mathcal{T}}(x_\g{t})+\dot{\mathcal{H}} = 0$.
-Clearly, the compensation term $\sum_{i=1}^n {W_i^{0,0}}^T T_i^0$ is active, it provides energy in lieu of the user, who is energetically decoupled in our approach. Still all energy flows through the controller and is bounded if necessary. But the energy budget, given by the tank level, accounts only for the controller state. Please recall that the combination of controller and tank is lossless, so the system can always carry out tasks within the given safety margin.\\ 
+Clearly, the compensation term $\sum_{i=1}^n (W_i^{0,0})^T T_i^0$ is active. It provides energy in lieu of the user, who is energetically decoupled in our approach. Still all energy flows through the controller and is bounded if necessary. But the energy budget, given by the tank level, accounts only for the controller state. Please recall that the combination of controller and tank is lossless, so the system can always carry out tasks within the given safety margin.\\ 
 In order to explain the proposal of enhancing stability and safety by energy-bounding the controller, consider the following illustrative examples.
-The operator drives the system to a high velocity, due to the moving virtual inertias in the controller, the tank is used up. This leads to a relaxation of the coupling of user and virtual object and prevents prevents further acceleration. Thus the robotic system is kept at a certain speed. This also holds if the virtual inertia parameters deviate from their real pendants (modelling errors). The combination of the initial tank level and the virtual inertias determine the achievable system speed. It is possible to calculate this speed by using the apparent inertia of a cooperative set-up from \cite{Erhart_16}.\\ 
+The operator drives the system to a high velocity, due to the moving virtual inertias in the controller, the tank is used up. This leads to a relaxation of the coupling of user and virtual object and prevents further acceleration. Thus the robotic system is kept at a certain speed. This also holds if the virtual inertia parameters deviate from their real pendants (modelling errors). The combination of the initial tank level and the virtual inertias determine the achievable system speed. It is possible to calculate this speed by using the apparent inertia of a cooperative set-up from \cite{Erhart_16}.\\ 
 Please consider again the introductory case of robots driven into an obstacle and a user still to command motion in the blocked direction. The user-object spring is elongated and its potential energy empties the tank. The automatic compensation provides no energy to the tank, because the robots are blocked and do not move, i.e. no power is exchanged. With the depletion of the tank, stiffness and damping of the user spring are reduced. This keeps the forces bounded even if the user does not change her/his commands. Conclusively the total wrench that the common object can exert on the environment is determined by the initial tank level and the spring stiffness. 
 
 
@@ -1861,9 +1870,9 @@ Please consider again the introductory case of robots driven into an obstacle an
 
 \chapter{Simulation results}\label{C:SimulationResults}
 
-Simulations of the proposed control schemes and existing approaches from literature are conducted to evaluate and compare their effectiveness. The controllers for cooperative manipulation are compared in terms of trajectory tracking, dynamic behaviour and internal stress on the object. To preserve comparability, they are adjusted to exert equal strength of force and the tuning parameters are kept within the same range.\\
-In the simulation the robots are assumed to behave like simple inertias, i.e. their underlying dynamics is compensated. The connection between common object (another inertia) and the end-effectors is considered rigid. For the computation of the combined dynamics the principle of least constraint motion is applied, which is explicitly given for a cooperative manipulation set-up in \cite{Erhart_16}. The same article provides the routine used for the calculation of the stress exerted on the object (internal wrench).
-Simulations are conducted in \emph{MATLAB/Simulink}, using a fixed step solver with a step size of $1$ms, this facilitates application in an experimental set-up (the control units typically run at $1$kHz). Parameters used in the simulations can be found in table \ref{TAB:generalsimulationprop}. The control input is a  reference velocity, the set-point position/orientation is computed by integration. Fig. \ref{FIG:ReferenceTrajectory} shows the two test cases, linear (along the x-axis) and angular velocity (around the z-axis). 
+Simulations of the proposed control schemes and existing approaches from literature are conducted to evaluate and compare their effectiveness. The controllers for cooperative manipulation are compared in terms of trajectory tracking and internal stress on the object. To preserve comparability, they are adjusted to exert equal force and the tuning parameters are kept within the same range.\\
+In the simulation the robots are assumed to behave like simple inertias, i.e. their underlying dynamics (configuration dependent inertia, Coriolis and gravity terms) is compensated. The connection between common object (another inertia) and the end-effectors is considered rigid. For the computation of the combined dynamics the principle of least constraint motion is applied, which is explicitly given for a cooperative manipulation set-up in \cite{Erhart_16}. The same article provides the routine used for the calculation of the stress exerted on the object (internal wrench).
+Simulations are conducted in \emph{MATLAB/Simulink}, using a fixed step solver with a step size of $1$ms. This facilitates application in an experimental set-up (the control units typically run at $1$kHz). The Parameters used in the simulations can be found in table \ref{TAB:generalsimulationprop}. The control input is a  reference velocity, the set-point position/orientation is computed by integration. Fig. \ref{FIG:ReferenceTrajectory} shows the two test cases, linear (along the x-axis) and angular velocity (around the z-axis). 
 \begin{table}[h]
 	\centering
 	\caption[General simulation settings]{General simulation settings}\vspace{10pt}
@@ -1888,22 +1897,10 @@ Simulations are conducted in \emph{MATLAB/Simulink}, using a fixed step solver w
 
 \section{State-of-the-art control schemes for cooperative manipulation}
 
+In literature several control schemes for cooperative manipulation are known. The focus is limited to those that achieve stability during contact and non-contact transitions. Those include impedance control and Intrinsically Passive Control (IPC). Simulation results are provided for two impedance control schemes and one IPC scheme. The dynamic performance is discussed with regard to the different role of inertias in either control paradigms.
 
-
-%\begin{figure}
-%\include{DePasrot}
-%\caption[Internal force impedance control with feed-forward of the object dynamics: Rotation]{Internal force impedance control with feed-forward of the object dynamics: Rotation; Graphs from top: Orientation (desired/actual), Angular Velocity (desired/actual), Force exerted by one manipulator, Internal wrench}
-%\end{figure}
-
-
-
-
-
-
-
-
-\subsection{Internal and external impedance based reference trajectory generation}
-A renowned approach by Caccavale and Villani \cite{Caccavale_01, Caccavale_08} consists of a cascaded architecture enforcing two impedance relations. One is established between the given reference trajectory and the object, one refers to an \emph{external} impedance. The other is between the manipulators and the object and is called \emph{internal}. The output of the impedance loops is a compliant reference trajectory which is used in an \emph{inner motion control} loop to generate forces to drive the robot. The parameters used in the simulation are chosen very close to the ones given in \cite{Caccavale_08}, see table \ref{TAB:CaViParameters}. 
+\subsection{Internal and external impedance based reference trajectory generation}\label{SS:CaVi}
+A renowned approach by Caccavale and Villani \cite{Caccavale_01, Caccavale_08} consists of a cascaded architecture enforcing two impedance relations. One is established between the given reference trajectory and the object, termed as the \emph{external} impedance. The other is between the manipulators and the object and is called the \emph{internal} impedance. The output of the impedance loops is a compliant reference trajectory which is used in an \emph{inner motion control} loop to generate forces to drive the robot. The parameters used in the simulation are chosen very close to the ones given in \cite{Caccavale_08}, see table \ref{TAB:CaViParameters}. 
 
 \begin{table}[b]
 	\centering
@@ -1938,8 +1935,8 @@ A renowned approach by Caccavale and Villani \cite{Caccavale_01, Caccavale_08} c
 %\end{equation}
 %The control output is the reference acceleration of the i-th manipulator $ \ddot{x}_i^r $, $ \dot{x}_i^r,x_i^r $ are obtained from integration. These variables are the inputs the inner motion control loop (PD-type). The strategy of compliant trajectories allows for high gains in the motion controller. Knowledge of object dynamics and measurement of the contact wrenches is required.\\
 
-The simulation results are presented in figure \ref{FIG:CaViSim}, the left column shows the linear motion test case and the right the rotational one. The plots on top show the deviation from the desired position and orientation respectively. Below the velocity errors are displayed. The third plot row shows the wrenches applied by one of the manipulators. The bottom row indicates the internal stress a manipulator exerts on the object.\\
-The approach shows good trajectory tracking, especially the velocity error is the lowest in this comparative study. The internal wrench is low and is similar to the other approaches, for linear motion not any internal stress occurs.
+The simulation results are presented in figure \ref{FIG:CaViSim}, the left column shows the linear motion test case and the right the rotational one. The plots on top show the deviation from the desired position and orientation respectively. The velocity errors are displayed below. The third plot row shows the wrenches applied by one of the manipulators. The bottom row indicates the internal stress a manipulator exerts on the object.\\
+The approach shows good trajectory tracking. The velocity error is the lowest in this comparative study. The internal wrench is low and is similar to the other approaches. For pure linear motion the internal stress is approx. zero.
 
 %\begin{figure}
 %\include{CaVitrans}
@@ -1955,8 +1952,8 @@ The approach shows good trajectory tracking, especially the velocity error is th
 
 \begin{figure}[h]
 \input{CaVigroup}
-\label{FIG:CaViSim}
 \caption[Simulation results: Internal and external impedance based reference trajectory generation]{Internal and external impedance based reference trajectory generation: Translation (left column) and rotation}
+\label{FIG:CaViSim}
 \end{figure}
 
 
@@ -1966,8 +1963,8 @@ The approach shows good trajectory tracking, especially the velocity error is th
 
 
 \subsection{Internal impedance control with feed-forward of the object dynamics}
-Erhart and Hirche \cite{Erhart_16} omit the external impedance relation and but include object dynamics feed-forward. I.e. the wrench necessary to accelerate the object's inertia is distributed by an inverse of the grasp matrix to the manipulators. This results in even better position/orientation accuracy compared to the previous. However results presented in \cite{Caccavale_08} indicate that, in absence of an external impedance relation, higher forces occur, if the object comes into contact with the environment.\\
-Interestingly the magnitude of the internal forces (during rotation) depends directly on the step size of the simulation (running a fixed step solver), i.e. a ten-times smaller step size gives ten-times smaller internal forces. Internal forces are calculated based on the geometry in the last simulation step. The correlation between step size and values indicates that these forces are rather due to the discrete nature of the simulation than of the control law generating internal stress.\\
+Erhart and Hirche \cite{Erhart_16} omit the external impedance relation, but include object dynamics feed-forward, i.e. the wrench necessary to accelerate the object's inertia is distributed by an inverse of the grasp matrix to the manipulators. This results in even better position/orientation accuracy compared to the approach presented in subsection \ref{SS:CaVi}. However results presented in \cite{Caccavale_08} indicate that, in absence of an external impedance relation, higher forces occur, if the object comes into contact with the environment.\\
+Interestingly the magnitude of the internal forces (during rotation) depends directly on the step size of the simulation (running a fixed step solver), i.e. a ten-times smaller step size gives ten-times smaller internal forces. Internal forces are calculated based on the geometry in the last simulation step. The correlation between step size and values indicates that these forces are rather a consequence of the discrete nature of the simulation than of the control law generating internal stress.\\
 Table \ref{TAB:DePaParameters} shows the parameters used and the results can be seen from figure \ref{FIG:DePaSim}.
 %\begin{equation}
 %M_i \ddot{x}_i^d + D_i (\dot{x}_i^d - \dot{x}_i) + K_i(x_i^d,x_i) = h^x
@@ -1989,8 +1986,8 @@ Table \ref{TAB:DePaParameters} shows the parameters used and the results can be 
 %\end{figure}
 \begin{figure}[h]
 \input{Depasgroup}
-\label{FIG:DePaSim}
 \caption[Simulation results: Internal impedance control with feed-forward of the object dynamics]{Internal impedance control with feed-forward of the object dynamics: Translation (left column) and rotation}
+\label{FIG:DePaSim}
 \end{figure}
 
 \begin{table}
@@ -2008,18 +2005,21 @@ Table \ref{TAB:DePaParameters} shows the parameters used and the results can be 
 \end{table}
 
 
-\subsection{Classic IPC by Stramigioli}
-The IPC was introduced by Stramigioli \cite{Stramigioli_01} and experimentally evaluated by Wimb\"ock et al. \cite{Wimboeck_08} on a robotic hand. In Stramigioli's version there are no dampers along the manipulator-object springs and Wimboeck uses only translational springs. The simulation results presented here are a combination of both implementations, dampers along 6-DoF springs are added. The architecture has been detailed throughout this work.\\
-The impedance parameters are chosen equal or lower for translation and significantly higher for rotation, see table \ref{TAB:IPCParameters}. The results (fig. \ref{FIG:IPCSim}) show a clearly inferior trajectory tracking compared to the previous approaches. This stems from a different mode of function of the inertias in the IPC. In classic impedance control clearly the inertia is in parallel with the spring and in the IPC the inertia is connected in series, figure \ref{FIG:ImpedanceIPC} illustrates the concepts. In the first case the inertia is used to calculate the wrench necessary to accelerate the associated body, in the latter the spring and damper need to provide the wrench to accelerate the additional (virtual) body. Thus the inertia in the IPC is an energy storing element that reduces the controller dynamics. On the other hand the IPC does not require absolutely smooth reference velocities. The classic impedance control approaches use the time-derivative of the input velocity and often require pretreatment (e.g. low-pass filtering) of the input.\\
+\subsection{Dynamic IPC}
+The IPC is introduced by Stramigioli \cite{Stramigioli_01} and experimentally evaluated by Wimb\"ock et al. \cite{Wimboeck_08} on a robotic hand. Stramigioli applies pure stiffness control, i.e. there are no dampers along the springs. Wimb\"ock et al. add the dampers to enhance the trajectory tracking behaviour and call the scheme \emph{dynamic IPC}. See also figure \ref{FIG:ImpedanceIPC} for a comparison. The implementation of Wimb\"ock is purely translational, i.e. forces but no moments are transferred via the springs and the dampers. The simulation results presented here, called dynamic IPC, are a combination of both approaches, dampers along the 6-DoF springs are used.\\
+The impedance parameters are chosen equal or lower for translation and significantly higher for rotation, see table \ref{TAB:IPCParameters}.\\ The feasible stiffness and damping in this implementation is limited by numerical stability, a further increase leads to infinite values at some point of the simulation. This issue also requires the use of \emph{Simulink's ode8} solver for this approach, instead of \emph{ode1} (Euler's method) used for the other simulations. The \emph{ode8} method is of the \emph{Dormand-Prince} class with an accuracy order of $8$. The rate of rate of convergence improves at the cost of higher computational complexity \cite{SimulinkHelp:Solver}.\\
+ The results (fig. \ref{FIG:IPCSim}) show a clearly inferior trajectory tracking compared to the previous approaches.
+\subsubsection{Discussion}
+ The difference of dynamic performance of impedance control and IPC stems from a different mode of function of the inertias in the IPC. In classic impedance control clearly the inertia is in parallel with the spring and in the IPC the inertia is connected in series, figure \ref{FIG:ImpedanceIPC} illustrates the concepts. In the first case the inertia is used to calculate the wrench necessary to accelerate the associated body, in the latter the spring (and damper) need to provide the wrench to accelerate the additional (virtual) body. Thus the inertia in the IPC is an energy storing element that reduces the controller dynamics. On the other hand the IPC does not require absolutely smooth reference velocities. The classic impedance control approaches use the time-derivative of the input velocity and often require pretreatment (e.g. low-pass filtering) of the input.\\
 \begin{figure}[H]
 	\centering
 	\small
 	\def\svgwidth{0.95\columnwidth}
-	\input{ImpedanceIPC.eps_tex}
-	\caption{Arrangement of spring, mass and damper in classical impedance control approaches and in the IPC }
+	\input{ImpedancedIPC.eps_tex}
+	\caption{Arrangement of spring, mass and damper in classical impedance control, dynamic \cite{Wimboeck_08} and classic IPC \cite{Stramigioli_01} }
 	\label{FIG:ImpedanceIPC}
 \end{figure}
-The feasible stiffness and damping in this implementation is limited by numerical stability, a further increase leads to infinite values at some point of the simulation. This issue also requires the use of \emph{Simulink's ode8} solver for this approach, instead of \emph{ode1} (Euler's method) used for the other simulations. The \emph{ode8} method is of the \emph{Dormand-Prince} class with an accuracy order of $8$. The rate of rate of convergence improves at the cost of higher computational complexity \cite{SimulinkHelp:Solver}. 
+
 
 
 
@@ -2050,8 +2050,8 @@ The feasible stiffness and damping in this implementation is limited by numerica
 
 \begin{figure}
 \input{StrIPCgroup}
+\caption[Simulation results: Dynamic IPC]{Dynamic IPC: Translation (left column) and rotation}
 \label{FIG:IPCSim}
-\caption[Simulation results: Intrinsically Passive Controller]{Intrinsically Passive Controller: Translation (left column) and rotation}
 \end{figure}
 
 
@@ -2077,12 +2077,13 @@ All controllers are tuned to command the same magnitude of force to the robots, 
   
 \begin{figure}
 \input{DIPCcgroup}
-\label{FIG:DIPCcSim}
+
 \caption[Simulation results of the constrained dynamic IPC]{Constrained dynamic IPC: Translation (left column) and rotation}
+\label{FIG:DIPCcSim}
 \end{figure}
 
 \section{Compliant trajectory generating IPC}
-The compliant trajectory generating IPC uses an force control loop to compute the force commands for the robots. The structure can either be viewed as PI-control or as a spring and a damper in parallel. Gains or stiffness/damping can be chosen high because the superimposed control scheme already establishes compliance \cite{Caccavale_08}, the simulation settings are summarized in table \ref{TAB:DIPCrParameters}. Numerical stability problems also occur with this approach, the reported parameters   the maximum feasible with a fixed step solver (\emph{ode8}) at $1$ ms step size. With a variable step solver (e.g. \emph{ode45}) higher stiffness and damping are reachable and performance is superior. Due to non-applicability in real robotic system, these solvers are not considered further. Stiffness and damping is similar to the classic IPC parameters, the dynamic performance is inferior because of the additional inertias, which have to be accelerated. This results in approx. double errors in position/orientation and velocity compared to the classic IPC, see figure \ref{FIG:DIPCrSim}, In contrast to the constrained dynamic IPC the virtual inertias for the object and the manipulators cannot be chosen smaller than their real pendants. Doing so leads to infinite simulation results. This entails in an even wider performance gap to the constrained dynamic IPC.
+The compliant trajectory generating IPC uses an force control loop to compute the force commands for the robots. The structure can either be viewed as PI-control or as a spring and a damper in parallel. Gains or stiffness/damping can be chosen high because the superimposed control scheme already establishes compliance \cite{Caccavale_08}. The simulation settings are summarized in table \ref{TAB:DIPCrParameters}. Numerical stability problems also occur with this approach, damping and stiffness cannot be chosen as high as for in the previous simulations. The parameters reported in table \ref{TAB:DIPCrParameters} are chosen as high as possible to achieve numerical stability with a fixed step solver (\emph{ode8}) at $1$ ms step size. A variable step solver (e.g. \emph{ode45}) is stable with higher stiffness and damping and performance is superior. Due to non-applicability in real robotic system, variable-step solvers are not considered further. Although the chosen stiffness and damping is still comparable to the classic IPC parameters, the dynamic performance is inferior because of the additional inertias, which have to be accelerated. This results in approx. double errors in position/orientation and velocity compared to the classic IPC (see figure \ref{FIG:DIPCrSim}). In contrast to the constrained dynamic IPC the virtual inertias for the object and the manipulators cannot be chosen smaller than their real pendants. Doing so leads to infinite simulation results. This entails in an even wider performance gap to the constrained dynamic IPC.
 
 \begin{table}
 	\centering
@@ -2104,18 +2105,20 @@ The compliant trajectory generating IPC uses an force control loop to compute th
 
 \begin{figure}
 \input{DIPCrgroup}
-\label{FIG:DIPCrSim}
+
 \caption[Simulation results of the compliant reference trajectory generating IPC]{Compliant reference trajectory generating IPC: Translation (left column) and rotation}
+\label{FIG:DIPCrSim}
 \end{figure}
 
 \clearpage
 \section{Energy-bounded trajectory tracking}
-In the presented simulation, trajectory tracking demands more energy than is available from the energy tank (detailed in section \ref{S:EnergyTanks}). The budget for performing operations is limited to $30$ J, in accordance with the safety limit of neck fractures (see section \ref{S:PassivitySafety}). Trajectories exceeding this limit are adapted with a the variable stiffness and damping technique presented in subsection \ref{SS:EnergyAdaptedStiffness}. The underlying control scheme is the dynamic constrained IPC from section \ref{S:modelbasedcontrol}.\\
-In the simulation no energy is lost in the robotic system (due to friction or work on the environment). If the user commands acceleration, energy is transferred from the tank through the controller into the robotic system and is thereby stored in form of potential and energy. When the system slows down, the kinetic and potential energy is is re-transformed into free energy and stored in the tank. This happens in an ideal, lossless way, thus the energy tank reaches the former level after an operation, see the third plot in figure \ref{FIG:VarStiff}. Upon depletion of the tank (approx. at $t=2$ s), the kinetic energy cannot be further increased  and the velocity stays constant (observable from the second plot). The reduction of stiffness and damping starts as soon as the level falls under a certain threshold, here $T_{th}=10$ J. As a consequence from $t=1.7$ s on the velocity increases slower. The actual position falls behind the desired (first plot in figure \ref{FIG:VarStiff}), with the reduced velocity it takes until $t=2.6$ s to catch up to the desired position. During this time the velocity is kept at the energetically feasible maximum. As soon as the velocity reduces the energy level recovers quickly. The approach attempts optimal position tracking under the given energy constraint and no permanent deviations occur after the energetic level has recovered.
+In the presented simulation, trajectory tracking demands more energy than is available from the energy tank (detailed in section \ref{S:EnergyTanks}). The budget for performing operations is limited to $30$ J, in accordance with the safety limit of neck fractures (see section \ref{S:PassivitySafety}). Trajectories exceeding this limit are adapted with the variable stiffness and damping technique presented in subsection \ref{SS:EnergyAdaptedStiffness}. The underlying control scheme is the dynamic constrained IPC from section \ref{S:modelbasedcontrol}.\\
+In the simulation no energy is lost in the robotic system (due to friction or work on the environment). If the user commands acceleration, energy is transferred from the tank through the controller into the robotic system and is thereby stored in form of potential and energy. When the system slows down, the kinetic and potential energy is is re-transformed into free energy and stored in the tank. This happens in an ideal, lossless way, thus the energy tank reaches the former level after an operation (see the third plot in figure \ref{FIG:VarStiff}). Upon depletion of the tank (approx. at $t=2$ s), the kinetic energy cannot be further increased  and the velocity stays constant (observable from the second plot). The reduction of the stiffness and the damping starts as soon as the level falls under a certain threshold, here $T_{th}=10$ J. As a consequence from $t=1.7$ s on the velocity increases slower. The actual position falls behind the desired (first plot in figure \ref{FIG:VarStiff}). With the reduced velocity it takes until $t=2.6$ s to catch up to the desired position. During this time the velocity is kept at the energetically feasible maximum. As soon as the velocity reduces the energy level recovers quickly. The approach attempts optimal position tracking under the given energy constraint and no permanent deviations occur after the energetic level has recovered.
 \begin{figure}
 \input{VarStifftrans}
-\label{FIG:VarStiff}
+
 \caption[Simulation results of the energy bounding by a variable stiffness spring]{Energy bounding by a variable stiffness spring and a variable damper}
+\label{FIG:VarStiff}
 \end{figure}
 %\section{Implementation}
 %
@@ -2146,13 +2149,13 @@ In the simulation no energy is lost in the robotic system (due to friction or wo
 
 %_____Zusammenfassung, Ausblick_________________________________
 \chapter{Conclusion}\label{C:Conclusion}
-Cooperative manipulation is analysed for the first time in the port-Hamiltonian setting. The thesis provides a self-contained derivation of the constraint forces arising when the manipulators are rigidly connected to the common object. It is shown that these forces do not generate, store or dissipate energy, i.e. the rigid connection is energy consistent. The modelling of the rigid connections is also used for control.\\
-Two model-based controllers are designed for the teleoperated, shared control task of cooperative object manipulation. Their main characteristic is the virtual structure that resembles an impedance-controlled cooperative manipulation set-up. The design is based on physical intuition and is intrinsically passive.\\ Simulation results show that the dynamic response of the proposed controllers is inferior by one order of magnitude, compared to classic cooperative manipulation approaches. Stramigioli's IPC has a similar architecture and the performance compares well to our controllers.
-Classic cooperative manipulation approaches use the desired acceleration to calculate the forces necessary to speed up the inertias in the set-up. The proposed controllers and the IPC do not, plus have additional virtual inertias that retard dynamic motion.
-In the simulations the classic IPC and the reference trajectory generating controller suffer from numeric instabilities, the constrained dynamics IPC does not and is therefore preferred for safety concerns.\\      
-Input interfaces, that do not impose a counteracting force or have deflection barriers, allow a human to issue arbitrary commands, which may be unstable and/or unsafe. The model-based control design on energetic level calculates the energetic state of the controller, which directly reflects the situation in the real set-up. This allows to distinguish between energy appropriately spent on the task and energy driving the system to a potentially harmful state. The latter type is kept bounded by energy shaping control, i.e. dynamically adapting the controller parameters.\\
-The controlled robotic system is sourced from an energy tank, the energy supplied to the robots is re-supplied into the tank, i.e. the controller energy level is bounded. Through the automatic re-filling an infinite amount of energy may be supplied over time. Then the robots do not reach an energetic minimum. Asymptotic stability can only be concluded, for a passive robotic system with a finite supply of energy. However by bounding the energy in the controller the energy in the real set-up gets also limited and the system is at a stable energetic state. This is valid if the environment provides only a finite amount of energy.\\
-Limiting the energy, also restricts the possible impact in case of a collision with a human or the environment. The prime task in cooperative manipulation is the transportation of large and/or heavy objects, usually this is carried out at low speeds. Injuries due to violent pressure on a clamped human may be more relevant in this set-up. The proposed energy shaping approach also limits the possible force, but the used safety metrics should be analysed especially for this case.
+Cooperative manipulation is analysed for the first time in the port-Hamiltonian setting. The port-Hamiltonian formulation allows to design a model-based controller by interconnecting atomic mechanical elements and facilitates passivity-based control. It is shown how the modelling of a cooperative set-up transfers into a virtual structure to control the formation of robots. In modelling, a special focus is on the rigid connection of manipulators and object. This constrained contact situation is common in cooperative manipulation. In contrast to \cite{Erhart_16}, this thesis provides a self-contained derivation of the internal forces that arise from the constraints. It is shown that these forces do not generate, store or dissipate energy, i.e. a rigid connection is energy consistent. The modelling of the rigid connections is also used for control.\\
+Two model-based controllers are designed for the teleoperated, shared control task of cooperative object manipulation. They use a virtual structure built from springs, masses and dampers to achieve a desired group behaviour of the robots. The design is based on physical intuition and is intrinsically passive. The two proposed controllers differ in terms of their output variables, one generates a compliant reference trajectory for each robot and the other issues force commands to the robots.
+In the simulative study the force-output controller performs better because the trajectory-generating one suffers from numeric instabilities.\\
+The proposed control design is validated by simulative comparison against cooperative manipulation control schemes known from literature. Impedance control approaches show better dynamic behaviour but are not passive, i.e. achieve stability with a more limited class of environments. The dynamic IPC by Wimb\"ock et al. \cite{Wimboeck_08} is passive and has an architecture similar to the proposed controllers. To allow for a comparison with the proposed approaches,  it is extended to six DoF and simulated. The results compare well. Internal forces indicate how well a controller preserves the formation of the robots. All simulated approaches show internal forces close to zero, i.e. good coordination performance.\\
+The proposed schemes are designed for shared control, i.e. involve the human in the control loop. Humans are commonly considered fail-safe in teleoperation. This is the first work to consider stability and safety issues with non-reactive interfaces. The human is virtually coupled by a spring and a damper to the system. The model-based control design on energy level allows to identify potentially harmful energy in the system. The controller relaxes the coupling of the human, if an unsafe state is detected. The adaptive coupling then prevents the human from supplying further energy to the system. An energy tank is used to passivate the coupling.\\
+Asymptotic stability is ensured by the passive controller for finite energy supplies. For human commands that require infinite energy for execution, the energy-bounding still achieves stability.\\
+Limiting the energy also restricts the possible impact in case of a collision with a human or the environment and thus enhances safety. The prime task in cooperative manipulation is the transportation of large and/or heavy objects, usually this is carried out at low speeds. Injuries due to violent pressure on a clamped human may be more relevant in this set-up. The proposed energy shaping approach also limits the possible force, but the used safety metrics should be analysed especially for this case. Another future extension of this work is to consider direct human-robot team interaction under the leader-follower paradigm.  
 %Don't leave it at the discussion: discuss what you/the reader can learn from the results. Draw some real conclusions. Separate discussion/interpretation of the results clearly from the conclusions you draw from them. (So-called "conclusion creep" tends to upset reviewers. It means surrendering your scientific objectivity.) Identify all shortcomings/limitations of your work, and discuss how they could be fixed ("future work"). It is not a sign of weakness of your work, if you clearly analyse and state the limitations. Informed readers will notice them anyway and draw their own conclusions, if not addressed properly.
 %
 %\vspace{\baselineskip}
