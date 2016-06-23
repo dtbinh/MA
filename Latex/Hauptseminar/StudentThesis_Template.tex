@@ -1,9 +1,12 @@
 \documentclass[a4paper,twoside, openright,12pt]{report}
-\usepackage{psfrag,amsbsy,graphics,float,amsmath}
+\usepackage{psfrag,amsbsy,graphics,float,amsmath,amssymb,epstopdf,xifthen,tikz,pgfplots,lscape,verbatim,bm}
 \usepackage{graphicx, color} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
 \usepackage[latin1]{inputenc}
+\usepackage[margin=15mm]{geometry}
 \usepackage{verbatim} 
-
+\pgfplotsset{compat=1.9}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{matrix} 
 %%% Stand 14.09.2007
 %%% erstellt von Marion Sobotka
 %%% marion.sobotka@tum.de
@@ -102,7 +105,8 @@ In your final hardback copy, replace this page with the signed exercise sheet.
 \pagenumbering{arabic}
 \phantom{u}
 \begin{abstract}
-  A short (1--3 paragraphs) summary of the work. Should state the problem, major assumptions, basic idea of solution, results. Avoid non--standard terms and acronyms. The abstract must be able to be read completely on its own, detached from any other work (e.g., in collections of paper abstracts). Don't use references in an abstract.
+The human behaviour is very complex and cannot be captured with a single model. Dependent on the role of the operator in a teleoperation task, various models are known in literature. The range of applications and modelling approaches is diversified. According to Sheridian \cite{Sheridian1992} the human behaviour is determined by three major aspects: Sensory perception, cognition and response.
+Response or motor function modelling is mostly concerned with what the human \emph{can} do based on the limitations imposed by the human physiology. Cognitive models focus on what the human \emph{will} do in a certain situation. Sensory perception modelling helps to determine which information is useful, and which cannot be perceived by human. All three aspects are beneficial for control design. This paper provides an overview on existing human modelling approaches in literature. A special focus is put on which methods are applied in direct, shared and supervisory control.
 \begin{center}	
 \normalsize \textbf{Zusammenfassung}\\
 \end{center}
@@ -169,9 +173,41 @@ The remainder of the paper is organized as follows: \textbf{Chapter 2} divides i
 %_____Kapitel 2_________________________________
 \chapter{Main Part}
 \section{Response or motor function modelling}
-\subsubsection{Bilateral telemanipulation}
-Motor function modelling is mainly motivated by master-slave manipulation. The human manipulates a \emph{teleoperator} (the master robot) and the \emph{teleroobot} (slave) follows the masters motion. In return the human is provided with force-feedback of the resistance found by the telerobot. Thus, by manipulating the teleoperator, the human enforces a relation between force and velocity. At the level of interaction the human is a mechanic impedance. In a seminal work Hogan \cite{Hogan1989} investigates the dynamics of a human arm. Although the human arm is actively controlled by neuro-muscular feedback, it is indistinguishable from a passive impedance. To ensure closed-loop stability it is common to render each subsystem of a teleoperation set-up passive \cite{Niemeyer2004}. This generates a high stability margin and results in conservative control design. If the communication line exhibits delays, its passivation leads to a distorted display of the manipulated environment to the human. To achieve stability it is sufficient if the closed loop behaviour is passive. In sum, if more energy is dissipated in certain subsystems than is generated in other subsystems, the system is dissipative. The formalisation is called \emph{QSR}-dissipation. Subsystems of the system that are guaranteed dissipative, allow for other limited active components. To reduce the distorition of the displayed environment the communcation channel is designed active within the limits of an overally dissipative system \cite{Hirche2012}. A component which is guaranteed  dissipative is in fact the human arm.  Identification studies \cite{Rahman1999} of the human arm show that it is inherently damped. Also a minimum damping is identified, which is the guaranteed dissipation.\\
-Motor function modelling is mostly concerned with what the human \emph{can} do based on the limitations imposed by the human physiology. Cognitive models focus on what the human \emph{will} do in a certain situation.
+\subsubsection{Bilateral telemanipulation}\label{SS:BilateralTelemanipulation}
+Motor function modelling is mainly motivated by master-slave manipulation. The human manipulates a \emph{teleoperator} (the master robot) and the \emph{teleroobot} (slave) follows the masters motion \cite{TeleoperationHandbook}. In return the human is provided with force-feedback of the resistance found by the telerobot. Thus, by manipulating the teleoperator, the human enforces a relation between force and velocity. At the level of interaction the human is a mechanical impedance. In a seminal work Hogan \cite{Hogan1989} investigates the dynamics of a human arm. Although the human arm is actively controlled by neuro-muscular feedback, it is indistinguishable from a passive impedance. To ensure closed-loop stability it is common to render each subsystem of a teleoperation set-up passive \cite{Niemeyer2004}. An overview of a common teleoperation set-up is shown in figure \ref{FIG:TeleoperationScheme}. This generates a high stability margin and results in conservative control design. If the communication line exhibits delays, its passivation leads to a distorted display of the manipulated environment to the human. To achieve stability it is sufficient if the closed loop in sum dissipates energy. Instead of passivating every element, the energy balance of the closed loop is analyzed in terms of \emph{dissipativity-based control}. Dissipativity is a generalization of passivity with respect to a more general definition of energy transfer. A system is called dissipative if there exists a positive semi-definite energy function $V$ such that
+\begin{equation}
+\dot{V}(x(t)) \leq s(u(t),y(t)),
+\end{equation}
+where $x$ is the state, $u$ the input and $y$ the output of the system. The supply rate is $s(u(t),y(t)) = y^T(t)u(t)$ for the special case of a passive system.\\
+The interconnection of multiple dissipative systems $\Sigma_i, \, i=1...N$ with supply rates $s_i(t)$ is again a dissipative system $\Sigma$ with the summed supply rate $s(t)=\sum_{i=1}^N s_i(t)$ .
+The combined system $\Sigma$ is locally stable (in the sense of Lyapunov) if $s(t)$ is locally negative semi-definite. Clearly this means that more energy is withdrawn then supplied to the system \cite{Varnell2013}. Some components may be active with a positive supply rate, if other components dissipate more energy at the same time.\\
+One system component that is guaranteed to be dissipative at all times, is the human operator manipulating the haptic device (teleoperator). Identification studies \cite{Rahman1999} of the human arm show that it is inherently damped. A minimum damping $d_{\text{h,min}}$ is identified, which is the guaranteed dissipation.\\
+The passivation of the communication channel e.g. using the wave/scattering transformation \cite{Niemeyer2004}, results in a distorted display of the environment. If this component is designed active, exploiting the guaranteed dissipation of the other systems portions to maintain stability, the displayed environment will be more realistic. A more realistic perception of the task can improve the human performance in teleoperation. The \emph{generalized wave/scattering transformation} \cite{Hirche2012} uses the guaranteed dissipation of the other components to design an active communication channel. Thereby the closed loop system is still dissipative. This is done by specific choices of the transformation matrices. The reproduction of this procedure is beyond the scope of this paper, please refer to \cite{Hirche2012} directly.
+\begin{figure}
+	\centering
+	\footnotesize
+	\def\svgwidth{1\columnwidth}
+	\input{TeleoperationScheme.eps_tex}
+	\caption{Structure of a general teleoperation system}
+	\label{FIG:TeleoperationScheme}
+\end{figure}
+
+\subsubsection{Pointing interfaces}
+The haptic interfaces considered in the previous subsection are often tailored to a specific problem and/or a specific robot. Pointing interfaces like a computer mouse or a touch-screen tablet are versatile and cost-efficient. However, different modelling approaches for the human dynamics have to be considered. When manipulating a pointing device (mouse, touch-screen) the human does not receive force feedback, thus the impedance models do not apply. The human pointing dynamics are studied both theoretically and experimentally (system identification).\\
+The \emph{vector integration to endpoint} (VITE) model is a neural command circuit to generate human arm trajectories \cite{Varnell2013}. In the simplest form it is written as 
+\begin{align}
+\dot{\nu} &= \gamma(-\nu + x_d - x) \\
+\dot{x} &= G(t) \max(0,\nu), \nonumber
+\end{align}
+where $\nu$ expresses the deviation between the target arm position $x_d$ and the actual arm position $x$. $\gamma$ is a positive constant. The \emph{GO} signal $G(t)\geq 0$ indicates the human to correct the deviation. The human arm manipulates the pointing device, thus the dynamics of the human arm describe the pointing dynamics. The pointing behaviour is dissipative as long as $\nu \geq 0$ \cite{Varnell2013}. The case of $\nu < 0$ clearly represents a position overshoot ($x>x_d$). Fast human motions typically result in an overshoot. Clearly there is a tradeoff between an overshoot and the time to reach the target.\\
+If the target position is known to the input interface, e.g. in a trajectory following task, the interface can remove the overshoot from the human input. The resultant pointing dynamics is then guaranteed dissipative. If the human performs arbitrary tasks, the motion target is not known to the interface. Consequently the human may be active at some point. Other components of the teleoperation system then have to be dissipative to form a dissipative closed-loop system (see also \ref{SS:BilateralTelemanipulation} for interconnected dissipative systems). In \cite{Varnell2013} the analysis of the pointing dynamics serves to ensure stability for the direct teleoperation of a single robot.\\
+On the experimental side, recent work \cite{Hatanaka2015} performs system identification of the pointing dynamics in the frequency domain. The user study indicates that humans performing pointing tasks are passive at low frequencies($f\leq 1 \text{[rad/s})$. The augmentation of the higher frequency components by a high-pass filter makes the human decrease the gain for these frequencies. In addition the high-pass filter introduces an additional stability margin into the loop. System identification of the filtered system then indicates passivity below frequencies of $10 \text{[rad/s}$. Thus the human pointing dynamics are found to be passive at the frequencies of interest. In \cite{Hatanaka2015} this knowledge serves to show that a swarm of robots asymptotically achieves synchronization, even if a human controls only a part of the swarm.\\
+
+
+
+
+
+
 
 \subsubsection{Mobile human sensors and actuators}
 Unautomated, extensively distributed control systems require the operator to travel between the locations where control actions are performed. One typical example are irrigation canals in low-tech countries. The canal managers shuttle between the gates, take measurements and adjust the actuators based on their local knowledge and their experience of the overall system behaviour. Despite being complex dynamical systems, irrigation canals are mathematically tractable and for some canals detailed models already exist \cite{vanOverloop2015}. Modelling allows the prediction of the canal's state from a known initial condition. \emph{Model-predictive control} (MPC) computes the current control action in order to reach a future optimal system condition. Common MPC schemes operate automatically based on continuous sensor readings and automated actuators.\\
@@ -197,16 +233,52 @@ For simplicity only a single operator is considered so far. In \cite{vanOverloop
 %By using more knowledge of the human physiological dynamics, the distortion of the displayed environment is reduced.\\
      
 \section{Sensory perception modelling}
-Aracil et al.: The human role in telerobotics\\
-Hirche and Buss: Human-oriented control for haptic teleoperation
+Human performance in teleopeation is highly dependent on how the human perceives the remote environment. In fine manipulation tasks and for correct decision making it is essential that the operator receives accurate feedback. Typically visual and haptic feedback is provided, while occasionally other senses like hearing are addressed. In the ideal case the human can not distinguish the virtual from the remote environment, then the teleoperation system is \emph{transparent} \cite{Hirche2012}.\\
+The stabilization of a teleoperation system in presence of communication delays distorts the haptic display of the environment (see the subsection \ref{SS:BilateralTelemanipulation}). Hard objects are displayed softer and the free-moving telerobot is displayed with an increased inertia. Transparency is thus not achievable. The human perception resolution is limited, e.g. we cannot distinguish different weights that are within a certain range. To a certain extent a hard object can be displayed softer, or a body can be displayed more inert and the human does not notice the difference. The concept of taking advantage of the sensory inaccuracy of the human is called \emph{perceived transparency}.
+For example, a typical human cannot sense a difference inertias within a range of 21\% difference, the just noticeable difference (JND) in stiffness is around 8\% \cite{Hirche2012}.\\
+The passivation of the communcation channel with the popular generalized wave/scattering transformation \cite{Niemeyer2004} can be tuned to transmit either stiffness or inertias  approximately correct. Good transparency in free-space motion and for stiff contacts is not achievable at the same time. The impedance $Z_h$ displayed to the human, transmitted over a passivated, delayed communication channel, is related to the original impedance $Z_e$ by
+\begin{equation}
+Z_h (s) = b \frac{1+R(s)e^{-sT}}{1-R(s) e^{-sT}} \text{  with  } R(s) = \frac{Z_e(s) - b}{Z_e(s)+b}.
+\end{equation}
+The formulation is given in the Laplace domain with $s$ being the complex frequency parameter. The delay of the communication channel is denoted with $T$. The wave impedance $b$ is the tuning parameter. In the following, it becomes apparent how the tuning gives conflictive results for the accurate display of inertias and stiffness. In free-space motion the environment exerts no force on the telerobot, i.e. the environment impedance is $Z_e=0$.  After a number of simplifications (see \cite{Hirche2012}), the low-frequency approximation of the impedance displayed to human is
+\begin{equation}
+Z_h^*(s) = \frac{bT}{2}s
+\end{equation}
+A small wave impedance $b$ leads to a small distortion of the displayed impedance, in particular $\lim_{b\rightarrow0} Z_h^* = Z_e$.\\ 
+A stiff environment is described by the transfer function $Z_e = k_e/s$, with a stiffness parameter $k_e$. The low-frequency approximation of the displayed impedance is
+\begin{equation}
+Z_h^*(s) = \frac{2k_e b}{2b+k_e T}\frac{1}{s}
+\end{equation}
+In this case a high wave impedance $b$ leads to a correct display of the environment, $\lim_{b \rightarrow \infty} Z_h^* = Z_e$. Thus there is a conflict of objectives when tuning $b$. \\
+To illustrate how the perception resolution is used for control design, consider a fine manipulation task. To achieve the best performance it is important to display the exact stiffness of the environment to the operator. The free-motion dynamic is subordinate. The wave impedance is now chosen to keep the stiffness distortion due to the wave transformation just not noticeable for the human
+\begin{equation}
+b > (1-\mathrm{JNR}_k) \frac{k_e T}{2}, 
+\end{equation}
+where $\mathrm{JNR}_k$ is the just not noticeable threshold for stiffness. Conclusively, by considering the human perception resolution the displayed free-motion dynamic becomes more realistic without compromising the perceived stiffness.  
+     
 \section{Cognitive modelling}
 Cognitive modelling seeks to give a reliable prediction of the human behaviour in certain situations. The complexity of the models depends highly on the desired prediction horizon and the and the amount and structure of the available information.\\
-The simplest, conceivable model of human behaviour is to assume that the human behaviour will not change over the prediction horizon. The so-called \emph{zero order hold} extrapolation is successfully used in model-predictive control of a quadruped robot \cite{Chipalkatty2013}. In a shared control approach, the human controls the front legs, while the rear legs are automatically placed to ensure gait stability. Furthermore human inputs are subject to stability constraints, i.e. with a given rear leg position only certain movements are allowed. Human behaviour prediction helps to position the rear legs in a way that allows to preserve the human intent. The prediction horizon in this problem is fairly short. In fact zero-order hold extrapolation is preferred over more complex methods. First-order hold or least-squares system identification reflect longer term trends in the user inputs. They experience less user acceptance in user studies.\\
+The simplest, conceivable model of human behaviour is to assume that the human behaviour will not change over the prediction horizon. The so-called \emph{zero order hold} extrapolation is successfully used in model-predictive control of a quadruped robot \cite{Chipalkatty2013}. In a shared control approach, the human controls the front legs, while the rear legs are automatically placed to ensure gait stability. Furthermore human inputs are subject to stability constraints, i.e. with a given rear leg position only certain movements are allowed. Human behaviour prediction helps to position the rear legs in a way that allows to preserve the human intent. The prediction horizon in this problem is fairly short. In fact zero-order hold extrapolation is preferred over more complex methods. First-order hold or least-squares system identification reflect longer term trends in the user inputs \cite{Chipalkatty2013}. In a user study the simple zero-order hold method is found to be the most helpful prediction method. The participants are faster in task-completion and experience less workload compared to the more complex methods. \\
 \subsubsection{Learning}
-The human behaviour is highly adaptive as the human gains experience, acquires knowledge and skill. Control performance of a human improves in a learning process. Nevertheless human actions are inherently stochastic and even an experienced operator occasionally performs poorly. Certain repetitive tasks, e.g. picking up an object, performed by a teleoperated robots can be learned from the human operator \cite{Yang1994}. This is advantageous because robots are highly deterministic. If they are trained with good human performance samples, there performance becomes reliably good.\\
-Human motion can be viewed as a result of two stochastic processes. First the human's intention, which is hidden (unmeasurable) and second the resultant physical movement. This motivates the modelling with a \emph{Hidden Markov Model} (HMM). The unobservable (hidden) state is the human's intention. The states can only be estimated based on the measurable output, which is the physical motion in this case. Each state has a probability distribution over possible outputs. A transition matrix describes the probabilistic evolution from the actual state to another. In the learning process the transition and output probabilities are adjusted so that the model matches the measured action. \\
-Often no clear criteria what is good performance in complex tasks exist. Based on the assumption that an experienced human shows usually good performance, the learning goal is to make the HMM reproduce the most likely human performance.\\
-Learning certain motion patterns from an experienced user allows the robot to perform the learned task automatically. The role of the human in teleoperation is reduced to supervision \cite{Yang1994}. 
+Teleoperation is commonly used for complex tasks in unstructured environments humans cannot easily access, e.g. space construction. For most tasks a direct human control is preferred but there are some repetitive tasks the robot can perform autonomously. Examples are grasping a standard object or tightening a screw. Such fine manipulation tasks are challenging for a human, if the feedback is distorted due to communication delays (see \ref{SS:BilateralTelemanipulation}). Moreover the human behaviour is inherently stochastic, i.e. even an experienced operator shows occasionally poor performance. Poor performance in space construction is undesired because it may result in an irretrievable loss of parts or tools. One particular solution proposed in \cite{Yang1994} is to \emph{teach} the telerobot a set of motion patterns while it is still on earth. The motion sequences are captured from a human operating the robot   via teleoperation, just as in the space application. The important difference is that there is no delayed communication, i.e. the operator receives undistorted feedback. And second, only good sequences can be selected from a number of total attempts.\\
+In the space application a human controls the trained robot by teleoperation. The robot observes the human commands and if it recognizes one of the learned sequences with sufficient probability, it switches to automatic control. The operator continues to carry out the task. The robot only performs the recognized task automatically if there is a sufficient accord with the human input. At the moment the human deviates significantly from the recognized trajectory, the robot executes the human command. Ideally the human can not distinguish between automatic and teleoperated task execution. The automatic mode performs the same task but does suffer from minor inaccuracies, because it repeats a "good" sequence. By default the human is in control, only for some reptetive tasks the automatic controller takes other control. Therefore the approach is classified as \emph{traded control} \cite{Sheridian1992}.\\
+Technically  the basis of Yang's \cite{Yang1994} approach is \emph{learning from demonstration}. One of the major difficulties when transferring human skill to a robot is the randomness of human actions. Human motion is even doubly stochastic. The intention what the human deserves to do is dependent on many factors and must be considered a random variable. Furthermore it is not directly measurable or observable. Second, the physical movement of a human is also stochastic, two motion sequences carried out after each other are never exactly identical. Since the intention of the human is hidden to the learning robot, is must be estimated based on the observed motion. This motivates the use of \emph{Hidden Markov Models} (HMM), with the intention being a state $X_i$ in the \emph{Markov} chain and the motion sequence being the observation $Y_k$ \cite{Yang1994}. The transition from state $i$  to state $j$ is assigned with a transition probability $a_{ij}$. The possibility to be in a state $i$ and make the observation $k$ is described by $b_{ki}$. Figure \ref{FIG:HiddenMarkov} illustrates the relations for an object grasping task.
+\begin{figure}
+	\centering
+	\footnotesize
+	\def\svgwidth{1\columnwidth}
+	\input{HiddenMarkov.eps_tex}
+	\caption{Hidden Markov model (left) with measured motion sequence and estimated states $\tilde{X}_i$}
+	\label{FIG:HiddenMarkov}
+\end{figure} 
+Collecting all transition probabilities entails in a transition matrix $A \in \mathbb{R}^{N \times N}$ (for $N$ total states), the observation probabilities are concentrated in the matrix $B \in \mathbb{R}^{N \times M}$. A HMM $\lambda = (A,B,\pi)$ is fully described by a transition matrix, a observation matrix and the initial state distribution $\pi$. Learning means to adjust the parameters of the HMM to maximize the probability $P(O \mid \lambda)$ that the model matches the observation sequence $O=(Y_1...Y_M)$. The parameter optimization process is commonly done with the backward-forward algorithm, for details refer to \cite{Yang1994}. For one task (e.g. grasping an object) multiple motion sequences $(O_1...O_R)$ are used for training, each of them results in different optimal parameters. Thus for $R$ training sequences one obtains $\lambda_r \, r=1...R$ different HMMs. In the space application the telerobot receives the input sequence $O^*$. The objective is to select the best fitting trajectory from all learned ones. This can be done using the \emph{Bayes} formula
+\begin{equation}
+\max P(\lambda_r \mid O^*) = \frac{P(O^* \mid \lambda_r) P(\lambda_r)}{P(O*)} \; , \; \forall r=1...R
+\end{equation}
+If the maximum probability is above a certain threshold the controller executes the learned trajectory. For every new observation the telerobot receives from the operator the probabilities are updated. Thus with every new input another learned trajectory can be pursued or, if no HMM reaches the required probability $P(\lambda_r \mid O^*)$, the human input is executed directly.
+%
+%Often no clear criteria what is good performance in complex tasks exist. Based on the assumption that an experienced human shows usually good performance, the learning goal is to make the HMM reproduce the most likely human performance.\\
+%Learning certain motion patterns from an experienced user allows the robot to perform the learned task automatically. The role of the human in teleoperation is reduced to supervision \cite{Yang1994}. 
 
 \subsubsection{Decision making}
 In general human decision making is influenced by previous experience and by the actual sensory perception. Knowledge and experience differ highly between various subjects and are difficult to model, therefore models on decision making focus on measurable inputs (perception).\\
@@ -216,20 +288,24 @@ The simplest decision tasks are two alternative choices, complexity increases si
 dx(t) = \mu dt + \sigma dW(t),
 \end{equation}  
 where $\sigma$ is the diffusion rate. It characterizes the influence of the stochastic noise on the accumulated evidence $x(t)$.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{EvidenceAcc.png}
+\caption[Decision making by evidence accumulation]{Decision making by evidence accumulation: decision thresholds (left) and fixed evaluation time \cite{Peters2015}}
+\label{FIG:EvidenceAcc}
+\end{figure}
+
 The choice of the thresholds that lead to a decision, or the pre-defined evaluation time, represent a trade-off between speed and accuracy. Several methods for an optimal choice in terms of maximizing efficiency or minimizing risk are formalized in literature \cite{Peters2015}.
 Multiple alternative choices with disjoint objectives can be evaluated with separate accumulation processes in a \emph{race model}. There is an individual stochastic process for each alternative $i=1...N$
 \begin{equation}
 dx_i(t) = \mu_i dt + \sigma dW_i(t)
 \end{equation}
- A decision is either taken if one alternative reaches a defined evidence threshold, or after the fixed evaluation time has elapsed the most evident alternative is chosen. Having to choose between multiple options is much more difficult for a human than to choose from two options. As a consequence the reaction time increases. For the modelling of multiple-choice decision making with race models, \emph{Hick's law} is an estimation for the increase of reaction time. For $N$ alternative choices, the reaction time increases at a rate proportional to $log(N)$.\\
+ A decision is either taken if one alternative reaches a defined evidence threshold, or after the fixed evaluation time has elapsed the most evident alternative is chosen. Figure \ref{FIG:EvidenceAcc} illustrates the processes.\\ Having to choose between multiple options is much more difficult for a human than to choose from two options. As a consequence the reaction time increases. For the modelling of multiple-choice decision making with race models, \emph{Hick's law} is an estimation for the increase of reaction time. For $N$ alternative choices, the reaction time increases at a rate proportional to $log(N)$.\\
 For a task with many periodic and well structured decisions, a model of the human decision making can support the human by reducing the workload.  For example in the persistent surveillance mission described in \cite{Peters2015} the operator monitors the sensor data of multiple autonomous agents. A decision support systems pre-selects critical incidents the operator should focus the attention on. The sensor data is automatically searched for abnormality indcations, a model of human decision making determines wheter the case is presented to the operator. By forecasting the evaluation time it takes the human to analyse the scene, the tasks are efficiently scheduled and a maximum number of critical cases can be processed in the given time \cite{Bertuccelli2010}. This a allows a human to supervise a larger number of autonomous agents than without a decision support system.\\
 The cases to be decided by the human are queued. A minimum stability requirement is imposed on the queue length. Furthermore the queue should always be short to allow for a close to realtime processing of an incident. With the number of agents supervised by an operator the rate of cases,  which can be decided by the operator, decreases. Therefore suitable modelling of the decision making      reduces human-resource allocation.
         
 
-Peters et al.: Human Supervisory Control of Robotic Teams\\
-Bertucelli et al. Developing operator models for {UAV} search scheduling\\
-Yang et al. Hidden Markov model approach to skill learning and its application to telerobotics.\\
-Ritter et al.: Including a model of visual processing with a cognitive architecture to model a simple teleoperation task\\
 
 
 
@@ -241,20 +317,12 @@ Ritter et al.: Including a model of visual processing with a cognitive architect
 
 %_____Zusammenfassung, Ausblick_________________________________
 \chapter{Conclusion}
+From a control point of view the human is a complex dynamical system. Clearly no single model is capable of capturing all the aspects of human behaviour. The existing modelling approaches for teleoperation are diverse and tailored to the application. This paper highlights several solutions in consideration whether they apply for direct, shared or supervisory control.\\
+Probably the most researched human models apply for bilateral telemanipulation. The inherent dissipation of human motion can be exploited to enhance the transparency of the teleoperation system. Bilateral telemanipulation also benefits from the modelling of the human perception resolution. Just not noticeable differences in haptic perception serve as a guideline for parameter tuning in communication channel passivation. Bilateral telemanipualtion requires a haptic interface, in contrast to that simple pointing interfaces (mouse, touch-screen) become increasingly popular. The resulting motion dynamics is covered both by theoretic modelling and by experimental system identification. Namely the VITE model for pointing behaviour is largely unexplored in literature and may be an interesting field of future research.\\
+Human cognition processes are even more difficult to model than motion and perception. Nevertheless even simplistic models are beneficial for system performance. Assuming the operator to pursue the current action is often correct for a small prediction horizon. A human and model-predictive controller share control of a quadruped robot. By predicting no change of the human input, the controller places the rear legs to maximize the freedom of the teleoperated front legs. A space construction application shows how human motion sequences can be stored in Hidden Markov Models. Trading the control automatic execution of the learned patterns can eliminate minor uncertainties in repetitive tasks.
+Automated image analysis can serve as a decision support system in the supervision of multiple UAVs. Therefore the human decision making is modelled to pre-select the vast amount of images and display only the interesting ones to the human.\\      
+Human modelling can improve the  interaction of humans and robots in various ways. With the exception of the bilateral telemanipulation, for all other problems the modelling of the human for teleoperation is only at the beginning.  
 
-Don't leave it at the discussion: discuss what you/the reader can learn from the results. Draw some real conclusions. Separate discussion/interpretation of the results clearly from the conclusions you draw from them. (So-called "conclusion creep" tends to upset reviewers. It means surrendering your scientific objectivity.) Identify all shortcomings/limitations of your work, and discuss how they could be fixed ("future work"). It is not a sign of weakness of your work, if you clearly analyse and state the limitations. Informed readers will notice them anyway and draw their own conclusions, if not addressed properly.
-
-\vspace{\baselineskip}
-Recap: don't stick to this structure at all cost. Also, remember that the thesis must be:
-
-\begin{itemize}
-	\item honest, stating clearly all limitations;
-	\item self--contained, don't write just for the locals, don't assume that the reader has read the same literature as you, don't let the reader work out the details for themselves.
-\end{itemize}
-
-
-
-This chapter is followed by the list of figures and the bibliography. If you are using acronyms, listing them (with the expanded full name) before the bibliography is also a good idea. The acronyms package helps with consistency and an automatic listing.
 
 
 %_______________________________________________________________
