@@ -1,0 +1,103 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{VSMD15}
+
+\bibitem[BBC10]{Bertuccelli2010}
+L~F Bertuccelli, N~W~M Beckers, and M~L Cummings.
+\newblock {Developing operator models for UAV search scheduling}.
+\newblock {\em AIAA Conf. on Guidance, Navigation and Control}, 2010.
+\newblock \href {http://dx.doi.org/10.2514/6.2010-7863}
+  {\path{doi:10.2514/6.2010-7863}}.
+
+\bibitem[CDE13]{Chipalkatty2013}
+Rahul Chipalkatty, Greg Droge, and Magnus Egerstedt.
+\newblock {Less Is More : Mixed Initiative Model Predictive Control With Human
+  Inputs}.
+\newblock {\em IEEE Transactions on Robotics}, 29(3):695--703, 2013.
+
+\bibitem[HB12]{Hirche2012}
+Sandra Hirche and Martin Buss.
+\newblock {Human-oriented control for haptic teleoperation}.
+\newblock {\em Proceedings of the IEEE}, 100(3):623--647, 2012.
+\newblock \href {http://dx.doi.org/10.1109/JPROC.2011.2175150}
+  {\path{doi:10.1109/JPROC.2011.2175150}}.
+
+\bibitem[HCF15]{Hatanaka2015}
+Takeshi Hatanaka, Nikhil Chopra, and Masayuki Fujita.
+\newblock {Passivity-based bilateral human-swarm-interactions for cooperative
+  robotic networks and human passivity analysis}.
+\newblock In {\em Proc. IEEE Conference on Decision and Control}, volume~54,
+  pages 1033--1039, Feb 2015.
+\newblock \href {http://dx.doi.org/10.1109/CDC.2015.7402008}
+  {\path{doi:10.1109/CDC.2015.7402008}}.
+
+\bibitem[Hog89]{Hogan1989}
+N.~Hogan.
+\newblock {Controlling impedance at the man/machine interface}.
+\newblock {\em International Conference on Robotics and Automation (ICRA)},
+  pages 1626--1631 vol.3, 1989.
+\newblock \href {http://dx.doi.org/10.1109/ROBOT.1989.100210}
+  {\path{doi:10.1109/ROBOT.1989.100210}}.
+
+\bibitem[NPH08]{TeleoperationHandbook}
+G.~Niemeyer, C.~Preusche, and G.~Hirzinger.
+\newblock {Telerobotics}.
+\newblock In Bruno Siciliano and Oussama Khatib, editors, {\em Springer
+  Handbook of Robotics}, chapter~31, pages 741--757. Springer, 2008.
+\newblock \href {http://dx.doi.org/10.1007/978-3-540-30301-5}
+  {\path{doi:10.1007/978-3-540-30301-5}}.
+
+\bibitem[NS04]{Niemeyer2004}
+G.~Niemeyer and J.J.E. Slotine.
+\newblock Telemanipulation with time delays.
+\newblock {\em International Journal on Robotics Research}, 23(9):873--890, Sep
+  2004.
+\newblock \href {http://dx.doi.org/10.1177/0278364904045563}
+  {\path{doi:10.1177/0278364904045563}}.
+
+\bibitem[PST{\etalchar{+}}15]{Peters2015}
+Jeffrey~R Peters, Vaibhav Srivastava, Grant~S Taylor, Amit Surana, and Miguel~P
+  Eckstein.
+\newblock {Human Supervisory Control of Robotic Teams}.
+\newblock {\em IEEE Control Systems Magazine}, 35(6):57--80, 2015.
+
+\bibitem[RIM99]{Rahman1999}
+M.M. Rahman, R.~Ikeura, and K.~Mizutani.
+\newblock {Investigating the impedance characteristic of human arm
+  for$\backslash$ndevelopment of robots to co-operate with human operators}.
+\newblock {\em IEEE SMC'99 Conference Proceedings. 1999 IEEE International
+  Conference on Systems, Man, and Cybernetics (Cat. No.99CH37028)}, 2:676--681,
+  1999.
+\newblock \href {http://dx.doi.org/10.1109/ICSMC.1999.825342}
+  {\path{doi:10.1109/ICSMC.1999.825342}}.
+
+\bibitem[She92]{Sheridian1992}
+T.B. Sheridian.
+\newblock {\em Telerobotcis, Automation and Human Supervisory Control}.
+\newblock MIT Press, Cambridge, 1992.
+
+\bibitem[VSMD15]{vanOverloop2015}
+P.~J. {Van Overloop}, A.~Sadowska, J.~M. Maestre, and B.~{De Schutter}.
+\newblock {Human-in-the-loop control of an irrigation canal}.
+\newblock {\em IEEE Control Systems Magazine}, 35(4):19--29, 2015.
+\newblock \href {http://dx.doi.org/10.1109/MCS.2015.2427040}
+  {\path{doi:10.1109/MCS.2015.2427040}}.
+
+\bibitem[VZ13]{Varnell2013}
+Paul Varnell and Fumin Zhang.
+\newblock {Dissipativity-based teleoperation with time-varying communication
+  delays}.
+\newblock In {\em Proc. IFAC Workshop on Distributed Estimation and Control in
+  Networked Systems}, volume~4, pages 369--376, Sep 2013.
+\newblock \href {http://dx.doi.org/10.3182/20130925-2-DE-4044.00080}
+  {\path{doi:10.3182/20130925-2-DE-4044.00080}}.
+
+\bibitem[YXC94]{Yang1994}
+J~Yang, Y~Xu, and C~S Chen.
+\newblock {Hidden Markov model approach to skill learning and its application
+  to telerobotics}.
+\newblock {\em IEEE Transactions on Robotics and Automation}, 10(5):621--631,
+  1994.
+\newblock \href {http://dx.doi.org/10.1109/70.326567}
+  {\path{doi:10.1109/70.326567}}.
+
+\end{thebibliography}

@@ -1,0 +1,25 @@
+@inproceedings{Hatanaka2016,
+author = {Hatanaka, Takeshi and Chopra, Nikhil and Fujita, Masayuki},
+doi = {10.1109/CDC.2015.7402008},
+isbn = {9781479978861},
+issn = {07431546},
+journal = {Proceedings of the IEEE Conference on Decision and Control},
+number = {54},
+pages = {1033-1039},
+title = {{Passivity-based bilateral human-swarm-interactions for cooperative robotic networks and human passivity analysis}},
+month = {Feb},
+year = {2016}
+}
+@article{Varnell2013,
+author = {Varnell, Paul and Zhang, Fumin},
+doi = {10.3182/20130925-2-DE-4044.00080},
+isbn = {9783902823557},
+issn = {14746670},
+journal = {IFAC Proceedings Volumes (IFAC-PapersOnline)},
+keywords = {Dissipativity,Human-machine interface,Robotics,Teleoperation,Time delay},
+number = {PART 1},
+pages = {369--376},
+title = {{Dissipativity-based teleoperation with time-varying communication delays}},
+volume = {4},
+year = {2013}
+}

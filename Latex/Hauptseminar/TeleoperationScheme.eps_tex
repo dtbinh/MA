@@ -1,0 +1,60 @@
+%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'TeleoperationScheme.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{496.79344995bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.09831988)%
+    \put(0,0){\includegraphics[width=\unitlength]{TeleoperationScheme.eps}}%
+    \put(0.21762422,0.0739062){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14492945\unitlength}\raggedright Teleoperator/ User Interface\end{minipage}}}%
+    \put(0.4512942,0.08181403){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09661963\unitlength}\raggedright Delay $T$\end{minipage}}}%
+    \put(0.4512942,0.03350424){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09661963\unitlength}\raggedright Delay $T$\end{minipage}}}%
+    \put(0.64453346,0.07376242){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12882618\unitlength}\raggedright Telerobot\end{minipage}}}%
+    \put(0.85387599,0.07376242){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12882618\unitlength}\raggedright Environment\end{minipage}}}%
+    \put(0.01650586,0.07376242){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12882618\unitlength}\raggedright Human Operator\end{minipage}}}%
+  \end{picture}%
+\endgroup%

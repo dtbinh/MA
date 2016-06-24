@@ -1,0 +1,67 @@
+%\documentclass[parskip]{scrartcl}
+%\usepackage[margin=15mm]{geometry}
+%\usepackage{tikz}
+%\usepackage{xifthen}
+%
+%\begin{document}
+
+\newcommand{\Emmett}[4]{% points, advance, rand factor, options, end label
+\draw[#4] (0,0)
+\foreach \x in {1,...,#1}
+{   -- ++(#2,rand*#3)
+}
+;
+}
+
+%\newcommand{\Lathrop}[9]{% points, advance, rand factor, options, end label, upper, lower trunc, draw trunc  lines, trunc draw options
+%\begin{scope}
+%\pgfmathsetmacro{\picwidth}{#1*#2}
+%\clip (0,#6*28.453+0.5\pgflinewidth) rectangle (\picwidth,#7*28.453-0.5\pgflinewidth);
+%\ifthenelse{\equal{#8}{y}}
+%    {\draw[#9] (0,#6) -- (\picwidth,#6) (0,#7) -- (\picwidth,#7);}
+%    {}
+%\draw[#4] (0,0)
+%\foreach \x in {1,...,#1}
+%{   -- ++(#2,rand*#3)
+%}
+%coordinate (#5) ;
+%\end{scope}
+%\node[right,#4] at (#5) {#5};
+%}
+
+%\begin{tikzpicture}[xscale=1, yscale=1]
+%\draw [thick, <->] (0,5) -- (0,0) -- (1,0);
+%\Emmett{750}{0.02}{0.1}{red}{b}
+%\Emmett{750}{0.02}{0.1}{green}{a}
+%\Emmett{750}{0.02}{0.1}{blue}{c}
+%\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{groupplot}[
+      group style={group size=2 by 3,ylabels at=edge 			left},
+      ylabel style={text height=0.02\textwidth,inner 			ysep=0pt},
+      grid=major,height=0.35\linewidth,width=0.495\linewidth,/tikz/font=\small
+    ]
+    \nextgroupplot[ylabel={Pose error}] 
+	\addplot \Emmett{750}{0.02}{0.1}{red}{b};
+	%\Emmett{750}{0.02}{0.1}{green}{a};
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot
+	\addplot \Emmett{750}{0.02}{0.1}{blue}{c};
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+  \end{groupplot}
+  % legend
+  \path (top|-current bounding box.north)--
+        coordinate(legendpos)
+        (bot|-current bounding box.north);
+  \matrix[
+      matrix of nodes,
+      anchor=south,
+      draw,
+      inner sep=0.2em,
+    ]at([yshift=1ex]legendpos)
+    { \ref*{plots:errPos}&{ $\Delta p_x$ [m]}&[5pt]
+      \ref*{plots:errOrient}&{ $\Delta \Phi_z$ [rad]}&[5pt]\\};
+\end{tikzpicture} 
+
+%\end{document}
