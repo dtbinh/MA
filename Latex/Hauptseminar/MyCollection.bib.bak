@@ -18,11 +18,12 @@ volume = {31},
 year = {2007}
 }
 @article{Bertuccelli2010,
-author = {Bertuccelli, L F and Beckers, N W M and Cummings, M L},
+author = {Bertuccelli, Luca and Beckers, N. W. M. and Cummings, Mary},
 doi = {10.2514/6.2010-7863},
 journal = {AIAA Conf. on Guidance, Navigation and Control},
 title = {{Developing operator models for UAV search scheduling}},
-year = {2010}
+year = {2010},
+pages = {1-15},
 }
 @article{BritoPalma2012,
 author = {{Brito Palma}, L. and {Vieira Coito}, F. and {Sousa Gil}, P.},
@@ -71,7 +72,8 @@ number = {3},
 pages = {695--703},
 title = {{Less Is More : Mixed Initiative Model Predictive Control With Human Inputs}},
 volume = {29},
-year = {2013}
+year = {2013},
+doi={10.1109/TRO.2013.2248551},
 }
 @article{Hauser2013,
 author = {Hauser, Kris},
@@ -97,14 +99,15 @@ title = {{Human-oriented control for haptic teleoperation}},
 volume = {100},
 year = {2012}
 }
-@article{Hogan1989,
+@inproceedings{Hogan1989,
 author = {Hogan, N.},
 doi = {10.1109/ROBOT.1989.100210},
 isbn = {0-8186-1938-4},
-journal = {International Conference on Robotics and Automation (ICRA)},
-pages = {1626--1631 vol.3},
+booktitle = {Proc. IEEE Conf.  on Robotics and Automation},
+pages = {1626--1631},
 title = {{Controlling impedance at the man/machine interface}},
-year = {1989}
+year = {1989},
+volume = {3}
 }
 @article{Li2014,
 author = {Li, Wenchao and Sadigh, Dorsa and Sastry, S. Shankar and Seshia, Sanjit A.},

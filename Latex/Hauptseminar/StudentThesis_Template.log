@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.5)  23 JUN 2016 21:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.5)  24 JUN 2016 13:53
 entering extended mode
 **StudentThesis_Template.tex
 (StudentThesis_Template.tex
@@ -951,6 +951,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Chapter 1.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -977,7 +981,7 @@ verted-to.pdf TeleoperationScheme.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<TeleoperationScheme-eps-converted-to.pdf, id=114, 498.86375pt x 50.1875pt>
+<TeleoperationScheme-eps-converted-to.pdf, id=113, 498.86375pt x 50.1875pt>
 File: TeleoperationScheme-eps-converted-to.pdf Graphic file (type pdf)
 
 <use TeleoperationScheme-eps-converted-to.pdf>
@@ -999,10 +1003,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 201--205
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1010,18 +1010,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8 <./TeleoperationScheme-eps-converted-to.pdf>]
+<HumanSwarm.png, id=146, 209.28188pt x 102.3825pt>
+File: HumanSwarm.png Graphic file (type png)
+ <use HumanSwarm.png>
+Package pdftex.def Info: HumanSwarm.png used on input line 207.
+(pdftex.def)             Requested size: 277.41176pt x 135.71083pt.
+
+Underfull \vbox (badness 6188) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9]
-Overfull \hbox (31.97612pt too wide) in paragraph at lines 236--240
-\OT1/cmr/m/n/12 The pas-si-va-tion of the com-munca-tion chan-nel with the pop-
-u-lar gen-er-al-ized wave/scattering
- []
-
+[9 <./HumanSwarm.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1036,23 +1040,31 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 260--262
 
- []
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12] <4MPC.png, id=189, 344.7279pt x 131.2905pt>
+File: 4MPC.png Graphic file (type png)
+ <use 4MPC.png>
+Package pdftex.def Info: 4MPC.png used on input line 267.
+(pdftex.def)             Requested size: 298.75262pt x 113.78307pt.
 
 (HiddenMarkov.eps_tex
 Package epstopdf Info: Source file: <HiddenMarkov.eps>
-(epstopdf)                    date: 2016-06-23 16:12:16
+(epstopdf)                    date: 2016-06-23 23:50:29
 (epstopdf)                    size: 9642 bytes
 (epstopdf)             Output file: <HiddenMarkov-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-23 16:12:20
+(epstopdf)                    date: 2016-06-24 08:49:54
 (epstopdf)                    size: 4035 bytes
 (epstopdf)             Command: <epstopdf --outfile=HiddenMarkov-eps-converted-
 to.pdf HiddenMarkov.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
 
-<HiddenMarkov-eps-converted-to.pdf, id=186, 566.115pt x 200.75pt>
+<HiddenMarkov-eps-converted-to.pdf, id=198, 566.115pt x 200.75pt>
 File: HiddenMarkov-eps-converted-to.pdf Graphic file (type pdf)
 
 <use HiddenMarkov-eps-converted-to.pdf>
@@ -1066,7 +1078,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12]
+[13 <./4MPC.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1076,22 +1088,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13]
+[14]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14 <./HiddenMarkov-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 289--291
-
- []
-
-<EvidenceAcc.png, id=213, 298.7621pt x 142.11948pt>
+[15 <./HiddenMarkov-eps-converted-to.pdf>]
+<EvidenceAcc.png, id=227, 298.7621pt x 142.11948pt>
 File: EvidenceAcc.png Graphic file (type png)
  <use EvidenceAcc.png>
-Package pdftex.def Info: EvidenceAcc.png used on input line 294.
+Package pdftex.def Info: EvidenceAcc.png used on input line 306.
 (pdftex.def)             Requested size: 426.79134pt x 203.02977pt.
 
 
@@ -1100,24 +1108,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15 <./EvidenceAcc.png>]
+[16 <./EvidenceAcc.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16]
-Chapter 3.
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[17
-
-]
+[17]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1125,6 +1123,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18
+
+]
+Chapter 3.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[19]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[20
 
 ] (StudentThesis_Template.lof)
 \tf@lof=\write7
@@ -1135,7 +1150,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19
+[21
 
 ]
 
@@ -1144,7 +1159,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20
+[22
 
 ] (StudentThesis_Template.bbl
 
@@ -1153,7 +1168,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21
+[23
 
 ])
 
@@ -1162,39 +1177,39 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22]
+[24]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23
+[25
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 357.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 357.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 369.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 369.
  (StudentThesis_Template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 357.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 357.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 369.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 369.
 Package rerunfilecheck Info: File `StudentThesis_Template.out' has not changed.
 
-(rerunfilecheck)             Checksum: 2D290A225C344B9C31D9D791912AA6F6;527.
+(rerunfilecheck)             Checksum: 402A67EE36248512E92C1634A15CE5AF;463.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 357.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 369.
  ) 
 Here is how much of TeX's memory you used:
- 26549 strings out of 493673
- 636568 string characters out of 3141528
- 798896 words of memory out of 3000000
- 29316 multiletter control sequences out of 15000+200000
+ 26563 strings out of 493673
+ 636752 string characters out of 3141528
+ 796052 words of memory out of 3000000
+ 29325 multiletter control sequences out of 15000+200000
  19597 words of font info for 68 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 55i,12n,83p,1613b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,12n,83p,1668b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program F
@@ -1215,9 +1230,9 @@ lic/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/
 helvetic/uhvr8a.pfb>
-Output written on StudentThesis_Template.pdf (27 pages, 367501 bytes).
+Output written on StudentThesis_Template.pdf (29 pages, 1348328 bytes).
 PDF statistics:
- 361 PDF objects out of 1000 (max. 8388607)
- 69 named destinations out of 1000 (max. 500000)
- 100 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 383 PDF objects out of 1000 (max. 8388607)
+ 72 named destinations out of 1000 (max. 500000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 

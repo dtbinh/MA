@@ -2,9 +2,10 @@
 \begin{thebibliography}{VSMD15}
 
 \bibitem[BBC10]{Bertuccelli2010}
-L~F Bertuccelli, N~W~M Beckers, and M~L Cummings.
+Luca Bertuccelli, N.~W.~M. Beckers, and Mary Cummings.
 \newblock {Developing operator models for UAV search scheduling}.
-\newblock {\em AIAA Conf. on Guidance, Navigation and Control}, 2010.
+\newblock {\em AIAA Conf. on Guidance, Navigation and Control}, pages 1--15,
+  2010.
 \newblock \href {http://dx.doi.org/10.2514/6.2010-7863}
   {\path{doi:10.2514/6.2010-7863}}.
 
@@ -13,6 +14,8 @@ Rahul Chipalkatty, Greg Droge, and Magnus Egerstedt.
 \newblock {Less Is More : Mixed Initiative Model Predictive Control With Human
   Inputs}.
 \newblock {\em IEEE Transactions on Robotics}, 29(3):695--703, 2013.
+\newblock \href {http://dx.doi.org/10.1109/TRO.2013.2248551}
+  {\path{doi:10.1109/TRO.2013.2248551}}.
 
 \bibitem[HB12]{Hirche2012}
 Sandra Hirche and Martin Buss.
@@ -33,8 +36,8 @@ Takeshi Hatanaka, Nikhil Chopra, and Masayuki Fujita.
 \bibitem[Hog89]{Hogan1989}
 N.~Hogan.
 \newblock {Controlling impedance at the man/machine interface}.
-\newblock {\em International Conference on Robotics and Automation (ICRA)},
-  pages 1626--1631 vol.3, 1989.
+\newblock In {\em Proc. IEEE Conf. on Robotics and Automation}, volume~3, pages
+  1626--1631, May 1989.
 \newblock \href {http://dx.doi.org/10.1109/ROBOT.1989.100210}
   {\path{doi:10.1109/ROBOT.1989.100210}}.
 
@@ -55,18 +58,19 @@ G.~Niemeyer and J.J.E. Slotine.
   {\path{doi:10.1177/0278364904045563}}.
 
 \bibitem[PST{\etalchar{+}}15]{Peters2015}
-Jeffrey~R Peters, Vaibhav Srivastava, Grant~S Taylor, Amit Surana, and Miguel~P
+Jeffrey Peters, Vaibhav Srivastava, Grant Taylor, Amit Surana, and Miguel
   Eckstein.
 \newblock {Human Supervisory Control of Robotic Teams}.
 \newblock {\em IEEE Control Systems Magazine}, 35(6):57--80, 2015.
+\newblock \href {http://dx.doi.org/10.1109/MCS.2015.2471056}
+  {\path{doi:10.1109/MCS.2015.2471056}}.
 
 \bibitem[RIM99]{Rahman1999}
 M.M. Rahman, R.~Ikeura, and K.~Mizutani.
-\newblock {Investigating the impedance characteristic of human arm
-  for$\backslash$ndevelopment of robots to co-operate with human operators}.
-\newblock {\em IEEE SMC'99 Conference Proceedings. 1999 IEEE International
-  Conference on Systems, Man, and Cybernetics (Cat. No.99CH37028)}, 2:676--681,
-  1999.
+\newblock {Investigating the impedance characteristic of human arm for
+  development of robots to co-operate with human operators}.
+\newblock In {\em Proc. IEEE Conf. on Systems, Man, and Cybernetics}, volume~2,
+  pages 676--681, 1999.
 \newblock \href {http://dx.doi.org/10.1109/ICSMC.1999.825342}
   {\path{doi:10.1109/ICSMC.1999.825342}}.
 
