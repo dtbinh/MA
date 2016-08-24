@@ -1,11 +1,11 @@
 \contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
 \contentsline {subsubsection}{Direct, shared and supervisory control}{6}{section*.2}
 \contentsline {subsubsection}{Sensory perception, Cognition and Response (SCR)}{6}{section*.3}
-\contentsline {chapter}{\numberline {2}Main Part}{7}{chapter.2}
+\contentsline {chapter}{\numberline {2}Human behaviour modelling for teleoperation}{7}{chapter.2}
 \contentsline {section}{\numberline {2.1}Response or motor function modelling}{7}{section.2.1}
 \contentsline {subsubsection}{Bilateral telemanipulation}{7}{section*.4}
 \contentsline {subsubsection}{Pointing interfaces}{8}{section*.5}
-\contentsline {subsubsection}{Mobile human sensors and actuators}{10}{section*.6}
+\contentsline {subsubsection}{Mobile human sensors and actuators}{9}{section*.6}
 \contentsline {section}{\numberline {2.2}Sensory perception modelling}{11}{section.2.2}
 \contentsline {section}{\numberline {2.3}Cognitive modelling}{13}{section.2.3}
 \contentsline {subsubsection}{Learning}{13}{section*.7}

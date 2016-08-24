@@ -1,11 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  21 APR 2016 13:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.5)  23 JUN 2016 21:20
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
 **CaVigroup.tex
-(./CaVigroup.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+(CaVigroup.tex
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 69 languages loaded.
 
 ! LaTeX Error: Environment tikzpicture undefined.
 
@@ -209,16 +207,34 @@ and I'll forget about whatever was undefined.
 Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.7     \nextgroupplot
-                      
+                      [ylabel={Pose error}]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.8 	\addplot
-             [red,] table 								{/home/mangerer/MAgit/MA/Latex/plotdata/Ca...
+             [red,] table {../plotdata/CaVitrans_errPos.txt};\label{plots:er...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -236,35 +252,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no . in font nullfont!
 Missing character: There is no / in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -287,8 +276,8 @@ Missing character: There is no s in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.8 ...mangerer/MAgit/MA/Latex/plotdata/CaVitrans_
-                                                  errPos.txt};\label{plots:e...
+l.8 	\addplot[red,] table {../plotdata/CaVitrans_
+                                                 errPos.txt};\label{plots:er...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -297,7 +286,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 8.
 ! Extra }, or forgotten $.
-l.8 ...git/MA/Latex/plotdata/CaVitrans_errPos.txt}
+l.8 ...,] table {../plotdata/CaVitrans_errPos.txt}
                                                   ;\label{plots:errPos}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -325,7 +314,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.11 	\addplot
-              [blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_...
+              [blue,] table {../plotdata/CaVirot_errOrient.txt};\label{plots...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -483,7 +472,7 @@ you left one out. Proceed, with fingers crossed.
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.24     { \ref*
-                {plots:errPos}&{ Position error}&[5pt]
+                {plots:errPos}&{ $\Delta p_x$ [m]}&[5pt]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -495,17 +484,59 @@ LaTeX Warning: Reference `*' on page  undefined on input line 24.
 
 ! Misplaced alignment tab character &.
 l.24     { \ref*{plots:errPos}&
-                               { Position error}&[5pt]
+                               { $\Delta p_x$ [m]}&[5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
 up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.24     { \ref*{plots:errPos}&{ $
+                                  \Delta p_x$ [m]}&[5pt]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.24     { \ref*{plots:errPos}&{ $
+                                  \Delta p_x$ [m]}&[5pt]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.24     { \ref*{plots:errPos}&{ $\Delta
+                                         p_x$ [m]}&[5pt]
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
+! Extra }, or forgotten \endgroup.
+l.24     { \ref*{plots:errPos}&{ $\Delta p_x$ [m]}
+                                                  &[5pt]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
 ! Misplaced alignment tab character &.
-l.24     { \ref*{plots:errPos}&{ Position error}&
-                                                 [5pt]
+l.24 ...{ \ref*{plots:errPos}&{ $\Delta p_x$ [m]}&
+                                                  [5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -513,11 +544,16 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.25       \ref*
-                {plots:errOrient}&{ Orientation error}&[5pt]\\};
+                {plots:errOrient}&{ $\Delta \Phi_z$ [rad]}&[5pt]\\};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -527,9 +563,24 @@ and I'll forget about whatever was undefined.
 
 LaTeX Warning: Reference `*' on page  undefined on input line 25.
 
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
 ! Misplaced alignment tab character &.
 l.25       \ref*{plots:errOrient}&
-                                  { Orientation error}&[5pt]\\};
+                                  { $\Delta \Phi_z$ [rad]}&[5pt]\\};
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -537,8 +588,13 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Misplaced alignment tab character &.
-l.25 ...ef*{plots:errOrient}&{ Orientation error}&
+l.25 ...plots:errOrient}&{ $\Delta \Phi_z$ [rad]}&
                                                   [5pt]\\};
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -547,6 +603,23 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no ] in font nullfont!
+! Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.25 ...rOrient}&{ $\Delta \Phi_z$ [rad]}&[5pt]\\}
+                                                  ;
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+Missing character: There is no ; in font nullfont!
 
 ! LaTeX Error: \begin{document} ended by \end{tikzpicture}.
 
@@ -560,17 +633,6 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.26 \end{tikzpicture}
-                      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 2--27
 []
@@ -578,45 +640,55 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 2--27
 
 
 Overfull \hbox (131.76016pt too wide) in paragraph at lines 2--27
-[]\OML/cmm/m/it/10 rrPos:txt\OT1/cmr/m/n/10 ;[] (\OML/cmm/m/it/10 top\OT1/cmr/m
-/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 relaxiscs \OT1/cmr/
-m/n/10 :
+$[]\OML/cmm/m/it/10 rrPos:txt\OT1/cmr/m/n/10 ;[] (\OML/cmm/m/it/10 top\OT1/cmr/
+m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 relaxiscs \OT1/cmr
+/m/n/10 :$
  []
 
 
-Overfull \hbox (466.56206pt too wide) in paragraph at lines 2--27
-\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1); [\OML/cmm/m/it/10 blue;
- \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] (\OML/cmm/m/it/10
- bot\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 relax
-iscs \OT1/cmr/m/n/10 :
+Overfull \hbox (305.25319pt too wide) in paragraph at lines 2--27
+$\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1); [\OML/cmm/m/it/10 blue
+; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] (\OML/cmm/m/it/1
+0 bot\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 rela
+xiscs \OT1/cmr/m/n/10 :$
  []
 
 
 Overfull \hbox (21.11113pt too wide) in paragraph at lines 2--27
-\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0);$
+$\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0);$
  []
 
 
 Overfull \hbox (118.30292pt too wide) in paragraph at lines 2--27
-[]$[] \OML/cmm/m/it/10 matrixofnodes; anchor \OT1/cmr/m/n/10 =
+[]$[] \OML/cmm/m/it/10 matrixofnodes; anchor \OT1/cmr/m/n/10 =$
  []
 
 
 Overfull \hbox (106.05519pt too wide) in paragraph at lines 2--27
-\OML/cmm/m/it/10 south; draw; innersep \OT1/cmr/m/n/10 =
+$\OML/cmm/m/it/10 south; draw; innersep \OT1/cmr/m/n/10 =$
  []
 
 
 Overfull \hbox (88.2948pt too wide) in paragraph at lines 2--27
-\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 em; \OT1/c
-mr/m/n/10 ]\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 ([\OML/cmm/m/it/10 yshift \OT1/cm
-r/m/n/10 =
+$\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 em; \OT1/
+cmr/m/n/10 ]\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 ([\OML/cmm/m/it/10 yshift \OT1/c
+mr/m/n/10 =$
  []
 
 
-Overfull \hbox (403.97348pt too wide) in paragraph at lines 2--27
-\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ex\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 legendpos
-\OT1/cmr/m/n/10 )[];$ 
+Overfull \hbox (155.96303pt too wide) in paragraph at lines 2--27
+$\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ex\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 legendpo
+s\OT1/cmr/m/n/10 )[]$$\OML/cmm/m/it/10 p[]$
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 2--27
+[]
+ []
+
+
+Overfull \hbox (20.16327pt too wide) in paragraph at lines 2--27
+$\OT1/cmr/m/n/10 []$ 
  []
 
 
@@ -822,16 +894,38 @@ and I'll forget about whatever was undefined.
 Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.36     \nextgroupplot
-                       
+                       [ylabel={Velocity error}]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.37 	\addplot
-              [red,] table 								{/home/mangerer/MAgit/MA/Latex/plotdata/C...
+              [red,] table 								{../plotdata/CaVitrans_errVeloc.txt};\lab...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -849,35 +943,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no . in font nullfont!
 Missing character: There is no / in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -900,13 +967,13 @@ Missing character: There is no s in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.37 ...angerer/MAgit/MA/Latex/plotdata/CaVitrans_
+l.37 ...ed,] table 								{../plotdata/CaVitrans_
                                                   errVeloc.txt};\label{plots...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.37 .../MA/Latex/plotdata/CaVitrans_errVeloc.txt}
+l.37 ...						{../plotdata/CaVitrans_errVeloc.txt}
                                                   ;\label{plots:errVeloc}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -934,7 +1001,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.40 	\addplot
-              [blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_...
+              [blue,] table {../plotdata/CaVirot_errAngVel.txt};\label{plots...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1092,7 +1159,7 @@ you left one out. Proceed, with fingers crossed.
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.53     { \ref*
-                {plots:errVeloc}&{ Linear velocity error}&[5pt]
+                {plots:errVeloc}&{ $\Delta\dot{p}_x$ [m/s]}&[5pt]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1104,7 +1171,7 @@ LaTeX Warning: Reference `*' on page  undefined on input line 53.
 
 ! Misplaced alignment tab character &.
 l.53     { \ref*{plots:errVeloc}&
-                                 { Linear velocity error}&[5pt]
+                                 { $\Delta\dot{p}_x$ [m/s]}&[5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1112,8 +1179,52 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
+! Missing } inserted.
+<inserted text> 
+                }
+l.53     { \ref*{plots:errVeloc}&{ $
+                                    \Delta\dot{p}_x$ [m/s]}&[5pt]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.53     { \ref*{plots:errVeloc}&{ $
+                                    \Delta\dot{p}_x$ [m/s]}&[5pt]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.53     { \ref*{plots:errVeloc}&{ $\Delta
+                                          \dot{p}_x$ [m/s]}&[5pt]
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no ] in font nullfont!
+! Extra }, or forgotten \endgroup.
+l.53 ...plots:errVeloc}&{ $\Delta\dot{p}_x$ [m/s]}
+                                                  &[5pt]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
 ! Misplaced alignment tab character &.
-l.53 ...{plots:errVeloc}&{ Linear velocity error}&
+l.53 ...lots:errVeloc}&{ $\Delta\dot{p}_x$ [m/s]}&
                                                   [5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1122,11 +1233,16 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.54       \ref*
-                {plots:errAngVel}&{ Angular velocity error}&[5pt]\\};
+                {plots:errAngVel}&{ $\Delta\omega_z$ [rad/s]}&[5pt]\\};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1136,9 +1252,24 @@ and I'll forget about whatever was undefined.
 
 LaTeX Warning: Reference `*' on page  undefined on input line 54.
 
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
 ! Misplaced alignment tab character &.
 l.54       \ref*{plots:errAngVel}&
-                                  { Angular velocity error}&[5pt]\\};
+                                  { $\Delta\omega_z$ [rad/s]}&[5pt]\\};
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1146,8 +1277,15 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Misplaced alignment tab character &.
-l.54 ...lots:errAngVel}&{ Angular velocity error}&
+l.54 ...ts:errAngVel}&{ $\Delta\omega_z$ [rad/s]}&
                                                   [5pt]\\};
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1156,6 +1294,23 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no ] in font nullfont!
+! Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.54 ...gVel}&{ $\Delta\omega_z$ [rad/s]}&[5pt]\\}
+                                                  ;
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+Missing character: There is no ; in font nullfont!
 
 ! LaTeX Error: \begin{document} ended by \end{tikzpicture}.
 
@@ -1169,17 +1324,6 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.55 \end{tikzpicture}
-                      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 31--56
 []
@@ -1187,45 +1331,55 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 31--56
 
 
 Overfull \hbox (139.48358pt too wide) in paragraph at lines 31--56
-[]\OML/cmm/m/it/10 rrVeloc:txt\OT1/cmr/m/n/10 ;[] (\OML/cmm/m/it/10 top\OT1/cmr
-/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 relaxiscs \OT1/cm
-r/m/n/10 :
+$[]\OML/cmm/m/it/10 rrVeloc:txt\OT1/cmr/m/n/10 ;[] (\OML/cmm/m/it/10 top\OT1/cm
+r/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 relaxiscs \OT1/c
+mr/m/n/10 :$
  []
 
 
-Overfull \hbox (470.6755pt too wide) in paragraph at lines 31--56
-\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1); [\OML/cmm/m/it/10 blue;
- \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] (\OML/cmm/m/it/10
- bot\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 relax
-iscs \OT1/cmr/m/n/10 :
+Overfull \hbox (309.36664pt too wide) in paragraph at lines 31--56
+$\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1); [\OML/cmm/m/it/10 blue
+; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] (\OML/cmm/m/it/1
+0 bot\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 rela
+xiscs \OT1/cmr/m/n/10 :$
  []
 
 
 Overfull \hbox (21.11113pt too wide) in paragraph at lines 31--56
-\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0);$
+$\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0);$
  []
 
 
 Overfull \hbox (118.30292pt too wide) in paragraph at lines 31--56
-[]$[] \OML/cmm/m/it/10 matrixofnodes; anchor \OT1/cmr/m/n/10 =
+[]$[] \OML/cmm/m/it/10 matrixofnodes; anchor \OT1/cmr/m/n/10 =$
  []
 
 
 Overfull \hbox (106.05519pt too wide) in paragraph at lines 31--56
-\OML/cmm/m/it/10 south; draw; innersep \OT1/cmr/m/n/10 =
+$\OML/cmm/m/it/10 south; draw; innersep \OT1/cmr/m/n/10 =$
  []
 
 
 Overfull \hbox (88.2948pt too wide) in paragraph at lines 31--56
-\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 em; \OT1/c
-mr/m/n/10 ]\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 ([\OML/cmm/m/it/10 yshift \OT1/cm
-r/m/n/10 =
+$\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 em; \OT1/
+cmr/m/n/10 ]\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 ([\OML/cmm/m/it/10 yshift \OT1/c
+mr/m/n/10 =$
  []
 
 
-Overfull \hbox (461.18091pt too wide) in paragraph at lines 31--56
-\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ex\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 legendpos
-\OT1/cmr/m/n/10 )[];$ 
+Overfull \hbox (163.68645pt too wide) in paragraph at lines 31--56
+$\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ex\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 legendpo
+s\OT1/cmr/m/n/10 )[]$$[]$
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 31--56
+[]
+ []
+
+
+Overfull \hbox (19.16557pt too wide) in paragraph at lines 31--56
+$\OT1/cmr/m/n/10 \OML/cmm/m/it/10 ![]$ 
  []
 
 
@@ -1431,16 +1585,42 @@ and I'll forget about whatever was undefined.
 Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.65     \nextgroupplot
-                       
+                       [ylabel={Manipulator wrench}]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.66 	\addplot
-              [red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans...
+              [red,] table {../plotdata/CaVitrans_Manipulator wrench_tx.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1458,35 +1638,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no . in font nullfont!
 Missing character: There is no / in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -1509,7 +1662,7 @@ Missing character: There is no s in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.66 ...angerer/MAgit/MA/Latex/plotdata/CaVitrans_
+l.66 	\addplot[red,] table {../plotdata/CaVitrans_
                                                   Manipulator wrench_tx.txt};
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1525,7 +1678,7 @@ deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
 l.67 	\addplot
-              [blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitran...
+              [blue,] table {../plotdata/CaVitrans_Manipulator wrench_ty.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1534,7 +1687,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.68 	\addplot
-              [green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitra...
+              [green,] table {../plotdata/CaVitrans_Manipulator wrench_rz.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1561,7 +1714,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.71 	\addplot
-              [red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_M...
+              [red,] table {../plotdata/CaVirot_Manipulator wrench_tx.txt};\...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1570,7 +1723,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.72 	\addplot
-              [blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_...
+              [blue,] table {../plotdata/CaVirot_Manipulator wrench_ty.txt};...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1579,7 +1732,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.73 	\addplot
-              [green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot...
+              [green,] table {../plotdata/CaVirot_Manipulator wrench_rz.txt}...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1737,7 +1890,7 @@ you left one out. Proceed, with fingers crossed.
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.86     { \ref*
-                {plots:forcex}&{ force $f_x$}&[5pt]
+                {plots:forcex}&{ $f_x$ [N]}&[5pt]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1749,7 +1902,7 @@ LaTeX Warning: Reference `*' on page  undefined on input line 86.
 
 ! Misplaced alignment tab character &.
 l.86     { \ref*{plots:forcex}&
-                               { force $f_x$}&[5pt]
+                               { $f_x$ [N]}&[5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1760,8 +1913,8 @@ might try typing `S' now just to see what is salvageable.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.86     { \ref*{plots:forcex}&{ force $
-                                        f_x$}&[5pt]
+l.86     { \ref*{plots:forcex}&{ $
+                                  f_x$ [N]}&[5pt]
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -1771,8 +1924,8 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.86     { \ref*{plots:forcex}&{ force $
-                                        f_x$}&[5pt]
+l.86     { \ref*{plots:forcex}&{ $
+                                  f_x$ [N]}&[5pt]
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -1783,14 +1936,17 @@ Missing character: There is no f in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.86     { \ref*{plots:forcex}&{ force $f_
-                                          x$}&[5pt]
+l.86     { \ref*{plots:forcex}&{ $f_
+                                    x$ [N]}&[5pt]
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Extra }, or forgotten \endgroup.
-l.86     { \ref*{plots:forcex}&{ force $f_x$}
-                                             &[5pt]
+l.86     { \ref*{plots:forcex}&{ $f_x$ [N]}
+                                           &[5pt]
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -1798,8 +1954,8 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Misplaced alignment tab character &.
-l.86     { \ref*{plots:forcex}&{ force $f_x$}&
-                                              [5pt]
+l.86     { \ref*{plots:forcex}&{ $f_x$ [N]}&
+                                            [5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1816,7 +1972,7 @@ Missing character: There is no ] in font nullfont!
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.87     	  \ref*
-                 {plots:forcey}&{ force $f_y$}&[5pt]
+                 {plots:forcey}&{ $f_y$ [N]}&[5pt]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1840,7 +1996,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no y in font nullfont!
 ! Misplaced alignment tab character &.
 l.87     	  \ref*{plots:forcey}&
-                                { force $f_y$}&[5pt]
+                                { $f_y$ [N]}&[5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1848,14 +2004,12 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-Missing character: There is no f in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no e in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Misplaced alignment tab character &.
-l.87     	  \ref*{plots:forcey}&{ force $f_y$}&
-                                               [5pt]
+l.87     	  \ref*{plots:forcey}&{ $f_y$ [N]}&
+                                             [5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1872,7 +2026,7 @@ Missing character: There is no ] in font nullfont!
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.88       \ref*
-                {plots:torquez}&{ torque $m_z$}&[5pt]\\};
+                {plots:torquez}&{ $m_z$ [Nm]}&[5pt]\\};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1897,7 +2051,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no z in font nullfont!
 ! Misplaced alignment tab character &.
 l.88       \ref*{plots:torquez}&
-                                { torque $m_z$}&[5pt]\\};
+                                { $m_z$ [Nm]}&[5pt]\\};
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1905,15 +2059,13 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-Missing character: There is no t in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no q in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no e in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Misplaced alignment tab character &.
-l.88       \ref*{plots:torquez}&{ torque $m_z$}&
-                                                [5pt]\\};
+l.88       \ref*{plots:torquez}&{ $m_z$ [Nm]}&
+                                              [5pt]\\};
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1929,7 +2081,7 @@ Missing character: There is no ] in font nullfont!
 ! Extra }, or forgotten \endgroup.
 <recently read> }
                  
-l.88 ...f*{plots:torquez}&{ torque $m_z$}&[5pt]\\}
+l.88 ...ref*{plots:torquez}&{ $m_z$ [Nm]}&[5pt]\\}
                                                   ;
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1957,50 +2109,50 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 60--90
  []
 
 
-Overfull \hbox (1064.56761pt too wide) in paragraph at lines 60--90
-[]\OML/cmm/m/it/10 anipulatorwrench[]x:txt\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/10 b
-lue; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/
-10 green; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ; (\OML/cmm/
-m/it/10 top\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
-0 relaxiscs \OT1/cmr/m/n/10 :
+Overfull \hbox (741.94987pt too wide) in paragraph at lines 60--90
+$[]\OML/cmm/m/it/10 anipulatorwrench[]x:txt\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/10 
+blue; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ; [\OML/cmm/m/it
+/10 green; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ; (\OML/cmm
+/m/it/10 top\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m/it/
+10 relaxiscs \OT1/cmr/m/n/10 :$
  []
 
 
-Overfull \hbox (1360.8439pt too wide) in paragraph at lines 60--90
-\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1); [\OML/cmm/m/it/10 red; 
-\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] [\OML/cmm/m/it/10 
-blue; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] [\OML/cmm/m/
-it/10 green; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] (\OML
-/cmm/m/it/10 bot\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/m
-/it/10 relaxiscs \OT1/cmr/m/n/10 :
+Overfull \hbox (876.9173pt too wide) in paragraph at lines 60--90
+$\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1); [\OML/cmm/m/it/10 red;
+ \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] [\OML/cmm/m/it/10
+ blue; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] [\OML/cmm/m
+/it/10 green; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;[] (\OM
+L/cmm/m/it/10 bot\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 relaxiscs \OT1/cmr/m/n/10 :$
  []
 
 
 Overfull \hbox (21.11113pt too wide) in paragraph at lines 60--90
-\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0);$
+$\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0);$
  []
 
 
 Overfull \hbox (118.30292pt too wide) in paragraph at lines 60--90
-[]$[] \OML/cmm/m/it/10 matrixofnodes; anchor \OT1/cmr/m/n/10 =
+[]$[] \OML/cmm/m/it/10 matrixofnodes; anchor \OT1/cmr/m/n/10 =$
  []
 
 
 Overfull \hbox (106.05519pt too wide) in paragraph at lines 60--90
-\OML/cmm/m/it/10 south; draw; innersep \OT1/cmr/m/n/10 =
+$\OML/cmm/m/it/10 south; draw; innersep \OT1/cmr/m/n/10 =$
  []
 
 
 Overfull \hbox (88.2948pt too wide) in paragraph at lines 60--90
-\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 em; \OT1/c
-mr/m/n/10 ]\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 ([\OML/cmm/m/it/10 yshift \OT1/cm
-r/m/n/10 =
+$\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 em; \OT1/
+cmr/m/n/10 ]\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 ([\OML/cmm/m/it/10 yshift \OT1/c
+mr/m/n/10 =$
  []
 
 
-Overfull \hbox (165.92029pt too wide) in paragraph at lines 60--90
-\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ex\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 legendpos
-\OT1/cmr/m/n/10 )[]$$[]$
+Overfull \hbox (141.3276pt too wide) in paragraph at lines 60--90
+$\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ex\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 legendpo
+s\OT1/cmr/m/n/10 )[]$$[]$
  []
 
 
@@ -2010,7 +2162,7 @@ Overfull \hbox (10.86105pt too wide) in paragraph at lines 60--90
 
 
 Overfull \hbox (9.7026pt too wide) in paragraph at lines 60--90
-\OML/cmm/m/it/10 f[]$
+$\OML/cmm/m/it/10 f[]$
  []
 
 
@@ -2020,7 +2172,7 @@ Overfull \hbox (10.86105pt too wide) in paragraph at lines 60--90
 
 
 Overfull \hbox (13.38782pt too wide) in paragraph at lines 60--90
-\OML/cmm/m/it/10 m[]$ 
+$\OML/cmm/m/it/10 m[]$ 
  []
 
 
@@ -2226,16 +2378,50 @@ and I'll forget about whatever was undefined.
 Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.98     \nextgroupplot
-                       
+                       [xlabel={$t$[s]},ylabel={Internal wrench}]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no I in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.99 	\addplot
-              [red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitrans...
+              [red,] table {../plotdata/CaVitrans_Internal wrench_tx.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2253,35 +2439,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no . in font nullfont!
 Missing character: There is no / in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -2304,7 +2463,7 @@ Missing character: There is no s in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.99 ...angerer/MAgit/MA/Latex/plotdata/CaVitrans_
+l.99 	\addplot[red,] table {../plotdata/CaVitrans_
                                                   Internal wrench_tx.txt};
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2320,7 +2479,7 @@ deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
 l.100 	\addplot
-               [blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitra...
+               [blue,] table {../plotdata/CaVitrans_Internal wrench_ty.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2329,7 +2488,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.101 	\addplot
-               [green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVitr...
+               [green,] table {../plotdata/CaVitrans_Internal wrench_rz.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2347,16 +2506,37 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.103 	\nextgroupplot
-                     
+                     [xlabel={$t$[s]}]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+! Missing } inserted.
+<inserted text> 
+                }
+l.103 	\nextgroupplot[xlabel={$
+                               t$[s]}]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no t in font nullfont!
+! Extra }, or forgotten $.
+l.103 	\nextgroupplot[xlabel={$t$[s]}
+                                     ]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
 ! Undefined control sequence.
 l.104 	\addplot
-               [red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot_...
+               [red,] table {../plotdata/CaVirot_Internal Wrench_tx.txt};\la...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2365,7 +2545,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.105 	\addplot
-               [blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaVirot...
+               [blue,] table {../plotdata/CaVirot_Internal Wrench_ty.txt};\l...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2374,7 +2554,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.106 	\addplot
-               [green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/CaViro...
+               [green,] table {../plotdata/CaVirot_Internal Wrench_rz.txt};\...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2532,7 +2712,7 @@ you left one out. Proceed, with fingers crossed.
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.119     { \ref*
-                 {plots:forceix}&{ force $f_{int,x}$}&[5pt]
+                 {plots:forceix}&{ $f_{int,x}$ [N]}&[5pt]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2544,7 +2724,7 @@ LaTeX Warning: Reference `*' on page  undefined on input line 119.
 
 ! Misplaced alignment tab character &.
 l.119     { \ref*{plots:forceix}&
-                                 { force $f_{int,x}$}&[5pt]
+                                 { $f_{int,x}$ [N]}&[5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2555,8 +2735,8 @@ might try typing `S' now just to see what is salvageable.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.119     { \ref*{plots:forceix}&{ force $
-                                          f_{int,x}$}&[5pt]
+l.119     { \ref*{plots:forceix}&{ $
+                                    f_{int,x}$ [N]}&[5pt]
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -2566,8 +2746,8 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.119     { \ref*{plots:forceix}&{ force $
-                                          f_{int,x}$}&[5pt]
+l.119     { \ref*{plots:forceix}&{ $
+                                    f_{int,x}$ [N]}&[5pt]
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -2578,13 +2758,16 @@ Missing character: There is no f in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.119     { \ref*{plots:forceix}&{ force $f_
-                                            {int,x}$}&[5pt]
+l.119     { \ref*{plots:forceix}&{ $f_
+                                      {int,x}$ [N]}&[5pt]
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+Missing character: There is no [ in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Extra }, or forgotten \endgroup.
-l.119 ...\ref*{plots:forceix}&{ force $f_{int,x}$}
+l.119 ...{ \ref*{plots:forceix}&{ $f_{int,x}$ [N]}
                                                   &[5pt]
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2593,7 +2776,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Misplaced alignment tab character &.
-l.119 ...ref*{plots:forceix}&{ force $f_{int,x}$}&
+l.119 ... \ref*{plots:forceix}&{ $f_{int,x}$ [N]}&
                                                   [5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2611,7 +2794,7 @@ Missing character: There is no ] in font nullfont!
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.120     	  \ref*
-                  {plots:forceiy}&{ force $f_{int,y}$}&[5pt]
+                  {plots:forceiy}&{ $f_{int,y}$ [N]}&[5pt]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2636,7 +2819,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no y in font nullfont!
 ! Misplaced alignment tab character &.
 l.120     	  \ref*{plots:forceiy}&
-                                  { force $f_{int,y}$}&[5pt]
+                                  { $f_{int,y}$ [N]}&[5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2644,13 +2827,11 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-Missing character: There is no f in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no e in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Misplaced alignment tab character &.
-l.120 ...ref*{plots:forceiy}&{ force $f_{int,y}$}&
+l.120 ... \ref*{plots:forceiy}&{ $f_{int,y}$ [N]}&
                                                   [5pt]
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2668,7 +2849,7 @@ Missing character: There is no ] in font nullfont!
 <write> ...arning: Reference `*' on page \thepage 
                                                   \space undefined\on@line .
 l.121       \ref*
-                 {plots:torqueiz}&{ torque $m_{int,z}$}&[5pt]\\};
+                 {plots:torqueiz}&{ $m_{int,z}$ [Nm]}&[5pt]\\};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2694,7 +2875,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no z in font nullfont!
 ! Misplaced alignment tab character &.
 l.121       \ref*{plots:torqueiz}&
-                                  { torque $m_{int,z}$}&[5pt]\\};
+                                  { $m_{int,z}$ [Nm]}&[5pt]\\};
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2702,14 +2883,12 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-Missing character: There is no t in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no q in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no e in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
 ! Misplaced alignment tab character &.
-l.121 ...f*{plots:torqueiz}&{ torque $m_{int,z}$}&
+l.121 ...ref*{plots:torqueiz}&{ $m_{int,z}$ [Nm]}&
                                                   [5pt]\\};
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2726,7 +2905,7 @@ Missing character: There is no ] in font nullfont!
 ! Extra }, or forgotten \endgroup.
 <recently read> }
                  
-l.121 ...:torqueiz}&{ torque $m_{int,z}$}&[5pt]\\}
+l.121 ...ts:torqueiz}&{ $m_{int,z}$ [Nm]}&[5pt]\\}
                                                   ;
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2756,11 +2935,11 @@ or  <return>  to continue without it.
 
  
 Here is how much of TeX's memory you used:
- 15 strings out of 493304
- 243 string characters out of 6139871
- 56880 words of memory out of 5000000
- 3573 multiletter control sequences out of 15000+600000
- 3948 words of font info for 15 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 18i,10n,14p,144b,107s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 16 strings out of 493673
+ 199 string characters out of 3141528
+ 56455 words of memory out of 3000000
+ 3463 multiletter control sequences out of 15000+200000
+ 3948 words of font info for 15 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 18i,10n,14p,111b,107s stack positions out of 5000i,500n,10000p,200000b,50000s
 !  ==> Fatal error occurred, no output PDF file produced!

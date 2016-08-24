@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{159.41060665bp}%
+    \setlength{\unitlength}{205.77460938bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,11 +48,11 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.37619969)%
+  \begin{picture}(1,0.31101991)%
     \put(0,0){\includegraphics[width=\unitlength]{controlderivation2.eps}}%
-    \put(-0.13046062,-0.21608956){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
-    \put(0.42,0.0){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_b^b$}}}%
-    \put(0.7,0.27062768){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_b^0$}}}%
-    \put(-0.00123449,0.3){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_v^0$}}}%
+    \put(-0.08657154,-0.16328545){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.31198496,0.02){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_b^b$}}}%
+    \put(0.48807063,0.17528067){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_b^0$}}}%
+    \put(0.01491257,0.21126061){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_v^0$}}}%
   \end{picture}%
 \endgroup%

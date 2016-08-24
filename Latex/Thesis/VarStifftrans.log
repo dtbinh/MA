@@ -1,11 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.16)  26 APR 2016 16:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.5)  9 AUG 2016 14:34
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
 **VarStifftrans.tex
-(./VarStifftrans.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+(VarStifftrans.tex
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 69 languages loaded.
 
 ! LaTeX Error: Environment tikzpicture undefined.
 
@@ -52,24 +50,14 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no = in font nullfont!
-Missing character: There is no [ in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no ] in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no = in font nullfont!
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 4.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 4.
-Missing character: There is no [ in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no o in font nullfont!
 Missing character: There is no s in font nullfont!
-Missing character: There is no ] in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -116,6 +104,10 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no = in font nullfont!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 7.
 Missing character: There is no [ in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no ] in font nullfont!
@@ -271,7 +263,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.11  \addplot
-              [red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/VarStifft...
+              [red,] table {../plotdata/VarStifftrans_desired position.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -289,35 +281,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no . in font nullfont!
 Missing character: There is no / in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -344,7 +309,7 @@ Missing character: There is no s in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.11 ...rer/MAgit/MA/Latex/plotdata/VarStifftrans_
+l.11 ...ot[red,] table {../plotdata/VarStifftrans_
                                                   desired position.txt};
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -360,7 +325,7 @@ deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
 l.12 \addplot
-             [blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/VarStifft...
+             [blue,] table {../plotdata/VarStifftrans_position.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -421,24 +386,19 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 2--15
  []
 
 
-Overfull \hbox (3.61111pt too wide) in paragraph at lines 2--15
-\OML/cmm/m/it/10 t$
+Overfull \hbox (10.06598pt too wide) in paragraph at lines 2--15
+$\OML/cmm/m/it/10 p[]$
  []
 
 
 Overfull \hbox (10.06598pt too wide) in paragraph at lines 2--15
-\OML/cmm/m/it/10 p[]$
+$\OML/cmm/m/it/10 p[]$
  []
 
 
-Overfull \hbox (10.06598pt too wide) in paragraph at lines 2--15
-\OML/cmm/m/it/10 p[]$
- []
-
-
-Overfull \hbox (472.19705pt too wide) in paragraph at lines 2--15
-[]\OML/cmm/m/it/10 esiredposition:txt\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/10 blue; 
-\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;$
+Overfull \hbox (310.88818pt too wide) in paragraph at lines 2--15
+$[]\OML/cmm/m/it/10 esiredposition:txt\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/10 blue;
+ \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;$
  []
 
 
@@ -487,22 +447,20 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no = in font nullfont!
-Missing character: There is no [ in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no ] in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no l in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
 Missing character: There is no a in font nullfont!
-Missing character: There is no b in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no v in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no l in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no [ in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no ] in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no y in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -551,10 +509,14 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no = in font nullfont!
 Missing character: There is no [ in font nullfont!
 Missing character: There is no m in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no s in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no [ in font nullfont!
 Missing character: There is no m in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no s in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -704,7 +666,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.28  \addplot
-              [red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/VarStifft...
+              [red,] table {../plotdata/VarStifftrans_desired velocity.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -722,35 +684,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no . in font nullfont!
 Missing character: There is no / in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -777,7 +712,7 @@ Missing character: There is no s in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.28 ...rer/MAgit/MA/Latex/plotdata/VarStifftrans_
+l.28 ...ot[red,] table {../plotdata/VarStifftrans_
                                                   desired velocity.txt};
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -793,7 +728,7 @@ deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
 l.29 \addplot
-             [blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/VarStifft...
+             [blue,] table {../plotdata/VarStifftrans_Velocity.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -854,24 +789,19 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 19--32
  []
 
 
-Overfull \hbox (3.61111pt too wide) in paragraph at lines 19--32
-\OML/cmm/m/it/10 t$
+Overfull \hbox (10.06598pt too wide) in paragraph at lines 19--32
+$[]$
  []
 
 
 Overfull \hbox (10.06598pt too wide) in paragraph at lines 19--32
-[]$
+$[]$
  []
 
 
-Overfull \hbox (10.06598pt too wide) in paragraph at lines 19--32
-[]$
- []
-
-
-Overfull \hbox (471.58151pt too wide) in paragraph at lines 19--32
-[]\OML/cmm/m/it/10 esiredvelocity:txt\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/10 blue; 
-\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;$
+Overfull \hbox (310.27264pt too wide) in paragraph at lines 19--32
+$[]\OML/cmm/m/it/10 esiredvelocity:txt\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/10 blue;
+ \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;$
  []
 
 
@@ -920,20 +850,15 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no = in font nullfont!
-Missing character: There is no [ in font nullfont!
-Missing character: There is no J in font nullfont!
-Missing character: There is no ] in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no l in font nullfont!
+Missing character: There is no T in font nullfont!
 Missing character: There is no a in font nullfont!
-Missing character: There is no b in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no v in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no l in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no [ in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no ] in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -980,6 +905,15 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no = in font nullfont!
+! Undefined control sequence.
+l.40 legend entries = {$\mathcal{T}(x_\g
+                                        {t})$ [J]},
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 Missing character: There is no [ in font nullfont!
 Missing character: There is no J in font nullfont!
 Missing character: There is no ] in font nullfont!
@@ -1131,7 +1065,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.44 \addplot
-             [red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/VarStifftr...
+             [red,] table {../plotdata/VarStifftrans_TankLevel.txt};
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1149,35 +1083,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no . in font nullfont!
 Missing character: There is no / in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -1204,13 +1111,13 @@ Missing character: There is no s in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.44 ...rer/MAgit/MA/Latex/plotdata/VarStifftrans_
+l.44 ...ot[red,] table {../plotdata/VarStifftrans_
                                                   TankLevel.txt};
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.44 ...atex/plotdata/VarStifftrans_TankLevel.txt}
+l.44 ... {../plotdata/VarStifftrans_TankLevel.txt}
                                                   ;
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1272,18 +1179,13 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 35--47
  []
 
 
-Overfull \hbox (3.61111pt too wide) in paragraph at lines 35--47
-\OML/cmm/m/it/10 t$
- []
-
-
-Overfull \hbox (24.24657pt too wide) in paragraph at lines 35--47
-\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )$
+Overfull \hbox (25.00203pt too wide) in paragraph at lines 35--47
+$\OMS/cmsy/m/n/10 T\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )$
  []
 
 
 Overfull \hbox (66.10649pt too wide) in paragraph at lines 35--47
-[]\OML/cmm/m/it/10 ankLevel:txt\OT1/cmr/m/n/10 ;$
+$[]\OML/cmm/m/it/10 ankLevel:txt\OT1/cmr/m/n/10 ;$
  []
 
 
@@ -1332,14 +1234,23 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no = in font nullfont!
-Missing character: There is no [ in font nullfont!
-Missing character: There is no N in font nullfont!
-Missing character: There is no ] in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no [ in font nullfont!
-Missing character: There is no N in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no ] in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no h in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no x in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -1557,7 +1468,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
 l.58 \addplot
-             [red,] table {/home/mangerer/MAgit/MA/Latex/plotdata/VarStifftr...
+             [red,] table {../plotdata/VarStifftrans_Manipulator wrench_tx.t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1575,35 +1486,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no M in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no . in font nullfont!
 Missing character: There is no / in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -1630,7 +1514,7 @@ Missing character: There is no s in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.58 ...rer/MAgit/MA/Latex/plotdata/VarStifftrans_
+l.58 ...ot[red,] table {../plotdata/VarStifftrans_
                                                   Manipulator wrench_tx.txt};
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1646,7 +1530,7 @@ deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
 l.59 \addplot
-             [blue,] table {/home/mangerer/MAgit/MA/Latex/plotdata/VarStifft...
+             [blue,] table {../plotdata/VarStifftrans_Manipulator wrench_ty....
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1655,7 +1539,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.60 \addplot
-             [green,] table {/home/mangerer/MAgit/MA/Latex/plotdata/VarStiff...
+             [green,] table {../plotdata/VarStifftrans_Manipulator wrench_rz...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1716,35 +1600,30 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 49--63
  []
 
 
-Overfull \hbox (14.7524pt too wide) in paragraph at lines 49--63
-\OML/cmm/m/it/10 f$$m$
- []
-
-
 Overfull \hbox (3.61111pt too wide) in paragraph at lines 49--63
-\OML/cmm/m/it/10 t$
+$\OML/cmm/m/it/10 t$
  []
 
 
 Overfull \hbox (9.93059pt too wide) in paragraph at lines 49--63
-\OML/cmm/m/it/10 f[]$
+$\OML/cmm/m/it/10 f[]$
  []
 
 
 Overfull \hbox (9.7026pt too wide) in paragraph at lines 49--63
-\OML/cmm/m/it/10 f[]$
+$\OML/cmm/m/it/10 f[]$
  []
 
 
 Overfull \hbox (13.38782pt too wide) in paragraph at lines 49--63
-\OML/cmm/m/it/10 m[]$
+$\OML/cmm/m/it/10 m[]$
  []
 
 
-Overfull \hbox (1020.89879pt too wide) in paragraph at lines 49--63
-[]\OML/cmm/m/it/10 anipulatorwrench[]x:txt\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/10 b
-lue; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/
-10 green; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;$
+Overfull \hbox (698.28105pt too wide) in paragraph at lines 49--63
+$[]\OML/cmm/m/it/10 anipulatorwrench[]x:txt\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/10 
+blue; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ; [\OML/cmm/m/it
+/10 green; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ;$
  []
 
 )
@@ -1755,11 +1634,11 @@ lue; \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 table[]\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/
 
  
 Here is how much of TeX's memory you used:
- 11 strings out of 493304
- 221 string characters out of 6139871
- 53880 words of memory out of 5000000
- 3570 multiletter control sequences out of 15000+600000
- 3640 words of font info for 14 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 18i,2n,12p,152b,65s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 12 strings out of 493673
+ 181 string characters out of 3141528
+ 53455 words of memory out of 3000000
+ 3460 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 18i,2n,12p,153b,65s stack positions out of 5000i,500n,10000p,200000b,50000s
 !  ==> Fatal error occurred, no output PDF file produced!

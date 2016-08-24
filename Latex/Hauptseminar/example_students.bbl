@@ -1,0 +1,330 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{Chipalkatty2013}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Chipalkatty}{C.}%
+     {Rahul}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Droge}{D.}%
+     {Greg}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Egerstedt}{E.}%
+     {Magnus}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CRDGEM1}
+  \strng{fullhash}{CRDGEM1}
+  \field{labelyear}{2013}
+  \field{sortinit}{C}
+  \verb{doi}
+  \verb 10.1109/TRO.2013.2248551
+  \endverb
+  \field{number}{3}
+  \field{pages}{695\bibrangedash 703}
+  \field{title}{{Less Is More : Mixed Initiative Model Predictive Control With
+  Human Inputs}}
+  \field{volume}{29}
+  \field{journaltitle}{IEEE Transactions on Robotics}
+  \field{year}{2013}
+\endentry
+
+\entry{Hatanaka2015}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Hatanaka}{H.}%
+     {Takeshi}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chopra}{C.}%
+     {Nikhil}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fujita}{F.}%
+     {Masayuki}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HTCNFM1}
+  \strng{fullhash}{HTCNFM1}
+  \field{labelyear}{2015}
+  \field{sortinit}{H}
+  \field{booktitle}{Proc. IEEE Conference on Decision and Control}
+  \verb{doi}
+  \verb 10.1109/CDC.2015.7402008
+  \endverb
+  \field{isbn}{9781479978861}
+  \field{issn}{07431546}
+  \field{pages}{1033\bibrangedash 1039}
+  \field{title}{{Passivity-based bilateral human-swarm-interactions for
+  cooperative robotic networks and human passivity analysis}}
+  \field{volume}{54}
+  \field{year}{2015}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Hirche2012}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Hirche}{H.}%
+     {Sandra}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Buss}{B.}%
+     {Martin}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Communication,data compression,haptics,human haptic
+  perception,human-oriented control,human-oriented performance
+  evaluation,psychophysics,stability,telemaniplation,teleoperation,telerobotics,time
+  delay}
+  \strng{namehash}{HSBM1}
+  \strng{fullhash}{HSBM1}
+  \field{labelyear}{2012}
+  \field{sortinit}{H}
+  \verb{doi}
+  \verb 10.1109/JPROC.2011.2175150
+  \endverb
+  \field{issn}{00189219}
+  \field{number}{3}
+  \field{pages}{623\bibrangedash 647}
+  \field{title}{{Human-oriented control for haptic teleoperation}}
+  \field{volume}{100}
+  \field{journaltitle}{Proceedings of the IEEE}
+  \field{year}{2012}
+\endentry
+
+\entry{Peters2015}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Peters}{P.}%
+     {Jeffrey}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Srivastava}{S.}%
+     {Vaibhav}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Taylor}{T.}%
+     {Grant}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Surana}{S.}%
+     {Amit}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Eckstein}{E.}%
+     {Miguel}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{PJ+1}
+  \strng{fullhash}{PJSVTGSAEM1}
+  \field{labelyear}{2015}
+  \field{sortinit}{P}
+  \verb{doi}
+  \verb 10.1109/MCS.2015.2471056
+  \endverb
+  \field{number}{6}
+  \field{pages}{57\bibrangedash 80}
+  \field{title}{{Human Supervisory Control of Robotic Teams}}
+  \field{volume}{35}
+  \field{journaltitle}{IEEE Control Systems Magazine}
+  \field{year}{2015}
+\endentry
+
+\entry{Rahman1999}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Rahman}{R.}%
+     {M.M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ikeura}{I.}%
+     {R.}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mizutani}{M.}%
+     {K.}{K.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{RMIRMK1}
+  \strng{fullhash}{RMIRMK1}
+  \field{labelyear}{1999}
+  \field{sortinit}{R}
+  \field{booktitle}{Proc. IEEE Conf. on Systems, Man, and Cybernetics}
+  \verb{doi}
+  \verb 10.1109/ICSMC.1999.825342
+  \endverb
+  \field{isbn}{0-7803-5731-0}
+  \field{issn}{1062-922X}
+  \field{pages}{676\bibrangedash 681}
+  \field{title}{{Investigating the impedance characteristic of human arm for
+  development of robots to co-operate with human operators}}
+  \field{volume}{2}
+  \field{year}{1999}
+\endentry
+
+\entry{Sheridian1992}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Sheridian}{S.}%
+     {Thomas~B.}{T.~B.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {MIT Press}%
+  }
+  \strng{namehash}{STB1}
+  \strng{fullhash}{STB1}
+  \field{labelyear}{1992}
+  \field{sortinit}{S}
+  \field{title}{Telerobotcis, Automation and Human Supervisory Control}
+  \list{location}{1}{%
+    {Cambridge}%
+  }
+  \field{year}{1992}
+\endentry
+
+\entry{VanOverloop2015}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {{Van Overloop}}{V.}%
+     {P.~J.}{P.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sadowska}{S.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Maestre}{M.}%
+     {J.~M.}{J.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {{De Schutter}}{D.}%
+     {B.}{B.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{VPJ+1}
+  \strng{fullhash}{VPJSAMJMDB1}
+  \field{labelyear}{2015}
+  \field{sortinit}{V}
+  \verb{doi}
+  \verb 10.1109/MCS.2015.2427040
+  \endverb
+  \field{number}{4}
+  \field{pages}{19\bibrangedash 29}
+  \field{title}{{Human-in-the-loop control of an irrigation canal}}
+  \field{volume}{35}
+  \field{journaltitle}{IEEE Control Systems Magazine}
+  \field{year}{2015}
+\endentry
+
+\entry{Varnell2013}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Varnell}{V.}%
+     {Paul}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhang}{Z.}%
+     {Fumin}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{VPZF1}
+  \strng{fullhash}{VPZF1}
+  \field{labelyear}{2013}
+  \field{sortinit}{V}
+  \field{booktitle}{Proc. IFAC Workshop on Distributed Estimation and Control
+  in Networked Systems}
+  \verb{doi}
+  \verb 10.3182/20130925-2-DE-4044.00080
+  \endverb
+  \field{isbn}{9783902823557}
+  \field{issn}{14746670}
+  \field{pages}{369\bibrangedash 376}
+  \field{title}{{Dissipativity-based teleoperation with time-varying
+  communication delays}}
+  \field{volume}{4}
+  \field{year}{2013}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Yang1994}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Yang}{Y.}%
+     {Jie}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Xu}{X.}%
+     {Yangsheng}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chen}{C.}%
+     {Chiou}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{YJXYCC1}
+  \strng{fullhash}{YJXYCC1}
+  \field{labelyear}{1994}
+  \field{sortinit}{Y}
+  \verb{doi}
+  \verb 10.1109/70.326567
+  \endverb
+  \field{issn}{1042-296X}
+  \field{number}{5}
+  \field{pages}{621\bibrangedash 631}
+  \field{title}{{Hidden Markov model approach to skill learning and its
+  application to telerobotics}}
+  \field{volume}{10}
+  \field{journaltitle}{IEEE Transactions on Robotics and Automation}
+  \field{year}{1994}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

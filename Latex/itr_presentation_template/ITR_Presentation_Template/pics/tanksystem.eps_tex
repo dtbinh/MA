@@ -1,0 +1,69 @@
+%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'tanksystem.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{250.19793651bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.28453978)%
+    \put(0,0){\includegraphics[width=\unitlength]{tanksystem.eps}}%
+    \put(0.71590857,0.09812077){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.31782382,0.15887267){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.31782382,0.10451571){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.84540611,0.23241444){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.84540611,0.13649039){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(1.23789536,0.42586128){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.29496646\unitlength}\raggedright \end{minipage}}}%
+    \put(0.8562688,0.28965506){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09043806\unitlength}\raggedright \end{minipage}}}%
+    \put(-0.00991671,0.00699292){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30695694\unitlength}\raggedright \end{minipage}}}%
+    \put(-0.00249802,0.26510516){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Energy Tank}}}%
+    \put(0.74948206,0.2645595){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Robot team}}}%
+    \put(0.36586332,0.29097395){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.38049871\unitlength}\raggedright Passive controller\end{minipage}}}%
+    \put(0.05723014,-0.05695645){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.35252087\unitlength}\raggedright \end{minipage}}}%
+    \put(0.89976307,0.65448028){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.39328862\unitlength}\raggedright \end{minipage}}}%
+    \put(0.17457155,0.20924254){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.27178482\unitlength}\raggedright $\xrightharpoondown[f_\g{t}]{e_\g{t}}\underset{\underset{n}{\hdots}}{\mathbb{MTF}} \xrightharpoondown[T_v^0]{W_v^0}$\end{minipage}}}%
+    \put(0.60575666,0.22457171){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.28777216\unitlength}\raggedright $\begin{matrix}\xrightharpoondown[T_1^0]{W_1^0}\\ \cdot \\\xrightharpoondown[T_N^0]{W_N^0}\end{matrix}$\end{minipage}}}%
+  \end{picture}%
+\endgroup%

@@ -1,18 +1,20 @@
 \begin{tikzpicture}
 \begin{groupplot}[
-      group style={group size=2 by 3,ylabels at=edge 			left},
-      ylabel style={text height=0.02\textwidth,inner 			ysep=-5pt},
-      grid=major,height=0.35\linewidth,width=0.48\linewidth,/tikz/font=\footnotesize
+      group style={group size=2 by 3,ylabels at=edge left},
+      ylabel style={text height=0.02\textwidth,inner ysep=-5pt},
+      grid=major,height=0.31\linewidth,width=0.5\linewidth,/tikz/font=\tiny
     ]
-    \nextgroupplot[ylabel={Position $\Delta p_x$[m]}] 
-	\addplot[blue,] table {../../plotdata/DIPCctrans_errPos.txt};
-	\addplot[green,] table {../../plotdata/StrIPCtrans_errPos.txt};
-	\addplot[red,] table {../../plotdata/CaVitrans_errPos.txt};
+    \nextgroupplot[ylabel={Position $p_x$[m]}]
+    \addplot[black,] table {../../plotdata/CaVitrans_desired position.txt}; 
+	\addplot[blue,] table {../../plotdata/DIPCctrans_position.txt};
+	\addplot[green,] table {../../plotdata/StrIPCtrans_position.txt};
+	\addplot[red,] table {../../plotdata/CaVitrans_position.txt};
 	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
-	\nextgroupplot[ylabel={Orient. $\Delta \Phi_z$[rad]}]
-	\addplot[blue,] table {../../plotdata/DIPCcrot_errOrient.txt};
-	\addplot[red,] table {../../plotdata/CaVirot_errOrient.txt};
-	\addplot[green,] table {../../plotdata/StrIPCrot_errOrient.txt};
+	\nextgroupplot[ylabel={Orient. $\Phi_z$[rad]}]
+	\addplot[black,] table {../../plotdata/CaVirot_desired Orientation.txt};
+	\addplot[blue,] table {../../plotdata/DIPCcrot_Orientation.txt};
+	\addplot[red,] table {../../plotdata/CaVirot_Orientation.txt};
+	\addplot[green,] table {../../plotdata/StrIPCrot_Orientation.txt};
 	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
   \end{groupplot}
   % legend
@@ -25,29 +27,29 @@
       draw,
       inner sep=0.2em,
     ]at([yshift=1ex]legendpos)
-    { {\color{blue}\textemdash} &{constrained IPC}&[3pt]
-      {\color{red}\textemdash} &{classic impedance control}&[3pt]
-      {\color{green}\textemdash} &{classic IPC}&[3pt]\\};
-      
+    {	{\color{black}\textemdash} &{desired traj.}&[3pt]
+	    {\color{blue}\textemdash} &{constrained dIPC}&[3pt]
+      {\color{red}\textemdash} &{impedance ctrl}&[3pt]
+      {\color{green}\textemdash} &{dyn. IPC}&[3pt]\\};      
 \end{tikzpicture} 
-
-
-
 \begin{tikzpicture}
+\hspace{3pt}
 \begin{groupplot}[
-      group style={group size=2 by 3,ylabels at=edge 			left},
+      group style={group size=2 by 3,ylabels at=edge left},
       ylabel style={text height=0.02\textwidth,inner ysep=-5pt},
-      grid=major,height=0.35\linewidth,width=0.48\linewidth,/tikz/font=\footnotesize
+      grid=major,height=0.31\linewidth,width=0.5\linewidth,/tikz/font=\tiny
     ]
-    \nextgroupplot[xlabel={$t$[s]}, ylabel={Lin. vel. $\Delta \dot{p}_x$[m/s]}] 
-	\addplot[blue,] table {../../plotdata/DIPCctrans_errVeloc.txt};
-	\addplot[red,] table {../../plotdata/CaVitrans_errVeloc.txt};
-	\addplot[green,] table {../../plotdata/StrIPCtrans_errVeloc.txt};
+    \nextgroupplot[ylabel={Lin. vel. $\dot{p}_x$[m/s]}] 
+    \addplot[black,] table {../../plotdata/CaVitrans_desired velocity.txt};
+	\addplot[blue,] table {../../plotdata/DIPCctrans_Velocity.txt};
+	\addplot[red,] table {../../plotdata/CaVitrans_Velocity.txt};
+	\addplot[green,] table {../../plotdata/StrIPCtrans_Velocity.txt};
 	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
-	\nextgroupplot[xlabel={$t$[s]}, ylabel={Ang. vel. $\Delta \omega_z$[rad/s]}]
-	\addplot[blue,] table {../../plotdata/DIPCcrot_errAngVel.txt};
-	\addplot[red,] table {../../plotdata/CaVirot_errAngVel.txt};
-	\addplot[green,] table {../../plotdata/StrIPCrot_errAngVel.txt};
+	\nextgroupplot[ylabel={Ang. vel. $\omega_z$[rad/s]}]
+	\addplot[black,] table {../../plotdata/CaVirot_desired ang velocity.txt};
+	\addplot[blue,] table {../../plotdata/DIPCcrot_Angular Velocity.txt};
+	\addplot[red,] table {../../plotdata/CaVirot_Angular Velocity.txt};
+	\addplot[green,] table {../../plotdata/StrIPCrot_Angular Velocity.txt};
 	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
   \end{groupplot}
   % legend
@@ -62,9 +64,25 @@
 %    ]at([yshift=1ex]legendpos)
 %    { \ref*{plots:errVeloc}&{ $\Delta\dot{p}_x$ [m/s]}&[5pt]
 %      \ref*{plots:errAngVel}&{ $\Delta\omega_z$ [rad/s]}&[5pt]\\};
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{groupplot}[
+	group style={group size=2 by 3,ylabels at=edge left},
+	ylabel style={text height=0.02\textwidth,inner ysep=-10pt},
+	grid=major,height=0.31\linewidth,width=0.5\linewidth,/tikz/font=\tiny
+	]
+	\nextgroupplot[xlabel={$t$[s]}, ylabel={Force $f_x$[N]}] 
+	\addplot[blue,] table {../../plotdata/DIPCctrans_Manipulator wrench_tx.txt};
+	\addplot[red,] table {../../plotdata/CaVitrans_Manipulator wrench_tx.txt};
+	\addplot[green,] table {../../plotdata/StrIPCtrans_Manipulator wrench_tx.txt};
+	\coordinate (top) at (rel axis cs:0,1);% coordinate at top of the first plot
+	\nextgroupplot[xlabel={$t$[s]}, ylabel={Force $f_y$[N]}]
+	\addplot[blue,] table {../../plotdata/DIPCcrot_Manipulator wrench_ty.txt};
+	\addplot[red,] table {../../plotdata/CaVirot_Manipulator wrench_ty.txt};
+	\addplot[green,] table {../../plotdata/StrIPCrot_Manipulator wrench_ty.txt};
+	\coordinate (bot) at (rel axis cs:1,0);% coordinate at bottom of the last plot
+\end{groupplot}
 \end{tikzpicture} 
-
-
 
 %\begin{tikzpicture}
 %\begin{groupplot}[

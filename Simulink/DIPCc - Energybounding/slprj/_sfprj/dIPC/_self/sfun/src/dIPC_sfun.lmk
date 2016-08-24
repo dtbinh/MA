@@ -1,0 +1,90 @@
+CC     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"dIPC_sfun.obj"\
+	"c1_dIPC.obj"\
+	"c2_dIPC.obj"\
+	"c3_dIPC.obj"\
+	"c5_dIPC.obj"\
+	"c6_dIPC.obj"\
+	"c7_dIPC.obj"\
+	"c8_dIPC.obj"\
+	"c9_dIPC.obj"\
+	"c12_dIPC.obj"\
+	"c13_dIPC.obj"\
+	"c17_dIPC.obj"\
+	"c20_dIPC.obj"\
+	"c21_dIPC.obj"\
+	"c30_dIPC.obj"\
+	"c31_dIPC.obj"\
+	"c36_dIPC.obj"\
+	"c37_dIPC.obj"\
+	"c43_dIPC.obj"\
+	"dIPC_sfun_registry.obj"\
+	"lccstub.obj"\
+	"dIPC_sfun.def"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsimulink.lib"\
+	"C:\Program Files\MATLAB\R2014b\lib\win64\libmwipp.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014b\extern\include"  -I"C:\Program Files\MATLAB\R2014b\simulink\include"  -I"C:\Program Files\MATLAB\R2014b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014b\rtw\c\src"  -I"C:\Users\Martin\Documents\Git\Simulink\DIPCc - Energybounding\slprj\_sfprj\dIPC\_self\sfun\src" 
+ 
+
+dIPC_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o dIPC_sfun.mexw64 @dIPC_sfun.lmko
+dIPC_sfun.obj :	"dIPC_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "dIPC_sfun.c"
+c1_dIPC.obj :	"c1_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_dIPC.c"
+c2_dIPC.obj :	"c2_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_dIPC.c"
+c3_dIPC.obj :	"c3_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_dIPC.c"
+c5_dIPC.obj :	"c5_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_dIPC.c"
+c6_dIPC.obj :	"c6_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_dIPC.c"
+c7_dIPC.obj :	"c7_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_dIPC.c"
+c8_dIPC.obj :	"c8_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c8_dIPC.c"
+c9_dIPC.obj :	"c9_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c9_dIPC.c"
+c12_dIPC.obj :	"c12_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c12_dIPC.c"
+c13_dIPC.obj :	"c13_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_dIPC.c"
+c17_dIPC.obj :	"c17_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c17_dIPC.c"
+c20_dIPC.obj :	"c20_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c20_dIPC.c"
+c21_dIPC.obj :	"c21_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c21_dIPC.c"
+c30_dIPC.obj :	"c30_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c30_dIPC.c"
+c31_dIPC.obj :	"c31_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c31_dIPC.c"
+c36_dIPC.obj :	"c36_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c36_dIPC.c"
+c37_dIPC.obj :	"c37_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c37_dIPC.c"
+c43_dIPC.obj :	"c43_dIPC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c43_dIPC.c"
+dIPC_sfun_registry.obj :	"dIPC_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "dIPC_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"

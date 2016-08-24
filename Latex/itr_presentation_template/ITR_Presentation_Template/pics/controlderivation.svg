@@ -104,16 +104,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.0000001"
-     inkscape:cx="380.95114"
-     inkscape:cy="433.5699"
+     inkscape:zoom="2.8284272"
+     inkscape:cx="404.21289"
+     inkscape:cy="437.48937"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      showguides="false"
-     inkscape:window-width="1858"
-     inkscape:window-height="1178"
-     inkscape:window-x="-8"
+     inkscape:window-width="1618"
+     inkscape:window-height="1028"
+     inkscape:window-x="1672"
      inkscape:window-y="-8"
      inkscape:window-maximized="1">
     <inkscape:grid
@@ -152,6 +152,13 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="opacity:1;fill:#ffffff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4184"
+       width="257.21826"
+       height="80"
+       x="241.76776"
+       y="537.36218" />
     <circle
        style="fill:#ececec;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="path3503"
@@ -165,7 +172,8 @@
        sodipodi:cx="400.33539" />
     <g
        id="g3834-9"
-       transform="matrix(0.30852525,-0.26734308,0.17888119,0.46109985,283.13478,398.56797)">
+       transform="matrix(0.30852525,-0.26734308,0.17888119,0.46109985,283.13478,398.56797)"
+       style="opacity:1">
       <path
          style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 155.03536,488.55067 12.01021,6.98019 c 0,0 13.31035,-13.68688 29.32396,-4.37995 8.0068,4.65346 4.60289,19.72531 2.70328,22.99381 -2.32674,4.0034 -9.26417,15.94004 -17.31374,11.36015 -4.02463,-2.2898 -3.43673,-12.5168 1.30012,-20.66708 4.65347,-8.00681 13.31034,-13.68688 25.32054,-6.70668"
@@ -231,7 +239,8 @@
          inkscape:connector-curvature="0" />
       <a
          transform="matrix(0.86458485,0.50248686,-0.50248686,0.86458485,217.49671,92.798462)"
-         id="a3022-5">
+         id="a3022-5"
+         style="">
         <path
            inkscape:connector-curvature="0"
            inkscape:export-ydpi="90.000008"
@@ -245,7 +254,8 @@
     </g>
     <g
        id="g3433"
-       transform="matrix(0.87353755,0.48675676,-0.48675676,0.87353755,332.67261,-113.98133)">
+       transform="matrix(0.87353755,0.48675676,-0.48675676,0.87353755,332.67261,-113.98133)"
+       style="opacity:1">
       <path
          style="fill:none;stroke:#000000;stroke-width:0.79949492;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 267.66767,650.51257 6.40527,-3.71374 c 0,0 -2.81656,-9.77829 5.72381,-14.72995 4.27019,-2.47583 10.34626,3.08347 11.35693,4.82663 1.23792,2.13509 4.92891,8.50113 0.68148,11.0162 -2.12361,1.2575 -6.70165,-1.71784 -9.22185,-6.06454 -2.47583,-4.27019 -2.81656,-9.77829 3.58872,-13.49203"
@@ -311,7 +321,8 @@
          inkscape:connector-curvature="0" />
       <a
          transform="matrix(0.46109985,-0.26734308,0.26734308,0.46109985,101.00875,516.99649)"
-         id="a3022">
+         id="a3022"
+         style="">
         <path
            inkscape:connector-curvature="0"
            inkscape:export-ydpi="90.000008"
@@ -358,28 +369,28 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="355.25"
-       y="607.36218"
+       x="332.97614"
+       y="614.43323"
        id="text3458"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3460"
-         x="355.25"
-         y="607.36218">$P_b^b$</tspan></text>
+         x="332.97614"
+         y="614.43323">$P_b^b$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="409.73483"
-       y="562.37732"
+       x="381.09702"
+       y="572.27679"
        id="text3462"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3464"
-         x="409.73483"
-         y="562.37732">$H_b^0$</tspan></text>
+         x="381.09702"
+         y="572.27679">$H_b^0$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1;"
        x="245.25"
        y="547.11218"
        id="text3466"
@@ -390,25 +401,25 @@
          y="547.11218">$H_v^0$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="530.25"
+       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="488.88425"
        y="547.36218"
        id="text3470"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3472"
-         x="530.25"
+         x="488.88425"
          y="547.36218">$H_i^0$</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="459.75"
-       y="547.36218"
+       style="font-style:normal;font-weight:normal;font-size:7.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="415.55582"
+       y="547.00861"
        id="text3474"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3476"
-         x="459.75"
-         y="547.36218">$H_{b(i)}^0</tspan></text>
+         x="415.55582"
+         y="547.00861">$H_{b(i)}^0$</tspan></text>
   </g>
 </svg>

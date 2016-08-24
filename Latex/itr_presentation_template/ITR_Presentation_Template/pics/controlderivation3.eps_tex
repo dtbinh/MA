@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{253.71336544bp}%
+    \setlength{\unitlength}{223.60334473bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,13 +48,13 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.23636997)%
+  \begin{picture}(1,0.28622112)%
     \put(0,0){\includegraphics[width=\unitlength]{controlderivation3.eps}}%
-    \put(-0.08196969,-0.1357712){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
-    \put(0.32,0.02819336){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_b^b$}}}%
-    \put(0.51787211,0.17003804){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_b^0$}}}%
-    \put(-0.00077564,0.21817153){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_v^0$}}}%
-    \put(0.89787627,0.21738324){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_i^0$}}}%
-    \put(0.67557816,0.21738324){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_{b(i)}^0$}}}%
+    \put(-0.07966887,-0.15026609){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.32632204,0.01047911){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_b^b$}}}%
+    \put(0.49848719,0.16130488){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_b^0$}}}%
+    \put(0.01245863,0.25133792){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_v^0$}}}%
+    \put(0.88412447,0.25044348){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_i^0$}}}%
+    \put(0.62177265,0.25170849){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$H_{b(i)}^0$}}}%
   \end{picture}%
 \endgroup%

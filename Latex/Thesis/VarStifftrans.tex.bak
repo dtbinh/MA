@@ -1,0 +1,63 @@
+\begin{tikzpicture} 
+ \begin{axis} [ 
+ ylabel = {Position}, 
+ %xlabel = {$t$[s]}, 
+ minor y tick num = 1, 
+ axis lines = left, 
+legend entries = {$p_x^d$ [m],$p_x$ [m]}, 
+legend columns=-1, 
+ legend style = {at={(0.5,1.1)},anchor=south,column sep=1ex,}, legend cell align=left, grid=major, height=5cm, width=0.98\linewidth 
+ ]
+ \addplot[red,] table {../plotdata/VarStifftrans_desired position.txt};
+\addplot[blue,] table {../plotdata/VarStifftrans_position.txt}; 
+\end{axis} 
+\end{tikzpicture} 
+
+
+
+\begin{tikzpicture} 
+ \begin{axis} [ 
+ ylabel = {Linear velocity}, 
+ %xlabel = {$t$[s]}, 
+ minor y tick num = 1, 
+ axis lines = left, 
+legend entries = {$\dot{p}_x^d$ [m/s],$\dot{p}_x$ [m/s]}, 
+legend columns=-1, 
+ legend style = {at={(0.5,1.1)},anchor=south,column sep=1ex,}, legend cell align=left, grid=major, height=5cm, width=0.98\linewidth 
+ ]
+ \addplot[red,] table {../plotdata/VarStifftrans_desired velocity.txt}; 
+\addplot[blue,] table {../plotdata/VarStifftrans_Velocity.txt}; 
+\end{axis} 
+\end{tikzpicture} 
+
+
+\begin{tikzpicture} 
+ \begin{axis} [ 
+ ylabel = {Tank level}, 
+ %xlabel = {$t$[s]}, 
+ minor y tick num = 1, 
+ axis lines = left, 
+legend entries = {$\mathcal{T}(x_\g{t})$ [J]}, 
+legend columns=-1, 
+ legend style = {at={(0.5,1.1)},anchor=south,column sep=1ex,}, legend cell align=left, grid=major, height=5cm, width=0.98\linewidth 
+ ]
+\addplot[red,] table {../plotdata/VarStifftrans_TankLevel.txt}; 
+\end{axis} 
+\end{tikzpicture} 
+
+\begin{tikzpicture} 
+ \begin{axis} [ 
+ ylabel = {Manipualtor wrench}, 
+ xlabel = {$t$[s]}, 
+ minor y tick num = 1, 
+ axis lines = left, 
+legend entries = {$f_{x}$ [N], $f_{y}$ [N], $m_{z}$ [Nm]}, 
+legend columns=-1, 
+ legend style = {at={(0.5,1.1)},anchor=south,column sep=1ex,}, legend cell align=left, grid=major, height=5cm, width=0.98\linewidth 
+ ]
+\addplot[red,] table {../plotdata/VarStifftrans_Manipulator wrench_tx.txt}; 
+\addplot[blue,] table {../plotdata/VarStifftrans_Manipulator wrench_ty.txt}; 
+\addplot[green,] table {../plotdata/VarStifftrans_Manipulator wrench_rz.txt}; 
+\end{axis} 
+\end{tikzpicture} 
+

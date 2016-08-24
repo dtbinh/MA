@@ -1,0 +1,120 @@
+CC     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"DIPCRT_sfun.obj"\
+	"c1_DIPCRT.obj"\
+	"c2_DIPCRT.obj"\
+	"c3_DIPCRT.obj"\
+	"c4_DIPCRT.obj"\
+	"c5_DIPCRT.obj"\
+	"c6_DIPCRT.obj"\
+	"c7_DIPCRT.obj"\
+	"c8_DIPCRT.obj"\
+	"c9_DIPCRT.obj"\
+	"c10_DIPCRT.obj"\
+	"c11_DIPCRT.obj"\
+	"c12_DIPCRT.obj"\
+	"c13_DIPCRT.obj"\
+	"c17_DIPCRT.obj"\
+	"c18_DIPCRT.obj"\
+	"c22_DIPCRT.obj"\
+	"c23_DIPCRT.obj"\
+	"c24_DIPCRT.obj"\
+	"c25_DIPCRT.obj"\
+	"c26_DIPCRT.obj"\
+	"c27_DIPCRT.obj"\
+	"c28_DIPCRT.obj"\
+	"c29_DIPCRT.obj"\
+	"c30_DIPCRT.obj"\
+	"c31_DIPCRT.obj"\
+	"c36_DIPCRT.obj"\
+	"c37_DIPCRT.obj"\
+	"c43_DIPCRT.obj"\
+	"DIPCRT_sfun_registry.obj"\
+	"lccstub.obj"\
+	"DIPCRT_sfun.def"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\libmwsimulink.lib"\
+	"C:\Program Files\MATLAB\R2014b\lib\win64\libmwipp.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014b\extern\include"  -I"C:\Program Files\MATLAB\R2014b\simulink\include"  -I"C:\Program Files\MATLAB\R2014b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014b\rtw\c\src"  -I"C:\Users\Martin\Documents\Git\Simulink\DIPC - referencetrajectory\slprj\_sfprj\DIPCRT\_self\sfun\src" 
+ 
+
+DIPCRT_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o DIPCRT_sfun.mexw64 @DIPCRT_sfun.lmko
+DIPCRT_sfun.obj :	"DIPCRT_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "DIPCRT_sfun.c"
+c1_DIPCRT.obj :	"c1_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_DIPCRT.c"
+c2_DIPCRT.obj :	"c2_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_DIPCRT.c"
+c3_DIPCRT.obj :	"c3_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_DIPCRT.c"
+c4_DIPCRT.obj :	"c4_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_DIPCRT.c"
+c5_DIPCRT.obj :	"c5_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_DIPCRT.c"
+c6_DIPCRT.obj :	"c6_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_DIPCRT.c"
+c7_DIPCRT.obj :	"c7_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_DIPCRT.c"
+c8_DIPCRT.obj :	"c8_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c8_DIPCRT.c"
+c9_DIPCRT.obj :	"c9_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c9_DIPCRT.c"
+c10_DIPCRT.obj :	"c10_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c10_DIPCRT.c"
+c11_DIPCRT.obj :	"c11_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c11_DIPCRT.c"
+c12_DIPCRT.obj :	"c12_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c12_DIPCRT.c"
+c13_DIPCRT.obj :	"c13_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_DIPCRT.c"
+c17_DIPCRT.obj :	"c17_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c17_DIPCRT.c"
+c18_DIPCRT.obj :	"c18_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c18_DIPCRT.c"
+c22_DIPCRT.obj :	"c22_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c22_DIPCRT.c"
+c23_DIPCRT.obj :	"c23_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c23_DIPCRT.c"
+c24_DIPCRT.obj :	"c24_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c24_DIPCRT.c"
+c25_DIPCRT.obj :	"c25_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c25_DIPCRT.c"
+c26_DIPCRT.obj :	"c26_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c26_DIPCRT.c"
+c27_DIPCRT.obj :	"c27_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c27_DIPCRT.c"
+c28_DIPCRT.obj :	"c28_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c28_DIPCRT.c"
+c29_DIPCRT.obj :	"c29_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c29_DIPCRT.c"
+c30_DIPCRT.obj :	"c30_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c30_DIPCRT.c"
+c31_DIPCRT.obj :	"c31_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c31_DIPCRT.c"
+c36_DIPCRT.obj :	"c36_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c36_DIPCRT.c"
+c37_DIPCRT.obj :	"c37_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c37_DIPCRT.c"
+c43_DIPCRT.obj :	"c43_DIPCRT.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c43_DIPCRT.c"
+DIPCRT_sfun_registry.obj :	"DIPCRT_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "DIPCRT_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014b\sys\lcc64\lcc64\mex\lccstub.c"

@@ -1,7 +1,7 @@
 \documentclass[a4paper,twoside, openright,12pt]{report}
 \usepackage{psfrag,amsbsy,graphics,float,amsmath,amssymb,epstopdf,xifthen,tikz,pgfplots,lscape,verbatim,bm}
 \usepackage{graphicx, color} %deleted [dvips] in front of {graphicx, color} for usage with PDFLaTeX
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[margin=15mm]{geometry}
 \usepackage{verbatim} 
 \pgfplotsset{compat=1.9}
@@ -80,8 +80,8 @@
 \vspace{5.0cm}
 \begin{tabular}{ll}
 Betreuer: Selma Musi\'c, M. Sc.  \\
-Beginn: \hspace{10.5ex} 15.04.2016  \\
-Abgabe: \hspace{9.8ex} 24.06.2016 \\
+Beginn: \hspace{0.7ex} 15.04.2016  \\
+Abgabe: \hspace{0ex} 24.06.2016 \\
 \end{tabular}
 %____________________________________________________________
 
@@ -110,7 +110,8 @@ Response or motor function modelling is mostly concerned with what the human \em
 \begin{center}	
 \normalsize \textbf{Zusammenfassung}\\
 \end{center}
-Hier die deutschsprachige Zusammenfassung
+Das menschliche Verhalten ist \"außerst komplex und kann nicht mit einem einzelnen Modell erfasst werden. Je nach Rolle des Benutzers werden in der Literatur verschiedene Modelle für die Telerobotik vorgeschlagen. Nach Sheridian \cite{Sheridian1992} wird das menschliche Verhalten durch drei wichtige Aspekte bestimmt: Sinneswahrnehmung, Kognition und Aktorik.
+Die Aktorik oder auch die Modellierung der menschlichen Motorik beschäftigt sich hauptsächlich mit dem, was der Mensch tun \emph{kann}, bestimmt durch die Physiologie. Kognitive Modelle konzentrieren sich auf, was das Mensch in einer bestimmten Situation tun \emph{wird}. Die Modellierung der menschlichen Wahrnehmung hilft, den Nutzen der  verfügbaren Informationen zu bewerten. Alle drei Modellierungsaspekte werden in der Literatur für den Regelungsentwurf genutzt. Diese Seminararbeit vermittelt einen Überblick, welche Modelle des Menschen in der Telerobotik Verwendung finden. Die Verfahren werden jeweils der direkten Regelung, der Regelung mit verteilten Zuständigkeiten oder der teil-autonomen, beaufsichtigenden Regelung, zugeordnet.
 \end{abstract}
 %____________________________________________________________
 
@@ -169,7 +170,7 @@ The remainder of the paper is organized as follows: \textbf{Chapter 2} divides i
 
 
 %_____Kapitel 2_________________________________
-\chapter{Main Part}
+\chapter{Human behaviour modelling for teleoperation}
 \section{Response or motor function modelling}
 The human motion depends on the interface, which is used to control the teleoperated robot. In bilateral telemanipulation the human receives force-feedback, while many other interfaces only provide visual or tactile feedback. For the latter class the pointing interfaces stand representatively. 
 \subsubsection{Bilateral telemanipulation}\label{SS:BilateralTelemanipulation}
@@ -237,7 +238,7 @@ For simplicity only a single operator is considered so far. In \cite{vanOverloop
 \section{Sensory perception modelling}
 Human performance in teleopeation is highly dependent on how the human perceives the remote environment. In fine manipulation tasks and for correct decision making it is essential that the operator receives accurate feedback. Typically visual and haptic feedback is provided, while occasionally other senses like hearing are addressed. In the ideal case the human can not distinguish the virtual from the remote environment, then the teleoperation system is \emph{transparent} \cite{Hirche2012}.\\
 The stabilization of a teleoperation system in presence of communication delays distorts the haptic display of the environment (see subsection \ref{SS:BilateralTelemanipulation}). Hard objects are displayed softer and the free-moving telerobot is displayed with an increased inertia. Transparency is thus not achievable. The human perception resolution is limited, e.g. we cannot distinguish different weights that are within a certain range. To a certain extent a hard object can be displayed softer, or a body can be displayed more inert and the human does not notice the difference. The concept of taking advantage of the sensory inaccuracy of the human is called \emph{perceived transparency}.
-For example, a typical human cannot sense a distinguish inertias within a range of 21\% difference. The just noticeable difference (JND) of stiffness is around 8\% \cite{Hirche2012}.\\
+For example, a typical human cannot distinguish inertias within a range of 21\% deviation. The just noticeable difference (JND) of stiffness is around 8\% \cite{Hirche2012}.\\
 The passivation of the communcation channel with the popular generalized wave/ scattering transformation \cite{Niemeyer2004} can be tuned to transmit either stiffness or inertias  approximately correct. Good transparency in free-space motion and for stiff contacts is not achievable at the same time. The impedance $Z_h$ displayed to the human, transmitted over a passivated, delayed communication channel, is related to the original impedance $Z_e$ by
 \begin{equation}
 Z_h (s) = b \frac{1+R(s)e^{-sT}}{1-R(s) e^{-sT}} \text{  with  } R(s) = \frac{Z_e(s) - b}{Z_e(s)+b}.
@@ -256,7 +257,7 @@ To illustrate how the perception resolution is used for control design, consider
 \begin{equation}
 b > (1-\mathrm{JNR}_k) \frac{k_e T}{2}, 
 \end{equation}
-where $\mathrm{JNR}_k$ is the just not noticeable threshold for stiffness. Conclusively, by considering the human perception resolution the displayed free-motion dynamic becomes more realistic without compromising the perceived stiffness.  
+where $\mathrm{JND}_k$ is the just not noticeable threshold for stiffness. Conclusively, by considering the human perception resolution the displayed free-motion dynamic becomes more realistic without compromising the perceived stiffness.  
      
 \section{Cognitive modelling}
 Cognitive modelling seeks to give a reliable prediction of the human behaviour in certain situations. The complexity of the models depends highly on the desired prediction horizon and the amount and structure of the available information.\\
@@ -278,7 +279,7 @@ Technically  the basis of Yang's \cite{Yang1994} approach is \emph{learning from
 	\footnotesize
 	\def\svgwidth{1\columnwidth}
 	\input{HiddenMarkov.eps_tex}
-	\caption{Hidden Markov model (left) with measured motion sequence and estimated states $\tilde{X}_i$}
+	\caption[Hidden Markov model with measured motion sequence and estimated states]{Hidden Markov model with measured motion sequence and estimated states $\tilde{X}_i$}
 	\label{FIG:HiddenMarkov}
 \end{figure} 
 Collecting all transition probabilities entails in a transition matrix $A \in \mathbb{R}^{N \times N}$ (for $N$ total states), the observation probabilities are concentrated in the matrix $B \in \mathbb{R}^{N \times M}$. A HMM $\lambda = (A,B,\pi)$ is fully described by a transition matrix, a observation matrix and the initial state distribution $\pi$. Learning means to adjust the parameters of the HMM to maximize the probability $P(O \mid \lambda)$ that the model matches the observation sequence $O=(Y_1...Y_M)$. The parameter optimization process is commonly done with the backward-forward algorithm, for details refer to \cite{Yang1994}. For one task (e.g. grasping an object) multiple motion sequences $(O_1...O_R)$ are used for training, each of them results in different optimal parameters. Thus for $R$ training sequences one obtains $\lambda_r \, r=1...R$ different HMMs.\\

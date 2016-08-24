@@ -1,8 +1,10 @@
 clear mat matr
 
 %%Timeseries export to txt
-modelname = 'CaVitrans';
-variablename = [errPos,errVeloc,ManipulatorWrench,InternalWrench];
+modelname = 'CaVirot';
+%variablename = [errPos,errVeloc,ManipulatorWrench,InternalWrench];
+variablename = [Orientation,desiredOrientation,AngularVelocity,desiredAngVelocity,ManipulatorWrench,InternalWrench];
+
 
 for k=1:length(variablename)
 mat = [get(variablename(k),'Time'),get(variablename(k),'Data')];
